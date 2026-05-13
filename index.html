@@ -150,6 +150,12 @@
       margin-bottom: 48px;
     }
 
+    .section-head > :only-child,
+    .cluster-head > :only-child {
+      grid-column: 1 / -1;
+      max-width: 72ch;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -218,7 +224,12 @@
       backdrop-filter: blur(18px);
       background: rgba(248, 251, 255, 0.84);
       border-bottom: 1px solid transparent;
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.28s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    .navbar.navbar-hidden {
+      transform: translateY(calc(-100% - 8px));
     }
 
     .navbar.scrolled {
@@ -590,6 +601,7 @@
       display: grid;
       gap: 18px;
       margin-top: 8px;
+      align-content: start;
     }
 
     .quote-card,
@@ -757,6 +769,11 @@
       background:
         radial-gradient(circle at top left, rgba(124, 182, 255, 0.28), transparent 28%),
         linear-gradient(135deg, rgba(229, 239, 255, 0.98), rgba(248, 251, 255, 0.98));
+    }
+
+    .hero-trust-stack {
+      display: grid;
+      gap: 14px;
     }
 
     .hero-note-row {
@@ -938,6 +955,53 @@
     .tech-card p,
     .international-point p {
       margin-top: 0;
+    }
+
+    .tech-card {
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .tech-card:hover,
+    .tech-card:focus-visible,
+    .tech-card.expanded {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(31, 99, 255, 0.18);
+      outline: none;
+    }
+
+    .tech-card-copy {
+      display: grid;
+      gap: 0;
+    }
+
+    .tech-card-detail {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      margin-top: 0;
+      transition: max-height 0.32s ease, opacity 0.28s ease, margin-top 0.28s ease;
+    }
+
+    .tech-card.expanded .tech-card-detail {
+      max-height: 140px;
+      opacity: 1;
+      margin-top: 12px;
+    }
+
+    .tech-card::after {
+      content: "Ver mas";
+      margin-top: auto;
+      padding-top: 16px;
+      color: var(--primary-dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .tech-card.expanded::after {
+      content: "Ver menos";
     }
 
     .trust-card strong,
@@ -1204,12 +1268,21 @@
     .about-copy {
       align-content: start;
       padding-top: 8px;
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.84));
+      box-shadow: var(--shadow-sm);
     }
 
     .value-card {
       display: grid;
       align-content: start;
       min-height: 100%;
+    }
+
+    .about-layout {
+      align-items: stretch;
     }
 
     .international-layout {
@@ -1501,7 +1574,135 @@
     }
 
     .contact-grid {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 36px;
+      align-items: start;
       align-content: start;
+    }
+
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .contact-wa-hero {
+      padding: 34px;
+      border-radius: 32px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(231, 242, 255, 0.94));
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .contact-wa-hero h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+
+    .contact-wa-btns {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .contact-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #16ba72, #10a861);
+      color: #ffffff;
+      font-weight: 800;
+      box-shadow: 0 16px 28px rgba(20, 184, 111, 0.24);
+    }
+
+    .contact-wa-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .contact-info {
+      padding: 30px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(240, 247, 255, 0.84));
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-info h3 {
+      font-size: 22px;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .contact-info-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .contact-info-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      flex: 0 0 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(31, 99, 255, 0.12), rgba(124, 182, 255, 0.28));
+      color: var(--primary-dark);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    }
+
+    .contact-info-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    .contact-info-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 3px;
+      font-weight: 700;
+    }
+
+    .contact-info-val,
+    .contact-info-val a {
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .contact-map {
+      border-radius: 30px;
+      overflow: hidden;
+      min-height: 420px;
+      border: 1px solid rgba(31, 99, 255, 0.14);
+      box-shadow: var(--shadow-md);
+      background: linear-gradient(135deg, rgba(236, 244, 255, 0.94), rgba(248, 251, 255, 0.96));
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      border: 0;
+      filter: saturate(0.92) contrast(1.02);
     }
 
     .contact-card strong,
@@ -1645,7 +1846,7 @@
 
     .footer-shell {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       gap: 20px;
       align-items: center;
       border-top: 1px solid rgba(16, 35, 63, 0.08);
@@ -1875,6 +2076,117 @@
     .stagger-3 { transition-delay: 0.19s; }
     .stagger-4 { transition-delay: 0.26s; }
 
+    @media (min-width: 1221px) {
+      .section-head > :only-child,
+      .cluster-head > :only-child {
+        max-width: 64ch;
+      }
+
+      .hero-grid {
+        align-items: stretch;
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+
+      .hero-summary {
+        margin-top: auto;
+      }
+
+      .hero-shell,
+      .hero-frame {
+        height: 100%;
+      }
+
+      .hero-note-row {
+        align-items: stretch;
+      }
+
+      .hero-note,
+      .trust-bridge {
+        height: 100%;
+      }
+
+      .hero-note strong,
+      .service-card h3,
+      .concern-card h3,
+      .value-card h3,
+      .tech-card h3,
+      .blog-card h3 {
+        min-height: 2.45em;
+      }
+
+      .team-grid,
+      .services-grid,
+      .concern-grid,
+      .values-grid,
+      .tech-grid,
+      .install-grid,
+      .blog-grid,
+      .info-grid,
+      .trust-grid {
+        align-items: stretch;
+        grid-auto-rows: 1fr;
+      }
+
+      .trust-card,
+      .service-card,
+      .concern-card,
+      .value-card,
+      .tech-card,
+      .install-card,
+      .blog-card,
+      .social-card,
+      .contact-card,
+      .team-card,
+      .international-point {
+        height: 100%;
+      }
+
+      .trust-card,
+      .install-card,
+      .social-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .quote-card,
+      .about-copy,
+      .contact-wa-hero,
+      .cta-panel {
+        height: 100%;
+      }
+
+      .contact-grid {
+        align-items: stretch;
+      }
+
+      .services-grid {
+        align-items: stretch;
+      }
+
+      .service-card {
+        padding: 28px;
+      }
+
+      .service-card .card-link {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .contact-info,
+      .contact-map {
+        height: 100%;
+      }
+
+      .contact-map iframe {
+        min-height: 100%;
+      }
+    }
+
     @media (max-width: 1220px) {
       .hero-grid,
       .section-head,
@@ -2044,6 +2356,14 @@
       .tech-card-media,
       .international-media {
         height: 220px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wa-hero {
+        padding: 28px 20px;
       }
 
       .trust-grid {
@@ -2317,43 +2637,11 @@
                 </div>
               </figure>
             </article>
-
-            <div class="trust-grid">
-              <article class="trust-card reveal stagger-1">
-                <strong data-i18n="trust.one.title">18 años de experiencia</strong>
-                <span data-i18n="trust.one.desc">Una trayectoria construida con cercanía, formación constante y criterio clínico.</span>
-              </article>
-              <article class="trust-card reveal stagger-2">
-                <strong data-i18n="trust.two.title">Alta especialidad</strong>
-                <span data-i18n="trust.two.desc">Un equipo preparado para abordar casos integrales con precisión y cuidado.</span>
-              </article>
-              <article class="trust-card reveal stagger-3">
-                <strong data-i18n="trust.three.title">Tecnología digital</strong>
-                <span data-i18n="trust.three.desc">Herramientas que mejoran el diagnóstico, la planificación y la comodidad del paciente.</span>
-              </article>
-              <article class="trust-card reveal stagger-4">
-                <strong data-i18n="trust.four.title">Atención personalizada</strong>
-                <span data-i18n="trust.four.desc">Cada tratamiento se adapta al paciente, no al revés.</span>
-              </article>
-            </div>
-
-            <article class="trust-bridge reveal stagger-4">
-              <span class="trust-bridge-mark">INT</span>
-              <div class="trust-bridge-copy">
-                <strong data-i18n="trust.five.title">Pacientes locales e internacionales</strong>
-                <span data-i18n="trust.five.desc">Coordinación clara antes, durante y después de cada tratamiento.</span>
-              </div>
-            </article>
           </div>
         </div>
 
         <div class="hero-shell reveal stagger-2">
           <div class="hero-frame">
-            <div class="hero-media-panel">
-              <strong data-i18n="hero.panel.top.title">Interfaz clínica clara</strong>
-              <span data-i18n="hero.panel.top.desc">Un lenguaje visual sobrio para comunicar precisión, confianza y atención médica.</span>
-            </div>
-
             <div class="image-shell hero-main-media" data-fallback="Imagen principal Buenaño Dentistas">
               <img
                 src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2004_27_41%20PM.png"
@@ -2362,6 +2650,35 @@
                 decoding="async"
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
+            </div>
+
+            <div class="hero-trust-stack">
+              <div class="trust-grid">
+                <article class="trust-card reveal stagger-1">
+                  <strong data-i18n="trust.one.title">18 años de experiencia</strong>
+                  <span data-i18n="trust.one.desc">Una trayectoria construida con cercanía, formación constante y criterio clínico.</span>
+                </article>
+                <article class="trust-card reveal stagger-2">
+                  <strong data-i18n="trust.two.title">Alta especialidad</strong>
+                  <span data-i18n="trust.two.desc">Un equipo preparado para abordar casos integrales con precisión y cuidado.</span>
+                </article>
+                <article class="trust-card reveal stagger-3">
+                  <strong data-i18n="trust.three.title">Tecnología digital</strong>
+                  <span data-i18n="trust.three.desc">Herramientas que mejoran el diagnóstico, la planificación y la comodidad del paciente.</span>
+                </article>
+                <article class="trust-card reveal stagger-4">
+                  <strong data-i18n="trust.four.title">Atención personalizada</strong>
+                  <span data-i18n="trust.four.desc">Cada tratamiento se adapta al paciente, no al revés.</span>
+                </article>
+              </div>
+
+              <article class="trust-bridge reveal stagger-4">
+                <span class="trust-bridge-mark">INT</span>
+                <div class="trust-bridge-copy">
+                  <strong data-i18n="trust.five.title">Pacientes locales e internacionales</strong>
+                  <span data-i18n="trust.five.desc">Coordinación clara antes, durante y después de cada tratamiento.</span>
+                </div>
+              </article>
             </div>
 
             <div class="hero-note-row">
@@ -2386,7 +2703,6 @@
             <span class="eyebrow" data-i18n="team.eyebrow">Profesionales</span>
             <h2 data-i18n="team.title">Un equipo de especialistas enfocado en brindar atención integral, personalizada y de alta precisión.</h2>
           </div>
-          <p data-i18n="team.intro">Presentamos al equipo con una narrativa visual más clara, combinando retratos, especialidad y trayectoria en una grilla limpia y fácil de recorrer.</p>
         </div>
 
         <figure class="team-showcase reveal">
@@ -2589,7 +2905,6 @@
             <h2 data-i18n="services.title">Tratamientos principales</h2>
             <p class="section-subtitle" data-i18n="services.subtitle">Tratamientos integrales para cuidar, restaurar y transformar tu sonrisa.</p>
           </div>
-          <p data-i18n="services.intro">La información se organiza en bloques claros para que el paciente entienda rápidamente qué hace la clínica y cómo puede iniciar su tratamiento.</p>
         </div>
 
         <div class="services-grid">
@@ -2657,7 +2972,6 @@
             <h3 data-i18n="services.support.title">¿Qué podemos ayudarte a resolver?</h3>
             <p class="section-subtitle" data-i18n="services.support.subtitle">Problemas frecuentes explicados con claridad y sin sobrecargar la lectura.</p>
           </div>
-          <p data-i18n="services.support.text">Estos bloques convierten textos largos en una experiencia más ordenada, útil y fácil de recorrer desde móvil.</p>
         </div>
 
         <div class="concern-grid">
@@ -2728,7 +3042,7 @@
         </div>
 
         <div class="tech-grid">
-          <article class="tech-card reveal stagger-1">
+          <article class="tech-card reveal stagger-1" data-tech-card tabindex="0" role="button" aria-expanded="false">
             <div class="image-shell tech-card-media" data-fallback="Exocad">
               <img
                 src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.48.26.png"
@@ -2740,9 +3054,12 @@
             </div>
             <span class="tech-tag">Diseño digital</span>
             <h3>Exocad</h3>
-            <p>El software de diseño digital en odontología para planificaciones más precisas y visuales.</p>
+            <div class="tech-card-copy">
+              <p>El software de diseño digital en odontología para planificaciones más precisas y visuales.</p>
+              <p class="tech-card-detail">Permite diseñar restauraciones y simular resultados con mayor control antes de iniciar el tratamiento.</p>
+            </div>
           </article>
-          <article class="tech-card reveal stagger-2">
+          <article class="tech-card reveal stagger-2" data-tech-card tabindex="0" role="button" aria-expanded="false">
             <div class="image-shell tech-card-media" data-fallback="Cerámica híbrida">
               <img
                 src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.45.32.png"
@@ -2754,9 +3071,12 @@
             </div>
             <span class="tech-tag">Material</span>
             <h3>Cerámica híbrida</h3>
-            <p>Polímero con características físicas muy similares a la estructura dental, ideal para casos seleccionados.</p>
+            <div class="tech-card-copy">
+              <p>Polímero con características físicas muy similares a la estructura dental, ideal para casos seleccionados.</p>
+              <p class="tech-card-detail">Aporta estética, absorción de carga y una respuesta funcional más amable en rehabilitaciones específicas.</p>
+            </div>
           </article>
-          <article class="tech-card reveal stagger-3">
+          <article class="tech-card reveal stagger-3" data-tech-card tabindex="0" role="button" aria-expanded="false">
             <div class="image-shell tech-card-media" data-fallback="Trios by 3Shape">
               <img
                 src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.46.02.png"
@@ -2768,9 +3088,12 @@
             </div>
             <span class="tech-tag">Escaneo digital</span>
             <h3>Trios by 3Shape</h3>
-            <p>Impresiones digitales en reemplazo a los materiales antiguos, con mayor comodidad, precisión y velocidad.</p>
+            <div class="tech-card-copy">
+              <p>Impresiones digitales en reemplazo a los materiales antiguos, con mayor comodidad, precisión y velocidad.</p>
+              <p class="tech-card-detail">Reduce repeticiones, agiliza el flujo clínico y mejora la experiencia del paciente desde la primera cita.</p>
+            </div>
           </article>
-          <article class="tech-card reveal stagger-4">
+          <article class="tech-card reveal stagger-4" data-tech-card tabindex="0" role="button" aria-expanded="false">
             <div class="image-shell tech-card-media" data-fallback="Invisalign">
               <img
                 src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.46.31.png"
@@ -2782,9 +3105,12 @@
             </div>
             <span class="tech-tag">Ortodoncia digital</span>
             <h3>Invisalign</h3>
-            <p>El futuro de la ortodoncia.</p>
+            <div class="tech-card-copy">
+              <p>El futuro de la ortodoncia.</p>
+              <p class="tech-card-detail">Permite planificaciones más predecibles y una corrección estética más cómoda y discreta para el paciente.</p>
+            </div>
           </article>
-          <article class="tech-card reveal stagger-1">
+          <article class="tech-card reveal stagger-1" data-tech-card tabindex="0" role="button" aria-expanded="false">
             <div class="image-shell tech-card-media" data-fallback="iTero">
               <img
                 src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.47.06.png"
@@ -2796,9 +3122,12 @@
             </div>
             <span class="tech-tag">Diagnóstico</span>
             <h3>iTero</h3>
-            <p>Digitalización, planificación y presentación de los casos de Invisalign, con el único escáner específicamente diseñado para aquello.</p>
+            <div class="tech-card-copy">
+              <p>Digitalización, planificación y presentación de los casos de Invisalign, con el único escáner específicamente diseñado para aquello.</p>
+              <p class="tech-card-detail">Hace posible mostrar con claridad la evolución esperada del tratamiento antes de colocarlo.</p>
+            </div>
           </article>
-          <article class="tech-card reveal stagger-2">
+          <article class="tech-card reveal stagger-2" data-tech-card tabindex="0" role="button" aria-expanded="false">
             <div class="image-shell tech-card-media" data-fallback="Zirconia">
               <img
                 src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.47.25.png"
@@ -2810,9 +3139,12 @@
             </div>
             <span class="tech-tag">Material</span>
             <h3>Zirconia de alta translucidez</h3>
-            <p>El material más resistente actualmente y uno de los más naturales.</p>
+            <div class="tech-card-copy">
+              <p>El material más resistente actualmente y uno de los más naturales.</p>
+              <p class="tech-card-detail">Combina durabilidad y estética para restauraciones que necesitan estabilidad funcional y una apariencia armónica.</p>
+            </div>
           </article>
-          <article class="tech-card reveal stagger-3">
+          <article class="tech-card reveal stagger-3" data-tech-card tabindex="0" role="button" aria-expanded="false">
             <div class="image-shell tech-card-media" data-fallback="Cirugía guiada">
               <img
                 src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.47.50.png"
@@ -2824,9 +3156,12 @@
             </div>
             <span class="tech-tag">Tomografía 3D</span>
             <h3>Cirugía guiada</h3>
-            <p>Mayor precisión en las intervenciones y una recuperación más rápida para nuestros pacientes, gracias a nuestra tecnología digital y al tomógrafo 3D.</p>
+            <div class="tech-card-copy">
+              <p>Mayor precisión en las intervenciones y una recuperación más rápida para nuestros pacientes, gracias a nuestra tecnología digital y al tomógrafo 3D.</p>
+              <p class="tech-card-detail">Permite planificar trayectorias con más seguridad y reducir la improvisación durante el procedimiento.</p>
+            </div>
           </article>
-          <article class="tech-card reveal stagger-4">
+          <article class="tech-card reveal stagger-4" data-tech-card tabindex="0" role="button" aria-expanded="false">
             <div class="image-shell tech-card-media" data-fallback="Impresión 3D">
               <img
                 src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.48.08.png"
@@ -2838,7 +3173,10 @@
             </div>
             <span class="tech-tag">Fabricación</span>
             <h3>Impresión 3D de dispositivos médicos</h3>
-            <p>Dispositivos en resinas biocompatibles específicas para uso dental, aprobadas por la FDA.</p>
+            <div class="tech-card-copy">
+              <p>Dispositivos en resinas biocompatibles específicas para uso dental, aprobadas por la FDA.</p>
+              <p class="tech-card-detail">Acelera la fabricación de guías, modelos y recursos auxiliares con precisión y consistencia clínica.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -2851,7 +3189,6 @@
             <span class="eyebrow" data-i18n="facilities.eyebrow">Instalaciones</span>
             <h2 data-i18n="facilities.title">Un espacio diseñado para que cada paciente se sienta cómodo, seguro y atendido con excelencia.</h2>
           </div>
-          <p data-i18n="facilities.intro">Un recorrido visual por los espacios donde se desarrolla la experiencia clínica, desde la recepción hasta las áreas de atención y tecnología.</p>
         </div>
 
         <div class="facility-collage">
@@ -3003,7 +3340,6 @@
             <span class="eyebrow" data-i18n="blog.eyebrow">Blog</span>
             <h2 data-i18n="blog.title">Artículos para pacientes que quieren decidir con mejor información.</h2>
           </div>
-          <p data-i18n="blog.intro">Una selección breve para informar sin saturar la portada y derivar el resto del contenido al blog completo.</p>
         </div>
 
         <div class="blog-grid">
@@ -3081,57 +3417,67 @@
 
     <section class="section" id="contacto">
       <div class="container contact-layout">
-        <div class="contact-copy reveal">
-          <div>
-            <span class="eyebrow" data-i18n="contact.eyebrow">Contacto</span>
-            <h2 data-i18n="contact.title">Ubicación, horarios y canales de contacto en un cierre claro y fácil de accionar.</h2>
-          </div>
-          <p data-i18n="contact.intro">Todo lo necesario para escribir, llamar o llegar a la clínica desde cualquier dispositivo.</p>
-
-          <div class="contact-grid">
-            <article class="contact-card reveal stagger-1">
-              <div class="contact-icon">DR</div>
-              <h3 data-i18n="contact.card.one.title">Dirección</h3>
-              <span data-i18n="contact.location.name">YOO Cumbayá</span>
-              <strong>Av. Pampite OE6-53 y Valenzuela</strong>
-              <strong data-i18n="contact.location.office">Oficina 301</strong>
-              <strong>Cumbayá, Ecuador</strong>
-            </article>
-            <article class="contact-card reveal stagger-2">
-              <div class="contact-icon">TL</div>
-              <h3 data-i18n="contact.card.two.title">Teléfonos</h3>
-              <a href="tel:+593984611461">0984611461</a>
-              <a href="tel:+59324772888">4772888</a>
-            </article>
-            <article class="contact-card reveal stagger-3">
-              <div class="contact-icon">WA</div>
-              <h3 data-i18n="contact.card.three.title">WhatsApp</h3>
-              <button class="card-link" type="button" data-open-whatsapp>0998684757 · 0984611461 · 0995018098</button>
-            </article>
-            <article class="contact-card reveal stagger-4">
-              <div class="contact-icon">HR</div>
-              <h3 data-i18n="contact.card.four.title">Horarios</h3>
-              <strong data-i18n="contact.hours.days">Lunes a viernes</strong>
-              <strong>07h30 a 18h00</strong>
-            </article>
-            <article class="contact-card reveal stagger-1">
-              <div class="contact-icon">EM</div>
-              <h3 data-i18n="contact.card.five.title">Correo</h3>
-              <a href="mailto:franciscob.ecu@gmail.com">franciscob.ecu@gmail.com</a>
-            </article>
-            <article class="contact-card reveal stagger-2">
-              <div class="contact-icon">RS</div>
-              <h3 data-i18n="contact.card.six.title">Redes sociales</h3>
-              <div class="social-links">
-                <a href="https://www.facebook.com/odontologiaestetica.com.ec" target="_blank" rel="noreferrer noopener" data-i18n="contact.social.facebook">Facebook</a>
-                <a href="https://www.instagram.com/dr.franciscob/" target="_blank" rel="noreferrer noopener" data-i18n="contact.social.instagram">Instagram</a>
-              </div>
-            </article>
+        <div class="contact-wa-hero reveal">
+          <span class="eyebrow" data-i18n="contact.eyebrow">Contacto</span>
+          <h2 data-i18n="contact.title">Ubicación, horarios y canales de contacto en un cierre claro y fácil de accionar.</h2>
+          <div class="contact-wa-btns">
+            <button class="contact-wa-btn" type="button" data-open-whatsapp>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2c-4.86 0-8.8 3.78-8.8 8.45 0 1.62.48 3.2 1.39 4.57L3.4 20.8l4.86-1.27a9.02 9.02 0 0 0 3.74.8c4.86 0 8.8-3.78 8.8-8.48 0-4.67-3.94-8.45-8.8-8.45Z"/><path d="M9.14 8.86c.18-.41.37-.42.56-.43h.48c.14 0 .37.05.56.26.19.2.73.71.73 1.74s-.75 2.03-.85 2.17c-.1.14-.2.3-.05.56.16.26.68 1.1 1.46 1.77 1.01.87 1.86 1.14 2.13 1.27.27.13.42.11.58-.07.16-.18.68-.76.87-1.02.18-.26.37-.22.62-.13.26.09 1.62.74 1.9.87.28.13.46.2.53.31.07.11.07.66-.15 1.3-.22.64-1.28 1.23-1.78 1.31-.46.08-1.05.11-1.7-.1-.39-.13-.9-.3-1.55-.58-2.73-1.17-4.5-3.92-4.64-4.11-.14-.19-1.11-1.45-1.11-2.77 0-1.32.7-1.97.95-2.24Z"/></svg>
+              <span data-i18n="cta.whatsapp">Agendar por WhatsApp</span>
+            </button>
           </div>
         </div>
 
-        <div class="contact-map-stack reveal stagger-3">
-          <div class="map-placeholder">
+        <div class="contact-grid">
+          <div class="contact-info reveal stagger-1">
+            <h3>Informacion de contacto</h3>
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div>
+                <div>
+                  <div class="contact-info-label">Direccion</div>
+                  <div class="contact-info-val">YOO Cumbaya<br>Av. Pampite OE6-53 y Valenzuela<br>Oficina 301<br>Cumbaya, Ecuador</div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div>
+                <div>
+                  <div class="contact-info-label">Telefonos</div>
+                  <div class="contact-info-val"><a href="tel:+593984611461">0984611461</a><br><a href="tel:+59324772888">4772888</a></div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.75 6.75v10.5A2.25 2.25 0 0119.5 19.5h-15a2.25 2.25 0 01-2.25-2.25V6.75"/><path d="M21.75 6.75A2.25 2.25 0 0019.5 4.5h-15A2.25 2.25 0 002.25 6.75"/><path d="m3 7.5 7.86 4.912a2.25 2.25 0 002.28 0L21 7.5"/></svg></div>
+                <div>
+                  <div class="contact-info-label">Correo</div>
+                  <div class="contact-info-val"><a href="mailto:franciscob.ecu@gmail.com">franciscob.ecu@gmail.com</a></div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                <div>
+                  <div class="contact-info-label">Horarios</div>
+                  <div class="contact-info-val">Lunes a viernes<br>07h30 a 18h00</div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4"/><path d="M12 7v7"/><path d="M17 13v1"/><path d="M6 18h12"/><path d="M8 4h8a2 2 0 012 2v12H6V6a2 2 0 012-2z"/></svg></div>
+                <div>
+                  <div class="contact-info-label">WhatsApp</div>
+                  <div class="contact-info-val"><button class="card-link" type="button" data-open-whatsapp>0998684757 · 0984611461 · 0995018098</button></div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 7h9a2.5 2.5 0 012.5 2.5v5a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 015 14.5v-5A2.5 2.5 0 017.5 7z"/><path d="M8 17v2"/><path d="M16 17v2"/><path d="M9 12h.01"/><path d="M15 12h.01"/></svg></div>
+                <div>
+                  <div class="contact-info-label">Redes sociales</div>
+                  <div class="contact-info-val"><a href="https://www.facebook.com/odontologiaestetica.com.ec" target="_blank" rel="noreferrer noopener">Facebook</a><br><a href="https://www.instagram.com/dr.franciscob/" target="_blank" rel="noreferrer noopener">Instagram</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-map reveal stagger-2">
             <iframe
               title="Mapa de Buenaño Dentistas en YOO Cumbayá"
               src="https://www.google.com/maps?q=Av.%20Pampite%20OE6-53%20y%20Valenzuela%20Oficina%20301%20YOO%20Cumbay%C3%A1%20Ecuador&z=17&output=embed"
@@ -3139,11 +3485,6 @@
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <article class="map-overlay">
-            <div class="map-pin"></div>
-            <strong data-i18n="contact.map.title" style="font-size: 22px; letter-spacing: -0.03em; margin-bottom: 8px;">Ubicación de la clínica en YOO Cumbayá</strong>
-            <span data-i18n="contact.map.desc" style="color: var(--muted); line-height: 1.65; max-width: 40ch;">Referencia visual para ubicar la clínica y facilitar la llegada desde Quito o desde el aeropuerto.</span>
-          </article>
         </div>
       </div>
     </section>
@@ -3168,7 +3509,6 @@
   <footer class="footer">
     <div class="container footer-shell">
       <span data-i18n="footer.left">Buenaño Dentistas · Cumbayá, Ecuador</span>
-      <span data-i18n="footer.right">Diseño bilingüe, limpio y listo para presentación clínica</span>
     </div>
   </footer>
 
@@ -3580,14 +3920,32 @@
     const closeWhatsAppButtons = document.querySelectorAll("[data-close-whatsapp]");
     const openLightboxButtons = document.querySelectorAll("[data-open-lightbox]");
     const closeLightboxButtons = document.querySelectorAll("[data-close-lightbox]");
+    const techCards = document.querySelectorAll("[data-tech-card]");
     const revealItems = document.querySelectorAll(".reveal");
     const facilityImages = Array.from(openLightboxButtons)
       .map((figure) => figure.querySelector("img"))
       .filter(Boolean);
     let currentLightboxIndex = -1;
+    let lastScrollY = window.scrollY;
 
     function updateNavbarState() {
-      navbar.classList.toggle("scrolled", window.scrollY > 16);
+      const currentScrollY = window.scrollY;
+      const isNearTop = currentScrollY < 80;
+      const scrollDelta = currentScrollY - lastScrollY;
+      const isScrollingDown = scrollDelta > 1;
+      const isScrollingUp = scrollDelta < -1;
+
+      navbar.classList.toggle("scrolled", currentScrollY > 16);
+
+      if (mobilePanel.classList.contains("open")) {
+        navbar.classList.remove("navbar-hidden");
+      } else if (isNearTop || isScrollingUp) {
+        navbar.classList.remove("navbar-hidden");
+      } else if (isScrollingDown && currentScrollY > 140) {
+        navbar.classList.add("navbar-hidden");
+      }
+
+      lastScrollY = currentScrollY;
     }
 
     function setLanguage(language) {
@@ -3643,6 +4001,9 @@
       const isOpen = mobilePanel.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));
       document.body.style.overflow = isOpen ? "hidden" : "";
+      if (isOpen) {
+        navbar.classList.remove("navbar-hidden");
+      }
     }
 
     function openModal() {
@@ -3747,6 +4108,21 @@
 
     closeLightboxButtons.forEach((button) => {
       button.addEventListener("click", closeLightbox);
+    });
+
+    techCards.forEach((card) => {
+      const toggleCard = () => {
+        const isExpanded = card.classList.toggle("expanded");
+        card.setAttribute("aria-expanded", String(isExpanded));
+      };
+
+      card.addEventListener("click", toggleCard);
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleCard();
+        }
+      });
     });
 
     if (lightboxPrev) {
