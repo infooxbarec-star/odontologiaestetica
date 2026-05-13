@@ -451,6 +451,10 @@
       padding: 26px;
       margin-bottom: 28px;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(238, 246, 255, 0.8));
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+      gap: 22px;
+      align-items: center;
     }
 
     .quote-card blockquote {
@@ -466,6 +470,137 @@
       color: var(--muted);
       font-size: 14px;
       font-weight: 600;
+    }
+
+    .quote-body {
+      display: grid;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .quote-figure {
+      margin: 0;
+    }
+
+    .logo-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      width: fit-content;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(16, 35, 63, 0.08);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .logo-chip img {
+      width: auto;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .image-shell {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(234, 242, 255, 0.96), rgba(248, 251, 255, 0.98)),
+        linear-gradient(180deg, rgba(31, 99, 255, 0.06), transparent 85%);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .image-shell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-shell.is-fallback::after {
+      content: attr(data-fallback);
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quote-editorial {
+      height: 320px;
+      background:
+        radial-gradient(circle at top left, rgba(124, 182, 255, 0.26), transparent 28%),
+        linear-gradient(135deg, rgba(227, 238, 255, 0.98), rgba(248, 251, 255, 0.98));
+    }
+
+    .team-showcase {
+      position: relative;
+      margin: 0 0 34px;
+    }
+
+    .team-showcase-media {
+      height: 360px;
+    }
+
+    .team-showcase-caption {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      display: inline-flex;
+      align-items: center;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(16, 35, 63, 0.14), rgba(16, 35, 63, 0.62));
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.55;
+      backdrop-filter: blur(10px);
+    }
+
+    .team-card-media {
+      height: 260px;
+      margin-bottom: 18px;
+    }
+
+    .install-card-media,
+    .tech-card-media,
+    .international-media {
+      height: 240px;
+      margin-bottom: 18px;
+    }
+
+    .tech-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(31, 99, 255, 0.08);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tech-tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
     }
 
     .trust-grid {
@@ -487,6 +622,34 @@
     .team-card,
     .international-point {
       padding: 22px;
+    }
+
+    .team-card,
+    .tech-card,
+    .international-point {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .team-card h3,
+    .tech-card h3,
+    .international-point h3 {
+      margin-bottom: 12px;
+    }
+
+    .team-card .card-link {
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .team-card .team-area {
+      margin-top: 20px;
+    }
+
+    .tech-card p,
+    .international-point p {
+      margin-top: 0;
     }
 
     .trust-card strong,
@@ -867,6 +1030,30 @@
       overflow: hidden;
     }
 
+    .install-card .image-shell {
+      margin: 0;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+      box-shadow: none;
+    }
+
+    .install-card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .install-card p {
+      max-width: 30ch;
+    }
+
     .install-card::after {
       content: "";
       position: absolute;
@@ -1242,6 +1429,10 @@
       .trust-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+
+      .quote-card {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 1060px) {
@@ -1282,6 +1473,20 @@
 
       .interface-display {
         height: 260px;
+      }
+
+      .team-showcase-media {
+        height: 280px;
+      }
+
+      .team-card-media {
+        height: 220px;
+      }
+
+      .quote-editorial,
+      .tech-card-media,
+      .international-media {
+        height: 220px;
       }
     }
 
@@ -1442,8 +1647,30 @@
           </div>
 
           <article class="quote-card reveal stagger-1">
-            <blockquote data-i18n="hero.quote">“En Buenaño Dentistas, el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.”</blockquote>
-            <cite data-i18n="hero.quoteAuthor">Francisco Buenaño — Forbes Ecuador</cite>
+            <div class="quote-body">
+              <blockquote data-i18n="hero.quote">“En Buenaño Dentistas, el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.”</blockquote>
+              <cite data-i18n="hero.quoteAuthor">Francisco Buenaño — Forbes Ecuador</cite>
+              <span class="logo-chip">
+                <img
+                  src="https://static.wixstatic.com/media/f119f6_7e77491c084848f3824f06e1457a5303~mv2.png/v1/fill/w_316,h_154,al_c,lg_1,q_85,enc_avif,quality_auto/images.png"
+                  alt="Forbes Ecuador"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.closest('.logo-chip').style.display='none'"
+                >
+              </span>
+            </div>
+            <figure class="quote-figure">
+              <div class="image-shell quote-editorial" data-fallback="Forbes Ecuador editorial">
+                <img
+                  src="https://static.wixstatic.com/media/f119f6_318aaad1f4ab4afd86a7a04a0df53b74~mv2.jpg/v1/fill/w_798,h_798,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f119f6_318aaad1f4ab4afd86a7a04a0df53b74~mv2.jpg"
+                  alt="Francisco Buenaño en artículo de Forbes Ecuador"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+                >
+              </div>
+            </figure>
           </article>
 
           <div class="trust-grid">
@@ -1487,7 +1714,7 @@
 
             <div class="interface-panel">
               <strong data-i18n="hero.panel.bottom.title">Primera impresión confiable</strong>
-              <span data-i18n="hero.panel.bottom.desc">La estructura prepara una presentación elegante mientras se integran imágenes reales en una siguiente etapa.</span>
+              <span data-i18n="hero.panel.bottom.desc">Una composición editorial que refuerza una primera impresión sólida, sobria y contemporánea.</span>
             </div>
 
             <div class="hero-metrics">
@@ -1516,11 +1743,33 @@
             <span class="eyebrow" data-i18n="team.eyebrow">Profesionales</span>
             <h2 data-i18n="team.title">Un equipo de especialistas enfocado en brindar atención integral, personalizada y de alta precisión.</h2>
           </div>
-          <p data-i18n="team.intro">La estructura está diseñada para incorporar fotografías reales más adelante sin perder orden ni jerarquía visual.</p>
+          <p data-i18n="team.intro">Presentamos al equipo con una narrativa visual más clara, combinando retratos, especialidad y trayectoria en una grilla limpia y fácil de recorrer.</p>
         </div>
+
+        <figure class="team-showcase reveal">
+          <div class="image-shell team-showcase-media" data-fallback="Equipo de profesionales">
+            <img
+              src="https://static.wixstatic.com/media/f119f6_29e371944e294a80b73fe9fb5f9bca4d~mv2.jpg/v1/fill/w_2880,h_1516,al_t,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/f119f6_29e371944e294a80b73fe9fb5f9bca4d~mv2.jpg"
+              alt="Equipo de profesionales de Buenaño Dentistas"
+              loading="lazy"
+              decoding="async"
+              onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+            >
+          </div>
+          <figcaption class="team-showcase-caption" data-i18n="team.showcase.caption">Un equipo de especialistas enfocado en atención integral y personalizada.</figcaption>
+        </figure>
 
         <div class="team-grid">
           <article class="team-card reveal stagger-1">
+            <div class="image-shell team-card-media" data-fallback="Ortodoncia e Invisalign">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_85985e0a610d45699cadb138be27d641~mv2.jpg/v1/fill/w_2880,h_1516,al_t,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/f119f6_85985e0a610d45699cadb138be27d641~mv2.jpg"
+                alt="Dra. Gabriela Calderón Montalvo especialista en ortodoncia"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <div class="team-avatar">GC</div>
             <span class="team-role">Ortodoncia / Invisalign</span>
             <h3>Dra. Gabriela Calderón Montalvo</h3>
@@ -1534,6 +1783,15 @@
           </article>
 
           <article class="team-card reveal stagger-2">
+            <div class="image-shell team-card-media" data-fallback="Especialistas en endodoncia">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_3bd80d9e6de540ccaf1be9980250d23e~mv2.jpeg/v1/fill/w_2880,h_1516,al_t,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/f119f6_3bd80d9e6de540ccaf1be9980250d23e~mv2.jpeg"
+                alt="Especialistas en Endodoncia Buenaño Dentistas"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <div class="team-avatar">AP</div>
             <span class="team-role">Endodoncia</span>
             <h3>Dra. Andrea Ponce</h3>
@@ -1547,6 +1805,15 @@
           </article>
 
           <article class="team-card reveal stagger-3">
+            <div class="image-shell team-card-media" data-fallback="Especialistas en endodoncia">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_3bd80d9e6de540ccaf1be9980250d23e~mv2.jpeg/v1/fill/w_2880,h_1516,al_t,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/f119f6_3bd80d9e6de540ccaf1be9980250d23e~mv2.jpeg"
+                alt="Especialistas en Endodoncia Buenaño Dentistas"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <div class="team-avatar">NC</div>
             <span class="team-role">Endodoncia</span>
             <h3>Dr. Nicolás Castrillón</h3>
@@ -1560,6 +1827,15 @@
           </article>
 
           <article class="team-card reveal stagger-4">
+            <div class="image-shell team-card-media" data-fallback="Implantes dentales">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_05723fa005944ccca56ccda17c59ce5b~mv2.jpg/v1/fill/w_2002,h_1054,al_c,q_90,enc_avif,quality_auto/f119f6_05723fa005944ccca56ccda17c59ce5b~mv2.jpg"
+                alt="Dra. María Elisa Galárraga especialista en implantes dentales"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <div class="team-avatar">MG</div>
             <span class="team-role">Implantes dentales</span>
             <h3>Dra. María Elisa Galárraga</h3>
@@ -1573,6 +1849,15 @@
           </article>
 
           <article class="team-card reveal stagger-1">
+            <div class="image-shell team-card-media" data-fallback="Periodoncia">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_3baf443186a348198d5c928f2abd16ee~mv2.jpg/v1/fill/w_1906,h_1003,al_c,q_85,enc_avif,quality_auto/f119f6_3baf443186a348198d5c928f2abd16ee~mv2.jpg"
+                alt="Dra. Gabriela Guerra especialista en periodoncia"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <div class="team-avatar">GG</div>
             <span class="team-role">Periodoncia</span>
             <h3>Dra. Gabriela Guerra</h3>
@@ -1586,6 +1871,15 @@
           </article>
 
           <article class="team-card reveal stagger-2">
+            <div class="image-shell team-card-media" data-fallback="Rehabilitación bucal estética">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_6e5ec694d7e34042ad4aaed47051af01~mv2.jpg/v1/fill/w_2002,h_1054,al_c,q_90,enc_avif,quality_auto/f119f6_6e5ec694d7e34042ad4aaed47051af01~mv2.jpg"
+                alt="Dr. Francisco Buenaño Herrera especialista en rehabilitación bucal estética"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <div class="team-avatar">FB</div>
             <span class="team-role">Rehabilitación Bucal Estética e Implantes</span>
             <h3>Dr. Francisco Buenaño Herrera</h3>
@@ -1599,6 +1893,15 @@
           </article>
 
           <article class="team-card reveal stagger-3">
+            <div class="image-shell team-card-media" data-fallback="Odontopediatría">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_18c850963038429aa4eee23b599bde2d~mv2.jpg/v1/fill/w_2000,h_1053,al_c,q_90,enc_avif,quality_auto/f119f6_18c850963038429aa4eee23b599bde2d~mv2.jpg"
+                alt="Especialistas en odontopediatría Buenaño Dentistas"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <div class="team-avatar">IS</div>
             <span class="team-role">Odontopediatría</span>
             <h3>Isabel Salazar</h3>
@@ -1611,6 +1914,15 @@
           </article>
 
           <article class="team-card reveal stagger-4">
+            <div class="image-shell team-card-media" data-fallback="Odontopediatría">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_18c850963038429aa4eee23b599bde2d~mv2.jpg/v1/fill/w_2000,h_1053,al_c,q_90,enc_avif,quality_auto/f119f6_18c850963038429aa4eee23b599bde2d~mv2.jpg"
+                alt="Especialistas en odontopediatría Buenaño Dentistas"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <div class="team-avatar">AP</div>
             <span class="team-role">Odontopediatría</span>
             <h3>Alejandro Palafox</h3>
@@ -1779,42 +2091,114 @@
 
         <div class="tech-grid">
           <article class="tech-card reveal stagger-1">
-            <div class="tech-icon">EM</div>
-            <h3>EMAX CAD</h3>
-            <p>Disilicato de litio de última generación, diseñado y producido digitalmente.</p>
+            <div class="image-shell tech-card-media" data-fallback="Exocad">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.48.26.png"
+                alt="Exocad software de diseño dental digital"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+            <span class="tech-tag">Diseño digital</span>
+            <h3>Exocad</h3>
+            <p>El software de diseño digital en odontología para planificaciones más precisas y visuales.</p>
           </article>
           <article class="tech-card reveal stagger-2">
-            <div class="tech-icon">CH</div>
+            <div class="image-shell tech-card-media" data-fallback="Cerámica híbrida">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.45.32.png"
+                alt="Cerámica híbrida dental"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+            <span class="tech-tag">Material</span>
             <h3>Cerámica híbrida</h3>
-            <p>Polímero con características físicas similares a la estructura dental, ideal para casos seleccionados.</p>
+            <p>Polímero con características físicas muy similares a la estructura dental, ideal para casos seleccionados.</p>
           </article>
           <article class="tech-card reveal stagger-3">
-            <div class="tech-icon">TR</div>
+            <div class="image-shell tech-card-media" data-fallback="Trios by 3Shape">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.46.02.png"
+                alt="Escáner intraoral Trios by 3Shape"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+            <span class="tech-tag">Escaneo digital</span>
             <h3>Trios by 3Shape</h3>
-            <p>Impresiones digitales que reemplazan materiales tradicionales, ofreciendo mayor comodidad, precisión y velocidad.</p>
+            <p>Impresiones digitales en reemplazo a los materiales antiguos, con mayor comodidad, precisión y velocidad.</p>
           </article>
           <article class="tech-card reveal stagger-4">
-            <div class="tech-icon">IN</div>
+            <div class="image-shell tech-card-media" data-fallback="Invisalign">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.46.31.png"
+                alt="Tratamiento Invisalign"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+            <span class="tech-tag">Ortodoncia digital</span>
             <h3>Invisalign</h3>
-            <p>El futuro de la ortodoncia: alineadores transparentes, planificación digital y mayor comodidad.</p>
+            <p>El futuro de la ortodoncia.</p>
           </article>
           <article class="tech-card reveal stagger-1">
-            <div class="tech-icon">IT</div>
+            <div class="image-shell tech-card-media" data-fallback="iTero">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.47.06.png"
+                alt="Escáner iTero para Invisalign"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+            <span class="tech-tag">Diagnóstico</span>
             <h3>iTero</h3>
-            <p>Digitalización, planificación y presentación de casos Invisalign con un escáner diseñado específicamente para ello.</p>
+            <p>Digitalización, planificación y presentación de los casos de Invisalign, con el único escáner específicamente diseñado para aquello.</p>
           </article>
           <article class="tech-card reveal stagger-2">
-            <div class="tech-icon">ZR</div>
+            <div class="image-shell tech-card-media" data-fallback="Zirconia">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.47.25.png"
+                alt="Zirconia de alta translucidez dental"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+            <span class="tech-tag">Material</span>
             <h3>Zirconia de alta translucidez</h3>
-            <p>Uno de los materiales más resistentes y naturales disponibles actualmente.</p>
+            <p>El material más resistente actualmente y uno de los más naturales.</p>
           </article>
           <article class="tech-card reveal stagger-3">
-            <div class="tech-icon">CG</div>
+            <div class="image-shell tech-card-media" data-fallback="Cirugía guiada">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.47.50.png"
+                alt="Cirugía guiada odontológica"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+            <span class="tech-tag">Tomografía 3D</span>
             <h3>Cirugía guiada</h3>
-            <p>Mayor precisión en las intervenciones y recuperación más rápida gracias a tecnología digital y tomografía 3D.</p>
+            <p>Mayor precisión en las intervenciones y una recuperación más rápida para nuestros pacientes, gracias a nuestra tecnología digital y al tomógrafo 3D.</p>
           </article>
           <article class="tech-card reveal stagger-4">
-            <div class="tech-icon">3D</div>
+            <div class="image-shell tech-card-media" data-fallback="Impresión 3D">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2015.48.08.png"
+                alt="Impresión 3D de dispositivos médicos dentales"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+            <span class="tech-tag">Fabricación</span>
             <h3>Impresión 3D de dispositivos médicos</h3>
             <p>Dispositivos en resinas biocompatibles específicas para uso dental, aprobadas por la FDA.</p>
           </article>
@@ -1829,58 +2213,123 @@
             <span class="eyebrow" data-i18n="facilities.eyebrow">Instalaciones</span>
             <h2 data-i18n="facilities.title">Un espacio diseñado para que cada paciente se sienta cómodo, seguro y atendido con excelencia.</h2>
           </div>
-          <p data-i18n="facilities.intro">La galería queda preparada para incorporar fotografías reales sin alterar la estructura visual del sitio.</p>
+          <p data-i18n="facilities.intro">La sección queda estructurada para incorporar la fotografía real de la clínica en cuanto compartas esas URLs, manteniendo desde ya una presentación ordenada y consistente con el resto del sitio.</p>
         </div>
 
-        <!-- Reemplazar estos placeholders con imágenes reales de las instalaciones -->
         <div class="install-grid">
           <article class="install-card reveal stagger-1">
-            <div>
-              <div class="install-icon">01</div>
-              <h3>Recepción</h3>
-              <p>Espacio pensado para una llegada ordenada, amable y tranquila.</p>
+            <div class="image-shell install-card-media" data-fallback="Recepción">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2016.11.48.png"
+                alt="Recepción de Buenaño Dentistas en Cumbayá"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
             </div>
-            <span class="placeholder-label">Placeholder editorial</span>
+            <div class="install-card-body">
+              <div>
+                <div class="install-icon">01</div>
+                <h3>Recepción</h3>
+                <p>Espacio pensado para una llegada ordenada, amable y tranquila.</p>
+              </div>
+              <span class="placeholder-label" data-i18n="facilities.photo">Fotografía real de la clínica</span>
+            </div>
           </article>
           <article class="install-card reveal stagger-2">
-            <div>
-              <div class="install-icon">02</div>
-              <h3>Consultorios</h3>
-              <p>Ambientes clínicos listos para mostrar limpieza, precisión y confort.</p>
+            <div class="image-shell install-card-media" data-fallback="Consultorios">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2016.12.08.png"
+                alt="Consultorios de Buenaño Dentistas"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
             </div>
-            <span class="placeholder-label">Placeholder editorial</span>
+            <div class="install-card-body">
+              <div>
+                <div class="install-icon">02</div>
+                <h3>Consultorios</h3>
+                <p>Ambientes clínicos listos para mostrar limpieza, precisión y confort.</p>
+              </div>
+              <span class="placeholder-label" data-i18n="facilities.photo">Fotografía real de la clínica</span>
+            </div>
           </article>
           <article class="install-card reveal stagger-3">
-            <div>
-              <div class="install-icon">03</div>
-              <h3>Área digital</h3>
-              <p>Zona ideal para escáneres, planificación y recursos tecnológicos.</p>
+            <div class="image-shell install-card-media" data-fallback="Área digital">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2016.12.26.png"
+                alt="Área digital de Buenaño Dentistas"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
             </div>
-            <span class="placeholder-label">Placeholder editorial</span>
+            <div class="install-card-body">
+              <div>
+                <div class="install-icon">03</div>
+                <h3>Área digital</h3>
+                <p>Zona ideal para escáneres, planificación y recursos tecnológicos.</p>
+              </div>
+              <span class="placeholder-label" data-i18n="facilities.photo">Fotografía real de la clínica</span>
+            </div>
           </article>
           <article class="install-card reveal stagger-4">
-            <div>
-              <div class="install-icon">04</div>
-              <h3>Sala de espera</h3>
-              <p>Un entorno sobrio y cómodo que acompaña la experiencia del paciente.</p>
+            <div class="image-shell install-card-media" data-fallback="Sala de espera">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2016.13.00.png"
+                alt="Sala de espera de Buenaño Dentistas"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
             </div>
-            <span class="placeholder-label">Placeholder editorial</span>
+            <div class="install-card-body">
+              <div>
+                <div class="install-icon">04</div>
+                <h3>Sala de espera</h3>
+                <p>Un entorno sobrio y cómodo que acompaña la experiencia del paciente.</p>
+              </div>
+              <span class="placeholder-label" data-i18n="facilities.photo">Fotografía real de la clínica</span>
+            </div>
           </article>
           <article class="install-card reveal stagger-1">
-            <div>
-              <div class="install-icon">05</div>
-              <h3>Laboratorio / tecnología</h3>
-              <p>Un bloque visual para mostrar materiales, flujos digitales y equipamiento.</p>
+            <div class="image-shell install-card-media" data-fallback="Laboratorio y tecnología">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2016.13.33.png"
+                alt="Laboratorio y tecnología de Buenaño Dentistas"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
             </div>
-            <span class="placeholder-label">Placeholder editorial</span>
+            <div class="install-card-body">
+              <div>
+                <div class="install-icon">05</div>
+                <h3>Laboratorio / tecnología</h3>
+                <p>Un bloque visual para mostrar materiales, flujos digitales y equipamiento.</p>
+              </div>
+              <span class="placeholder-label" data-i18n="facilities.photo">Fotografía real de la clínica</span>
+            </div>
           </article>
           <article class="install-card reveal stagger-2">
-            <div>
-              <div class="install-icon">06</div>
-              <h3>Vista YOO Cumbayá</h3>
-              <p>Espacio reservado para reforzar ubicación, contexto y entorno de la clínica.</p>
+            <div class="image-shell install-card-media" data-fallback="Vista YOO Cumbayá">
+              <img
+                src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2016.14.10.png"
+                alt="Vista del entorno YOO Cumbayá de Buenaño Dentistas"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
             </div>
-            <span class="placeholder-label">Placeholder editorial</span>
+            <div class="install-card-body">
+              <div>
+                <div class="install-icon">06</div>
+                <h3>Vista YOO Cumbayá</h3>
+                <p>Espacio reservado para reforzar ubicación, contexto y entorno de la clínica.</p>
+              </div>
+              <span class="placeholder-label" data-i18n="facilities.photo">Fotografía real de la clínica</span>
+            </div>
           </article>
         </div>
       </div>
@@ -1901,16 +2350,43 @@
 
         <div class="international-points">
           <article class="international-point reveal stagger-1">
+            <div class="image-shell international-media" data-fallback="Multilingual staff">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_eaf6555baad64f148de1018f72907a6b~mv2.jpeg/v1/crop/x_292,y_0,w_5416,h_4000/fill/w_612,h_452,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/DSC_0911.jpeg"
+                alt="Multilingual staff at Buenaño Dentists"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <h3>MULTILINGUAL STAFF</h3>
             <p>Our staff can welcome you in four languages: Spanish, French, English and German.</p>
           </article>
           <article class="international-point reveal stagger-2">
+            <div class="image-shell international-media" data-fallback="Dental technology">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_ec66a7a868cf4c07a9828946578c0cce~mv2.jpg/v1/fill/w_612,h_452,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/27752182_1764155950321996_69998115296324.jpg"
+                alt="Dental technology and materials at Buenaño Dentists"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <h3>CUTTING EDGE TECHNOLOGY AND MATERIALS</h3>
-            <p>Intraoral scanner, CBCT technology, Emax laboratory, laser dentistry and digital dentistry resources under the same roof.</p>
+            <p>Intraoral scanner, CBCT technology, Emax laboratory, laser dentistry, all under the same roof.</p>
           </article>
           <article class="international-point reveal stagger-3">
+            <div class="image-shell international-media" data-fallback="Cumbayá location">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_7d76141988824a0ebb45be068d8493e2~mv2.png/v1/fill/w_612,h_452,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Captura%20de%20Pantalla%202020-09-24%20a%20la(s)%202.png"
+                alt="Location in Cumbayá near Quito international airport"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
             <h3>LOCATION</h3>
-            <p>Located in Cumbayá, approximately 25 minutes from the international airport, close to fine restaurants, shopping areas and surrounded by nature and warm weather.</p>
+            <p>Located in Cumbayá, 25 minutes from the international airport, close to fine restaurants, shopping areas and surrounded by nature and warm weather.</p>
           </article>
         </div>
       </div>
@@ -2159,7 +2635,7 @@
         "hero.panel.top.title": "Interfaz clínica clara",
         "hero.panel.top.desc": "Un lenguaje visual sobrio para comunicar precisión, confianza y atención médica.",
         "hero.panel.bottom.title": "Primera impresión confiable",
-        "hero.panel.bottom.desc": "La estructura prepara una presentación elegante mientras se integran imágenes reales en una siguiente etapa.",
+        "hero.panel.bottom.desc": "Una composición editorial que refuerza una primera impresión sólida, sobria y contemporánea.",
         "hero.tag.one": "Planificación digital",
         "hero.tag.two": "Atención personalizada",
         "hero.tag.three": "Resultados naturales",
@@ -2178,7 +2654,8 @@
         "trust.five.desc": "Coordinación clara antes, durante y después de cada tratamiento.",
         "team.eyebrow": "Profesionales",
         "team.title": "Un equipo de especialistas enfocado en brindar atención integral, personalizada y de alta precisión.",
-        "team.intro": "La estructura está diseñada para incorporar fotografías reales más adelante sin perder orden ni jerarquía visual.",
+        "team.intro": "Presentamos al equipo con una narrativa visual más clara, combinando retratos, especialidad y trayectoria en una grilla limpia y fácil de recorrer.",
+        "team.showcase.caption": "Un equipo de especialistas enfocado en atención integral y personalizada.",
         "team.cta": "Conocer especialista",
         "services.eyebrow": "Servicios",
         "services.title": "Tratamientos integrales para cuidar, restaurar y transformar tu sonrisa.",
@@ -2204,7 +2681,9 @@
         "technology.intro": "La tecnología se presenta como una herramienta clínica concreta: mejora la experiencia del paciente y aporta precisión en la planificación y ejecución.",
         "facilities.eyebrow": "Instalaciones",
         "facilities.title": "Un espacio diseñado para que cada paciente se sienta cómodo, seguro y atendido con excelencia.",
-        "facilities.intro": "La galería queda preparada para incorporar fotografías reales sin alterar la estructura visual del sitio.",
+        "facilities.intro": "La sección queda estructurada para incorporar la fotografía real de la clínica en cuanto compartas esas URLs, manteniendo desde ya una presentación ordenada y consistente con el resto del sitio.",
+        "facilities.pending": "Integración fotográfica pendiente",
+        "facilities.photo": "Fotografía real de la clínica",
         "international.eyebrow": "International Patients",
         "international.title": "Personalized dental care for international patients visiting Ecuador.",
         "international.text": "A clear and reassuring introduction for patients who want to coordinate their visit before traveling to Cumbayá.",
@@ -2233,7 +2712,7 @@
         "final.text": "Una estructura pensada para informar con claridad, generar confianza y facilitar la conversión sin fricción.",
         "final.cta": "Agenda tu cita por WhatsApp",
         "footer.left": "Buenaño Dentistas · Odontología Estética",
-        "footer.right": "HTML, CSS y JavaScript limpios para editar fácilmente",
+        "footer.right": "Diseño bilingüe, limpio y listo para presentación clínica",
         "floating.whatsapp": "WhatsApp",
         "modal.title": "Selecciona una línea de WhatsApp",
         "modal.text": "Todas las opciones abren el mismo mensaje predeterminado para agendar una cita odontológica.",
@@ -2268,7 +2747,7 @@
         "hero.panel.top.title": "Clear clinical interface",
         "hero.panel.top.desc": "A sober visual language built to communicate precision, trust and medical care.",
         "hero.panel.bottom.title": "A trustworthy first impression",
-        "hero.panel.bottom.desc": "The structure prepares an elegant presentation while real imagery is integrated in a later stage.",
+        "hero.panel.bottom.desc": "An editorial composition that reinforces a confident, restrained and contemporary first impression.",
         "hero.tag.one": "Digital planning",
         "hero.tag.two": "Personalized care",
         "hero.tag.three": "Natural results",
@@ -2287,7 +2766,8 @@
         "trust.five.desc": "Clear coordination before, during and after treatment.",
         "team.eyebrow": "Professionals",
         "team.title": "A team of specialists focused on comprehensive, personalized and highly precise care.",
-        "team.intro": "The structure is ready to incorporate real portraits later without losing order or visual hierarchy.",
+        "team.intro": "The team is presented through a clearer visual narrative, combining portraits, specialty and background in a clean grid that is easy to scan.",
+        "team.showcase.caption": "A team of specialists focused on comprehensive and personalized care.",
         "team.cta": "Meet specialist",
         "services.eyebrow": "Services",
         "services.title": "Comprehensive treatments to care for, restore and transform your smile.",
@@ -2313,7 +2793,9 @@
         "technology.intro": "Technology is presented as a practical clinical tool: it improves patient experience and supports greater planning accuracy.",
         "facilities.eyebrow": "Facilities",
         "facilities.title": "A space designed so every patient feels comfortable, safe and cared for with excellence.",
-        "facilities.intro": "The gallery is ready for real photography without altering the visual structure of the site.",
+        "facilities.intro": "This section is already structured to receive the clinic's real photography as soon as those URLs are shared, while keeping the presentation aligned with the rest of the site.",
+        "facilities.pending": "Photography integration pending",
+        "facilities.photo": "Real clinic photography",
         "international.eyebrow": "International Patients",
         "international.title": "Personalized dental care for international patients visiting Ecuador.",
         "international.text": "A clear and reassuring introduction for patients who want to coordinate their visit before traveling to Cumbayá.",
@@ -2342,7 +2824,7 @@
         "final.text": "A structure designed to inform clearly, build trust and make conversion easy.",
         "final.cta": "Book your appointment on WhatsApp",
         "footer.left": "Buenaño Dentistas · Odontología Estética",
-        "footer.right": "Clean HTML, CSS and JavaScript for easy editing",
+        "footer.right": "Bilingual, clean design ready for clinical presentation",
         "floating.whatsapp": "WhatsApp",
         "modal.title": "Choose a WhatsApp line",
         "modal.text": "Every option opens the same default message to schedule a dental appointment.",
