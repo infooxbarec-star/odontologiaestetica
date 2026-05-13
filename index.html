@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Odontologia Estetica | Clinica dental premium</title>
-  <meta name="description" content="Clinica dental premium con enfoque humano, tecnologia moderna y atencion personalizada para pacientes locales e internacionales.">
+  <title>Odontología Estética | Clínica dental de alta especialidad</title>
+  <meta name="description" content="Buenaño Dentistas es una clínica dental de alta especialidad en Cumbayá, con tecnología digital, atención personalizada y un equipo enfocado en transformar sonrisas con criterio clínico.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f5f9ff;
-      --surface: #ffffff;
-      --surface-alt: #eef5ff;
-      --surface-soft: #f8fbff;
+      --bg: #f4f8fe;
+      --surface: rgba(255, 255, 255, 0.9);
+      --surface-soft: #eef5ff;
       --text: #10233f;
       --muted: #5f718d;
       --line: rgba(16, 35, 63, 0.09);
@@ -22,18 +21,20 @@
       --primary-dark: #164ccb;
       --accent: #7cb6ff;
       --success: #14b86f;
-      --shadow-lg: 0 24px 60px rgba(23, 53, 110, 0.14);
-      --shadow-md: 0 14px 32px rgba(23, 53, 110, 0.1);
-      --shadow-sm: 0 8px 18px rgba(23, 53, 110, 0.08);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --radius-sm: 14px;
+      --shadow-lg: 0 28px 70px rgba(21, 49, 98, 0.14);
+      --shadow-md: 0 16px 34px rgba(21, 49, 98, 0.1);
+      --shadow-sm: 0 10px 22px rgba(21, 49, 98, 0.08);
+      --radius-xl: 36px;
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 16px;
       --container: 1180px;
       --header-height: 88px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -44,8 +45,8 @@
       font-family: "Inter", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(124, 182, 255, 0.26), transparent 26%),
-        radial-gradient(circle at top right, rgba(31, 99, 255, 0.08), transparent 22%),
+        radial-gradient(circle at top left, rgba(124, 182, 255, 0.22), transparent 24%),
+        radial-gradient(circle at top right, rgba(31, 99, 255, 0.08), transparent 20%),
         linear-gradient(180deg, #fbfdff 0%, var(--bg) 100%);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -79,8 +80,8 @@
     }
 
     .section {
-      padding: 112px 0;
       position: relative;
+      padding: 108px 0;
     }
 
     .section::before {
@@ -90,6 +91,14 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(16, 35, 63, 0.1), transparent);
       pointer-events: none;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 48px;
     }
 
     .eyebrow {
@@ -116,20 +125,24 @@
       box-shadow: 0 0 0 6px rgba(31, 99, 255, 0.12);
     }
 
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 28px;
-      align-items: end;
-      margin-bottom: 48px;
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      letter-spacing: -0.04em;
     }
 
     .section-head h2,
     .hero-copy h1,
     .cta-panel h2 {
-      margin: 0;
       line-height: 1.02;
-      letter-spacing: -0.04em;
       font-weight: 800;
     }
 
@@ -140,10 +153,10 @@
     .section-head p,
     .hero-copy p,
     .about-copy p,
-    .international-card p,
+    .international-shell > p,
     .cta-panel p,
-    .contact-card p {
-      margin: 0;
+    .responsibility-copy p,
+    .contact-copy p {
       color: var(--muted);
       line-height: 1.75;
       font-size: 16px;
@@ -154,13 +167,13 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(18px);
-      background: rgba(248, 251, 255, 0.82);
+      background: rgba(248, 251, 255, 0.84);
       border-bottom: 1px solid transparent;
       transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .navbar.scrolled {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       border-color: rgba(16, 35, 63, 0.08);
       box-shadow: 0 14px 34px rgba(16, 35, 63, 0.08);
     }
@@ -185,17 +198,6 @@
       width: auto;
     }
 
-    .brand-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 16px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), transparent 42%),
-        linear-gradient(135deg, #d9ebff, #7db3ff 55%, #1f63ff);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), var(--shadow-sm);
-      flex: 0 0 auto;
-    }
-
     .brand-copy {
       min-width: 0;
     }
@@ -208,7 +210,6 @@
 
     .brand-copy strong {
       font-size: 14px;
-      letter-spacing: -0.03em;
     }
 
     .brand-copy span {
@@ -226,7 +227,6 @@
 
     .nav-links a,
     .mobile-nav a {
-      position: relative;
       padding: 10px 12px;
       border-radius: 999px;
       font-size: 13px;
@@ -256,7 +256,7 @@
       gap: 4px;
       padding: 4px;
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.86);
       border-radius: 999px;
       box-shadow: var(--shadow-sm);
     }
@@ -302,23 +302,11 @@
       box-shadow: 0 16px 28px rgba(31, 99, 255, 0.24);
     }
 
-    .button-primary:hover,
-    .button-primary:focus-visible {
-      box-shadow: 0 20px 34px rgba(31, 99, 255, 0.28);
-    }
-
     .button-secondary {
       color: var(--text);
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid var(--line-strong);
       box-shadow: var(--shadow-sm);
-    }
-
-    .button-ghost {
-      color: var(--primary-dark);
-      background: rgba(31, 99, 255, 0.07);
-      min-height: 44px;
-      padding: 0 18px;
     }
 
     .menu-toggle {
@@ -364,7 +352,7 @@
 
     .mobile-shell {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 28px;
       box-shadow: var(--shadow-lg);
       padding: 18px;
@@ -383,9 +371,9 @@
     }
 
     .hero {
-      padding: 72px 0 112px;
       position: relative;
       overflow: clip;
+      padding: 70px 0 112px;
     }
 
     .hero::before,
@@ -410,7 +398,7 @@
       width: 280px;
       height: 280px;
       background: rgba(31, 99, 255, 0.08);
-      bottom: 10px;
+      bottom: 20px;
       left: -120px;
     }
 
@@ -428,55 +416,91 @@
     }
 
     .hero-copy p {
-      max-width: 62ch;
+      max-width: 64ch;
       font-size: 18px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 34px;
+      margin-bottom: 28px;
     }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
+    .quote-card,
     .trust-card,
-    .service-card,
     .team-card,
+    .service-card,
+    .concern-card,
+    .value-card,
     .tech-card,
+    .install-card,
     .blog-card,
+    .social-card,
     .contact-card,
-    .facility-card,
     .metric-card,
-    .about-card,
-    .international-list li,
-    .social-card {
+    .international-point {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.84);
+      background: var(--surface);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
     }
 
-    .trust-card {
-      padding: 18px;
+    .quote-card {
+      padding: 26px;
+      margin-bottom: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(238, 246, 255, 0.8));
+    }
+
+    .quote-card blockquote {
+      margin: 0 0 18px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .quote-card cite {
+      display: block;
+      font-style: normal;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .trust-card,
+    .metric-card,
+    .value-card,
+    .tech-card,
+    .concern-card,
+    .install-card,
+    .blog-card,
+    .social-card,
+    .contact-card,
+    .service-card,
+    .team-card,
+    .international-point {
+      padding: 22px;
     }
 
     .trust-card strong,
-    .service-card h3,
-    .team-card h3,
-    .tech-card h3,
-    .blog-card h3,
-    .contact-card h3,
-    .facility-card h3,
     .metric-card strong,
-    .about-card h3,
-    .social-card h3 {
+    .team-card h3,
+    .service-card h3,
+    .concern-card h3,
+    .value-card h3,
+    .tech-card h3,
+    .install-card h3,
+    .blog-card h3,
+    .social-card h3,
+    .contact-card h3,
+    .international-point h3 {
       display: block;
       margin-bottom: 10px;
       font-size: 18px;
@@ -484,21 +508,24 @@
     }
 
     .trust-card span,
-    .service-card p,
-    .team-card p,
-    .tech-card p,
-    .blog-card p,
-    .facility-card p,
     .metric-card span,
-    .about-card p,
+    .team-card p,
+    .service-card p,
+    .concern-card p,
+    .value-card p,
+    .tech-card p,
+    .install-card p,
+    .blog-card p,
+    .social-card p,
+    .contact-card p,
     .contact-card span,
-    .social-card p {
+    .international-point p {
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.68;
       font-size: 15px;
     }
 
-    .hero-visual {
+    .hero-shell {
       position: relative;
       min-height: 620px;
       padding: 28px;
@@ -512,7 +539,7 @@
       isolation: isolate;
     }
 
-    .hero-visual::before {
+    .hero-shell::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -534,34 +561,33 @@
       border: 1px solid rgba(16, 35, 63, 0.08);
     }
 
-    .hero-panel {
-      max-width: 280px;
+    .interface-panel {
+      max-width: 290px;
       padding: 20px;
       border-radius: 24px;
-      background: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.88);
       border: 1px solid rgba(16, 35, 63, 0.08);
       box-shadow: var(--shadow-md);
     }
 
-    .hero-panel strong {
+    .interface-panel.top {
+      margin-left: auto;
+      margin-bottom: 22px;
+    }
+
+    .interface-panel strong {
       display: block;
       margin-bottom: 6px;
       font-size: 18px;
-      letter-spacing: -0.03em;
     }
 
-    .hero-panel span {
+    .interface-panel span {
       color: var(--muted);
       line-height: 1.6;
       font-size: 15px;
     }
 
-    .hero-panel.top {
-      margin-left: auto;
-      margin-bottom: 24px;
-    }
-
-    .hero-display {
+    .interface-display {
       position: relative;
       height: 320px;
       margin: 18px 0 24px;
@@ -573,33 +599,33 @@
       overflow: hidden;
     }
 
-    .hero-display::before,
-    .hero-display::after {
+    .interface-display::before,
+    .interface-display::after {
       content: "";
       position: absolute;
       border-radius: 50%;
       border: 1px solid rgba(31, 99, 255, 0.14);
     }
 
-    .hero-display::before {
+    .interface-display::before {
       width: 260px;
       height: 260px;
       right: -40px;
       top: 24px;
     }
 
-    .hero-display::after {
+    .interface-display::after {
       width: 160px;
       height: 160px;
       left: 32px;
       bottom: 20px;
     }
 
-    .floating-tag {
+    .floating-note {
       position: absolute;
       padding: 14px 18px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(16, 35, 63, 0.08);
       box-shadow: var(--shadow-sm);
       font-size: 14px;
@@ -607,11 +633,11 @@
       color: var(--primary-dark);
     }
 
-    .floating-tag.one { top: 26px; left: 24px; }
-    .floating-tag.two { top: 112px; right: 28px; }
-    .floating-tag.three { bottom: 30px; left: 74px; }
+    .floating-note.one { top: 26px; left: 24px; }
+    .floating-note.two { top: 112px; right: 28px; }
+    .floating-note.three { bottom: 30px; left: 74px; }
 
-    .display-orb {
+    .orb {
       position: absolute;
       inset: 50% auto auto 50%;
       width: 220px;
@@ -622,7 +648,7 @@
       box-shadow: inset 0 2px 18px rgba(255, 255, 255, 0.45), 0 28px 60px rgba(31, 99, 255, 0.2);
     }
 
-    .display-orb::after {
+    .orb::after {
       content: "";
       position: absolute;
       inset: 32px;
@@ -630,50 +656,44 @@
       border: 1px solid rgba(255, 255, 255, 0.55);
     }
 
-    .hero-metrics {
+    .hero-metrics,
+    .team-grid,
+    .services-grid,
+    .concern-grid,
+    .values-grid,
+    .tech-grid,
+    .install-grid,
+    .blog-grid,
+    .contact-grid,
+    .info-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 18px;
     }
 
-    .metric-card {
-      padding: 18px;
-    }
+    .hero-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .concern-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .values-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tech-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .install-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .blog-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
     .metric-card strong {
       font-size: 28px;
       margin-bottom: 6px;
     }
 
-    .grid-4,
-    .grid-3,
-    .grid-2 {
-      display: grid;
-      gap: 18px;
-    }
-
-    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-    .team-card,
-    .service-card,
-    .tech-card,
-    .blog-card,
-    .contact-card,
-    .facility-card,
-    .about-card,
-    .social-card,
-    .international-card {
-      padding: 26px;
-    }
-
     .team-avatar,
     .service-icon,
+    .concern-icon,
     .tech-icon,
     .blog-icon,
     .contact-icon,
-    .social-icon {
+    .social-icon,
+    .install-icon {
       width: 56px;
       height: 56px;
       display: inline-flex;
@@ -687,12 +707,52 @@
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
     }
 
-    .team-meta,
-    .card-meta {
+    .team-role,
+    .article-meta,
+    .article-author {
       display: block;
       margin-bottom: 12px;
       color: var(--primary-dark);
       font-size: 14px;
+      font-weight: 700;
+    }
+
+    .team-list {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .team-list li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .team-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+    }
+
+    .team-area {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(31, 99, 255, 0.08);
+      color: var(--primary-dark);
+      font-size: 13px;
       font-weight: 700;
     }
 
@@ -707,96 +767,58 @@
       padding: 0;
     }
 
+    .cluster-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin: 48px 0 24px;
+    }
+
+    .cluster-head h3 {
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.08;
+    }
+
+    .cluster-head p,
+    .blog-actions p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+      max-width: 48ch;
+    }
+
     .about-layout,
     .international-layout,
+    .responsibility-layout,
     .contact-layout,
-    .social-layout,
     .cta-panel {
       display: grid;
       gap: 20px;
     }
 
     .about-layout,
-    .international-layout,
-    .contact-layout,
-    .social-layout {
+    .responsibility-layout,
+    .contact-layout {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       align-items: start;
     }
 
-    .about-stack,
-    .contact-stack {
+    .about-copy,
+    .responsibility-copy,
+    .contact-copy {
       display: grid;
-      gap: 18px;
+      gap: 20px;
     }
 
-    .about-card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(241, 247, 255, 0.78));
+    .international-layout {
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: stretch;
     }
 
-    .facility-layout {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 18px;
-    }
-
-    .facility-showcase {
-      position: relative;
-      min-height: 420px;
+    .international-shell {
+      padding: 34px;
       border-radius: 34px;
-      border: 1px dashed rgba(31, 99, 255, 0.24);
-      background:
-        linear-gradient(135deg, rgba(232, 242, 255, 0.95), rgba(249, 251, 255, 0.95)),
-        linear-gradient(180deg, rgba(31, 99, 255, 0.04), transparent 80%);
-      overflow: hidden;
-    }
-
-    .facility-showcase::before {
-      content: "";
-      position: absolute;
-      inset: 20px;
-      border-radius: 26px;
-      border: 1px solid rgba(16, 35, 63, 0.08);
-      background:
-        linear-gradient(rgba(31, 99, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(31, 99, 255, 0.04) 1px, transparent 1px);
-      background-size: 22px 22px;
-    }
-
-    .facility-badge {
-      position: absolute;
-      z-index: 1;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(16, 35, 63, 0.08);
-      box-shadow: var(--shadow-sm);
-      color: var(--primary-dark);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .facility-badge.one { top: 38px; left: 36px; }
-    .facility-badge.two { top: 122px; right: 40px; }
-    .facility-badge.three { bottom: 38px; left: 74px; }
-
-    .facility-sphere {
-      position: absolute;
-      inset: 50% auto auto 50%;
-      width: 240px;
-      height: 240px;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.8), rgba(124, 182, 255, 0.36) 45%, rgba(31, 99, 255, 0.22) 100%);
-      box-shadow: 0 24px 60px rgba(31, 99, 255, 0.18);
-    }
-
-    .facility-side {
-      display: grid;
-      gap: 18px;
-    }
-
-    .international-card {
       background:
         linear-gradient(145deg, rgba(14, 33, 61, 0.96), rgba(24, 63, 122, 0.96)),
         linear-gradient(180deg, rgba(124, 182, 255, 0.15), transparent 70%);
@@ -805,61 +827,107 @@
       box-shadow: 0 30px 70px rgba(12, 31, 56, 0.24);
     }
 
-    .international-card .eyebrow {
+    .international-shell .eyebrow {
       background: rgba(255, 255, 255, 0.08);
       color: #dce9ff;
     }
 
-    .international-card .eyebrow::before {
+    .international-shell .eyebrow::before {
       box-shadow: 0 0 0 6px rgba(124, 182, 255, 0.12);
     }
 
-    .international-card h2,
-    .international-card h3,
-    .international-card p,
-    .international-list li,
-    .international-list li span,
-    .international-list li strong {
+    .international-shell h2,
+    .international-shell p {
       color: #ffffff;
     }
 
-    .international-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .international-shell h2 {
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.04;
+      margin-bottom: 16px;
+    }
+
+    .international-points {
       display: grid;
-      gap: 14px;
+      gap: 16px;
     }
 
-    .international-list li {
-      padding: 18px 18px 18px 56px;
+    .international-point {
+      background: rgba(255, 255, 255, 0.84);
+    }
+
+    .install-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(236, 244, 255, 0.8));
       position: relative;
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
     }
 
-    .international-list li::before {
+    .install-card::after {
       content: "";
       position: absolute;
-      left: 20px;
-      top: 21px;
-      width: 18px;
-      height: 18px;
+      right: -20px;
+      bottom: -24px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #b7d7ff, #4d92ff);
-      box-shadow: 0 0 0 8px rgba(124, 182, 255, 0.1);
+      background: radial-gradient(circle, rgba(124, 182, 255, 0.3), rgba(124, 182, 255, 0));
+    }
+
+    .placeholder-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .placeholder-label::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
     }
 
     .blog-card {
+      display: flex;
+      flex-direction: column;
       min-height: 100%;
+    }
+
+    .blog-card .article-author {
+      margin-bottom: 6px;
+    }
+
+    .blog-card .article-meta {
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .blog-card .card-link {
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .blog-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      margin-top: 28px;
     }
 
     .social-card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(237, 245, 255, 0.8));
-    }
-
-    .contact-card {
-      min-height: 100%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(239, 246, 255, 0.82));
     }
 
     .contact-card strong,
@@ -871,15 +939,35 @@
       color: var(--text);
     }
 
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: rgba(31, 99, 255, 0.08);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
     .map-placeholder {
-      min-height: 280px;
-      border-radius: 28px;
+      min-height: 100%;
+      border-radius: 30px;
       border: 1px dashed rgba(31, 99, 255, 0.24);
       background:
         radial-gradient(circle at 12% 22%, rgba(124, 182, 255, 0.22), transparent 26%),
         linear-gradient(135deg, rgba(236, 244, 255, 0.94), rgba(248, 251, 255, 0.96));
       position: relative;
       overflow: hidden;
+      min-height: 420px;
     }
 
     .map-placeholder::before,
@@ -956,7 +1044,7 @@
     .cta-panel h2 {
       font-size: clamp(32px, 4vw, 50px);
       margin-bottom: 14px;
-      max-width: 12ch;
+      max-width: 13ch;
     }
 
     .footer {
@@ -1039,13 +1127,11 @@
     }
 
     .modal-head h3 {
-      margin: 0 0 8px;
+      margin-bottom: 8px;
       font-size: clamp(26px, 4vw, 34px);
-      letter-spacing: -0.03em;
     }
 
     .modal-head p {
-      margin: 0;
       color: var(--muted);
       line-height: 1.65;
     }
@@ -1108,7 +1194,6 @@
       display: block;
       margin-bottom: 8px;
       font-size: 18px;
-      letter-spacing: -0.03em;
     }
 
     .wa-option span,
@@ -1135,32 +1220,27 @@
     .stagger-4 { transition-delay: 0.26s; }
 
     @media (max-width: 1220px) {
-      .nav-links {
-        justify-content: flex-start;
-      }
-
-      .navbar-shell {
-        grid-template-columns: auto 1fr auto;
-      }
-
       .hero-grid,
       .section-head,
       .about-layout,
       .international-layout,
+      .responsibility-layout,
       .contact-layout,
-      .social-layout,
-      .cta-panel,
-      .facility-layout {
+      .cta-panel {
         grid-template-columns: 1fr;
       }
 
-      .grid-4 {
+      .team-grid,
+      .services-grid,
+      .tech-grid,
+      .blog-grid,
+      .install-grid,
+      .info-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .hero-copy h1,
-      .cta-panel h2 {
-        max-width: none;
+      .trust-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -1180,46 +1260,28 @@
       }
     }
 
-    @media (max-width: 820px) {
-      .section {
-        padding: 88px 0;
-      }
-
-      .hero {
-        padding: 48px 0 88px;
-      }
-
-      .trust-grid,
-      .grid-3,
-      .grid-2,
+    @media (max-width: 900px) {
+      .team-grid,
+      .services-grid,
+      .tech-grid,
+      .blog-grid,
+      .install-grid,
+      .info-grid,
+      .contact-grid,
+      .hero-metrics,
       .whatsapp-grid,
-      .hero-metrics {
+      .values-grid,
+      .concern-grid,
+      .trust-grid {
         grid-template-columns: 1fr;
       }
 
-      .grid-4 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-visual {
+      .hero-shell {
         min-height: auto;
       }
 
-      .hero-display {
+      .interface-display {
         height: 260px;
-      }
-
-      .hero-panel {
-        max-width: none;
-      }
-
-      .cta-panel {
-        padding: 28px;
-      }
-
-      .footer-shell {
-        flex-direction: column;
-        align-items: flex-start;
       }
     }
 
@@ -1232,13 +1294,17 @@
         width: min(calc(100% - 24px), var(--container));
       }
 
+      .section {
+        padding: 88px 0;
+      }
+
+      .hero {
+        padding: 46px 0 88px;
+      }
+
       .navbar-shell {
         gap: 12px;
         grid-template-columns: minmax(0, 1fr) auto auto;
-      }
-
-      .brand {
-        min-width: 0;
       }
 
       .brand img {
@@ -1258,11 +1324,17 @@
         align-self: flex-start;
       }
 
+      .hero-copy h1,
+      .cta-panel h2 {
+        max-width: none;
+      }
+
       .hero-copy p {
         font-size: 16px;
       }
 
-      .hero-actions {
+      .hero-actions,
+      .blog-actions {
         flex-direction: column;
         align-items: stretch;
       }
@@ -1293,20 +1365,19 @@
   <header class="navbar" id="navbar">
     <div class="container navbar-shell">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <img src="https://static.wixstatic.com/media/f119f6_6c50a58c33ec4bbbbde8b0ed30eeab4b~mv2.png/v1/crop/x_0,y_542,w_2480,h_733/fill/w_1466,h_430,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/vertical%20azul.png" alt="Odontologia Estetica">
+        <img src="https://static.wixstatic.com/media/f119f6_6c50a58c33ec4bbbbde8b0ed30eeab4b~mv2.png/v1/crop/x_0,y_542,w_2480,h_733/fill/w_1466,h_430,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/vertical%20azul.png" alt="Odontología Estética">
         <span class="brand-copy">
-          <strong data-i18n="brandName">Odontologia Estetica</strong>
-          <span data-i18n="brandTag">Clinica dental premium y especializada</span>
+          <strong data-i18n="brandName">Odontología Estética</strong>
+          <span data-i18n="brandTag">Clínica dental de alta especialidad</span>
         </span>
       </a>
 
-      <nav class="nav-links" aria-label="Navegacion principal">
+      <nav class="nav-links" aria-label="Navegación principal">
         <a href="#inicio" data-i18n="nav.home">INICIO</a>
         <a href="#profesionales" data-i18n="nav.team">PROFESIONALES</a>
         <a href="#servicios" data-i18n="nav.services">SERVICIOS</a>
         <a href="#nosotros" data-i18n="nav.about">NOSOTROS</a>
-        <a href="#tecnologia" data-i18n="nav.technology">TECNOLOGIA</a>
+        <a href="#tecnologia" data-i18n="nav.technology">TECNOLOGÍA</a>
         <a href="#instalaciones" data-i18n="nav.facilities">INSTALACIONES</a>
         <a href="#internacional" data-i18n="nav.international">INTERNATIONAL PATIENTS</a>
         <a href="#blog" data-i18n="nav.blog">BLOG</a>
@@ -1324,19 +1395,19 @@
         </button>
       </div>
 
-      <button class="menu-toggle" type="button" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobilePanel">
+      <button class="menu-toggle" type="button" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobilePanel">
         <span></span>
       </button>
     </div>
 
     <div class="container mobile-panel" id="mobilePanel">
       <div class="mobile-shell">
-        <nav class="mobile-nav" aria-label="Navegacion movil">
+        <nav class="mobile-nav" aria-label="Navegación móvil">
           <a href="#inicio" data-i18n="nav.home">INICIO</a>
           <a href="#profesionales" data-i18n="nav.team">PROFESIONALES</a>
           <a href="#servicios" data-i18n="nav.services">SERVICIOS</a>
           <a href="#nosotros" data-i18n="nav.about">NOSOTROS</a>
-          <a href="#tecnologia" data-i18n="nav.technology">TECNOLOGIA</a>
+          <a href="#tecnologia" data-i18n="nav.technology">TECNOLOGÍA</a>
           <a href="#instalaciones" data-i18n="nav.facilities">INSTALACIONES</a>
           <a href="#internacional" data-i18n="nav.international">INTERNATIONAL PATIENTS</a>
           <a href="#blog" data-i18n="nav.blog">BLOG</a>
@@ -1344,7 +1415,7 @@
           <a href="#contacto" data-i18n="nav.contact">CONTACTO</a>
         </nav>
         <div class="mobile-actions">
-          <div class="lang-toggle" role="group" aria-label="Cambiar idioma movil">
+          <div class="lang-toggle" role="group" aria-label="Cambiar idioma móvil">
             <button class="active" type="button" data-lang="es" aria-pressed="true">ES</button>
             <button type="button" data-lang="en" aria-pressed="false">EN</button>
           </div>
@@ -1360,67 +1431,77 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <span class="eyebrow" data-i18n="hero.eyebrow">Clinica dental premium en Ecuador</span>
-          <h1 data-i18n="hero.title">Odontologia estetica y especializada con enfoque humano</h1>
-          <p data-i18n="hero.subtitle">Cuidamos tu sonrisa con experiencia, tecnologia y una atencion personalizada para pacientes locales e internacionales.</p>
+          <span class="eyebrow" data-i18n="hero.eyebrow">Buenaño Dentistas · Cumbayá, Ecuador</span>
+          <h1 data-i18n="hero.title">Odontología estética y especializada con enfoque humano</h1>
+          <p data-i18n="hero.subtitle">Una clínica dental de alta especialidad en Cumbayá, donde tecnología, experiencia y atención personalizada se unen para cuidar tu salud y transformar tu sonrisa.</p>
           <div class="hero-actions">
             <button class="button button-primary" type="button" data-open-whatsapp>
               <span data-i18n="cta.whatsapp">Agendar por WhatsApp</span>
             </button>
             <a class="button button-secondary" href="#servicios" data-i18n="cta.services">Conocer servicios</a>
           </div>
+
+          <article class="quote-card reveal stagger-1">
+            <blockquote data-i18n="hero.quote">“En Buenaño Dentistas, el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.”</blockquote>
+            <cite data-i18n="hero.quoteAuthor">Francisco Buenaño — Forbes Ecuador</cite>
+          </article>
+
           <div class="trust-grid">
             <article class="trust-card reveal stagger-1">
-              <strong data-i18n="trust.one.title">Atencion especializada</strong>
-              <span data-i18n="trust.one.desc">Protocolos clinicos claros, diagnostico cuidadoso y seguimiento personalizado.</span>
+              <strong data-i18n="trust.one.title">18 años de experiencia</strong>
+              <span data-i18n="trust.one.desc">Una trayectoria construida con cercanía, formación constante y criterio clínico.</span>
             </article>
             <article class="trust-card reveal stagger-2">
-              <strong data-i18n="trust.two.title">Tecnologia moderna</strong>
-              <span data-i18n="trust.two.desc">Procesos mas precisos para una experiencia segura, comoda y actual.</span>
+              <strong data-i18n="trust.two.title">Alta especialidad</strong>
+              <span data-i18n="trust.two.desc">Un equipo preparado para abordar casos integrales con precisión y cuidado.</span>
             </article>
             <article class="trust-card reveal stagger-3">
-              <strong data-i18n="trust.three.title">Pacientes internacionales</strong>
-              <span data-i18n="trust.three.desc">Coordinacion previa por WhatsApp y planificacion antes del viaje.</span>
+              <strong data-i18n="trust.three.title">Tecnología digital</strong>
+              <span data-i18n="trust.three.desc">Herramientas que mejoran el diagnóstico, la planificación y la comodidad del paciente.</span>
             </article>
             <article class="trust-card reveal stagger-4">
-              <strong data-i18n="trust.four.title">Enfoque estetico y funcional</strong>
-              <span data-i18n="trust.four.desc">Resultados naturales que combinan salud oral, armonia y confianza.</span>
+              <strong data-i18n="trust.four.title">Atención personalizada</strong>
+              <span data-i18n="trust.four.desc">Cada tratamiento se adapta al paciente, no al revés.</span>
+            </article>
+            <article class="trust-card reveal stagger-4">
+              <strong data-i18n="trust.five.title">Pacientes locales e internacionales</strong>
+              <span data-i18n="trust.five.desc">Coordinación clara antes, durante y después de cada tratamiento.</span>
             </article>
           </div>
         </div>
 
-        <div class="hero-visual reveal stagger-2" aria-hidden="true">
+        <div class="hero-shell reveal stagger-2" aria-hidden="true">
           <div class="hero-frame">
-            <div class="hero-panel top">
-              <strong data-i18n="hero.panel.top.title">Experiencia premium</strong>
-              <span data-i18n="hero.panel.top.desc">Una interfaz visual limpia para transmitir precision, confianza y cuidado medico.</span>
+            <div class="interface-panel top">
+              <strong data-i18n="hero.panel.top.title">Interfaz clínica clara</strong>
+              <span data-i18n="hero.panel.top.desc">Un lenguaje visual sobrio para comunicar precisión, confianza y atención médica.</span>
             </div>
 
-            <div class="hero-display">
-              <!-- Aqui puede integrarse una imagen principal del consultorio o del equipo en una siguiente version. -->
-              <span class="floating-tag one" data-i18n="hero.tag.one">Precision digital</span>
-              <span class="floating-tag two" data-i18n="hero.tag.two">Atencion personalizada</span>
-              <span class="floating-tag three" data-i18n="hero.tag.three">Resultados naturales</span>
-              <span class="display-orb"></span>
+            <div class="interface-display">
+              <!-- Reemplazar este bloque visual abstracto con fotografía editorial del consultorio o del equipo -->
+              <span class="floating-note one" data-i18n="hero.tag.one">Planificación digital</span>
+              <span class="floating-note two" data-i18n="hero.tag.two">Atención personalizada</span>
+              <span class="floating-note three" data-i18n="hero.tag.three">Resultados naturales</span>
+              <span class="orb"></span>
             </div>
 
-            <div class="hero-panel">
-              <strong data-i18n="hero.panel.bottom.title">Primera impresion confiable</strong>
-              <span data-i18n="hero.panel.bottom.desc">Diseño pensado para presentar la clinica como una propuesta moderna, clara y lista para evolucionar con imagenes reales.</span>
+            <div class="interface-panel">
+              <strong data-i18n="hero.panel.bottom.title">Primera impresión confiable</strong>
+              <span data-i18n="hero.panel.bottom.desc">La estructura prepara una presentación elegante mientras se integran imágenes reales en una siguiente etapa.</span>
             </div>
 
             <div class="hero-metrics">
               <article class="metric-card">
-                <strong data-i18n="hero.metric.one.value">01</strong>
-                <span data-i18n="hero.metric.one.label">Diagnostico claro</span>
+                <strong>18+</strong>
+                <span data-i18n="hero.metric.one.label">Años de práctica clínica</span>
               </article>
               <article class="metric-card">
-                <strong data-i18n="hero.metric.two.value">02</strong>
-                <span data-i18n="hero.metric.two.label">Plan de tratamiento</span>
+                <strong>09</strong>
+                <span data-i18n="hero.metric.two.label">Especialistas destacados</span>
               </article>
               <article class="metric-card">
-                <strong data-i18n="hero.metric.three.value">03</strong>
-                <span data-i18n="hero.metric.three.label">Seguimiento cercano</span>
+                <strong>24/7</strong>
+                <span data-i18n="hero.metric.three.label">Coordinación ágil por WhatsApp</span>
               </article>
             </div>
           </div>
@@ -1433,35 +1514,125 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow" data-i18n="team.eyebrow">Profesionales</span>
-            <h2 data-i18n="team.title">Equipo medico con presencia serena, criterio clinico y enfoque estetico</h2>
+            <h2 data-i18n="team.title">Un equipo de especialistas enfocado en brindar atención integral, personalizada y de alta precisión.</h2>
           </div>
-          <p data-i18n="team.intro">Esta primera propuesta utiliza perfiles sin fotografia para mantener una imagen consistente mientras se define la sesion visual final del equipo.</p>
+          <p data-i18n="team.intro">La estructura está diseñada para incorporar fotografías reales más adelante sin perder orden ni jerarquía visual.</p>
         </div>
 
-        <div class="grid-4">
+        <div class="team-grid">
           <article class="team-card reveal stagger-1">
-            <div class="team-avatar">DR</div>
-            <span class="team-meta" data-i18n="team.card.one.role">Odontologia estetica</span>
-            <h3 data-i18n="team.card.one.name">Nombre del profesional</h3>
-            <p data-i18n="team.card.one.desc">Especialista en armonia de sonrisa, evaluacion integral y tratamientos con criterio estetico y funcional.</p>
+            <div class="team-avatar">GC</div>
+            <span class="team-role">Ortodoncia / Invisalign</span>
+            <h3>Dra. Gabriela Calderón Montalvo</h3>
+            <ul class="team-list">
+              <li>Doctora en Odontología — USFQ</li>
+              <li>Especialista en Ortodoncia y Ortopedia Máxilofacial</li>
+              <li>Universidad Javeriana de Colombia</li>
+            </ul>
+            <span class="team-area">Área: Ortodoncia / Invisalign</span>
+            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
           </article>
+
           <article class="team-card reveal stagger-2">
-            <div class="team-avatar">IM</div>
-            <span class="team-meta" data-i18n="team.card.two.role">Implantologia oral</span>
-            <h3 data-i18n="team.card.two.name">Nombre del profesional</h3>
-            <p data-i18n="team.card.two.desc">Enfoque en rehabilitacion precisa, planificacion digital y recuperacion predecible para cada caso.</p>
+            <div class="team-avatar">AP</div>
+            <span class="team-role">Endodoncia</span>
+            <h3>Dra. Andrea Ponce</h3>
+            <ul class="team-list">
+              <li>Doctora en Odontología — USFQ</li>
+              <li>Especialista en Endodoncia</li>
+              <li>Universidad Javeriana de Colombia</li>
+            </ul>
+            <span class="team-area">Área: Endodoncia</span>
+            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
           </article>
+
           <article class="team-card reveal stagger-3">
-            <div class="team-avatar">OR</div>
-            <span class="team-meta" data-i18n="team.card.three.role">Ortodoncia</span>
-            <h3 data-i18n="team.card.three.name">Nombre del profesional</h3>
-            <p data-i18n="team.card.three.desc">Correccion funcional y estetica con tratamientos pensados para confort, control y resultados progresivos.</p>
+            <div class="team-avatar">NC</div>
+            <span class="team-role">Endodoncia</span>
+            <h3>Dr. Nicolás Castrillón</h3>
+            <ul class="team-list">
+              <li>Doctor en Odontología</li>
+              <li>Especialista en Endodoncia</li>
+              <li>Universidad Javeriana de Colombia</li>
+            </ul>
+            <span class="team-area">Área: Endodoncia</span>
+            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
           </article>
+
           <article class="team-card reveal stagger-4">
-            <div class="team-avatar">RE</div>
-            <span class="team-meta" data-i18n="team.card.four.role">Rehabilitacion oral</span>
-            <h3 data-i18n="team.card.four.name">Nombre del profesional</h3>
-            <p data-i18n="team.card.four.desc">Experiencia en casos integrales con una mirada coordinada entre salud oral, funcion y apariencia natural.</p>
+            <div class="team-avatar">MG</div>
+            <span class="team-role">Implantes dentales</span>
+            <h3>Dra. María Elisa Galárraga</h3>
+            <ul class="team-list">
+              <li>Doctora en Odontología — USFQ</li>
+              <li>Especialista en Implantes Dentales</li>
+              <li>Universidad Federal de Santa Catarina · Goethe University Frankfurt</li>
+            </ul>
+            <span class="team-area">Área: Implantes Dentales</span>
+            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
+          </article>
+
+          <article class="team-card reveal stagger-1">
+            <div class="team-avatar">GG</div>
+            <span class="team-role">Periodoncia</span>
+            <h3>Dra. Gabriela Guerra</h3>
+            <ul class="team-list">
+              <li>Doctora en Odontología — Universidad Central del Ecuador</li>
+              <li>Especialista en Periodoncia</li>
+              <li>Universidad Javeriana de Bogotá</li>
+            </ul>
+            <span class="team-area">Área: Periodoncia</span>
+            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
+          </article>
+
+          <article class="team-card reveal stagger-2">
+            <div class="team-avatar">FB</div>
+            <span class="team-role">Rehabilitación Bucal Estética e Implantes</span>
+            <h3>Dr. Francisco Buenaño Herrera</h3>
+            <ul class="team-list">
+              <li>Doctor en Odontología — Universidad Central del Ecuador</li>
+              <li>Especialista en Rehabilitación Bucal Estética</li>
+              <li>Universidad Nacional Autónoma de México</li>
+            </ul>
+            <span class="team-area">Área: Rehabilitación Bucal Estética e Implantes</span>
+            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
+          </article>
+
+          <article class="team-card reveal stagger-3">
+            <div class="team-avatar">IS</div>
+            <span class="team-role">Odontopediatría</span>
+            <h3>Isabel Salazar</h3>
+            <ul class="team-list">
+              <li>Especialista en Odontopediatría</li>
+              <li>Universidad San Francisco de Quito</li>
+            </ul>
+            <span class="team-area">Área: Odontopediatría</span>
+            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
+          </article>
+
+          <article class="team-card reveal stagger-4">
+            <div class="team-avatar">AP</div>
+            <span class="team-role">Odontopediatría</span>
+            <h3>Alejandro Palafox</h3>
+            <ul class="team-list">
+              <li>Especialista en Odontopediatría</li>
+              <li>Universidad Autónoma de Nuevo León</li>
+            </ul>
+            <span class="team-area">Área: Odontopediatría</span>
+            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
+          </article>
+
+          <article class="team-card reveal stagger-1">
+            <div class="team-avatar">KR</div>
+            <span class="team-role">Perfil en actualización</span>
+            <h3>Karla Rodríguez Anda</h3>
+            <ul class="team-list">
+              <li>Área profesional por completar</li>
+              <li>Espacio reservado para formación y trayectoria</li>
+              <li>Placeholder elegante para futura actualización</li>
+            </ul>
+            <span class="team-area">Área: por completar</span>
+            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
           </article>
         </div>
       </div>
@@ -1472,58 +1643,93 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow" data-i18n="services.eyebrow">Servicios</span>
-            <h2 data-i18n="services.title">Tratamientos presentados con claridad, confianza y valor estetico</h2>
+            <h2 data-i18n="services.title">Tratamientos integrales para cuidar, restaurar y transformar tu sonrisa.</h2>
           </div>
-          <p data-i18n="services.intro">Las cards priorizan comprension inmediata, tono medico profesional y una conversion simple hacia WhatsApp para consultas o coordinacion.</p>
+          <p data-i18n="services.intro">La información se organiza en bloques claros para que el paciente entienda rápidamente qué hace la clínica y cómo puede iniciar su tratamiento.</p>
         </div>
 
-        <div class="grid-4">
+        <div class="services-grid">
           <article class="service-card reveal stagger-1">
             <div class="service-icon">01</div>
-            <h3 data-i18n="services.card.one.title">Diseño de sonrisa</h3>
-            <p data-i18n="services.card.one.desc">Planificacion estetica enfocada en proporciones, armonia facial y resultados naturales.</p>
+            <h3>Rehabilitación Bucal e Implantes</h3>
+            <p>Recuperamos la función, estética y equilibrio de tu sonrisa mediante tratamientos personalizados de rehabilitación oral e implantes dentales.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-2">
             <div class="service-icon">02</div>
-            <h3 data-i18n="services.card.two.title">Implantes dentales</h3>
-            <p data-i18n="services.card.two.desc">Soluciones restaurativas con estabilidad, precision diagnostica y plan de recuperacion claro.</p>
+            <h3>Implantes Dentales</h3>
+            <p>Una solución eficaz para reemplazar uno o varios dientes perdidos, evitando prótesis removibles o el desgaste de piezas vecinas.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-3">
             <div class="service-icon">03</div>
-            <h3 data-i18n="services.card.three.title">Ortodoncia</h3>
-            <p data-i18n="services.card.three.desc">Correccion funcional y estetica para alinear la sonrisa con comodidad y seguimiento profesional.</p>
+            <h3>Odontología Estética</h3>
+            <p>Podemos hacer realidad la sonrisa que siempre has deseado. Forma, color y alineación pueden transformarse usando materiales de alta calidad.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-4">
             <div class="service-icon">04</div>
-            <h3 data-i18n="services.card.four.title">Rehabilitacion oral</h3>
-            <p data-i18n="services.card.four.desc">Tratamientos integrales para recuperar funcion, estabilidad y apariencia dental.</p>
+            <h3>Endodoncia</h3>
+            <p>Tratamientos especializados para conservar piezas dentales afectadas y aliviar molestias de origen dental.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-1">
             <div class="service-icon">05</div>
-            <h3 data-i18n="services.card.five.title">Blanqueamiento dental</h3>
-            <p data-i18n="services.card.five.desc">Alternativas profesionales para iluminar la sonrisa de forma segura y controlada.</p>
+            <h3>Periodoncia</h3>
+            <p>Cuidado de las encías y tejidos de soporte para mantener una sonrisa saludable y estable a largo plazo.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-2">
             <div class="service-icon">06</div>
-            <h3 data-i18n="services.card.six.title">Odontologia general</h3>
-            <p data-i18n="services.card.six.desc">Prevencion, diagnostico y tratamientos de base para una salud oral sostenible.</p>
+            <h3>Ortodoncia</h3>
+            <p>Corrección de la posición dental y mordida mediante tratamientos modernos, incluyendo Invisalign.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-3">
             <div class="service-icon">07</div>
-            <h3 data-i18n="services.card.seven.title">Periodoncia</h3>
-            <p data-i18n="services.card.seven.desc">Atencion especializada para tejidos de soporte con enfoque preventivo y terapeutico.</p>
+            <h3>Odontopediatría</h3>
+            <p>Atención odontológica especializada para niños, con un enfoque cercano, preventivo y cuidadoso.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
-          <article class="service-card reveal stagger-4">
-            <div class="service-icon">08</div>
-            <h3 data-i18n="services.card.eight.title">Endodoncia</h3>
-            <p data-i18n="services.card.eight.desc">Procedimientos precisos para conservar piezas dentales y aliviar el dolor a tiempo.</p>
+        </div>
+
+        <div class="cluster-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="services.support.eyebrow">Qué podemos ayudarte a resolver</span>
+            <h3 data-i18n="services.support.title">Problemas frecuentes explicados con claridad y sin sobrecargar la lectura.</h3>
+          </div>
+          <p data-i18n="services.support.text">Estos bloques convierten textos largos en una experiencia más ordenada, útil y fácil de recorrer desde móvil.</p>
+        </div>
+
+        <div class="concern-grid">
+          <article class="concern-card reveal stagger-1">
+            <div class="concern-icon">DB</div>
+            <h3>Dientes blancos y bellos</h3>
+            <p>Podemos hacer realidad la sonrisa que siempre has deseado. Forma, color y alineación pueden cambiar usando los mejores materiales disponibles.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="concern-card reveal stagger-2">
+            <div class="concern-icon">RD</div>
+            <h3>Reemplazar dientes perdidos</h3>
+            <p>La pérdida de un órgano dental puede ser el inicio de la pérdida del equilibrio en la boca. Por medio de coronas y puentes de apariencia natural, podemos recuperar tu salud y tu sonrisa.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="concern-card reveal stagger-3">
+            <div class="concern-icon">ND</div>
+            <h3>Uno o todos tus dientes nuevos</h3>
+            <p>Los implantes dentales son una solución eficaz ante la ausencia de uno o varios dientes. Permiten evitar prótesis removibles o el desgaste de piezas vecinas para colocar un puente.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="concern-card reveal stagger-4">
+            <div class="concern-icon">ATM</div>
+            <h3>¿Dolor al abrir o cerrar la boca?</h3>
+            <p>Dolor cerca del oído, dificultad al abrir o cerrar la boca y ruidos al masticar pueden ser síntomas de trastornos de la articulación temporomandibular. Estamos preparados para ayudarte a restablecer tu salud.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="concern-card reveal stagger-1">
+            <div class="concern-icon">CS</div>
+            <h3>Comodidad y seguridad</h3>
+            <p>Cuando todos los dientes se han perdido, las prótesis dentales pueden ser una solución. Cuando el soporte no es suficiente, los implantes dentales pueden brindar mayor fijación, función y seguridad.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
         </div>
@@ -1533,22 +1739,29 @@
     <section class="section" id="nosotros">
       <div class="container about-layout">
         <div class="about-copy reveal">
-          <span class="eyebrow" data-i18n="about.eyebrow">Nosotros</span>
-          <h2 data-i18n="about.title">Una clinica orientada a confianza, criterio profesional y resultados naturales</h2>
-          <p data-i18n="about.text">La propuesta transmite una marca medica actual: experiencia clinica, atencion personalizada, etica profesional, tecnologia util y una forma de comunicar resultados con serenidad y precision.</p>
+          <div>
+            <span class="eyebrow" data-i18n="about.eyebrow">Nosotros</span>
+            <h2 data-i18n="about.title">Una clínica construida con cercanía, formación constante y confianza a largo plazo.</h2>
+          </div>
+          <p data-i18n="about.text.one">Hoy, después de 18 años, lo que inició como un sueño se ha convertido en una práctica profesional de alta especialidad que brinda atención integral, se mantiene en constante preparación y cuenta con los elementos tecnológicos que una clínica moderna de nivel mundial debe tener.</p>
+          <p data-i18n="about.text.two">Hemos tenido muchos cambios, pero en esencia seguimos siendo los mismos. Aunque hemos incorporado la tecnología paso a paso, mantenemos una práctica basada en servicio personalizado, cercanía y confianza. Nuestros pacientes se han convertido en amigos; han visto nuestro crecimiento y han compartido con nosotros hitos importantes de sus vidas.</p>
         </div>
-        <div class="about-stack">
-          <article class="about-card reveal stagger-1">
-            <h3 data-i18n="about.card.one.title">Atencion humana</h3>
-            <p data-i18n="about.card.one.desc">Cada paso del tratamiento debe sentirse claro, acompanado y adaptado a las necesidades reales del paciente.</p>
+        <div class="values-grid">
+          <article class="value-card reveal stagger-1">
+            <h3 data-i18n="about.card.one.title">Atención personalizada</h3>
+            <p data-i18n="about.card.one.desc">Escuchar, acompañar y explicar cada tratamiento forma parte de la experiencia clínica.</p>
           </article>
-          <article class="about-card reveal stagger-2">
-            <h3 data-i18n="about.card.two.title">Decision clinica responsable</h3>
-            <p data-i18n="about.card.two.desc">El diseño visual apoya una promesa seria: recomendar solo lo indicado con transparencia y criterio medico.</p>
+          <article class="value-card reveal stagger-2">
+            <h3 data-i18n="about.card.two.title">Alta especialidad</h3>
+            <p data-i18n="about.card.two.desc">Casos complejos atendidos por especialistas con enfoque coordinado e integral.</p>
           </article>
-          <article class="about-card reveal stagger-3">
-            <h3 data-i18n="about.card.three.title">Estetica sin excesos</h3>
-            <p data-i18n="about.card.three.desc">Resultados que se vean limpios, naturales y coherentes con la funcion oral de largo plazo.</p>
+          <article class="value-card reveal stagger-3">
+            <h3 data-i18n="about.card.three.title">Tecnología moderna</h3>
+            <p data-i18n="about.card.three.desc">Recursos digitales y materiales actuales al servicio de decisiones más precisas.</p>
+          </article>
+          <article class="value-card reveal stagger-4">
+            <h3 data-i18n="about.card.four.title">Confianza a largo plazo</h3>
+            <p data-i18n="about.card.four.desc">Una relación sostenida en el tiempo, basada en claridad, ética profesional y seguimiento.</p>
           </article>
         </div>
       </div>
@@ -1558,32 +1771,52 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="eyebrow" data-i18n="technology.eyebrow">Tecnologia</span>
-            <h2 data-i18n="technology.title">Tecnologia explicada como una ventaja real para el paciente</h2>
+            <span class="eyebrow" data-i18n="technology.eyebrow">Tecnología</span>
+            <h2 data-i18n="technology.title">Tecnología digital y materiales de última generación al servicio de tratamientos más precisos, cómodos y naturales.</h2>
           </div>
-          <p data-i18n="technology.intro">La seccion prioriza lenguaje claro y beneficios concretos: precision, comodidad, tiempos mejor coordinados y mejor toma de decisiones.</p>
+          <p data-i18n="technology.intro">La tecnología se presenta como una herramienta clínica concreta: mejora la experiencia del paciente y aporta precisión en la planificación y ejecución.</p>
         </div>
 
-        <div class="grid-4">
+        <div class="tech-grid">
           <article class="tech-card reveal stagger-1">
-            <div class="tech-icon">PX</div>
-            <h3 data-i18n="technology.card.one.title">Planificacion digital</h3>
-            <p data-i18n="technology.card.one.desc">Visualizacion mas clara de objetivos esteticos y restaurativos antes de iniciar el tratamiento.</p>
+            <div class="tech-icon">EM</div>
+            <h3>EMAX CAD</h3>
+            <p>Disilicato de litio de última generación, diseñado y producido digitalmente.</p>
           </article>
           <article class="tech-card reveal stagger-2">
-            <div class="tech-icon">DX</div>
-            <h3 data-i18n="technology.card.two.title">Diagnostico moderno</h3>
-            <p data-i18n="technology.card.two.desc">Herramientas que ayudan a evaluar mejor cada caso y a comunicarlo con mayor precision.</p>
+            <div class="tech-icon">CH</div>
+            <h3>Cerámica híbrida</h3>
+            <p>Polímero con características físicas similares a la estructura dental, ideal para casos seleccionados.</p>
           </article>
           <article class="tech-card reveal stagger-3">
-            <div class="tech-icon">PR</div>
-            <h3 data-i18n="technology.card.three.title">Tratamientos precisos</h3>
-            <p data-i18n="technology.card.three.desc">Procesos orientados a consistencia clinica y resultados mejor controlados.</p>
+            <div class="tech-icon">TR</div>
+            <h3>Trios by 3Shape</h3>
+            <p>Impresiones digitales que reemplazan materiales tradicionales, ofreciendo mayor comodidad, precisión y velocidad.</p>
           </article>
           <article class="tech-card reveal stagger-4">
-            <div class="tech-icon">CM</div>
-            <h3 data-i18n="technology.card.four.title">Experiencia mas comoda</h3>
-            <p data-i18n="technology.card.four.desc">Una atencion mejor coordinada reduce friccion y transmite seguridad desde la primera visita.</p>
+            <div class="tech-icon">IN</div>
+            <h3>Invisalign</h3>
+            <p>El futuro de la ortodoncia: alineadores transparentes, planificación digital y mayor comodidad.</p>
+          </article>
+          <article class="tech-card reveal stagger-1">
+            <div class="tech-icon">IT</div>
+            <h3>iTero</h3>
+            <p>Digitalización, planificación y presentación de casos Invisalign con un escáner diseñado específicamente para ello.</p>
+          </article>
+          <article class="tech-card reveal stagger-2">
+            <div class="tech-icon">ZR</div>
+            <h3>Zirconia de alta translucidez</h3>
+            <p>Uno de los materiales más resistentes y naturales disponibles actualmente.</p>
+          </article>
+          <article class="tech-card reveal stagger-3">
+            <div class="tech-icon">CG</div>
+            <h3>Cirugía guiada</h3>
+            <p>Mayor precisión en las intervenciones y recuperación más rápida gracias a tecnología digital y tomografía 3D.</p>
+          </article>
+          <article class="tech-card reveal stagger-4">
+            <div class="tech-icon">3D</div>
+            <h3>Impresión 3D de dispositivos médicos</h3>
+            <p>Dispositivos en resinas biocompatibles específicas para uso dental, aprobadas por la FDA.</p>
           </article>
         </div>
       </div>
@@ -1594,67 +1827,90 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow" data-i18n="facilities.eyebrow">Instalaciones</span>
-            <h2 data-i18n="facilities.title">Espacios pensados para una futura galeria visual, sin que la seccion se sienta vacia</h2>
+            <h2 data-i18n="facilities.title">Un espacio diseñado para que cada paciente se sienta cómodo, seguro y atendido con excelencia.</h2>
           </div>
-          <p data-i18n="facilities.intro">La composicion se plantea como un placeholder premium: permite presentar la idea del espacio clinico mientras se prepara la direccion fotografica adecuada.</p>
+          <p data-i18n="facilities.intro">La galería queda preparada para incorporar fotografías reales sin alterar la estructura visual del sitio.</p>
         </div>
 
-        <div class="facility-layout">
-          <div class="facility-showcase reveal">
-            <!-- Aqui puede integrarse una futura galeria de fotografias del consultorio, recepcion o boxes clinicos. -->
-            <span class="facility-badge one" data-i18n="facilities.badge.one">Recepcion premium</span>
-            <span class="facility-badge two" data-i18n="facilities.badge.two">Boxes especializados</span>
-            <span class="facility-badge three" data-i18n="facilities.badge.three">Experiencia cuidada</span>
-            <span class="facility-sphere"></span>
-          </div>
-          <div class="facility-side">
-            <article class="facility-card reveal stagger-1">
-              <h3 data-i18n="facilities.card.one.title">Gallery coming soon</h3>
-              <p data-i18n="facilities.card.one.desc">Un lugar reservado para mostrar arquitectura, equipos y detalles del entorno clinico.</p>
-            </article>
-            <article class="facility-card reveal stagger-2">
-              <h3 data-i18n="facilities.card.two.title">Direccion visual definida</h3>
-              <p data-i18n="facilities.card.two.desc">La estructura ya prepara encuadres, bloques y ritmo para insertar imagenes reales despues.</p>
-            </article>
-            <article class="facility-card reveal stagger-3">
-              <h3 data-i18n="facilities.card.three.title">Presentacion intencional</h3>
-              <p data-i18n="facilities.card.three.desc">La ausencia de fotos se convierte en una decision de diseño, no en un vacio de contenido.</p>
-            </article>
-          </div>
+        <!-- Reemplazar estos placeholders con imágenes reales de las instalaciones -->
+        <div class="install-grid">
+          <article class="install-card reveal stagger-1">
+            <div>
+              <div class="install-icon">01</div>
+              <h3>Recepción</h3>
+              <p>Espacio pensado para una llegada ordenada, amable y tranquila.</p>
+            </div>
+            <span class="placeholder-label">Placeholder editorial</span>
+          </article>
+          <article class="install-card reveal stagger-2">
+            <div>
+              <div class="install-icon">02</div>
+              <h3>Consultorios</h3>
+              <p>Ambientes clínicos listos para mostrar limpieza, precisión y confort.</p>
+            </div>
+            <span class="placeholder-label">Placeholder editorial</span>
+          </article>
+          <article class="install-card reveal stagger-3">
+            <div>
+              <div class="install-icon">03</div>
+              <h3>Área digital</h3>
+              <p>Zona ideal para escáneres, planificación y recursos tecnológicos.</p>
+            </div>
+            <span class="placeholder-label">Placeholder editorial</span>
+          </article>
+          <article class="install-card reveal stagger-4">
+            <div>
+              <div class="install-icon">04</div>
+              <h3>Sala de espera</h3>
+              <p>Un entorno sobrio y cómodo que acompaña la experiencia del paciente.</p>
+            </div>
+            <span class="placeholder-label">Placeholder editorial</span>
+          </article>
+          <article class="install-card reveal stagger-1">
+            <div>
+              <div class="install-icon">05</div>
+              <h3>Laboratorio / tecnología</h3>
+              <p>Un bloque visual para mostrar materiales, flujos digitales y equipamiento.</p>
+            </div>
+            <span class="placeholder-label">Placeholder editorial</span>
+          </article>
+          <article class="install-card reveal stagger-2">
+            <div>
+              <div class="install-icon">06</div>
+              <h3>Vista YOO Cumbayá</h3>
+              <p>Espacio reservado para reforzar ubicación, contexto y entorno de la clínica.</p>
+            </div>
+            <span class="placeholder-label">Placeholder editorial</span>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="internacional">
       <div class="container international-layout">
-        <article class="international-card reveal">
+        <article class="international-shell reveal">
           <span class="eyebrow" data-i18n="international.eyebrow">International Patients</span>
           <h2 data-i18n="international.title">Personalized dental care for international patients visiting Ecuador.</h2>
-          <p data-i18n="international.text">We designed this section to feel premium, clear and easy to understand for patients planning their visit before arriving in Ecuador.</p>
-          <ul class="international-list">
-            <li><strong data-i18n="international.item.one">Treatment planning before arrival</strong></li>
-            <li><strong data-i18n="international.item.two">WhatsApp communication</strong></li>
-            <li><strong data-i18n="international.item.three">Appointment coordination</strong></li>
-            <li><strong data-i18n="international.item.four">Aesthetic and restorative dentistry</strong></li>
-          </ul>
-          <div style="margin-top:22px;">
+          <p data-i18n="international.text">A clear and reassuring introduction for patients who want to coordinate their visit before traveling to Cumbayá.</p>
+          <div style="margin-top: 24px;">
             <button class="button button-primary" type="button" data-open-whatsapp>
               <span data-i18n="international.cta">Contact us on WhatsApp</span>
             </button>
           </div>
         </article>
-        <div class="about-stack">
-          <article class="about-card reveal stagger-1">
-            <h3 data-i18n="international.side.one.title">Coordination before travel</h3>
-            <p data-i18n="international.side.one.desc">Useful for explaining how the clinic can organize conversations, evaluation and scheduling before the patient arrives.</p>
+
+        <div class="international-points">
+          <article class="international-point reveal stagger-1">
+            <h3>MULTILINGUAL STAFF</h3>
+            <p>Our staff can welcome you in four languages: Spanish, French, English and German.</p>
           </article>
-          <article class="about-card reveal stagger-2">
-            <h3 data-i18n="international.side.two.title">Presentacion bilingue</h3>
-            <p data-i18n="international.side.two.desc">El switch visible ES/EN ayuda a comunicar confianza tanto a pacientes locales como internacionales.</p>
+          <article class="international-point reveal stagger-2">
+            <h3>CUTTING EDGE TECHNOLOGY AND MATERIALS</h3>
+            <p>Intraoral scanner, CBCT technology, Emax laboratory, laser dentistry and digital dentistry resources under the same roof.</p>
           </article>
-          <article class="about-card reveal stagger-3">
-            <h3 data-i18n="international.side.three.title">Primera impresion premium</h3>
-            <p data-i18n="international.side.three.desc">Una estructura clara, motion suave y jerarquia precisa refuerzan calidad antes de agendar.</p>
+          <article class="international-point reveal stagger-3">
+            <h3>LOCATION</h3>
+            <p>Located in Cumbayá, approximately 25 minutes from the international airport, close to fine restaurants, shopping areas and surrounded by nature and warm weather.</p>
           </article>
         </div>
       </div>
@@ -1665,121 +1921,142 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow" data-i18n="blog.eyebrow">Blog</span>
-            <h2 data-i18n="blog.title">Contenido educativo para reforzar autoridad, prevencion y confianza</h2>
+            <h2 data-i18n="blog.title">Contenido para pacientes que buscan tomar mejores decisiones sobre su salud oral.</h2>
           </div>
-          <p data-i18n="blog.intro">Las primeras publicaciones estan planteadas como tarjetas editoriales limpias, faciles de ampliar mas adelante con imagenes o articulos completos.</p>
+          <p data-i18n="blog.intro">La home destaca una selección breve de artículos para mantener ligereza visual y dejar el resto del contenido en la página completa del blog.</p>
         </div>
 
-        <div class="grid-3">
+        <div class="blog-grid">
           <article class="blog-card reveal stagger-1">
             <div class="blog-icon">01</div>
-            <span class="card-meta" data-i18n="blog.card.one.meta">Odontologia estetica</span>
-            <h3 data-i18n="blog.card.one.title">¿Cuando considerar un diseño de sonrisa?</h3>
-            <p data-i18n="blog.card.one.desc">Una guia inicial para detectar cuando conviene evaluar cambios esteticos y funcionales de forma responsable.</p>
+            <span class="article-author">Francisco Buenaño Herrera</span>
+            <span class="article-meta">19 mar · 3 min de lectura</span>
+            <h3>Oil pulling con aceite de coco: entre la tendencia viral y la evidencia científica</h3>
+            <p>Un análisis claro sobre una práctica difundida en redes y lo que realmente dice la evidencia disponible.</p>
+            <a class="card-link" href="https://www.odontologiaestetica.com.ec/post/oil-pulling-con-aceite-de-coco-entre-la-tendencia-viral-y-la-evidencia-cient%C3%ADfica" target="_blank" rel="noreferrer noopener" data-i18n="blog.read">Leer artículo</a>
           </article>
           <article class="blog-card reveal stagger-2">
             <div class="blog-icon">02</div>
-            <span class="card-meta" data-i18n="blog.card.two.meta">Prevencion</span>
-            <h3 data-i18n="blog.card.two.title">Beneficios de una evaluacion odontologica preventiva</h3>
-            <p data-i18n="blog.card.two.desc">Contenido orientado a educar y a posicionar a la clinica como aliada del cuidado continuo.</p>
+            <span class="article-author">Francisco Buenaño Herrera</span>
+            <span class="article-meta">8 feb · 2 min de lectura</span>
+            <h3>Más mitos que verdades sobre el mouth taping</h3>
+            <p>Una lectura breve sobre riesgos, promesas exageradas y contexto clínico detrás de esta tendencia.</p>
+            <a class="card-link" href="https://www.odontologiaestetica.com.ec/post/mouth-taping-riesgos-evidencia-cientifica" target="_blank" rel="noreferrer noopener" data-i18n="blog.read">Leer artículo</a>
           </article>
           <article class="blog-card reveal stagger-3">
             <div class="blog-icon">03</div>
-            <span class="card-meta" data-i18n="blog.card.three.meta">Tecnologia dental</span>
-            <h3 data-i18n="blog.card.three.title">Tecnologia dental y tratamientos mas precisos</h3>
-            <p data-i18n="blog.card.three.desc">Una pieza para explicar valor clinico sin tecnicismos innecesarios y con tono contemporaneo.</p>
+            <span class="article-author">Francisco Buenaño Herrera</span>
+            <span class="article-meta">Artículo destacado</span>
+            <h3>Carbón activado para el blanqueamiento dental, pros y contras</h3>
+            <p>Contenido orientado a desmontar promesas fáciles y ayudar al paciente a decidir con información útil.</p>
+            <a class="card-link" href="https://www.odontologiaestetica.com.ec/blog" target="_blank" rel="noreferrer noopener" data-i18n="blog.read">Leer artículo</a>
           </article>
+          <article class="blog-card reveal stagger-4">
+            <div class="blog-icon">04</div>
+            <span class="article-author">Francisco Buenaño Herrera</span>
+            <span class="article-meta">Artículo destacado</span>
+            <h3>FORBES: La clínica de clase mundial con un modelo de desarrollo sostenible</h3>
+            <p>Una pieza editorial que conecta visión clínica, experiencia del paciente y compromiso institucional.</p>
+            <a class="card-link" href="https://www.forbes.com.ec/brandvoice/la-clinica-dental-clase-mundial-modelo-desarrollo-sostenible-quito-n31191" target="_blank" rel="noreferrer noopener" data-i18n="blog.read">Leer artículo</a>
+          </article>
+        </div>
+
+        <div class="blog-actions reveal">
+          <p>Otros temas del blog incluyen el cuidado dental y el vino, las diferencias entre un puente dental y un implante, y la decisión entre carillas u ortodoncia.</p>
+          <a class="button button-secondary" href="https://www.odontologiaestetica.com.ec/blog" target="_blank" rel="noreferrer noopener" data-i18n="blog.more">Ver todos los artículos</a>
         </div>
       </div>
     </section>
 
     <section class="section" id="responsabilidad">
-      <div class="container social-layout">
-        <div class="reveal">
-          <span class="eyebrow" data-i18n="social.eyebrow">Responsabilidad social</span>
-          <h2 data-i18n="social.title">Prevencion, educacion y compromiso con la comunidad</h2>
-          <p data-i18n="social.text">Esta seccion presenta a la clinica como una institucion cercana, informada y consciente del impacto que tiene la salud oral en la calidad de vida.</p>
+      <div class="container responsibility-layout">
+        <div class="responsibility-copy reveal">
+          <div>
+            <span class="eyebrow" data-i18n="social.eyebrow">Responsabilidad Social</span>
+            <h2 data-i18n="social.title">Devolviendo sonrisas a las mujeres de Mujeres de Frente.</h2>
+          </div>
+          <p data-i18n="social.text.one">Mujeres de Frente es una comunidad de cooperación y cuidado entre comerciantes autónomas de las calles, recicladoras, trabajadoras del hogar, estudiantes universitarias, profesoras, mujeres excarceladas, familiares de personas en prisión, niños, niñas y adolescentes.</p>
+          <p data-i18n="social.text.two">Junto a ellas hemos desarrollado un programa de atención integral que, de manera completamente gratuita, busca devolver salud, bienestar y sonrisas.</p>
         </div>
-        <div class="about-stack">
+
+        <div class="info-grid">
           <article class="social-card reveal stagger-1">
-            <div class="social-icon">PR</div>
-            <h3 data-i18n="social.card.one.title">Prevencion</h3>
-            <p data-i18n="social.card.one.desc">Promover chequeos oportunos y cultura de cuidado antes de que aparezcan tratamientos complejos.</p>
+            <div class="social-icon">01</div>
+            <h3>Atención integral gratuita</h3>
+            <p>Un programa pensado para responder con cuidado real a necesidades concretas de salud oral.</p>
           </article>
           <article class="social-card reveal stagger-2">
-            <div class="social-icon">ED</div>
-            <h3 data-i18n="social.card.two.title">Educacion</h3>
-            <p data-i18n="social.card.two.desc">Contenido, orientacion y acompanamiento para ayudar a tomar mejores decisiones sobre salud oral.</p>
+            <div class="social-icon">02</div>
+            <h3>Acompañamiento con dignidad</h3>
+            <p>La propuesta se presenta con sobriedad, sin exageraciones, y con foco en el valor humano del proyecto.</p>
           </article>
           <article class="social-card reveal stagger-3">
-            <div class="social-icon">CM</div>
-            <h3 data-i18n="social.card.three.title">Comunidad</h3>
-            <p data-i18n="social.card.three.desc">Un mensaje institucional corto que transmite sensibilidad, cercania y accion con proposito.</p>
+            <div class="social-icon">03</div>
+            <h3>Compromiso sostenido</h3>
+            <p>Una forma de devolver salud, bienestar y sonrisas desde una práctica profesional responsable.</p>
           </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="contacto">
-      <div class="container">
-        <div class="section-head reveal">
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
           <div>
             <span class="eyebrow" data-i18n="contact.eyebrow">Contacto</span>
-            <h2 data-i18n="contact.title">Un cierre fuerte, claro y listo para convertir visitas en citas</h2>
+            <h2 data-i18n="contact.title">Toda la información esencial en un cierre ordenado, claro y fácil de accionar.</h2>
           </div>
-          <p data-i18n="contact.intro">La seccion final organiza canales de contacto, placeholders editables y un CTA directo hacia el selector de WhatsApp.</p>
+          <p data-i18n="contact.intro">La sección de contacto reúne ubicación, teléfonos, horarios, correo y accesos rápidos para agendar desde cualquier dispositivo.</p>
+
+          <div class="contact-grid">
+            <article class="contact-card reveal stagger-1">
+              <div class="contact-icon">DR</div>
+              <h3 data-i18n="contact.card.one.title">Dirección</h3>
+              <span>YOO Cumbayá</span>
+              <strong>Av. Pampite OE6-53 y Valenzuela</strong>
+              <strong>Oficina 301</strong>
+              <strong>Cumbayá, Ecuador</strong>
+            </article>
+            <article class="contact-card reveal stagger-2">
+              <div class="contact-icon">TL</div>
+              <h3 data-i18n="contact.card.two.title">Teléfonos</h3>
+              <a href="tel:+593984611461">0984611461</a>
+              <a href="tel:+59324772888">4772888</a>
+            </article>
+            <article class="contact-card reveal stagger-3">
+              <div class="contact-icon">WA</div>
+              <h3 data-i18n="contact.card.three.title">WhatsApp</h3>
+              <button class="card-link" type="button" data-open-whatsapp>0998684757 · 0984611461 · 0995018098</button>
+            </article>
+            <article class="contact-card reveal stagger-4">
+              <div class="contact-icon">HR</div>
+              <h3 data-i18n="contact.card.four.title">Horarios</h3>
+              <strong>Lunes a viernes</strong>
+              <strong>07h30 a 18h00</strong>
+            </article>
+            <article class="contact-card reveal stagger-1">
+              <div class="contact-icon">EM</div>
+              <h3 data-i18n="contact.card.five.title">Correo</h3>
+              <a href="mailto:franciscob.ecu@gmail.com">franciscob.ecu@gmail.com</a>
+            </article>
+            <article class="contact-card reveal stagger-2">
+              <div class="contact-icon">RS</div>
+              <h3 data-i18n="contact.card.six.title">Redes sociales</h3>
+              <div class="social-links">
+                <a href="https://www.facebook.com/odontologiaestetica.com.ec" target="_blank" rel="noreferrer noopener">Facebook</a>
+                <a href="https://www.instagram.com/dr.franciscob/" target="_blank" rel="noreferrer noopener">Instagram</a>
+              </div>
+            </article>
+          </div>
         </div>
 
-        <div class="contact-layout">
-          <div class="contact-stack">
-            <div class="grid-2">
-              <article class="contact-card reveal stagger-1">
-                <div class="contact-icon">WA</div>
-                <h3 data-i18n="contact.card.one.title">WhatsApp</h3>
-                <span data-i18n="contact.card.one.desc">Atencion por 3 lineas activas</span>
-                <button class="card-link" type="button" data-open-whatsapp data-i18n="cta.whatsapp">Agendar por WhatsApp</button>
-              </article>
-              <article class="contact-card reveal stagger-2">
-                <div class="contact-icon">TL</div>
-                <h3 data-i18n="contact.card.two.title">Telefono</h3>
-                <span data-i18n="contact.card.two.desc">Placeholder editable</span>
-                <a href="tel:+59320000000">+593 2 000 0000</a>
-              </article>
-              <article class="contact-card reveal stagger-3">
-                <div class="contact-icon">EM</div>
-                <h3 data-i18n="contact.card.three.title">Email</h3>
-                <span data-i18n="contact.card.three.desc">Placeholder editable</span>
-                <a href="mailto:info@odontologiaestetica.com.ec">info@odontologiaestetica.com.ec</a>
-              </article>
-              <article class="contact-card reveal stagger-4">
-                <div class="contact-icon">DR</div>
-                <h3 data-i18n="contact.card.four.title">Direccion</h3>
-                <span data-i18n="contact.card.four.desc">Placeholder editable</span>
-                <strong data-i18n="contact.card.four.value">Direccion de la clinica por confirmar</strong>
-              </article>
-              <article class="contact-card reveal stagger-1">
-                <div class="contact-icon">HR</div>
-                <h3 data-i18n="contact.card.five.title">Horarios</h3>
-                <span data-i18n="contact.card.five.desc">Placeholder editable</span>
-                <strong data-i18n="contact.card.five.value">Lun - Vie | 09:00 - 18:00</strong>
-              </article>
-              <article class="contact-card reveal stagger-2">
-                <div class="contact-icon">CT</div>
-                <h3 data-i18n="contact.card.six.title">Coordinacion</h3>
-                <span data-i18n="contact.card.six.desc">Pacientes locales e internacionales</span>
-                <strong data-i18n="contact.card.six.value">Respuesta rapida por WhatsApp</strong>
-              </article>
-            </div>
-          </div>
-
-          <div class="reveal stagger-3">
-            <div class="map-placeholder">
-              <!-- Aqui puede integrarse un mapa real o una imagen del exterior de la clinica en una siguiente version. -->
-              <div class="map-overlay">
-                <div class="map-pin"></div>
-                <strong data-i18n="contact.map.title" style="font-size: 22px; letter-spacing: -0.03em; margin-bottom: 8px;">Mapa visual placeholder</strong>
-                <span data-i18n="contact.map.desc" style="color: var(--muted); line-height: 1.65; max-width: 32ch;">Espacio reservado para mapa, referencia de ubicacion o fotografia exterior cuando la direccion final quede confirmada.</span>
-              </div>
+        <div class="reveal stagger-3">
+          <div class="map-placeholder">
+            <!-- Reemplazar este mapa placeholder por un mapa embebido o una imagen exterior de YOO Cumbayá -->
+            <div class="map-overlay">
+              <div class="map-pin"></div>
+              <strong data-i18n="contact.map.title" style="font-size: 22px; letter-spacing: -0.03em; margin-bottom: 8px;">Mapa / ubicación YOO Cumbayá</strong>
+              <span data-i18n="contact.map.desc" style="color: var(--muted); line-height: 1.65; max-width: 34ch;">Espacio reservado para mostrar la ubicación exacta de la clínica y facilitar cómo llegar desde Quito o desde el aeropuerto.</span>
             </div>
           </div>
         </div>
@@ -1790,12 +2067,12 @@
       <div class="container">
         <div class="cta-panel reveal">
           <div>
-            <h2 data-i18n="final.title">Listo para presentar una primera impresion mucho mas actual y confiable</h2>
-            <p data-i18n="final.text">Esta version prioriza claridad, conversion y una identidad visual premium sin depender todavia de fotografias finales.</p>
+            <h2 data-i18n="final.title">Agenda tu cita por WhatsApp y recibe una atención cercana desde el primer contacto.</h2>
+            <p data-i18n="final.text">Una estructura pensada para informar con claridad, generar confianza y facilitar la conversión sin fricción.</p>
           </div>
           <div>
             <button class="button button-primary" type="button" data-open-whatsapp>
-              <span data-i18n="cta.whatsapp">Agendar por WhatsApp</span>
+              <span data-i18n="final.cta">Agenda tu cita por WhatsApp</span>
             </button>
           </div>
         </div>
@@ -1805,8 +2082,8 @@
 
   <footer class="footer">
     <div class="container footer-shell">
-      <span data-i18n="footer.left">Odontologia Estetica · Propuesta visual premium</span>
-      <span data-i18n="footer.right">HTML, CSS y JavaScript limpios para editar facilmente</span>
+      <span data-i18n="footer.left">Buenaño Dentistas · Odontología Estética</span>
+      <span data-i18n="footer.right">HTML, CSS y JavaScript limpios para editar fácilmente</span>
     </div>
   </footer>
 
@@ -1820,8 +2097,8 @@
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="whatsAppTitle">
       <div class="modal-head">
         <div>
-          <h3 id="whatsAppTitle" data-i18n="modal.title">Selecciona una linea de WhatsApp</h3>
-          <p data-i18n="modal.text">Todas las opciones abren el mismo mensaje predeterminado para agendar una cita odontologica.</p>
+          <h3 id="whatsAppTitle" data-i18n="modal.title">Selecciona una línea de WhatsApp</h3>
+          <p data-i18n="modal.text">Todas las opciones abren el mismo mensaje predeterminado para agendar una cita odontológica.</p>
         </div>
         <button class="modal-close" type="button" aria-label="Cerrar selector" data-close-whatsapp>&times;</button>
       </div>
@@ -1831,17 +2108,17 @@
             <span class="wa-badge">01</span>
             <small data-i18n="modal.open">Abrir</small>
           </div>
-          <strong data-i18n="modal.option.one.title">Linea WhatsApp 1</strong>
-          <span>+593 99 868 4757</span>
-          <small data-i18n="modal.option.one.desc">Canal directo para coordinacion y agenda.</small>
+          <strong data-i18n="modal.option.one.title">Línea WhatsApp 1</strong>
+          <span>0998684757</span>
+          <small data-i18n="modal.option.one.desc">Canal directo para coordinación y agenda.</small>
         </a>
         <a class="wa-option" href="https://wa.me/593984611461?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20odontol%C3%B3gica." target="_blank" rel="noreferrer noopener">
           <div class="wa-top">
             <span class="wa-badge">02</span>
             <small data-i18n="modal.open">Abrir</small>
           </div>
-          <strong data-i18n="modal.option.two.title">Linea WhatsApp 2</strong>
-          <span>+593 98 461 1461</span>
+          <strong data-i18n="modal.option.two.title">Línea WhatsApp 2</strong>
+          <span>0984611461</span>
           <small data-i18n="modal.option.two.desc">Ideal para consultas generales y seguimiento.</small>
         </a>
         <a class="wa-option" href="https://wa.me/593995018098?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20odontol%C3%B3gica." target="_blank" rel="noreferrer noopener">
@@ -1849,8 +2126,8 @@
             <span class="wa-badge">03</span>
             <small data-i18n="modal.open">Abrir</small>
           </div>
-          <strong data-i18n="modal.option.three.title">Linea WhatsApp 3</strong>
-          <span>+593 99 501 8098</span>
+          <strong data-i18n="modal.option.three.title">Línea WhatsApp 3</strong>
+          <span>0995018098</span>
           <small data-i18n="modal.option.three.desc">Soporte adicional para agendar y coordinar.</small>
         </a>
       </div>
@@ -1860,13 +2137,13 @@
   <script>
     const translations = {
       es: {
-        brandName: "Odontologia Estetica",
-        brandTag: "Clinica dental premium y especializada",
+        brandName: "Odontología Estética",
+        brandTag: "Clínica dental de alta especialidad",
         "nav.home": "INICIO",
         "nav.team": "PROFESIONALES",
         "nav.services": "SERVICIOS",
         "nav.about": "NOSOTROS",
-        "nav.technology": "TECNOLOGIA",
+        "nav.technology": "TECNOLOGÍA",
         "nav.facilities": "INSTALACIONES",
         "nav.international": "INTERNATIONAL PATIENTS",
         "nav.blog": "BLOG",
@@ -1874,170 +2151,103 @@
         "nav.contact": "CONTACTO",
         "cta.whatsapp": "Agendar por WhatsApp",
         "cta.services": "Conocer servicios",
-        "hero.eyebrow": "Clinica dental premium en Ecuador",
-        "hero.title": "Odontologia estetica y especializada con enfoque humano",
-        "hero.subtitle": "Cuidamos tu sonrisa con experiencia, tecnologia y una atencion personalizada para pacientes locales e internacionales.",
-        "hero.panel.top.title": "Experiencia premium",
-        "hero.panel.top.desc": "Una interfaz visual limpia para transmitir precision, confianza y cuidado medico.",
-        "hero.panel.bottom.title": "Primera impresion confiable",
-        "hero.panel.bottom.desc": "Diseño pensado para presentar la clinica como una propuesta moderna, clara y lista para evolucionar con imagenes reales.",
-        "hero.tag.one": "Precision digital",
-        "hero.tag.two": "Atencion personalizada",
+        "hero.eyebrow": "Buenaño Dentistas · Cumbayá, Ecuador",
+        "hero.title": "Odontología estética y especializada con enfoque humano",
+        "hero.subtitle": "Una clínica dental de alta especialidad en Cumbayá, donde tecnología, experiencia y atención personalizada se unen para cuidar tu salud y transformar tu sonrisa.",
+        "hero.quote": "“En Buenaño Dentistas, el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.”",
+        "hero.quoteAuthor": "Francisco Buenaño — Forbes Ecuador",
+        "hero.panel.top.title": "Interfaz clínica clara",
+        "hero.panel.top.desc": "Un lenguaje visual sobrio para comunicar precisión, confianza y atención médica.",
+        "hero.panel.bottom.title": "Primera impresión confiable",
+        "hero.panel.bottom.desc": "La estructura prepara una presentación elegante mientras se integran imágenes reales en una siguiente etapa.",
+        "hero.tag.one": "Planificación digital",
+        "hero.tag.two": "Atención personalizada",
         "hero.tag.three": "Resultados naturales",
-        "hero.metric.one.value": "01",
-        "hero.metric.one.label": "Diagnostico claro",
-        "hero.metric.two.value": "02",
-        "hero.metric.two.label": "Plan de tratamiento",
-        "hero.metric.three.value": "03",
-        "hero.metric.three.label": "Seguimiento cercano",
-        "trust.one.title": "Atencion especializada",
-        "trust.one.desc": "Protocolos clinicos claros, diagnostico cuidadoso y seguimiento personalizado.",
-        "trust.two.title": "Tecnologia moderna",
-        "trust.two.desc": "Procesos mas precisos para una experiencia segura, comoda y actual.",
-        "trust.three.title": "Pacientes internacionales",
-        "trust.three.desc": "Coordinacion previa por WhatsApp y planificacion antes del viaje.",
-        "trust.four.title": "Enfoque estetico y funcional",
-        "trust.four.desc": "Resultados naturales que combinan salud oral, armonia y confianza.",
+        "hero.metric.one.label": "Años de práctica clínica",
+        "hero.metric.two.label": "Especialistas destacados",
+        "hero.metric.three.label": "Coordinación ágil por WhatsApp",
+        "trust.one.title": "18 años de experiencia",
+        "trust.one.desc": "Una trayectoria construida con cercanía, formación constante y criterio clínico.",
+        "trust.two.title": "Alta especialidad",
+        "trust.two.desc": "Un equipo preparado para abordar casos integrales con precisión y cuidado.",
+        "trust.three.title": "Tecnología digital",
+        "trust.three.desc": "Herramientas que mejoran el diagnóstico, la planificación y la comodidad del paciente.",
+        "trust.four.title": "Atención personalizada",
+        "trust.four.desc": "Cada tratamiento se adapta al paciente, no al revés.",
+        "trust.five.title": "Pacientes locales e internacionales",
+        "trust.five.desc": "Coordinación clara antes, durante y después de cada tratamiento.",
         "team.eyebrow": "Profesionales",
-        "team.title": "Equipo medico con presencia serena, criterio clinico y enfoque estetico",
-        "team.intro": "Esta primera propuesta utiliza perfiles sin fotografia para mantener una imagen consistente mientras se define la sesion visual final del equipo.",
-        "team.card.one.role": "Odontologia estetica",
-        "team.card.one.name": "Nombre del profesional",
-        "team.card.one.desc": "Especialista en armonia de sonrisa, evaluacion integral y tratamientos con criterio estetico y funcional.",
-        "team.card.two.role": "Implantologia oral",
-        "team.card.two.name": "Nombre del profesional",
-        "team.card.two.desc": "Enfoque en rehabilitacion precisa, planificacion digital y recuperacion predecible para cada caso.",
-        "team.card.three.role": "Ortodoncia",
-        "team.card.three.name": "Nombre del profesional",
-        "team.card.three.desc": "Correccion funcional y estetica con tratamientos pensados para confort, control y resultados progresivos.",
-        "team.card.four.role": "Rehabilitacion oral",
-        "team.card.four.name": "Nombre del profesional",
-        "team.card.four.desc": "Experiencia en casos integrales con una mirada coordinada entre salud oral, funcion y apariencia natural.",
+        "team.title": "Un equipo de especialistas enfocado en brindar atención integral, personalizada y de alta precisión.",
+        "team.intro": "La estructura está diseñada para incorporar fotografías reales más adelante sin perder orden ni jerarquía visual.",
+        "team.cta": "Conocer especialista",
         "services.eyebrow": "Servicios",
-        "services.title": "Tratamientos presentados con claridad, confianza y valor estetico",
-        "services.intro": "Las cards priorizan comprension inmediata, tono medico profesional y una conversion simple hacia WhatsApp para consultas o coordinacion.",
-        "services.card.one.title": "Diseño de sonrisa",
-        "services.card.one.desc": "Planificacion estetica enfocada en proporciones, armonia facial y resultados naturales.",
-        "services.card.two.title": "Implantes dentales",
-        "services.card.two.desc": "Soluciones restaurativas con estabilidad, precision diagnostica y plan de recuperacion claro.",
-        "services.card.three.title": "Ortodoncia",
-        "services.card.three.desc": "Correccion funcional y estetica para alinear la sonrisa con comodidad y seguimiento profesional.",
-        "services.card.four.title": "Rehabilitacion oral",
-        "services.card.four.desc": "Tratamientos integrales para recuperar funcion, estabilidad y apariencia dental.",
-        "services.card.five.title": "Blanqueamiento dental",
-        "services.card.five.desc": "Alternativas profesionales para iluminar la sonrisa de forma segura y controlada.",
-        "services.card.six.title": "Odontologia general",
-        "services.card.six.desc": "Prevencion, diagnostico y tratamientos de base para una salud oral sostenible.",
-        "services.card.seven.title": "Periodoncia",
-        "services.card.seven.desc": "Atencion especializada para tejidos de soporte con enfoque preventivo y terapeutico.",
-        "services.card.eight.title": "Endodoncia",
-        "services.card.eight.desc": "Procedimientos precisos para conservar piezas dentales y aliviar el dolor a tiempo.",
+        "services.title": "Tratamientos integrales para cuidar, restaurar y transformar tu sonrisa.",
+        "services.intro": "La información se organiza en bloques claros para que el paciente entienda rápidamente qué hace la clínica y cómo puede iniciar su tratamiento.",
         "services.cta": "Consultar tratamiento",
+        "services.support.eyebrow": "Qué podemos ayudarte a resolver",
+        "services.support.title": "Problemas frecuentes explicados con claridad y sin sobrecargar la lectura.",
+        "services.support.text": "Estos bloques convierten textos largos en una experiencia más ordenada, útil y fácil de recorrer desde móvil.",
         "about.eyebrow": "Nosotros",
-        "about.title": "Una clinica orientada a confianza, criterio profesional y resultados naturales",
-        "about.text": "La propuesta transmite una marca medica actual: experiencia clinica, atencion personalizada, etica profesional, tecnologia util y una forma de comunicar resultados con serenidad y precision.",
-        "about.card.one.title": "Atencion humana",
-        "about.card.one.desc": "Cada paso del tratamiento debe sentirse claro, acompanado y adaptado a las necesidades reales del paciente.",
-        "about.card.two.title": "Decision clinica responsable",
-        "about.card.two.desc": "El diseño visual apoya una promesa seria: recomendar solo lo indicado con transparencia y criterio medico.",
-        "about.card.three.title": "Estetica sin excesos",
-        "about.card.three.desc": "Resultados que se vean limpios, naturales y coherentes con la funcion oral de largo plazo.",
-        "technology.eyebrow": "Tecnologia",
-        "technology.title": "Tecnologia explicada como una ventaja real para el paciente",
-        "technology.intro": "La seccion prioriza lenguaje claro y beneficios concretos: precision, comodidad, tiempos mejor coordinados y mejor toma de decisiones.",
-        "technology.card.one.title": "Planificacion digital",
-        "technology.card.one.desc": "Visualizacion mas clara de objetivos esteticos y restaurativos antes de iniciar el tratamiento.",
-        "technology.card.two.title": "Diagnostico moderno",
-        "technology.card.two.desc": "Herramientas que ayudan a evaluar mejor cada caso y a comunicarlo con mayor precision.",
-        "technology.card.three.title": "Tratamientos precisos",
-        "technology.card.three.desc": "Procesos orientados a consistencia clinica y resultados mejor controlados.",
-        "technology.card.four.title": "Experiencia mas comoda",
-        "technology.card.four.desc": "Una atencion mejor coordinada reduce friccion y transmite seguridad desde la primera visita.",
+        "about.title": "Una clínica construida con cercanía, formación constante y confianza a largo plazo.",
+        "about.text.one": "Hoy, después de 18 años, lo que inició como un sueño se ha convertido en una práctica profesional de alta especialidad que brinda atención integral, se mantiene en constante preparación y cuenta con los elementos tecnológicos que una clínica moderna de nivel mundial debe tener.",
+        "about.text.two": "Hemos tenido muchos cambios, pero en esencia seguimos siendo los mismos. Aunque hemos incorporado la tecnología paso a paso, mantenemos una práctica basada en servicio personalizado, cercanía y confianza. Nuestros pacientes se han convertido en amigos; han visto nuestro crecimiento y han compartido con nosotros hitos importantes de sus vidas.",
+        "about.card.one.title": "Atención personalizada",
+        "about.card.one.desc": "Escuchar, acompañar y explicar cada tratamiento forma parte de la experiencia clínica.",
+        "about.card.two.title": "Alta especialidad",
+        "about.card.two.desc": "Casos complejos atendidos por especialistas con enfoque coordinado e integral.",
+        "about.card.three.title": "Tecnología moderna",
+        "about.card.three.desc": "Recursos digitales y materiales actuales al servicio de decisiones más precisas.",
+        "about.card.four.title": "Confianza a largo plazo",
+        "about.card.four.desc": "Una relación sostenida en el tiempo, basada en claridad, ética profesional y seguimiento.",
+        "technology.eyebrow": "Tecnología",
+        "technology.title": "Tecnología digital y materiales de última generación al servicio de tratamientos más precisos, cómodos y naturales.",
+        "technology.intro": "La tecnología se presenta como una herramienta clínica concreta: mejora la experiencia del paciente y aporta precisión en la planificación y ejecución.",
         "facilities.eyebrow": "Instalaciones",
-        "facilities.title": "Espacios pensados para una futura galeria visual, sin que la seccion se sienta vacia",
-        "facilities.intro": "La composicion se plantea como un placeholder premium: permite presentar la idea del espacio clinico mientras se prepara la direccion fotografica adecuada.",
-        "facilities.badge.one": "Recepcion premium",
-        "facilities.badge.two": "Boxes especializados",
-        "facilities.badge.three": "Experiencia cuidada",
-        "facilities.card.one.title": "Gallery coming soon",
-        "facilities.card.one.desc": "Un lugar reservado para mostrar arquitectura, equipos y detalles del entorno clinico.",
-        "facilities.card.two.title": "Direccion visual definida",
-        "facilities.card.two.desc": "La estructura ya prepara encuadres, bloques y ritmo para insertar imagenes reales despues.",
-        "facilities.card.three.title": "Presentacion intencional",
-        "facilities.card.three.desc": "La ausencia de fotos se convierte en una decision de diseño, no en un vacio de contenido.",
+        "facilities.title": "Un espacio diseñado para que cada paciente se sienta cómodo, seguro y atendido con excelencia.",
+        "facilities.intro": "La galería queda preparada para incorporar fotografías reales sin alterar la estructura visual del sitio.",
         "international.eyebrow": "International Patients",
         "international.title": "Personalized dental care for international patients visiting Ecuador.",
-        "international.text": "We designed this section to feel premium, clear and easy to understand for patients planning their visit before arriving in Ecuador.",
-        "international.item.one": "Treatment planning before arrival",
-        "international.item.two": "WhatsApp communication",
-        "international.item.three": "Appointment coordination",
-        "international.item.four": "Aesthetic and restorative dentistry",
+        "international.text": "A clear and reassuring introduction for patients who want to coordinate their visit before traveling to Cumbayá.",
         "international.cta": "Contact us on WhatsApp",
-        "international.side.one.title": "Coordination before travel",
-        "international.side.one.desc": "Useful for explaining how the clinic can organize conversations, evaluation and scheduling before the patient arrives.",
-        "international.side.two.title": "Presentacion bilingue",
-        "international.side.two.desc": "El switch visible ES/EN ayuda a comunicar confianza tanto a pacientes locales como internacionales.",
-        "international.side.three.title": "Primera impresion premium",
-        "international.side.three.desc": "Una estructura clara, motion suave y jerarquia precisa refuerzan calidad antes de agendar.",
         "blog.eyebrow": "Blog",
-        "blog.title": "Contenido educativo para reforzar autoridad, prevencion y confianza",
-        "blog.intro": "Las primeras publicaciones estan planteadas como tarjetas editoriales limpias, faciles de ampliar mas adelante con imagenes o articulos completos.",
-        "blog.card.one.meta": "Odontologia estetica",
-        "blog.card.one.title": "¿Cuando considerar un diseño de sonrisa?",
-        "blog.card.one.desc": "Una guia inicial para detectar cuando conviene evaluar cambios esteticos y funcionales de forma responsable.",
-        "blog.card.two.meta": "Prevencion",
-        "blog.card.two.title": "Beneficios de una evaluacion odontologica preventiva",
-        "blog.card.two.desc": "Contenido orientado a educar y a posicionar a la clinica como aliada del cuidado continuo.",
-        "blog.card.three.meta": "Tecnologia dental",
-        "blog.card.three.title": "Tecnologia dental y tratamientos mas precisos",
-        "blog.card.three.desc": "Una pieza para explicar valor clinico sin tecnicismos innecesarios y con tono contemporaneo.",
-        "social.eyebrow": "Responsabilidad social",
-        "social.title": "Prevencion, educacion y compromiso con la comunidad",
-        "social.text": "Esta seccion presenta a la clinica como una institucion cercana, informada y consciente del impacto que tiene la salud oral en la calidad de vida.",
-        "social.card.one.title": "Prevencion",
-        "social.card.one.desc": "Promover chequeos oportunos y cultura de cuidado antes de que aparezcan tratamientos complejos.",
-        "social.card.two.title": "Educacion",
-        "social.card.two.desc": "Contenido, orientacion y acompanamiento para ayudar a tomar mejores decisiones sobre salud oral.",
-        "social.card.three.title": "Comunidad",
-        "social.card.three.desc": "Un mensaje institucional corto que transmite sensibilidad, cercania y accion con proposito.",
+        "blog.title": "Contenido para pacientes que buscan tomar mejores decisiones sobre su salud oral.",
+        "blog.intro": "La home destaca una selección breve de artículos para mantener ligereza visual y dejar el resto del contenido en la página completa del blog.",
+        "blog.read": "Leer artículo",
+        "blog.more": "Ver todos los artículos",
+        "social.eyebrow": "Responsabilidad Social",
+        "social.title": "Devolviendo sonrisas a las mujeres de Mujeres de Frente.",
+        "social.text.one": "Mujeres de Frente es una comunidad de cooperación y cuidado entre comerciantes autónomas de las calles, recicladoras, trabajadoras del hogar, estudiantes universitarias, profesoras, mujeres excarceladas, familiares de personas en prisión, niños, niñas y adolescentes.",
+        "social.text.two": "Junto a ellas hemos desarrollado un programa de atención integral que, de manera completamente gratuita, busca devolver salud, bienestar y sonrisas.",
         "contact.eyebrow": "Contacto",
-        "contact.title": "Un cierre fuerte, claro y listo para convertir visitas en citas",
-        "contact.intro": "La seccion final organiza canales de contacto, placeholders editables y un CTA directo hacia el selector de WhatsApp.",
-        "contact.card.one.title": "WhatsApp",
-        "contact.card.one.desc": "Atencion por 3 lineas activas",
-        "contact.card.two.title": "Telefono",
-        "contact.card.two.desc": "Placeholder editable",
-        "contact.card.three.title": "Email",
-        "contact.card.three.desc": "Placeholder editable",
-        "contact.card.four.title": "Direccion",
-        "contact.card.four.desc": "Placeholder editable",
-        "contact.card.four.value": "Direccion de la clinica por confirmar",
-        "contact.card.five.title": "Horarios",
-        "contact.card.five.desc": "Placeholder editable",
-        "contact.card.five.value": "Lun - Vie | 09:00 - 18:00",
-        "contact.card.six.title": "Coordinacion",
-        "contact.card.six.desc": "Pacientes locales e internacionales",
-        "contact.card.six.value": "Respuesta rapida por WhatsApp",
-        "contact.map.title": "Mapa visual placeholder",
-        "contact.map.desc": "Espacio reservado para mapa, referencia de ubicacion o fotografia exterior cuando la direccion final quede confirmada.",
-        "final.title": "Listo para presentar una primera impresion mucho mas actual y confiable",
-        "final.text": "Esta version prioriza claridad, conversion y una identidad visual premium sin depender todavia de fotografias finales.",
-        "footer.left": "Odontologia Estetica · Propuesta visual premium",
-        "footer.right": "HTML, CSS y JavaScript limpios para editar facilmente",
+        "contact.title": "Toda la información esencial en un cierre ordenado, claro y fácil de accionar.",
+        "contact.intro": "La sección de contacto reúne ubicación, teléfonos, horarios, correo y accesos rápidos para agendar desde cualquier dispositivo.",
+        "contact.card.one.title": "Dirección",
+        "contact.card.two.title": "Teléfonos",
+        "contact.card.three.title": "WhatsApp",
+        "contact.card.four.title": "Horarios",
+        "contact.card.five.title": "Correo",
+        "contact.card.six.title": "Redes sociales",
+        "contact.map.title": "Mapa / ubicación YOO Cumbayá",
+        "contact.map.desc": "Espacio reservado para mostrar la ubicación exacta de la clínica y facilitar cómo llegar desde Quito o desde el aeropuerto.",
+        "final.title": "Agenda tu cita por WhatsApp y recibe una atención cercana desde el primer contacto.",
+        "final.text": "Una estructura pensada para informar con claridad, generar confianza y facilitar la conversión sin fricción.",
+        "final.cta": "Agenda tu cita por WhatsApp",
+        "footer.left": "Buenaño Dentistas · Odontología Estética",
+        "footer.right": "HTML, CSS y JavaScript limpios para editar fácilmente",
         "floating.whatsapp": "WhatsApp",
-        "modal.title": "Selecciona una linea de WhatsApp",
-        "modal.text": "Todas las opciones abren el mismo mensaje predeterminado para agendar una cita odontologica.",
+        "modal.title": "Selecciona una línea de WhatsApp",
+        "modal.text": "Todas las opciones abren el mismo mensaje predeterminado para agendar una cita odontológica.",
         "modal.open": "Abrir",
-        "modal.option.one.title": "Linea WhatsApp 1",
-        "modal.option.one.desc": "Canal directo para coordinacion y agenda.",
-        "modal.option.two.title": "Linea WhatsApp 2",
+        "modal.option.one.title": "Línea WhatsApp 1",
+        "modal.option.one.desc": "Canal directo para coordinación y agenda.",
+        "modal.option.two.title": "Línea WhatsApp 2",
         "modal.option.two.desc": "Ideal para consultas generales y seguimiento.",
-        "modal.option.three.title": "Linea WhatsApp 3",
+        "modal.option.three.title": "Línea WhatsApp 3",
         "modal.option.three.desc": "Soporte adicional para agendar y coordinar."
       },
       en: {
-        brandName: "Odontologia Estetica",
-        brandTag: "Premium and specialized dental clinic",
+        brandName: "Odontología Estética",
+        brandTag: "Specialized dental clinic",
         "nav.home": "HOME",
         "nav.team": "PROFESSIONALS",
         "nav.services": "SERVICES",
@@ -2050,156 +2260,89 @@
         "nav.contact": "CONTACT",
         "cta.whatsapp": "Book via WhatsApp",
         "cta.services": "Explore services",
-        "hero.eyebrow": "Premium dental clinic in Ecuador",
+        "hero.eyebrow": "Buenaño Dentistas · Cumbayá, Ecuador",
         "hero.title": "Aesthetic and specialized dentistry with a human-centered approach",
-        "hero.subtitle": "We care for your smile through experience, technology and personalized attention for local and international patients.",
-        "hero.panel.top.title": "Premium experience",
-        "hero.panel.top.desc": "A clean visual interface built to communicate precision, trust and medical care.",
-        "hero.panel.bottom.title": "A more confident first impression",
-        "hero.panel.bottom.desc": "This concept presents the clinic as a modern, clear and premium proposal ready to evolve with future photography.",
-        "hero.tag.one": "Digital precision",
+        "hero.subtitle": "A highly specialized dental clinic in Cumbayá, where technology, experience and personalized care come together to protect your health and transform your smile.",
+        "hero.quote": "“At Buenaño Dentistas, the patient feels they are in the right place and will be treated in a personalized and professional way. They will also enjoy a remarkable experience, feeling genuine care for their health.”",
+        "hero.quoteAuthor": "Francisco Buenaño — Forbes Ecuador",
+        "hero.panel.top.title": "Clear clinical interface",
+        "hero.panel.top.desc": "A sober visual language built to communicate precision, trust and medical care.",
+        "hero.panel.bottom.title": "A trustworthy first impression",
+        "hero.panel.bottom.desc": "The structure prepares an elegant presentation while real imagery is integrated in a later stage.",
+        "hero.tag.one": "Digital planning",
         "hero.tag.two": "Personalized care",
         "hero.tag.three": "Natural results",
-        "hero.metric.one.value": "01",
-        "hero.metric.one.label": "Clear diagnosis",
-        "hero.metric.two.value": "02",
-        "hero.metric.two.label": "Treatment plan",
-        "hero.metric.three.value": "03",
-        "hero.metric.three.label": "Close follow-up",
-        "trust.one.title": "Specialized attention",
-        "trust.one.desc": "Clear clinical protocols, thoughtful diagnosis and personalized follow-up.",
-        "trust.two.title": "Modern technology",
-        "trust.two.desc": "More precise processes for a safe, comfortable and current experience.",
-        "trust.three.title": "International patients",
-        "trust.three.desc": "WhatsApp coordination and treatment planning before travel.",
-        "trust.four.title": "Aesthetic and functional focus",
-        "trust.four.desc": "Natural results that combine oral health, harmony and confidence.",
+        "hero.metric.one.label": "Years of clinical practice",
+        "hero.metric.two.label": "Featured specialists",
+        "hero.metric.three.label": "Fast WhatsApp coordination",
+        "trust.one.title": "18 years of experience",
+        "trust.one.desc": "A trajectory built on closeness, continuous training and clinical judgment.",
+        "trust.two.title": "Specialized care",
+        "trust.two.desc": "A team ready to address comprehensive cases with precision and care.",
+        "trust.three.title": "Digital technology",
+        "trust.three.desc": "Tools that improve diagnosis, planning and patient comfort.",
+        "trust.four.title": "Personalized attention",
+        "trust.four.desc": "Every treatment is adapted to the patient, not the other way around.",
+        "trust.five.title": "Local and international patients",
+        "trust.five.desc": "Clear coordination before, during and after treatment.",
         "team.eyebrow": "Professionals",
-        "team.title": "A medical team presented with calm authority, clinical judgment and aesthetic focus",
-        "team.intro": "This first proposal uses image-free profiles to keep the interface polished while the final photography direction is defined.",
-        "team.card.one.role": "Aesthetic dentistry",
-        "team.card.one.name": "Professional name",
-        "team.card.one.desc": "Specialist in smile harmony, comprehensive evaluation and treatments guided by aesthetic and functional criteria.",
-        "team.card.two.role": "Oral implantology",
-        "team.card.two.name": "Professional name",
-        "team.card.two.desc": "Focused on precise rehabilitation, digital planning and predictable recovery for each case.",
-        "team.card.three.role": "Orthodontics",
-        "team.card.three.name": "Professional name",
-        "team.card.three.desc": "Functional and aesthetic correction designed for comfort, control and progressive results.",
-        "team.card.four.role": "Oral rehabilitation",
-        "team.card.four.name": "Professional name",
-        "team.card.four.desc": "Experience in full cases with a coordinated view of oral health, function and natural appearance.",
+        "team.title": "A team of specialists focused on comprehensive, personalized and highly precise care.",
+        "team.intro": "The structure is ready to incorporate real portraits later without losing order or visual hierarchy.",
+        "team.cta": "Meet specialist",
         "services.eyebrow": "Services",
-        "services.title": "Treatments presented with clarity, trust and aesthetic value",
-        "services.intro": "These cards are designed for quick understanding, medical credibility and simple conversion into WhatsApp inquiries.",
-        "services.card.one.title": "Smile design",
-        "services.card.one.desc": "Aesthetic planning focused on proportion, facial harmony and natural-looking results.",
-        "services.card.two.title": "Dental implants",
-        "services.card.two.desc": "Restorative solutions with stability, precise diagnosis and a clear recovery plan.",
-        "services.card.three.title": "Orthodontics",
-        "services.card.three.desc": "Functional and aesthetic alignment with professional monitoring and a more comfortable process.",
-        "services.card.four.title": "Oral rehabilitation",
-        "services.card.four.desc": "Comprehensive treatments to recover function, stability and dental appearance.",
-        "services.card.five.title": "Dental whitening",
-        "services.card.five.desc": "Professional options to brighten the smile in a safe and controlled way.",
-        "services.card.six.title": "General dentistry",
-        "services.card.six.desc": "Prevention, diagnosis and foundational care for long-term oral health.",
-        "services.card.seven.title": "Periodontics",
-        "services.card.seven.desc": "Specialized care for supporting tissues with preventive and therapeutic focus.",
-        "services.card.eight.title": "Endodontics",
-        "services.card.eight.desc": "Precise procedures to preserve teeth and relieve pain on time.",
+        "services.title": "Comprehensive treatments to care for, restore and transform your smile.",
+        "services.intro": "The information is organized into clear blocks so patients quickly understand what the clinic does and how to begin treatment.",
         "services.cta": "Ask about treatment",
+        "services.support.eyebrow": "How we can help",
+        "services.support.title": "Frequent concerns explained clearly and without heavy reading.",
+        "services.support.text": "These blocks turn long texts into a more organized and mobile-friendly experience.",
         "about.eyebrow": "About",
-        "about.title": "A clinic built around trust, professional judgment and natural results",
-        "about.text": "This proposal communicates a modern medical brand: clinical experience, personalized care, professional ethics, relevant technology and calm, precise communication.",
-        "about.card.one.title": "Human care",
-        "about.card.one.desc": "Every stage of treatment should feel clear, supported and adapted to real patient needs.",
-        "about.card.two.title": "Responsible clinical decisions",
-        "about.card.two.desc": "The design supports a serious promise: to recommend only what is indicated, with transparency and medical criteria.",
-        "about.card.three.title": "Aesthetic without excess",
-        "about.card.three.desc": "Results that feel clean, natural and consistent with long-term oral function.",
+        "about.title": "A clinic built on closeness, continuous education and long-term trust.",
+        "about.text.one": "Today, after 18 years, what started as a dream has become a highly specialized practice that provides comprehensive care, stays in constant preparation and counts on the technological resources a modern world-class clinic should have.",
+        "about.text.two": "We have changed in many ways, but in essence we remain the same. Although we have incorporated technology step by step, we keep a practice based on personalized service, closeness and trust. Our patients have become friends; they have seen our growth and shared important milestones of their lives with us.",
+        "about.card.one.title": "Personalized care",
+        "about.card.one.desc": "Listening, guiding and explaining every treatment is part of the clinical experience.",
+        "about.card.two.title": "High specialization",
+        "about.card.two.desc": "Complex cases treated by specialists with a coordinated and comprehensive approach.",
+        "about.card.three.title": "Modern technology",
+        "about.card.three.desc": "Digital resources and current materials used to support more precise decisions.",
+        "about.card.four.title": "Long-term trust",
+        "about.card.four.desc": "A relationship sustained over time through clarity, ethics and follow-up.",
         "technology.eyebrow": "Technology",
-        "technology.title": "Technology explained as a real patient advantage",
-        "technology.intro": "This section focuses on clear language and practical benefits: precision, comfort, smoother coordination and better decisions.",
-        "technology.card.one.title": "Digital planning",
-        "technology.card.one.desc": "A clearer view of aesthetic and restorative goals before treatment begins.",
-        "technology.card.two.title": "Modern diagnostics",
-        "technology.card.two.desc": "Tools that help evaluate each case more accurately and communicate it more clearly.",
-        "technology.card.three.title": "Precise treatments",
-        "technology.card.three.desc": "Processes oriented to consistency and better controlled outcomes.",
-        "technology.card.four.title": "A more comfortable experience",
-        "technology.card.four.desc": "Better coordinated care reduces friction and builds confidence from the first visit.",
+        "technology.title": "Digital technology and state-of-the-art materials for treatments that are more precise, comfortable and natural.",
+        "technology.intro": "Technology is presented as a practical clinical tool: it improves patient experience and supports greater planning accuracy.",
         "facilities.eyebrow": "Facilities",
-        "facilities.title": "A future gallery-ready section that still feels intentional without photos",
-        "facilities.intro": "The composition acts as a premium placeholder, allowing the clinic to suggest its environment while the photography direction is still being defined.",
-        "facilities.badge.one": "Premium reception",
-        "facilities.badge.two": "Specialized operatories",
-        "facilities.badge.three": "Curated patient experience",
-        "facilities.card.one.title": "Gallery coming soon",
-        "facilities.card.one.desc": "A dedicated area for architecture, equipment and refined clinic details.",
-        "facilities.card.two.title": "Visual direction already framed",
-        "facilities.card.two.desc": "The structure prepares future image blocks and rhythm before real photography is inserted.",
-        "facilities.card.three.title": "Intentional presentation",
-        "facilities.card.three.desc": "The lack of photos becomes a design decision instead of a content gap.",
+        "facilities.title": "A space designed so every patient feels comfortable, safe and cared for with excellence.",
+        "facilities.intro": "The gallery is ready for real photography without altering the visual structure of the site.",
         "international.eyebrow": "International Patients",
         "international.title": "Personalized dental care for international patients visiting Ecuador.",
-        "international.text": "We designed this section to feel premium, clear and easy to understand for patients planning their visit before arriving in Ecuador.",
-        "international.item.one": "Treatment planning before arrival",
-        "international.item.two": "WhatsApp communication",
-        "international.item.three": "Appointment coordination",
-        "international.item.four": "Aesthetic and restorative dentistry",
+        "international.text": "A clear and reassuring introduction for patients who want to coordinate their visit before traveling to Cumbayá.",
         "international.cta": "Contact us on WhatsApp",
-        "international.side.one.title": "Coordination before travel",
-        "international.side.one.desc": "Useful for explaining how the clinic can organize conversations, evaluation and scheduling before the patient arrives.",
-        "international.side.two.title": "Bilingual presentation",
-        "international.side.two.desc": "The visible ES/EN switch helps communicate confidence to both local and international visitors.",
-        "international.side.three.title": "Premium first impression",
-        "international.side.three.desc": "A clean structure, soft motion and clear hierarchy reinforce quality before the first appointment is booked.",
         "blog.eyebrow": "Blog",
-        "blog.title": "Educational content that strengthens authority, prevention and trust",
-        "blog.intro": "These first article cards are structured as clean editorial previews that can later expand into full posts or image-led content.",
-        "blog.card.one.meta": "Aesthetic dentistry",
-        "blog.card.one.title": "When should you consider smile design?",
-        "blog.card.one.desc": "An introductory guide to understand when aesthetic and functional changes should be evaluated responsibly.",
-        "blog.card.two.meta": "Prevention",
-        "blog.card.two.title": "Benefits of a preventive dental evaluation",
-        "blog.card.two.desc": "A piece designed to educate and position the clinic as a long-term health partner.",
-        "blog.card.three.meta": "Dental technology",
-        "blog.card.three.title": "Dental technology and more precise treatments",
-        "blog.card.three.desc": "A way to explain clinical value without heavy jargon and with a contemporary tone.",
-        "social.eyebrow": "Social impact",
-        "social.title": "Prevention, education and commitment to the community",
-        "social.text": "This section frames the clinic as a close, informed institution aware of the role oral health plays in quality of life.",
-        "social.card.one.title": "Prevention",
-        "social.card.one.desc": "Promoting timely checkups and a culture of care before complex treatments become necessary.",
-        "social.card.two.title": "Education",
-        "social.card.two.desc": "Content, guidance and support to help people make better decisions about oral health.",
-        "social.card.three.title": "Community",
-        "social.card.three.desc": "A short institutional message that communicates empathy, closeness and purposeful action.",
+        "blog.title": "Content for patients who want to make better decisions about their oral health.",
+        "blog.intro": "The home page highlights a short selection of articles to keep the interface light while leaving the rest of the content on the full blog page.",
+        "blog.read": "Read article",
+        "blog.more": "View all articles",
+        "social.eyebrow": "Social Impact",
+        "social.title": "Restoring smiles to the women of Mujeres de Frente.",
+        "social.text.one": "Mujeres de Frente is a community of cooperation and care among street vendors, recyclers, domestic workers, university students, teachers, formerly incarcerated women, relatives of imprisoned people, children and adolescents.",
+        "social.text.two": "Together with them, we have developed a comprehensive care program that, free of charge, seeks to restore health, well-being and smiles.",
         "contact.eyebrow": "Contact",
-        "contact.title": "A strong ending designed to turn visits into appointments",
-        "contact.intro": "The closing section organizes communication channels, editable placeholders and a direct CTA to the WhatsApp selector.",
-        "contact.card.one.title": "WhatsApp",
-        "contact.card.one.desc": "Three active contact lines",
-        "contact.card.two.title": "Phone",
-        "contact.card.two.desc": "Editable placeholder",
-        "contact.card.three.title": "Email",
-        "contact.card.three.desc": "Editable placeholder",
-        "contact.card.four.title": "Address",
-        "contact.card.four.desc": "Editable placeholder",
-        "contact.card.four.value": "Clinic address to be confirmed",
-        "contact.card.five.title": "Hours",
-        "contact.card.five.desc": "Editable placeholder",
-        "contact.card.five.value": "Mon - Fri | 09:00 - 18:00",
-        "contact.card.six.title": "Coordination",
-        "contact.card.six.desc": "Local and international patients",
-        "contact.card.six.value": "Fast response via WhatsApp",
-        "contact.map.title": "Map placeholder",
-        "contact.map.desc": "Reserved space for a real map, location reference or exterior photo once the final address is confirmed.",
-        "final.title": "Ready to present a much more current and trustworthy first impression",
-        "final.text": "This version prioritizes clarity, conversion and a premium identity without depending on final photography yet.",
-        "footer.left": "Odontologia Estetica · Premium visual proposal",
-        "footer.right": "Clean HTML, CSS and JavaScript built for easy editing",
+        "contact.title": "All essential information in a closing section that is organized, clear and easy to act on.",
+        "contact.intro": "The contact section brings together location, phone numbers, schedule, email and quick actions for booking from any device.",
+        "contact.card.one.title": "Address",
+        "contact.card.two.title": "Phone numbers",
+        "contact.card.three.title": "WhatsApp",
+        "contact.card.four.title": "Hours",
+        "contact.card.five.title": "Email",
+        "contact.card.six.title": "Social media",
+        "contact.map.title": "Map / YOO Cumbayá location",
+        "contact.map.desc": "Reserved space to show the clinic's exact location and make directions easier from Quito or the airport.",
+        "final.title": "Book your appointment on WhatsApp and receive close, thoughtful attention from the first contact.",
+        "final.text": "A structure designed to inform clearly, build trust and make conversion easy.",
+        "final.cta": "Book your appointment on WhatsApp",
+        "footer.left": "Buenaño Dentistas · Odontología Estética",
+        "footer.right": "Clean HTML, CSS and JavaScript for easy editing",
         "floating.whatsapp": "WhatsApp",
         "modal.title": "Choose a WhatsApp line",
         "modal.text": "Every option opens the same default message to schedule a dental appointment.",
@@ -2223,18 +2366,16 @@
     const openWhatsAppButtons = document.querySelectorAll("[data-open-whatsapp]");
     const closeWhatsAppButtons = document.querySelectorAll("[data-close-whatsapp]");
     const revealItems = document.querySelectorAll(".reveal");
-    let currentLanguage = "es";
 
     function updateNavbarState() {
       navbar.classList.toggle("scrolled", window.scrollY > 16);
     }
 
     function setLanguage(language) {
-      currentLanguage = language;
       html.lang = language;
       document.title = language === "es"
-        ? "Odontologia Estetica | Clinica dental premium"
-        : "Odontologia Estetica | Premium dental clinic";
+        ? "Odontología Estética | Clínica dental de alta especialidad"
+        : "Odontología Estética | Specialized dental clinic";
 
       translatableNodes.forEach((node) => {
         const key = node.dataset.i18n;
@@ -2287,12 +2428,14 @@
     }, { threshold: 0.18, rootMargin: "0px 0px -40px 0px" });
 
     revealItems.forEach((item) => revealObserver.observe(item));
+
     languageButtons.forEach((button) => {
       button.addEventListener("click", () => setLanguage(button.dataset.lang));
     });
 
     menuToggle.addEventListener("click", toggleMobileMenu);
-    document.querySelectorAll('.mobile-nav a, .nav-links a').forEach((link) => {
+
+    document.querySelectorAll(".mobile-nav a, .nav-links a").forEach((link) => {
       link.addEventListener("click", () => {
         if (mobilePanel.classList.contains("open")) {
           closeMobileMenu();
@@ -2306,12 +2449,6 @@
 
     closeWhatsAppButtons.forEach((button) => {
       button.addEventListener("click", closeModal);
-    });
-
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal();
-      }
     });
 
     document.addEventListener("keydown", (event) => {
