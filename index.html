@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buenaño Dentistas | Odontología integral en Cumbayá</title>
+  <title>Francisco Buenaño | Rehabilitación Bucal</title>
   <meta name="description" content="Buenaño Dentistas es una clínica dental integral en Cumbayá, con tecnología digital, atención personalizada y un equipo enfocado en transformar sonrisas con criterio clínico.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.odontologiaestetica.com.ec/">
@@ -12,12 +12,12 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Buenaño Dentistas">
   <meta property="og:locale" content="es_EC">
-  <meta property="og:title" content="Buenaño Dentistas | Odontología integral en Cumbayá">
+  <meta property="og:title" content="Francisco Buenaño | Rehabilitación Bucal">
   <meta property="og:description" content="Clínica dental integral en Cumbayá con tecnología digital, atención personalizada y especialistas enfocados en transformar sonrisas con criterio clínico.">
   <meta property="og:url" content="https://www.odontologiaestetica.com.ec/">
   <meta property="og:image" content="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2004_27_41%20PM.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Buenaño Dentistas | Odontología integral en Cumbayá">
+  <meta name="twitter:title" content="Francisco Buenaño | Rehabilitación Bucal">
   <meta name="twitter:description" content="Clínica dental integral en Cumbayá con tecnología digital, atención personalizada y especialistas enfocados en transformar sonrisas con criterio clínico.">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2004_27_41%20PM.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -229,7 +229,7 @@
 
     .navbar-shell {
       display: grid;
-      grid-template-columns: minmax(220px, 1fr) minmax(0, auto) minmax(220px, 1fr);
+      grid-template-columns: minmax(260px, 1fr) minmax(0, auto) minmax(220px, 1fr);
       grid-template-areas:
         "brand . actions"
         "nav nav nav";
@@ -243,17 +243,43 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       min-width: 0;
       grid-area: brand;
+      padding: 8px 14px 8px 8px;
+      border-radius: 26px;
+      border: 1px solid rgba(16, 35, 63, 0.08);
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: 0 14px 30px rgba(16, 35, 63, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar.scrolled .brand {
+      background: rgba(255, 255, 255, 0.84);
+      border-color: rgba(16, 35, 63, 0.1);
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 247, 255, 0.96));
+      border: 1px solid rgba(16, 35, 63, 0.08);
+      box-shadow: 0 10px 20px rgba(16, 35, 63, 0.08);
+      flex: 0 0 auto;
     }
 
     .brand img {
-      height: 36px;
+      height: 46px;
       width: auto;
+      object-fit: contain;
     }
 
     .brand-copy {
+      display: grid;
+      gap: 3px;
       min-width: 0;
     }
 
@@ -264,7 +290,8 @@
     }
 
     .brand-copy strong {
-      font-size: 15px;
+      font-size: 16px;
+      line-height: 1.05;
     }
 
     .brand-copy span {
@@ -489,6 +516,55 @@
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
       gap: 40px;
       align-items: start;
+    }
+
+    .hero-signature {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 16px 10px 10px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 35, 63, 0.08);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 16px 34px rgba(16, 35, 63, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-signature-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(240, 246, 255, 0.96));
+      border: 1px solid rgba(16, 35, 63, 0.08);
+      box-shadow: 0 10px 22px rgba(16, 35, 63, 0.08);
+    }
+
+    .hero-signature-mark img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .hero-signature-copy {
+      display: grid;
+      gap: 2px;
+    }
+
+    .hero-signature-copy strong {
+      font-size: 13px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-signature-copy span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .hero-copy h1 {
@@ -918,7 +994,11 @@
     .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .concern-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .values-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .values-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      align-content: start;
+    }
     .tech-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .install-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .blog-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -949,6 +1029,17 @@
       font-weight: 800;
       margin-bottom: 18px;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    }
+
+    .service-icon {
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(227, 238, 255, 0.92));
+    }
+
+    .service-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .team-role,
@@ -1110,12 +1201,26 @@
       gap: 20px;
     }
 
+    .about-copy {
+      align-content: start;
+      padding-top: 8px;
+    }
+
+    .value-card {
+      display: grid;
+      align-content: start;
+      min-height: 100%;
+    }
+
     .international-layout {
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
       align-items: stretch;
+      gap: 24px;
     }
 
     .international-shell {
+      display: grid;
+      align-content: start;
       padding: 34px;
       border-radius: 34px;
       background:
@@ -1146,6 +1251,40 @@
       margin-bottom: 16px;
     }
 
+    .international-actions {
+      display: inline-flex;
+      margin-top: 24px;
+    }
+
+    .international-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .international-highlight {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .international-highlight strong {
+      color: #ffffff;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .international-highlight span {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
     .international-points {
       display: grid;
       gap: 16px;
@@ -1153,6 +1292,14 @@
 
     .international-point {
       background: rgba(255, 255, 255, 0.84);
+    }
+
+    .international-media img {
+      object-fit: cover;
+    }
+
+    .international-point:first-child .international-media img {
+      object-position: center 22%;
     }
 
     .install-card {
@@ -1347,7 +1494,14 @@
     }
 
     .contact-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(240, 247, 255, 0.84));
+    }
+
+    .contact-grid {
+      align-content: start;
     }
 
     .contact-card strong,
@@ -1423,10 +1577,16 @@
       left: 18px;
     }
 
+    .contact-map-stack {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
     .map-overlay {
-      position: absolute;
-      inset: auto 18px 18px 18px;
-      max-width: 360px;
+      position: static;
+      inset: auto;
+      max-width: none;
       border-radius: 22px;
       border: 1px solid rgba(16, 35, 63, 0.08);
       background: rgba(255, 255, 255, 0.88);
@@ -1500,22 +1660,21 @@
       z-index: 999;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 18px;
-      border-radius: 999px;
+      justify-content: center;
+      width: 62px;
+      height: 62px;
+      padding: 0;
+      border-radius: 50%;
       background: linear-gradient(135deg, #16ba72, #10a861);
       color: #ffffff;
       box-shadow: 0 18px 34px rgba(20, 184, 111, 0.3);
       font-weight: 800;
     }
 
-    .floating-whatsapp::before {
-      content: "";
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.14);
+    .floating-whatsapp svg {
+      width: 28px;
+      height: 28px;
+      display: block;
     }
 
     .modal {
@@ -1580,7 +1739,7 @@
     .lightbox-card {
       position: relative;
       width: min(100%, 1100px);
-      padding: 18px;
+      padding: 18px 72px;
       border-radius: 32px;
       background: rgba(12, 24, 44, 0.92);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1615,6 +1774,32 @@
       max-height: min(84vh, 920px);
       object-fit: contain;
       margin: 0 auto;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .lightbox-nav.prev {
+      left: 14px;
+    }
+
+    .lightbox-nav.next {
+      right: 14px;
     }
 
     .whatsapp-grid {
@@ -1752,9 +1937,72 @@
         row-gap: 0;
       }
 
+      .brand {
+        padding-right: 10px;
+      }
+
       .brand,
       .nav-actions {
         grid-area: auto;
+      }
+    }
+
+    @media (max-width: 1060px) and (min-width: 901px) {
+      .container {
+        width: min(calc(100% - 28px), var(--container));
+      }
+
+      .section {
+        padding: 92px 0;
+      }
+
+      .navbar-shell {
+        gap: 14px;
+      }
+
+      .brand {
+        gap: 12px;
+        padding: 6px 10px 6px 6px;
+        border-radius: 22px;
+      }
+
+      .brand-mark {
+        padding: 8px 10px;
+        border-radius: 14px;
+      }
+
+      .brand img {
+        height: 34px;
+      }
+
+      .brand-copy strong {
+        font-size: 14px;
+      }
+
+      .brand-copy span {
+        font-size: 10px;
+      }
+
+      .hero-signature {
+        padding: 8px 12px 8px 8px;
+      }
+
+      .hero-signature-mark {
+        padding: 8px 10px;
+      }
+
+      .hero-signature-mark img {
+        height: 24px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(40px, 6vw, 58px);
+      }
+
+      .section-head h2,
+      .international-shell h2,
+      .cta-panel h2 {
+        font-size: clamp(32px, 4.6vw, 44px);
       }
     }
 
@@ -1825,6 +2073,20 @@
         bottom: 14px;
         padding: 14px 16px;
       }
+
+      .international-highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .lightbox-card {
+        padding: 62px 14px;
+      }
+
+      .lightbox-nav {
+        top: auto;
+        bottom: 14px;
+        transform: none;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1849,11 +2111,48 @@
         grid-template-columns: minmax(0, 1fr) auto auto;
       }
 
+      .brand {
+        gap: 10px;
+        padding: 6px 10px 6px 6px;
+        border-radius: 22px;
+      }
+
+      .brand-mark {
+        padding: 8px 10px;
+        border-radius: 14px;
+      }
+
       .brand img {
-        height: 28px;
+        height: 32px;
+      }
+
+      .brand-copy strong {
+        font-size: 14px;
       }
 
       .brand-copy span {
+        display: none;
+      }
+
+      .hero-signature {
+        gap: 10px;
+        padding: 8px 12px 8px 8px;
+      }
+
+      .hero-signature-mark {
+        padding: 8px 10px;
+        border-radius: 14px;
+      }
+
+      .hero-signature-mark img {
+        height: 24px;
+      }
+
+      .hero-signature-copy strong {
+        font-size: 12px;
+      }
+
+      .hero-signature-copy span {
         display: none;
       }
 
@@ -1894,11 +2193,8 @@
       .floating-whatsapp {
         right: 14px;
         bottom: 14px;
-        padding: 14px 16px;
-      }
-
-      .floating-whatsapp span:last-child {
-        display: none;
+        width: 58px;
+        height: 58px;
       }
     }
   </style>
@@ -1907,10 +2203,12 @@
   <header class="navbar" id="navbar">
     <div class="container navbar-shell">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <img src="https://static.wixstatic.com/media/f119f6_6c50a58c33ec4bbbbde8b0ed30eeab4b~mv2.png/v1/crop/x_0,y_542,w_2480,h_733/fill/w_1466,h_430,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/vertical%20azul.png" alt="Francisco Buenaño">
+        <span class="brand-mark">
+          <img src="https://static.wixstatic.com/media/f119f6_6c50a58c33ec4bbbbde8b0ed30eeab4b~mv2.png/v1/crop/x_0,y_542,w_2480,h_733/fill/w_1466,h_430,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/vertical%20azul.png" alt="Francisco Buenaño">
+        </span>
         <span class="brand-copy">
           <strong data-i18n="brandName">Francisco Buenaño</strong>
-          <span data-i18n="brandTag">Rehabilitacion Bucal Estetica</span>
+          <span data-i18n="brandTag">Rehabilitación Bucal</span>
         </span>
       </a>
 
@@ -1973,6 +2271,15 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
+          <div class="hero-signature">
+            <span class="hero-signature-mark">
+              <img src="https://static.wixstatic.com/media/f119f6_6c50a58c33ec4bbbbde8b0ed30eeab4b~mv2.png/v1/crop/x_0,y_542,w_2480,h_733/fill/w_1466,h_430,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/vertical%20azul.png" alt="Francisco Buenaño">
+            </span>
+            <span class="hero-signature-copy">
+              <strong data-i18n="brandName">Francisco Buenaño</strong>
+              <span data-i18n="brandTag">Rehabilitación Bucal</span>
+            </span>
+          </div>
           <span class="eyebrow" data-i18n="hero.eyebrow">Buenaño Dentistas · Cumbayá, Ecuador</span>
           <h1 data-i18n="hero.title">Odontología integral con precisión, estética y confianza</h1>
           <p data-i18n="hero.subtitle">Tratamientos personalizados para cuidar, restaurar y transformar tu sonrisa con un enfoque profesional, cercano y moderno.</p>
@@ -2287,43 +2594,57 @@
 
         <div class="services-grid">
           <article class="service-card reveal stagger-1">
-            <div class="service-icon">01</div>
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_43%20PM%20(1).png" alt="Icono de rehabilitación bucal e implantes" loading="lazy" decoding="async">
+            </div>
             <h3>Rehabilitación Bucal e Implantes</h3>
             <p>Recuperamos la función, estética y equilibrio de tu sonrisa mediante tratamientos personalizados de rehabilitación oral e implantes dentales.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-2">
-            <div class="service-icon">02</div>
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_43%20PM%20(2).png" alt="Icono de implantes dentales" loading="lazy" decoding="async">
+            </div>
             <h3>Implantes Dentales</h3>
             <p>Una solución eficaz para reemplazar uno o varios dientes perdidos, evitando prótesis removibles o el desgaste de piezas vecinas.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-3">
-            <div class="service-icon">03</div>
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_44%20PM%20(3).png" alt="Icono de odontología estética" loading="lazy" decoding="async">
+            </div>
             <h3>Odontología Estética</h3>
             <p>Podemos hacer realidad la sonrisa que siempre has deseado. Forma, color y alineación pueden transformarse usando materiales de alta calidad.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-4">
-            <div class="service-icon">04</div>
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_45%20PM%20(4).png" alt="Icono de endodoncia" loading="lazy" decoding="async">
+            </div>
             <h3>Endodoncia</h3>
             <p>Tratamientos especializados para conservar piezas dentales afectadas y aliviar molestias de origen dental.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-1">
-            <div class="service-icon">05</div>
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_45%20PM%20(5).png" alt="Icono de periodoncia" loading="lazy" decoding="async">
+            </div>
             <h3>Periodoncia</h3>
             <p>Cuidado de las encías y tejidos de soporte para mantener una sonrisa saludable y estable a largo plazo.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-2">
-            <div class="service-icon">06</div>
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_45%20PM%20(6).png" alt="Icono de ortodoncia" loading="lazy" decoding="async">
+            </div>
             <h3>Ortodoncia</h3>
             <p>Corrección de la posición dental y mordida mediante tratamientos modernos, incluyendo Invisalign.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="service-card reveal stagger-3">
-            <div class="service-icon">07</div>
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_38_25%20PM.png" alt="Icono de odontopediatría" loading="lazy" decoding="async">
+            </div>
             <h3>Odontopediatría</h3>
             <p>Atención odontológica especializada para niños, con un enfoque cercano, preventivo y cuidadoso.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
@@ -2341,31 +2662,26 @@
 
         <div class="concern-grid">
           <article class="concern-card reveal stagger-1">
-            <div class="concern-icon">DB</div>
             <h3>Dientes blancos y bellos</h3>
             <p>Podemos hacer realidad la sonrisa que siempre has deseado. Forma, color y alineación pueden cambiar usando los mejores materiales disponibles.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="concern-card reveal stagger-2">
-            <div class="concern-icon">RD</div>
             <h3>Reemplazar dientes perdidos</h3>
             <p>La pérdida de un órgano dental puede ser el inicio de la pérdida del equilibrio en la boca. Por medio de coronas y puentes de apariencia natural, podemos recuperar tu salud y tu sonrisa.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="concern-card reveal stagger-3">
-            <div class="concern-icon">ND</div>
             <h3>Uno o todos tus dientes nuevos</h3>
             <p>Los implantes dentales son una solución eficaz ante la ausencia de uno o varios dientes. Permiten evitar prótesis removibles o el desgaste de piezas vecinas para colocar un puente.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="concern-card reveal stagger-4">
-            <div class="concern-icon">ATM</div>
             <h3>¿Dolor al abrir o cerrar la boca?</h3>
             <p>Dolor cerca del oído, dificultad al abrir o cerrar la boca y ruidos al masticar pueden ser síntomas de trastornos de la articulación temporomandibular. Estamos preparados para ayudarte a restablecer tu salud.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
           </article>
           <article class="concern-card reveal stagger-1">
-            <div class="concern-icon">CS</div>
             <h3>Comodidad y seguridad</h3>
             <p>Cuando todos los dientes se han perdido, las prótesis dentales pueden ser una solución. Cuando el soporte no es suficiente, los implantes dentales pueden brindar mayor fijación, función y seguridad.</p>
             <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
@@ -2377,10 +2693,7 @@
     <section class="section" id="nosotros">
       <div class="container about-layout">
         <div class="about-copy reveal">
-          <div>
-            <span class="eyebrow" data-i18n="about.eyebrow">Nosotros</span>
-            <h2 data-i18n="about.title">Una clínica construida con cercanía, formación constante y confianza a largo plazo.</h2>
-          </div>
+          <span class="eyebrow" data-i18n="about.eyebrow">Nosotros</span>
           <p data-i18n="about.text.one">Hoy, después de 18 años, lo que inició como un sueño se ha convertido en una práctica profesional de alta especialidad que brinda atención integral, se mantiene en constante preparación y cuenta con los elementos tecnológicos que una clínica moderna de nivel mundial debe tener.</p>
           <p data-i18n="about.text.two">Hemos tenido muchos cambios, pero en esencia seguimos siendo los mismos. Aunque hemos incorporado la tecnología paso a paso, mantenemos una práctica basada en servicio personalizado, cercanía y confianza. Nuestros pacientes se han convertido en amigos; han visto nuestro crecimiento y han compartido con nosotros hitos importantes de sus vidas.</p>
         </div>
@@ -2412,7 +2725,6 @@
             <span class="eyebrow" data-i18n="technology.eyebrow">Tecnología</span>
             <h2 data-i18n="technology.title">Tecnología digital y materiales de última generación al servicio de tratamientos más precisos, cómodos y naturales.</h2>
           </div>
-          <p data-i18n="technology.intro">La tecnología se presenta como una herramienta clínica concreta: mejora la experiencia del paciente y aporta precisión en la planificación y ejecución.</p>
         </div>
 
         <div class="tech-grid">
@@ -2616,55 +2928,69 @@
     <section class="section" id="internacional">
       <div class="container international-layout">
         <article class="international-shell reveal">
-          <span class="eyebrow" data-i18n="international.eyebrow">International Patients</span>
-          <h2 data-i18n="international.title">Dental care for international patients planning treatment in Ecuador.</h2>
-          <p data-i18n="international.text">We help you coordinate your visit before arriving in Cumbayá, with clear guidance, timing and follow-up.</p>
-          <div style="margin-top: 24px;">
+          <span class="eyebrow" data-i18n="international.eyebrow">Pacientes internacionales</span>
+          <h2 data-i18n="international.title">Atención dental para pacientes internacionales que planifican su tratamiento en Ecuador.</h2>
+          <p data-i18n="international.text">Te ayudamos a coordinar tu visita antes de llegar a Cumbayá, con tiempos claros, seguimiento y orientación durante todo el proceso.</p>
+          <div class="international-actions">
             <button class="button button-primary" type="button" data-open-whatsapp>
-              <span data-i18n="international.cta">Contact us on WhatsApp</span>
+              <span data-i18n="international.cta">Coordinar por WhatsApp</span>
             </button>
+          </div>
+          <div class="international-highlights">
+            <article class="international-highlight">
+              <strong>4 idiomas</strong>
+              <span>Coordinación para pacientes que viajan desde fuera del país.</span>
+            </article>
+            <article class="international-highlight">
+              <strong>25 min</strong>
+              <span>Desde el aeropuerto internacional hasta Cumbayá.</span>
+            </article>
+            <article class="international-highlight">
+              <strong>Antes y después</strong>
+              <span>Acompañamiento en agenda, tratamiento y seguimiento.</span>
+            </article>
           </div>
         </article>
 
         <div class="international-points">
           <article class="international-point reveal stagger-1">
-            <div class="image-shell international-media" data-fallback="Multilingual staff">
+            <div class="image-shell international-media" data-fallback="Equipo multilingüe">
               <img
                 src="https://static.wixstatic.com/media/f119f6_eaf6555baad64f148de1018f72907a6b~mv2.jpeg/v1/crop/x_292,y_0,w_5416,h_4000/fill/w_612,h_452,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/DSC_0911.jpeg"
-                alt="Multilingual staff at Buenaño Dentists"
+                alt="Equipo multilingüe de Buenaño Dentistas"
                 loading="lazy"
                 decoding="async"
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
             </div>
-            <h3 data-i18n="international.point.one.title">MULTILINGUAL STAFF</h3>
-            <p data-i18n="international.point.one.desc">Our staff can welcome you in four languages: Spanish, French, English and German.</p>
+            <h3 data-i18n="international.point.one.title">EQUIPO MULTILINGÜE</h3>
+            <p data-i18n="international.point.one.desc">Nuestro equipo puede acompañarte en español, francés, inglés y alemán.</p>
           </article>
           <article class="international-point reveal stagger-2">
-            <div class="image-shell international-media" data-fallback="Dental technology">
+            <div class="image-shell international-media" data-fallback="Tecnología dental">
               <img
                 src="https://static.wixstatic.com/media/f119f6_ec66a7a868cf4c07a9828946578c0cce~mv2.jpg/v1/fill/w_612,h_452,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/27752182_1764155950321996_69998115296324.jpg"
-                alt="Dental technology and materials at Buenaño Dentists"
+                alt="Tecnología y materiales dentales en Buenaño Dentistas"
                 loading="lazy"
                 decoding="async"
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
             </div>
-            <h3 data-i18n="international.point.two.title">CUTTING EDGE TECHNOLOGY AND MATERIALS</h3>
-            <p data-i18n="international.point.two.desc">Intraoral scanner, CBCT technology, Emax laboratory, laser dentistry, all under the same roof.</p>
+            <h3 data-i18n="international.point.two.title">TECNOLOGÍA Y MATERIALES DE ALTA ESPECIALIDAD</h3>
+            <p data-i18n="international.point.two.desc">Escáner intraoral, CBCT, laboratorio Emax y odontología láser en un mismo lugar.</p>
           </article>
           <article class="international-point reveal stagger-3">
-            <div class="image-shell international-media" data-fallback="Cumbayá location">
+            <div class="image-shell international-media" data-fallback="Ubicación en Cumbayá">
               <img
                 src="https://static.wixstatic.com/media/f119f6_7d76141988824a0ebb45be068d8493e2~mv2.png/v1/fill/w_612,h_452,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Captura%20de%20Pantalla%202020-09-24%20a%20la(s)%202.png"
-                alt="Location in Cumbayá near Quito international airport"
+                alt="Ubicación en Cumbayá cerca del aeropuerto internacional de Quito"
                 loading="lazy"
                 decoding="async"
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
             </div>
-            <h3 data-i18n="international.point.three.title">LOCATION</h3>
-            <p data-i18n="international.point.three.desc">Located in Cumbayá, 25 minutes from the international airport, close to fine restaurants, shopping areas and surrounded by nature and warm weather.</p>
+            <h3 data-i18n="international.point.three.title">UBICACIÓN</h3>
+            <p data-i18n="international.point.three.desc">Estamos en Cumbayá, a 25 minutos del aeropuerto internacional, cerca de restaurantes, comercios y un entorno cómodo para el paciente.</p>
           </article>
         </div>
       </div>
@@ -2804,7 +3130,7 @@
           </div>
         </div>
 
-        <div class="reveal stagger-3">
+        <div class="contact-map-stack reveal stagger-3">
           <div class="map-placeholder">
             <iframe
               title="Mapa de Buenaño Dentistas en YOO Cumbayá"
@@ -2812,12 +3138,12 @@
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
-            <div class="map-overlay">
-              <div class="map-pin"></div>
-              <strong data-i18n="contact.map.title" style="font-size: 22px; letter-spacing: -0.03em; margin-bottom: 8px;">Ubicación de la clínica en YOO Cumbayá</strong>
-              <span data-i18n="contact.map.desc" style="color: var(--muted); line-height: 1.65; max-width: 34ch;">Referencia visual para ubicar la clínica y facilitar la llegada desde Quito o desde el aeropuerto.</span>
-            </div>
           </div>
+          <article class="map-overlay">
+            <div class="map-pin"></div>
+            <strong data-i18n="contact.map.title" style="font-size: 22px; letter-spacing: -0.03em; margin-bottom: 8px;">Ubicación de la clínica en YOO Cumbayá</strong>
+            <span data-i18n="contact.map.desc" style="color: var(--muted); line-height: 1.65; max-width: 40ch;">Referencia visual para ubicar la clínica y facilitar la llegada desde Quito o desde el aeropuerto.</span>
+          </article>
         </div>
       </div>
     </section>
@@ -2847,8 +3173,10 @@
   </footer>
 
   <button class="floating-whatsapp" type="button" aria-label="Abrir opciones de WhatsApp" data-open-whatsapp>
-    <span>WA</span>
-    <span data-i18n="floating.whatsapp">WhatsApp</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+      <path d="M12 3.2c-4.86 0-8.8 3.78-8.8 8.45 0 1.62.48 3.2 1.39 4.57L3.4 20.8l4.86-1.27a9.02 9.02 0 0 0 3.74.8c4.86 0 8.8-3.78 8.8-8.48 0-4.67-3.94-8.45-8.8-8.45Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+      <path d="M9.14 8.86c.18-.41.37-.42.56-.43h.48c.14 0 .37.05.56.26.19.2.73.71.73 1.74s-.75 2.03-.85 2.17c-.1.14-.2.3-.05.56.16.26.68 1.1 1.46 1.77 1.01.87 1.86 1.14 2.13 1.27.27.13.42.11.58-.07.16-.18.68-.76.87-1.02.18-.26.37-.22.62-.13.26.09 1.62.74 1.9.87.28.13.46.2.53.31.07.11.07.66-.15 1.3-.22.64-1.28 1.23-1.78 1.31-.46.08-1.05.11-1.7-.1-.39-.13-.9-.3-1.55-.58-2.73-1.17-4.5-3.92-4.64-4.11-.14-.19-1.11-1.45-1.11-2.77 0-1.32.7-1.97.95-2.24Z" fill="currentColor"/>
+    </svg>
   </button>
 
   <div class="modal" id="whatsAppModal" aria-hidden="true">
@@ -2897,6 +3225,8 @@
     <div class="modal-backdrop" data-close-lightbox></div>
     <div class="lightbox-card" role="dialog" aria-modal="true" aria-label="Visor de imagen">
       <button class="lightbox-close" type="button" aria-label="Cerrar imagen" data-close-lightbox>&times;</button>
+      <button class="lightbox-nav prev" id="lightboxPrev" type="button" aria-label="Imagen anterior">&#8249;</button>
+      <button class="lightbox-nav next" id="lightboxNext" type="button" aria-label="Imagen siguiente">&#8250;</button>
       <div class="lightbox-media">
         <img id="lightboxImage" src="" alt="">
       </div>
@@ -2906,11 +3236,11 @@
   <script>
     const translations = {
       es: {
-        seoTitle: "Buenaño Dentistas | Odontología integral en Cumbayá",
+        seoTitle: "Francisco Buenaño | Rehabilitación Bucal",
         seoDescription: "Buenaño Dentistas es una clínica dental integral en Cumbayá, con tecnología digital, atención personalizada y un equipo enfocado en transformar sonrisas con criterio clínico.",
         seoOgLocale: "es_EC",
         brandName: "Francisco Buenaño",
-        brandTag: "Rehabilitacion Bucal Estetica",
+        brandTag: "Rehabilitación Bucal",
         "nav.home": "INICIO",
         "nav.team": "PROFESIONALES",
         "nav.services": "TRATAMIENTOS",
@@ -2996,10 +3326,10 @@
         "facilities.card.five.desc": "Un entorno que integra materiales, precisión técnica y procesos digitales.",
         "facilities.card.six.title": "Vista YOO Cumbayá",
         "facilities.card.six.desc": "La ubicación refuerza accesibilidad, contexto y conexión con Cumbayá.",
-        "international.eyebrow": "International Patients",
-        "international.title": "Dental care for international patients planning treatment in Ecuador.",
-        "international.text": "We help you coordinate your visit before arriving in Cumbayá, with clear guidance, timing and follow-up.",
-        "international.cta": "Contact us on WhatsApp",
+        "international.eyebrow": "Pacientes internacionales",
+        "international.title": "Atención dental para pacientes internacionales que planifican su tratamiento en Ecuador.",
+        "international.text": "Te ayudamos a coordinar tu visita antes de llegar a Cumbayá, con tiempos claros, seguimiento y orientación durante todo el proceso.",
+        "international.cta": "Coordinar por WhatsApp",
         "international.point.one.title": "EQUIPO MULTILINGÜE",
         "international.point.one.desc": "Nuestro equipo puede acompañarte en cuatro idiomas: español, francés, inglés y alemán.",
         "international.point.two.title": "TECNOLOGÍA Y MATERIALES DE ALTA GAMA",
@@ -3067,11 +3397,11 @@
         "modal.option.three.desc": "Soporte adicional para agendar y coordinar."
       },
       en: {
-        seoTitle: "Buenaño Dentists | Comprehensive dentistry in Cumbaya",
+        seoTitle: "Francisco Buenaño | Oral Rehabilitation",
         seoDescription: "Buenaño Dentists is a comprehensive dental clinic in Cumbaya with digital technology, personalized care and a team focused on transforming smiles with clinical judgment.",
         seoOgLocale: "en_US",
         brandName: "Francisco Buenaño",
-        brandTag: "Aesthetic Oral Rehabilitation",
+        brandTag: "Oral Rehabilitation",
         "nav.home": "HOME",
         "nav.team": "PROFESSIONALS",
         "nav.services": "TREATMENTS",
@@ -3235,6 +3565,8 @@
     const modal = document.getElementById("whatsAppModal");
     const imageLightbox = document.getElementById("imageLightbox");
     const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
     const html = document.documentElement;
     const metaDescription = document.querySelector('meta[name="description"]');
     const ogTitle = document.querySelector('meta[property="og:title"]');
@@ -3249,6 +3581,10 @@
     const openLightboxButtons = document.querySelectorAll("[data-open-lightbox]");
     const closeLightboxButtons = document.querySelectorAll("[data-close-lightbox]");
     const revealItems = document.querySelectorAll(".reveal");
+    const facilityImages = Array.from(openLightboxButtons)
+      .map((figure) => figure.querySelector("img"))
+      .filter(Boolean);
+    let currentLightboxIndex = -1;
 
     function updateNavbarState() {
       navbar.classList.toggle("scrolled", window.scrollY > 16);
@@ -3323,12 +3659,31 @@
       }
     }
 
-    function openLightbox(image) {
+    function showLightboxImage(index) {
+      if (!facilityImages.length) {
+        return;
+      }
+
+      currentLightboxIndex = (index + facilityImages.length) % facilityImages.length;
+      const image = facilityImages[currentLightboxIndex];
       lightboxImage.src = image.currentSrc || image.src;
       lightboxImage.alt = image.alt || "Imagen de instalaciones";
+    }
+
+    function openLightbox(image) {
+      const index = facilityImages.indexOf(image);
+      showLightboxImage(index === -1 ? 0 : index);
       imageLightbox.classList.add("open");
       imageLightbox.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+    }
+
+    function navigateLightbox(step) {
+      if (!imageLightbox.classList.contains("open") || !facilityImages.length) {
+        return;
+      }
+
+      showLightboxImage(currentLightboxIndex + step);
     }
 
     function closeLightbox() {
@@ -3336,6 +3691,7 @@
       imageLightbox.setAttribute("aria-hidden", "true");
       lightboxImage.src = "";
       lightboxImage.alt = "";
+      currentLightboxIndex = -1;
       if (!mobilePanel.classList.contains("open") && !modal.classList.contains("open")) {
         document.body.style.overflow = "";
       }
@@ -3393,6 +3749,14 @@
       button.addEventListener("click", closeLightbox);
     });
 
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener("click", () => navigateLightbox(-1));
+    }
+
+    if (lightboxNext) {
+      lightboxNext.addEventListener("click", () => navigateLightbox(1));
+    }
+
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         closeModal();
@@ -3400,6 +3764,14 @@
         if (mobilePanel.classList.contains("open")) {
           closeMobileMenu();
         }
+      }
+
+      if (imageLightbox.classList.contains("open") && event.key === "ArrowLeft") {
+        navigateLightbox(-1);
+      }
+
+      if (imageLightbox.classList.contains("open") && event.key === "ArrowRight") {
+        navigateLightbox(1);
       }
     });
 
