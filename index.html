@@ -32,16 +32,65 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. Pampite OE6-53 y Valenzuela, Oficina 301",
+      .article-modal-card {
+        width: min(100%, 980px);
+        max-height: min(88vh, 980px);
+        display: flex;
+        flex-direction: column;
+        padding: 34px;
+      }
         "addressLocality": "Cumbayá",
         "addressCountry": "EC"
       },
       "areaServed": ["Ecuador", "Quito", "Cumbayá"],
       "openingHoursSpecification": [{
         "@type": "OpeningHoursSpecification",
+      .blog-reader-media {
+        height: clamp(240px, 34vw, 420px);
+        margin-bottom: 24px;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+      .blog-reader-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .blog-reader-author {
+        color: #08111f;
+      }
+      .blog-reader-body {
+        display: grid;
+        gap: 16px;
+        overflow-y: auto;
+        padding-right: 6px;
+        color: #10233f;
+        line-height: 1.78;
+        font-size: 17px;
+      }
+      .blog-reader-body p,
+      .blog-reader-body ul,
+      .blog-reader-body ol {
+        margin: 0;
+      }
+      .blog-reader-body ul,
+      .blog-reader-body ol {
+        padding-left: 22px;
+        display: grid;
+        gap: 8px;
+      }
         "dayOfWeek": [
           "Monday",
           "Tuesday",
           "Wednesday",
+        .article-modal-card {
+          max-height: 90vh;
+          padding: 22px;
+        }
           "Thursday",
           "Friday"
         ],
@@ -67,8 +116,6 @@
       --primary-dark: #164ccb;
       --accent: #7cb6ff;
       --success: #14b86f;
-      --shadow-lg: 0 28px 70px rgba(21, 49, 98, 0.14);
-      --shadow-md: 0 16px 34px rgba(21, 49, 98, 0.1);
       --shadow-sm: 0 10px 22px rgba(21, 49, 98, 0.08);
       --radius-xl: 36px;
       --radius-lg: 28px;
@@ -95,6 +142,57 @@
       text-rendering: optimizeLegibility;
     }
 
+    .article-modal-card {
+      width: min(100%, 980px);
+      max-height: min(88vh, 980px);
+      display: flex;
+      flex-direction: column;
+      padding: 34px;
+    }
+
+    .blog-reader-media {
+      height: clamp(240px, 34vw, 420px);
+      margin-bottom: 24px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .blog-reader-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .blog-reader-author {
+      color: #08111f;
+    }
+
+    .blog-reader-body {
+      display: grid;
+      gap: 16px;
+      overflow-y: auto;
+      padding-right: 6px;
+      color: #10233f;
+      line-height: 1.78;
+      font-size: 17px;
+    }
+
+    .blog-reader-body p,
+    .blog-reader-body ul,
+    .blog-reader-body ol {
+      margin: 0;
+    }
+
+    .blog-reader-body ul,
+    .blog-reader-body ol {
+      padding-left: 22px;
+      display: grid;
+      gap: 8px;
+    }
     a {
       color: inherit;
       text-decoration: none;
@@ -277,9 +375,9 @@
       justify-content: center;
       padding: 10px 14px;
       border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(247, 249, 252, 0.96));
+      background: rgba(255, 255, 255, 0.98);
       border: 1px solid rgba(16, 35, 63, 0.08);
-      box-shadow: 0 10px 20px rgba(16, 35, 63, 0.08);
+      box-shadow: 0 10px 20px rgba(7, 20, 40, 0.12);
       flex: 0 0 auto;
     }
 
@@ -287,6 +385,7 @@
       height: 46px;
       width: auto;
       object-fit: contain;
+      filter: none;
     }
 
     .brand-copy {
@@ -559,6 +658,7 @@
       height: 28px;
       width: auto;
       object-fit: contain;
+      filter: brightness(0) invert(1);
     }
 
     .hero-signature-copy {
@@ -1259,12 +1359,21 @@
     .card-link {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       margin-top: 18px;
-      color: #ffffff;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(16, 35, 63, 0.1);
+      color: #123568;
       font-weight: 700;
-      background: none;
-      padding: 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .team-card .team-duo + .card-link {
+      margin-top: 18px;
     }
 
     .service-card,
@@ -1673,6 +1782,11 @@
     .blog-card .card-link {
       margin-top: auto;
       padding-top: 18px;
+      min-height: 38px;
+      padding: 0 14px;
+      font-size: 14px;
+      border-radius: 12px;
+      width: fit-content;
     }
 
     .blog-actions {
@@ -2090,6 +2204,14 @@
       padding: 30px;
     }
 
+    .archive-modal-card {
+      width: min(100%, 980px);
+      max-height: min(82vh, 920px);
+      display: flex;
+      flex-direction: column;
+      padding: 34px;
+    }
+
     .modal-head {
       display: flex;
       justify-content: space-between;
@@ -2116,6 +2238,34 @@
       color: var(--primary-dark);
       font-size: 24px;
       line-height: 1;
+    }
+
+    .blog-archive-list {
+      display: grid;
+      gap: 12px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .blog-archive-link {
+      display: block;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #f6f9fd;
+      border: 1px solid rgba(16, 35, 63, 0.08);
+      color: #08111f;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.45;
+      box-shadow: 0 10px 24px rgba(10, 24, 44, 0.06);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .blog-archive-link:hover,
+    .blog-archive-link:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(18, 53, 104, 0.28);
+      box-shadow: 0 14px 28px rgba(10, 24, 44, 0.1);
     }
 
     .lightbox-card {
@@ -2759,6 +2909,16 @@
         padding: 22px;
       }
 
+      .archive-modal-card {
+        max-height: 86vh;
+        padding: 22px;
+      }
+
+      .blog-archive-link {
+        font-size: 16px;
+        padding: 14px 16px;
+      }
+
       .floating-whatsapp {
         right: 14px;
         bottom: 14px;
@@ -2840,16 +3000,7 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <div class="hero-signature">
-            <span class="hero-signature-mark">
-              <img src="https://static.wixstatic.com/media/f119f6_6c50a58c33ec4bbbbde8b0ed30eeab4b~mv2.png/v1/crop/x_0,y_542,w_2480,h_733/fill/w_1466,h_430,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/vertical%20azul.png" alt="Francisco Buenaño">
-            </span>
-            <span class="hero-signature-copy">
-              <strong data-i18n="brandName">Francisco Buenaño</strong>
-              <span data-i18n="brandTag">Rehabilitación Bucal</span>
-            </span>
-          </div>
-          <span class="eyebrow" data-i18n="hero.eyebrow">Buenaño Dentistas · Cumbayá, Ecuador</span>
+          <span class="eyebrow" data-i18n="hero.eyebrow">Francisco Buenaño · Rehabilitación Bucal</span>
           <h1 data-i18n="hero.title">Odontología integral con precisión, estética y confianza</h1>
           <div class="hero-actions">
             <button class="button button-primary" type="button" data-open-whatsapp>
@@ -2922,7 +3073,7 @@
             <div class="hero-note-row">
               <article class="hero-note">
                 <strong data-i18n="hero.tag.one">Planificación digital</strong>
-                <span data-i18n="hero.note.one">Diagnóstico, planificación y ejecución con herramientas contemporáneas.</span>
+                <span data-i18n="hero.note.one">Diagnóstico, planificación y ejecución con herramientas modernas y de última tecnología.</span>
               </article>
               <article class="hero-note">
                 <strong data-i18n="hero.tag.two">Atención personalizada</strong>
@@ -3001,7 +3152,6 @@
                   <li>Universidad Javeriana de Colombia</li>
                 </ul>
                 <span class="team-area">Área: Endodoncia</span>
-                <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
               </div>
 
               <div class="team-profile">
@@ -3017,9 +3167,9 @@
                   <li>Universidad Javeriana de Colombia</li>
                 </ul>
                 <span class="team-area">Área: Endodoncia</span>
-                <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
               </div>
             </div>
+            <a class="card-link" href="#contacto" data-i18n="team.ctaPlural">Conocer especialistas</a>
           </article>
 
           <article class="team-card reveal stagger-4">
@@ -3108,7 +3258,6 @@
                   <li>Universidad San Francisco de Quito</li>
                 </ul>
                 <span class="team-area">Área: Odontopediatría</span>
-                <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
               </div>
 
               <div class="team-profile">
@@ -3123,9 +3272,9 @@
                   <li>Universidad Autónoma de Nuevo León</li>
                 </ul>
                 <span class="team-area">Área: Odontopediatría</span>
-                <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
               </div>
             </div>
+            <a class="card-link" href="#contacto" data-i18n="team.ctaPlural">Conocer especialistas</a>
           </article>
 
         </div>
@@ -3584,7 +3733,7 @@
           <div class="blog-pager-controls">
             <button class="button button-secondary" id="blogPrev" type="button">Anterior</button>
             <button class="button button-secondary" id="blogNext" type="button">Siguiente</button>
-            <a class="button button-secondary" href="https://www.odontologiaestetica.com.ec/blog" target="_blank" rel="noreferrer noopener" data-i18n="blog.more">Ver todos los artículos</a>
+            <button class="button button-secondary" id="blogArchiveOpen" type="button" data-i18n="blog.more">Ver todos los artículos</button>
           </div>
         </div>
       </div>
@@ -3603,23 +3752,14 @@
 
         <div class="info-grid">
           <article class="social-card reveal stagger-1">
-            <div class="social-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2019.01.05.png" alt="Icono de atención integral gratuita" loading="lazy" decoding="async">
-            </div>
             <h3 data-i18n="social.card.one.title">Atención integral gratuita</h3>
             <p data-i18n="social.card.one.desc">Un programa pensado para responder con cuidado real a necesidades concretas de salud oral.</p>
           </article>
           <article class="social-card reveal stagger-2">
-            <div class="social-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2019.01.27.png" alt="Icono de acompañamiento con dignidad" loading="lazy" decoding="async">
-            </div>
             <h3 data-i18n="social.card.two.title">Acompañamiento con dignidad</h3>
             <p data-i18n="social.card.two.desc">La propuesta se presenta con sobriedad, sin exageraciones, y con foco en el valor humano del proyecto.</p>
           </article>
           <article class="social-card reveal stagger-3">
-            <div class="social-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2019.01.47.png" alt="Icono de compromiso sostenido" loading="lazy" decoding="async">
-            </div>
             <h3 data-i18n="social.card.three.title">Compromiso sostenido</h3>
             <p data-i18n="social.card.three.desc">Una forma de devolver salud, bienestar y sonrisas desde una práctica profesional responsable.</p>
           </article>
@@ -3720,7 +3860,7 @@
 
   <footer class="footer">
     <div class="container footer-shell">
-      <span data-i18n="footer.left">Buenaño Dentistas · Cumbayá, Ecuador</span>
+      <span data-i18n="footer.left">Francisco Buenaño · Rehabilitación Bucal</span>
     </div>
   </footer>
 
@@ -3773,6 +3913,38 @@
     </div>
   </div>
 
+  <div class="modal" id="blogArchiveModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-blog-archive></div>
+    <div class="modal-card archive-modal-card" role="dialog" aria-modal="true" aria-labelledby="blogArchiveTitle">
+      <div class="modal-head">
+        <div>
+          <h3 id="blogArchiveTitle" data-i18n="blog.archive.title">Todos los artículos</h3>
+          <p data-i18n="blog.archive.text">Un listado completo con todos los títulos publicados en el blog.</p>
+        </div>
+        <button class="modal-close" type="button" aria-label="Cerrar listado de artículos" data-close-blog-archive>&times;</button>
+      </div>
+      <div class="blog-archive-list" id="blogArchiveList"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="blogArticleModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-blog-article></div>
+    <div class="modal-card article-modal-card" role="dialog" aria-modal="true" aria-labelledby="blogArticleTitle">
+      <div class="modal-head">
+        <div>
+          <div class="blog-reader-meta">
+            <span class="blog-reader-author" id="blogArticleAuthor">Francisco Buenaño Herrera</span>
+            <span id="blogArticleMeta"></span>
+          </div>
+          <h3 id="blogArticleTitle"></h3>
+        </div>
+        <button class="modal-close" type="button" aria-label="Cerrar artículo" data-close-blog-article>&times;</button>
+      </div>
+      <div class="image-shell blog-reader-media" id="blogArticleMedia" data-fallback="Artículo del blog"></div>
+      <div class="blog-reader-body" id="blogArticleBody"></div>
+    </div>
+  </div>
+
   <div class="modal" id="imageLightbox" aria-hidden="true">
     <div class="modal-backdrop" data-close-lightbox></div>
     <div class="lightbox-card" role="dialog" aria-modal="true" aria-label="Visor de imagen">
@@ -3805,7 +3977,7 @@
         "nav.contact": "CONTACTO",
         "cta.whatsapp": "Agendar por WhatsApp",
         "cta.services": "Conocer servicios",
-        "hero.eyebrow": "Buenaño Dentistas · Cumbayá, Ecuador",
+        "hero.eyebrow": "Francisco Buenaño · Rehabilitación Bucal",
         "hero.title": "Odontología integral con precisión, estética y confianza",
         "hero.quote": "“En Buenaño Dentistas, el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.”",
         "hero.quoteAuthor": "Francisco Buenaño — Forbes Ecuador",
@@ -3816,7 +3988,7 @@
         "hero.tag.one": "Planificación digital",
         "hero.tag.two": "Atención personalizada",
         "hero.tag.three": "Resultados naturales",
-        "hero.note.one": "Diagnóstico, planificación y ejecución con herramientas contemporáneas.",
+        "hero.note.one": "Diagnóstico, planificación y ejecución con herramientas modernas y de última tecnología.",
         "hero.note.two": "Tratamientos construidos según la necesidad clínica y el contexto de cada paciente.",
         "hero.metric.one.label": "Años de práctica clínica",
         "hero.metric.two.label": "Especialistas destacados",
@@ -3836,6 +4008,7 @@
         "team.intro": "Presentamos al equipo con una narrativa visual más clara, combinando retratos, especialidad y trayectoria en una grilla limpia y fácil de recorrer.",
         "team.showcase.caption": "Un equipo de especialistas enfocado en atención integral y personalizada.",
         "team.cta": "Conocer especialista",
+        "team.ctaPlural": "Conocer especialistas",
         "services.eyebrow": "Tratamientos",
         "services.title": "Tratamientos principales",
         "services.subtitle": "Tratamientos integrales para cuidar, restaurar y transformar tu sonrisa.",
@@ -3905,6 +4078,8 @@
         "blog.actions.text": "Otros temas del blog incluyen el cuidado dental y el vino, las diferencias entre un puente dental y un implante, y la decisión entre carillas u ortodoncia.",
         "blog.read": "Leer artículo",
         "blog.more": "Ver todos los artículos",
+        "blog.archive.title": "Todos los artículos",
+        "blog.archive.text": "Un listado completo con todos los títulos publicados en el blog.",
         "blog.prev": "Anterior",
         "blog.next": "Siguiente",
         "blog.page": "Página",
@@ -3938,7 +4113,7 @@
         "final.title": "Agenda tu cita por WhatsApp y recibe una atención cercana desde el primer contacto.",
         "final.text": "Una invitación directa, clara y consistente con el resto de la experiencia del sitio.",
         "final.cta": "Agenda tu cita por WhatsApp",
-        "footer.left": "Buenaño Dentistas · Cumbayá, Ecuador",
+        "footer.left": "Francisco Buenaño · Rehabilitación Bucal",
         "footer.right": "Diseño bilingüe, limpio y listo para presentación clínica",
         "floating.whatsapp": "WhatsApp",
         "modal.title": "Selecciona una línea de WhatsApp",
@@ -3969,7 +4144,7 @@
         "nav.contact": "CONTACT",
         "cta.whatsapp": "Book via WhatsApp",
         "cta.services": "Explore services",
-        "hero.eyebrow": "Buenaño Dentistas · Cumbayá, Ecuador",
+        "hero.eyebrow": "Francisco Buenaño · Rehabilitación Bucal",
         "hero.title": "Comprehensive dentistry with precision, aesthetics and trust",
         "hero.subtitle": "Personalized treatments to care for, restore and transform your smile through a professional, close and contemporary approach.",
         "hero.quote": "“At Buenaño Dentistas, the patient feels they are in the right place and will be treated in a personalized and professional way. They will also enjoy a remarkable experience, feeling genuine care for their health.”",
@@ -3981,7 +4156,7 @@
         "hero.tag.one": "Digital planning",
         "hero.tag.two": "Personalized care",
         "hero.tag.three": "Natural results",
-        "hero.note.one": "Diagnosis, planning and execution supported by contemporary tools.",
+        "hero.note.one": "Diagnosis, planning and execution supported by modern, state-of-the-art tools.",
         "hero.note.two": "Treatments shaped around each patient's clinical needs and context.",
         "hero.metric.one.label": "Years of clinical practice",
         "hero.metric.two.label": "Featured specialists",
@@ -4001,6 +4176,7 @@
         "team.intro": "The team is presented through a clearer visual narrative, combining portraits, specialty and background in a clean grid that is easy to scan.",
         "team.showcase.caption": "A team of specialists focused on comprehensive and personalized care.",
         "team.cta": "Meet specialist",
+        "team.ctaPlural": "Meet specialists",
         "services.eyebrow": "Treatments",
         "services.title": "Main treatments",
         "services.subtitle": "Comprehensive treatments to care for, restore and transform your smile.",
@@ -4070,6 +4246,8 @@
         "blog.actions.text": "Other blog topics include dental care and wine, the difference between a bridge and an implant, and deciding between veneers or orthodontics.",
         "blog.read": "Read article",
         "blog.more": "View all articles",
+        "blog.archive.title": "All articles",
+        "blog.archive.text": "A complete list with every title published on the blog.",
         "blog.prev": "Previous",
         "blog.next": "Next",
         "blog.page": "Page",
@@ -4103,7 +4281,7 @@
         "final.title": "Book your appointment on WhatsApp and receive close, thoughtful attention from the first contact.",
         "final.text": "A direct, clear invitation that stays consistent with the rest of the site experience.",
         "final.cta": "Book your appointment on WhatsApp",
-        "footer.left": "Buenaño Dentistas · Cumbayá, Ecuador",
+        "footer.left": "Francisco Buenaño · Rehabilitación Bucal",
         "footer.right": "Bilingual, clean design ready for clinical presentation",
         "floating.whatsapp": "WhatsApp",
         "modal.title": "Choose a WhatsApp line",
@@ -4134,6 +4312,13 @@
           es: "Cada cierto tiempo aparece una práctica natural que promete transformar la salud oral sin esfuerzo. Este artículo revisa qué es el oil pulling y qué dice realmente la evidencia científica.",
           en: "Natural practices regularly go viral as effortless oral-health solutions. This article reviews what oil pulling is and what scientific evidence actually supports."
         },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>Cada cierto tiempo aparece una práctica “natural” que promete transformar la salud oral sin esfuerzo. En los últimos años, una de las más difundidas ha sido el oil pulling, una técnica tradicional que consiste en realizar enjuagues bucales con Coconut oil, generalmente en ayunas y durante varios minutos.</p><p>En redes sociales se le atribuyen beneficios amplios: eliminación de bacterias, dientes más blancos, prevención de caries e incluso detoxificación oral. Sin embargo, cuando estas afirmaciones se revisan bajo criterios científicos rigurosos, el panorama es mucho más limitado.</p><p><strong>¿Qué es realmente el oil pulling?</strong></p><p>El procedimiento consiste en mantener aceite en la boca y moverlo lentamente entre los dientes durante varios minutos, sin ingerirlo, para luego escupirlo y continuar con la higiene habitual.</p><p>Aunque algunos contenidos recomiendan hacerlo durante 15 a 30 minutos, no existe evidencia clínica que demuestre que tiempos prolongados generen un beneficio superior.</p><p>Desde el punto de vista fisiológico, cualquier efecto potencial parece relacionarse principalmente con una acción mecánica de arrastre, más que con un efecto terapéutico potente.</p><p><strong>¿Puede reducir bacterias o placa dental?</strong></p><p>La evidencia científica disponible sugiere que sí podría existir una reducción modesta de placa bacteriana y gingivitis leve, pero con una limitación importante: los estudios disponibles son pequeños y metodológicamente débiles.</p><p>Una revisión publicada por Peedikayil et al. (2015, Journal of Clinical and Diagnostic Research) encontró disminuciones discretas en índices de placa y sangrado gingival en algunos grupos que utilizaron aceite de coco, aunque con baja calidad metodológica.</p><p>De forma similar, Asokan et al. (2020, Complementary Therapies in Medicine) concluyeron que los resultados observados no permiten establecer superioridad clínica frente a otras medidas convencionales.</p><p><strong>¿Blanquea los dientes?</strong></p><p>Aquí la respuesta científica es clara: no existe evidencia sólida de que el aceite de coco produzca blanqueamiento dental real.</p><p>El color dental depende de factores estructurales del esmalte y dentina, además de pigmentaciones superficiales. El aceite no tiene capacidad química demostrada para modificar estos componentes.</p><p>La sensación de dientes “más limpios” que algunos pacientes describen probablemente se relaciona con remoción superficial transitoria, no con aclaramiento verdadero.</p><p><strong>¿Puede sustituir el cepillado?</strong></p><p>Definitivamente no.</p><p>La American Dental Association mantiene que no existe evidencia suficiente para recomendar el oil pulling como sustituto de medidas convencionales.</p><p>La Sociedad Española de Periodoncia y Osteointegración coincide en que, en el mejor escenario, podría considerarse un complemento, nunca una alternativa.</p><p>La evidencia fuerte sigue favoreciendo:</p><ul><li>cepillado con dentífrico fluorurado</li><li>higiene interdental diaria</li><li>controles clínicos periódicos</li></ul><p><strong>¿Tiene sentido usar bicarbonato después?</strong></p><p>Muchos contenidos digitales recomiendan añadir bicarbonato al final del proceso. Esa práctica no tiene respaldo clínico como rutina diaria.</p><p>El uso repetido de bicarbonato puede aumentar abrasión superficial en pacientes con:</p><ul><li>esmalte debilitado</li><li>sensibilidad cervical</li><li>recesión gingival</li><li>exposición dentinaria</li></ul><p>El riesgo no está en un uso aislado, sino en convertirlo en hábito frecuente sin criterio profesional.</p><p><strong>¿Existe algún beneficio real?</strong></p><p>Sí, pero limitado.</p><p>El aceite de coco contiene ácido láurico, un compuesto con actividad antimicrobiana observada en laboratorio. El problema es que ese efecto no se traduce automáticamente en beneficio clínico robusto en cavidad oral humana.</p><p>Por eso, hoy la interpretación científica correcta es:</p><ul><li>puede aportar un efecto complementario leve</li><li>no modifica significativamente riesgo de caries</li><li>no sustituye protocolos preventivos establecidos</li></ul><p><strong>Lo que sí funciona con evidencia sólida</strong></p><p>Cuando el objetivo es controlar biofilm, prevenir inflamación gingival y mantener estabilidad oral, las intervenciones con mejor respaldo siguen siendo:</p><ul><li>cepillado correcto dos veces al día</li><li>uso de seda o cepillos interproximales</li><li>profilaxis profesional periódica</li><li>colutorios indicados en situaciones específicas</li></ul><p>Por ejemplo, Chlorhexidina sigue siendo el antiséptico de referencia en situaciones clínicas concretas, aunque siempre bajo indicación profesional.</p><p><strong>Conclusión clínica</strong></p><p>El oil pulling no es perjudicial en la mayoría de personas si se usa ocasionalmente, pero tampoco representa una intervención capaz de reemplazar la higiene oral basada en evidencia.</p><p>En salud oral, las tendencias virales suelen simplificar demasiado fenómenos biológicos complejos.</p><p>La verdadera prevención sigue dependiendo de hábitos correctos, constancia y criterio profesional.</p>`
+        },
         image: "https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2006_55_52%20PM.png",
         url: "https://www.odontologiaestetica.com.ec/post/oil-pulling-con-aceite-de-coco-entre-la-tendencia-viral-y-la-evidencia-cient%C3%ADfica"
       },
@@ -4149,6 +4334,13 @@
         excerpt: {
           es: "En redes sociales se ha popularizado sellar los labios con cinta adhesiva durante el sueño. Aquí se explican sus riesgos, limitaciones y por qué no debe verse como solución clínica universal.",
           en: "Social media has popularized sealing the lips with adhesive tape during sleep. Here we explain its risks, limits and why it should not be treated as a universal clinical solution."
+        },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>En redes sociales se ha popularizado una práctica llamada mouth taping, que consiste en sellar los labios con cinta adhesiva durante el sueño. Sus promotores aseguran que puede mejorar la respiración, reducir el bruxismo e incluso ayudar en la apnea del sueño.</p><p>Pero en salud, la pregunta importante no es si algo está de moda, sino si es seguro y si cuenta con evidencia científica suficiente.</p><p>La lógica parece simple: la respiración nasal es fisiológicamente mejor que la respiración oral. La nariz filtra, humidifica y calienta el aire, además de favorecer la producción de óxido nítrico, una molécula relacionada con la función respiratoria.</p><p>Esto es correcto desde el punto de vista fisiológico. Sin embargo, eso no significa automáticamente que forzar la respiración nasal durante la noche sea un tratamiento médico.</p><p><strong>Mouth taping y apnea del sueño: lo que realmente sabemos</strong></p><p>En la apnea obstructiva del sueño, el problema principal no es la boca abierta, sino el colapso de la vía aérea superior durante el sueño. Hasta el momento:</p><ul><li>No existen ensayos clínicos de alta calidad que demuestren que el mouth taping trate la apnea del sueño.</li><li>Puede ser riesgoso en personas con apnea no diagnosticada.</li><li>Puede retrasar el diagnóstico y el tratamiento adecuados.</li></ul><p>Las guías clínicas actuales recomiendan tratamientos como CPAP, dispositivos intraorales correctamente indicados y manejo médico del sueño, no el sellado de labios.</p><p><strong>¿Puede ayudar con el bruxismo?</strong></p><p>El bruxismo del sueño es un fenómeno neuromuscular complejo, relacionado con la actividad cerebral, los microdespertares y factores del sistema nervioso central. En la actualidad, no hay evidencia clínica sólida que demuestre que el mouth taping reduzca el bruxismo, ya que no actúa sobre el origen neurológico del problema.</p><p>La evidencia muestra el escaso respaldo científico de esta práctica y que, aunque algunas personas la utilizan sin presentar problemas, no es completamente inocua.</p><p>Hasta el momento se han reportado riesgos potenciales como:</p><ul><li>Sensación de ahogo o ansiedad nocturna</li><li>Problemas en personas con congestión nasal</li><li>Riesgo en apnea del sueño no diagnosticada</li></ul><p>Una revisión reciente que analizó varios estudios disponibles sugiere que podría existir un riesgo potencial si se utiliza de forma indiscriminada y que se necesitan más investigaciones para determinar si tiene algún beneficio clínico real.</p><p>La medicina moderna se basa en un principio simple: cada paciente es diferente.</p><p>Dependiendo del diagnóstico, las opciones con respaldo científico pueden incluir:</p><ul><li>Evaluación respiratoria completa</li><li>Dispositivos intraorales correctamente indicados</li><li>Manejo interdisciplinario</li><li>Derivación médica cuando corresponde</li></ul><p>Como conclusión, el mouth taping puede parecer una tendencia interesante desde el punto de vista fisiológico, pero actualmente, y de acuerdo con la literatura científica:</p><ul><li>No es un tratamiento validado para apnea del sueño.</li><li>No es un tratamiento validado para bruxismo.</li><li>Puede implicar riesgos en algunos pacientes.</li></ul><p>En nuestra clínica evaluamos cada caso con responsabilidad y profundidad, buscando siempre un diagnóstico correcto basado en evidencia científica y criterio profesional, para ofrecer a cada paciente el tratamiento que realmente necesita.</p>`
         },
         image: "https://static.wixstatic.com/media/f119f6_8527e41152214e19a56f6dabfe31fae5~mv2.png/v1/fill/w_800,h_601,fp_0.50_0.50,q_95,enc_avif,quality_auto/f119f6_8527e41152214e19a56f6dabfe31fae5~mv2.png",
         url: "https://www.odontologiaestetica.com.ec/post/mouth-taping-riesgos-evidencia-cientifica"
@@ -4166,6 +4358,13 @@
           es: "El carbón activado puede remover algunas manchas superficiales, pero no produce un verdadero efecto blanqueador. Un repaso claro sobre beneficios limitados y posibles riesgos.",
           en: "Activated charcoal may remove some superficial stains, but it does not create true whitening. A concise review of its limited benefits and possible risks."
         },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>El carbón activado en las pastas dentales puede remover algunas manchas superficiales en tus dientes, pero no tiene efecto blanqueador superior a una pasta dental regular. Además que sus efectos a largo plazo todavía son desconocidos.</p><p>Hoy en día este tipo de pastas dentales es una de los mayores tendencias en el mundo de la cosmética, convirtiéndose en un ingrediente de moda en máscaras faciales y exfoliantes.</p><p>El carbón activado, es un polvo fino hecho de madera, corteza de coco y otras substancias naturales que se oxidan bajo calor extremo, y pesar de que tiene varias utilidades en la industria y en la vida diaria, en odontología necesitamos más investigación que avale su uso, en el 2017 una revisión científica advierte a los dentistas sobre la precaución que sus pacientes deben tomar en razón de los beneficios no probados y las preocupaciones de seguridad.</p><p>Aquí algunos puntos que debemos considerar:</p><ul><li>Es demasiado abrasiva para el uso diario, puede degradar el esmalte y los dientes se verían amarillos debido a la exposición de la dentina y también podría promover la aparición de sensibilidad dental.</li><li>Muchas pastas dentales de carbón no contienen flúor. El flúor ayuda a mantener la fuerza del esmalte, protegiéndolos de la caries.</li><li>Causaría manchas en algunos dientes luego de uso repetido, acumulándose en fisuras y espacios difíciles de acceder para la higiene.</li><li>El efecto del carbón sobre las restauraciones no es conocido. Carillas, puentes, coronas y restauraciones se podrían ver afectadas, perdiendo brillo, degradando su superficie, o acumulando manchas en sus interfases.</li></ul><p>Hay varias opciones seguras para blanquear tus dientes, desde productos de uso profesional, hasta soluciones de venta libre que son respaldadas por asociaciones profesionales de prestigio.</p><p>Recuerda que si las dudas permanecen, estamos siempre dispuestos a responderlas.</p>`
+        },
         image: "https://static.wixstatic.com/media/f119f6_0e5c864ef0ea49eeb766f4cf0b0a264b~mv2.png/v1/fill/w_799,h_600,fp_0.50_0.50,q_95,enc_avif,quality_auto/f119f6_0e5c864ef0ea49eeb766f4cf0b0a264b~mv2.png",
         url: null
       },
@@ -4181,6 +4380,13 @@
         excerpt: {
           es: "Una pieza editorial sobre la visión clínica, la experiencia del paciente y el modelo de crecimiento sostenible detrás de la clínica.",
           en: "An editorial piece about the clinic's vision, patient experience and sustainable growth model."
+        },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>Un consultorio odontológico que nació en pandemia, donde el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.</p><p>26 Marzo de 2023 22.00</p><p>Al llegar a la clínica dental del Dr. Francisco Buenaño Herrera se puede percibir que es un lugar especial, con una atención personalizada, donde priman los cuidados por la salud del paciente. Excede todas las normas de bioseguridad implantadas desde el inicio de la pandemia y además cuida el medioambiente. La tecnología es su gran pilar y un personal gustoso con el trabajo que realiza, dan la confianza necesaria para poder saber que se llegó a un sitio profesional.</p><p>La cabeza de esta iniciativa, el Dr. Buenaño, relata la historia de su consultorio con gran orgullo, “somos una clínica 100% digital, lo que nos da varias ventajas como ofrecer los servicios odontológicos de forma inmediata. En un solo día se pueden elaborar restauraciones definitivas, porque contamos con laboratorio digital in house. Reducimos el número de citas para los pacientes, porque los procedimientos son más rápidos y eficientes”.</p><p>Su odontología digital le permite realizar impresiones 3D, para lo cual es indispensable utilizar materiales como resinas biocompatibles, por ejemplo. Gracias a ello, se elaboran desde férulas de relajación muscular hasta alineadores de ortodoncia. Los profesionales también pueden tener una guía quirúrgica, previo a ingresar a una cirugía programada. Con ello, se tiene mayor precisión en la colocación de los implantes dentales; y, lo más importante, la recuperación del paciente es más rápida.</p><p>El consultorio cuenta también con escáneres de alta definición. Uno específico para odontología restauradora como inlays, onlays, restauraciones fijas unitarias, prótesis fija, etc. Y otro, óptimo para realizar la ortodoncia invisible. “Escaneamos la boca del paciente, se suben los datos en la nube, y desde la matriz del fabricante se planifican los tratamientos; nosotros aceptamos o modificamos el plan de tratamiento y finalmente los alineadores nos envían acá. Trabajamos en equipo”, explica.</p><p>Otra novedad tecnológica es que cuentan con un software de diseño digital, para dibujar la sonrisa del paciente. En ella se pueden incorporar las fotos previas del paciente y tener una simulación virtual del trabajo estético terminado. Finalmente para la producción final de las restauraciones, dos fresadoras: la una para fresar en seco lo elaborado en zirconia; y la otra para materiales húmedos como el disilicato de litio. ¿Ventajas para los pacientes? Los materiales más avanzados al momento.</p><p>¿Cómo se tejieron los caminos de esta gran clínica? Es la primera construida pensando en la pospandemia. Este sueño se desarrolló durante los meses más álgidos del covid-19. “Luego de trabajar durante 20 años, con otro modelo; pensé en un emprendimiento propio, al cual ponerle mi nombre y nuestro sello personal; digo nuestro, pues la compañía de mi esposa Karla ha sido fundamental en este proceso. Todo empezó en octubre 2020”, sonríe el Dr. Buenaño.</p><p>Al abrir las puertas se centraron primero en cómo proteger a los especialistas, pacientes y demás personal para que ninguno enferme. Fue complicado, pues se desconocían los alcances del virus con precisión; es por ello que la ventilación y la iluminación de este consultorio fueron elementos clave para su apertura.</p><p>Con una estética y elegancia características, cada uno de los cubículos donde atienden los especialistas fueron edificados con paredes móviles. Son grandes ventanales del piso al techo, donde priman la iluminación y ventilación. En el diseño de la clínica, además, no se colocaron muebles excesivos; los pocos tienen ruedas y son fáciles de limpiar. Sus paredes son impecables, blancas, relucientes, sin cuadros o adornos que acumulen polvo. Si bien la sala de espera tiene menos circulación, hay un filtro de aire de nivel hospitalario, similar a los que se ubican en los quirófanos.</p><p>Para continuar con su exposición sobre sus servicios de excelencia detalla que 3 800 citas exitosas se agendaron en 2022 y Francisco Buenaño Rehabilitación Bucal Estética es una sólida estructura de un grupo de empresas. Es decir, el servicio de laboratorio es independiente; quienes tienen proveedores de materiales e insumos para contar con el material necesario. Una empresa de servicios odontológicos es la que factura a los pacientes y hay una estructura administrativa, que cubre las necesidades acordes con la demanda.</p><p>El Dr. Buenaño está rodeado de grandes especialistas y personal profesional, con un esquema de atención y administrativo que privilegia el talento humano y el servicio al paciente. Gracias a ello, no hay rotación de personal y, lo más importante, quienes colaboran están gustosos de trabajar en el lugar; su fidelidad se refleja en el buen servicio que entregan a quien los visita.</p><p>Son un equipo de 25 personas en total; entre ellas están los odontólogos que, destaca, tienen títulos académicos obtenidos en el exterior, son profesores universitarios y cuentan con la experiencia acorde para cada área. Hay una ortodoncista, dos odontopediatras, dos endodoncistas, un periodoncista, dos cirujanos máxilofaciales, y un rehabilitador bucal, el Dr. Buenaño.</p><p>Entre sus objetivos del 2023 no está expandirse, sino seguir con un servicio de calidad y con odontología personalizada. Para ello, el Dr. Buenaño y demás especialistas reciben constante capacitación, asisten a congresos, seminarios, cursos, aprenden sobre el manejo de equipos, etc. En este nuevo año se implementará nueva tecnología y se explotará al máximo todos los recursos.</p><p>Este especialista pertenece a varias sociedades profesionales del país y del exterior, donde él resalta que junto a 35 expertos del área del Ecuador, se ha creado la Asociación de Rehabilitación Oral del Ecuador, “es la primera asociación de alcance nacional, que junto con las principales universidades del país, agrupa la academia y la práctica privada en beneficio de los pacientes”.</p><p>Dentro del modelo sostenible que desarrolla, la responsabilidad social y el cuidado del medioambiente también juegan un papel importante en el plan de desarrollo de la clínica. Ejecutan un programa de aproximación a la comunidad con diferentes obras sociales locales, brindando atención gratuita a grupos vulnerables.</p><p>¿Y qué pasa con el mundo verde? En el consultorio los lavamanos tienen sensores para que las llaves se abran y cierren solas, con flujo reducido, promoviendo el ahorro de agua. De igual forma, se encienden y apagan las luces, privilegiando siempre la iluminación y ventilación natural y el ahorro de recursos. Tienen un cronograma de esterilización eficiente, la política de menos uso de papel y el manejo responsable de desechos hospitalarios.</p>`
         },
         image: "https://static.wixstatic.com/media/f119f6_2905452fbbdd4a4bb9e2a1f45ad9ed9d~mv2.jpeg/v1/fill/w_1816,h_1364,fp_0.50_0.50,q_90,enc_avif,quality_auto/f119f6_2905452fbbdd4a4bb9e2a1f45ad9ed9d~mv2.jpeg",
         url: "https://www.forbes.com.ec/brandvoice/la-clinica-dental-clase-mundial-modelo-desarrollo-sostenible-quito-n31191"
@@ -4198,6 +4404,13 @@
           es: "Desde el 2010 la dieta mediterránea es Patrimonio Cultural Inmaterial de la Humanidad. Una nota breve sobre hábitos saludables que también benefician la salud oral.",
           en: "Since 2010, the Mediterranean diet has been recognized as Intangible Cultural Heritage. A short note on healthy habits that also benefit oral health."
         },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>Desde el 2010 la dieta mediterránea es Patrimonio Cultural Inmaterial de la Humanidad, no solo por sus valores tan arraigados de tradición y cultura, además también por los amplios beneficios para la salud, incluidos por supuesto los que ocasiona sobre la salud bucodental.</p><p>Hoy, el respaldo científico ha hecho que la American Heart Association reconozca este patrón alimentario como absolutamente saludable y un aliado para prevenir enfermedades cardiovasculares y algunos de sus factores de riesgo como obesidad, diabetes e hipertensión arterial.</p><p>Los países a orillas del Mediterráneo gozan de una dieta basada en cereales integrales, verduras, legumbres, frutas y semillas. También incluye lácteos, huevos, pescado y carne blanca y su producto consentido y principal fuente de grasas añadidas, el aceite de oliva.</p><p>La repercusión de una dieta balanceada y saludable en la salud bucal ha sido descrita de manera científica, en donde fue evidente una reducción del sangrado gingival y menor frecuencia de enfermedad periodontal grave, lo que no sucedía con los pacientes que mantenían una dieta occidental caracterizada por un alto consumo de azúcar, carbohidratos y alimentos altamente procesados, bajo contenido de micronutrientes y fibra.</p><p>Dentro de este concepto debe excluirse el alcohol y debe sumarse la moderación, pues ningún exceso es bueno y más aún si de alimentación hablamos. En general una dieta saludable se verá reflejada en una mejor salud general y bucal, reduciendo los niveles inflamatorios y mejorando la reacción del cuerpo a los ataques externos.</p>`
+        },
         image: "https://static.wixstatic.com/media/8ea70678ba8d4725b3ae79d832a5e7cd.jpg/v1/fill/w_1816,h_1364,fp_0.50_0.50,q_90,enc_avif,quality_auto/8ea70678ba8d4725b3ae79d832a5e7cd.jpg",
         url: null
       },
@@ -4214,23 +4427,14 @@
           es: "Las manchas no son la única preocupación cuando se habla de vino y dientes. El artículo repasa coloración, erosión y hábitos para reducir el impacto.",
           en: "Staining is not the only concern when talking about wine and teeth. This article reviews discoloration, erosion and habits that reduce its impact."
         },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>La preocupación más inmediata cuando se trata del vino y los dientes es, por supuesto, las manchas.</p><p>El vino tinto suele tener toda la culpa de esto porque contiene una gran cantidad de cromógenos. Los cromógenos, que también se encuentran en el café y el té y que también pueden manchar los dientes, son sustancias que producen pigmentos que se unen a los dientes y causan manchas. Los taninos, otro componente clave del vino tinto, contribuyen a este efecto de unión.</p><p>Pero no son solo los cromógenos y los taninos, o incluso solo el vino tinto, los que te tiñen la sonrisa; el vino blanco comparte una parte igual o incluso mayor de la culpa.</p><p>La acidez del vino puede romper el esmalte y hacer que los dientes sean más susceptibles a las caries y es también en gran parte responsable de promover las manchas. Así que, aunque no contenga el pigmento que tienen los tintos, la acidez del vino blanco, normalmente más alta que la del tinto, puede romper el esmalte y dejar los dientes más vulnerables a otros alimentos y bebidas más pigmentados.</p><p><strong>¿Cómo puedes proteger tus dientes?</strong></p><p>El impacto del vino en los dientes puede sonar un poco aterrador al principio, pero los amantes del vino no deben preocuparse de que sus dentistas les digan que dejen de beber por completo.</p><p>Cuidarse es tan sencillo como practicar los hábitos básicos de higiene dental, como cepillarse los dientes dos veces al día, usar el hilo dental todos los días, llevar una dieta equilibrada y acudir al dentista con regularidad.</p><p>Pero aunque estas prácticas de prevención deberían mantener a raya la preocupación más grave de la caries, los bebedores frecuentes de vino podrían acabar con un caso de dientes teñidos de magenta después de beber. Aunque tu instinto podría ser el de restregarte los dientes en cuanto veas estas antiestéticas manchas, los expertos recomiendan que te cepilles antes de beber y que esperes hasta al menos 30 minutos después de beber vino para volver a cepillarte.</p><p>Un truco que podemos compartir es que inmediatamente después de beber vino, o entre copa y copa, hagas enjuagues con agua. Este consejo no solo ayuda a eliminar las manchas de vino. Como el agua es una sustancia neutra, ayuda a restablecer los niveles normales de pH en la boca después de beber vino, lo que a su vez ayuda a evitar las bacterias ácidas, que pueden provocar caries.</p><p>El enjuague con agua también ayuda a estimular el flujo de saliva, que es fundamental para combatir estas bacterias dañinas y mantener los niveles ideales de pH. Por eso, entre otras razones, es una gran idea no solo beber agua con el vino, sino también encontrar algún alimento para consumir con él.</p><p>Sin embargo, incluso con estas medidas adicionales, una cantidad suficiente de vino durante un periodo de tiempo suficientemente largo puede dejar los dientes un poco menos blancos de lo deseado. Si ese es el caso, recomendamos consultar con nosotros sobre un régimen de blanqueamiento dental profesional.</p><p>Estamos atentos para servirte y solucionar tus problemas, mientras tanto, salud.</p>`
+        },
         image: "https://static.wixstatic.com/media/799dfeebbb2d4f87ad31e6c6ac03b9ca.jpg/v1/fill/w_1816,h_1364,fp_0.50_0.50,q_90,enc_avif,quality_auto/799dfeebbb2d4f87ad31e6c6ac03b9ca.jpg",
-        url: null
-      },
-      {
-        meta: {
-          es: "16 ago 2020 · 0 min de lectura · 17 visualizaciones",
-          en: "Aug 16, 2020 · 0 min read · 17 views"
-        },
-        title: {
-          es: "NEWSLETTER 4. VIAJANDO EN TIEMPO DE PANDEMIA.",
-          en: "NEWSLETTER 4. TRAVELING DURING THE PANDEMIC."
-        },
-        excerpt: {
-          es: "Una entrega breve del periodo de pandemia con recomendaciones y contexto para pacientes que necesitaban desplazarse y mantener sus cuidados.",
-          en: "A brief pandemic-era newsletter with recommendations and context for patients who needed to travel and continue their care."
-        },
-        image: "https://static.wixstatic.com/media/f119f6_71e2abf02ef844a8b316c0db60fea3b9~mv2.jpg/v1/fill/w_1000,h_751,fp_0.50_0.50,q_90,enc_avif,quality_auto/f119f6_71e2abf02ef844a8b316c0db60fea3b9~mv2.jpg",
         url: null
       },
       {
@@ -4246,7 +4450,14 @@
           es: "A partir de reportes del CDC, este texto resume riesgos del vapeo que también pueden afectar encías, mucosas y equilibrio oral.",
           en: "Drawing from CDC reports, this piece summarizes vaping risks that can also affect gums, oral tissues and overall oral balance."
         },
-        image: "https://static.wixstatic.com/media/f119f6_b185238689e545a68367c100586baa60~mv2.png/v1/fill/w_548,h_412,fp_0.50_0.50,lg_1,q_95,enc_avif,quality_auto/f119f6_b185238689e545a68367c100586baa60~mv2.png",
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>Según el Center for Disease Control (CDC, Atlanta), en Estados Unidos se han reportado más de 800 casos de pacientes con daño pulmonar y 12 muertes atribuidas al uso de cigarrillos electrónicos.</p><p>¿Qué es un cigarrillo electrónico? Un dispositivo que, operado por una batería, produce un aerosol que contiene nicotina, saborizantes, solventes, metales pesados, partículas ultrafinas e incluso drogas que el individuo lleva a sus pulmones y que al expulsarlo también puede ser inhalado por las personas que lo rodean.</p><p>Inicialmente fueron creados como una alternativa “saludable” al cigarrillo, pero con el descenso de su consumo gracias a las duras leyes y políticas implementadas, el mercado para el vapeo se ha incrementado, incluyendo a aquellas personas que nunca han probado productos que contienen nicotina y que ahora se han vuelto más vulnerables a iniciar con productos derivados directamente del tabaco.</p><p>En la cavidad bucal, este aerosol puede ocasionar xerostomía, que es la disminución del flujo salival; en consecuencia aumenta el riesgo de caries, irritación en las encías y absorción de las substancias en los tejidos bucales y respiratorios. El British Dental Journal ha descrito este aerosol como cariogénico, pues el descenso de la humedad de la boca y la afinidad del vapor con el streptococcus mutans forman la combinación perfecta para el florecimiento de un biofilm peligroso.</p><p>Finalmente nuestras recomendaciones:</p><ol><li>Si ha consumido tabaco antes, el uso del cigarrillo electrónico puede ser una alternativa, pues el humo inhalado al fumar un cigarrillo convencional es potencialmente más destructivo que el aerosol del vapeo, a pesar de esto la FDA no lo ha recomendado como ayuda efectiva para dejar de fumar y tampoco podemos decir que es saludable.</li><li>Los cigarrillos electrónicos no son seguros para los jóvenes, los adultos jóvenes, las mujeres embarazadas o los adultos que no estén usando productos de tabaco en la actualidad.</li><li>Es indispensable conocer la fuente y los componentes de los productos para formar el aerosol y no adquirirlos de manera informal.</li><li>Conocer que a través del cigarrillo electrónico se puede vaporizar drogas.</li></ol><p>Nos gusta resolver las dudas que puedas tener. Más información aquí: https://www.cdc.gov/tobacco/basic_information/e-cigarettes/pdfs/electronic-cigarettes-infographic-spanish-508.pdf. Un abrazo.</p>`
+        },
+        image: "https://static.wixstatic.com/media/f119f6_71e2abf02ef844a8b316c0db60fea3b9~mv2.jpg/v1/fill/w_1000,h_751,fp_0.50_0.50,q_90,enc_avif,quality_auto/f119f6_71e2abf02ef844a8b316c0db60fea3b9~mv2.jpg",
         url: null
       },
       {
@@ -4261,6 +4472,13 @@
         excerpt: {
           es: "Un texto claro sobre dos de los tratamientos más consultados cuando se pierde un diente y cómo se decide entre uno y otro.",
           en: "A clear explanation of two of the most requested treatments after tooth loss and how to choose between them."
+        },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>Hoy en día estos dos tratamientos son los más demandados para el reemplazo de un diente perdido. La recomendación del dentista puede depender de muchos factores. En este post voy a tratar de resumir los conceptos básicos en palabras sencillas y de manera breve para facilitar una decisión bien informada.</p><p>El implante dental es un “tornillo” elaborado en titanio grado médico, que se inserta directamente sobre el hueso maxilar o mandibular, para hacer las veces de una raíz artificial. Después de algunos meses, este elemento se fusionará al hueso de manera tan firme que podrá resistir las fuerzas de masticación. Entonces, el reemplazo del diente perdido podrá colocarse sobre el implante, pudiendo ser una corona individual, un puente o una dentadura completa.</p><p>Podemos resumir las ventajas de un implante: mantiene la salud del hueso circundante, el tiempo de vida útil de un implante es de más o menos 20 años, se ven y funcionan de manera similar al diente y no afectan de ninguna manera a los dientes vecinos. Desventajas: necesita una intervención quirúrgica y un tiempo de cicatrización a veces prolongado.</p><p>Un puente dental utiliza los dientes adyacentes como soporte. Para cumplir con esta función estos deberán ser desgastados y cubiertos con coronas; de esta manera se ubica el diente artificial entre ellos sobre la línea de la encía. Sus ventajas: requiere menos tiempo pues no existe tiempo de cicatrización y no involucra cirugía. Desventajas: se debe desgastar los dientes vecinos y el tiempo de vida útil de un puente puede variar entre 7 a 10 años.</p><p>Cualquiera sea la elección, es importante saber que para alcanzar el máximo de vida útil de nuestra restauración, se requiere un mantenimiento riguroso y constante.</p><p>Más información en la Asociación Dental Americana: https://www.mouthhealthy.org/es-MX/az-topics/b/bridges.</p>`
         },
         url: null
       },
@@ -4277,6 +4495,13 @@
           es: "Dos tratamientos distintos, para diagnósticos distintos. Una guía breve para entender cuándo uno puede ser más adecuado que el otro.",
           en: "Two different treatments for different diagnoses. A brief guide to understanding when one may be more suitable than the other."
         },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>Lo primero que debemos decir es que son dos tratamientos distintos, que responden a diagnósticos diferentes y que consiguen resultados propios. No se sustituyen, pero sí pueden ser complementarios.</p><p>Las carillas fueron creadas como un tratamiento cosmético, que mejora pequeñas alteraciones de posición, color o forma de los dientes anteriores, colocando unas finas láminas de porcelana que trabajan y se ven como el esmalte dental. Los materiales actuales requieren un desgaste mínimo de la superficie dental, que finalmente hace que sea un tratamiento irreversible, que se debe mantener a lo largo de la vida con la misma atención que lo haríamos con nuestros dientes naturales.</p><p>La ortodoncia va más allá, pues es capaz de diagnosticar, prevenir, interceptar y tratar anomalías faciales. En consecuencia, el resultado de un tratamiento correctamente planificado será unos dientes alineados y una sonrisa bonita y funcional.</p><p>El afirmar que son tratamientos con objetivos distintos nos advierte que pueden ser complementarios. Luego de haber culminado un exitoso tratamiento de ortodoncia con una función impecable, si es necesario, los detalles estéticos pueden ser solucionados con carillas u otros tratamientos más conservadores como recontorneo, adhesión de resina o blanqueamiento dental. Finalmente, siempre el tratamiento conservador será nuestro tratamiento de elección.</p><p>Si quieres conocer más sobre estos temas, estoy listo para responder cualquier pregunta. Además puedes encontrar más información aquí: https://www.aaoinfo.org/blog/what-is-an-orthodontist-and-dentofacial-orthopedist.</p>`
+        },
         url: null
       },
       {
@@ -4292,12 +4517,19 @@
           es: "Una sonrisa blanca no siempre es una sonrisa sana. Este artículo cuestiona ideas comunes sobre blanqueamiento y apariencia dental.",
           en: "A white smile is not always a healthy smile. This article questions common assumptions about whitening and dental appearance."
         },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>Una sonrisa blanca no es necesariamente una sonrisa saludable. Una sonrisa blanca no es siempre una sonrisa natural.</p><p>La belleza de la sonrisa debería ser el reflejo de la salud en nuestra boca, por eso antes de usar cualquier producto blanqueador o someterse a un tratamiento dental estético, es indispensable que un dentista se cerciore que nos encontramos en buenas condiciones de salud.</p><p>Definitivamente, no a todos nos va bien una sonrisa “súper” blanca; el color de los dientes debe estar de acuerdo con varios factores como su tamaño, el color de nuestra piel, el color de nuestros ojos o cabello e incluso con nuestro ancestro étnico.</p><p>Al existir tanta demanda comercial por substancias blanqueadoras, nuestra recomendación es utilizar aquellas que están respaldadas por una marca importante o una asociación profesional que, para otorgar un sello de aceptación, haya probado de alguna manera el producto y haya concluido que es seguro para su consumo.</p><p>Muchas de estas substancias, carbón activado y bicarbonato por ejemplo, al ser abrasivos pueden limpiar las manchas superficiales, pero si su uso es prolongado podrían eliminar la capa de esmalte que protege nuestros dientes y volverlos sensibles y amarillos al exponer la siguiente capa que es conocida como dentina y que tiene un color amarillo natural.</p><p>En resumen:</p><ol><li>Cepilla tus dientes tres veces al día por dos minutos.</li><li>Hilo dental al menos una vez al día.</li><li>Productos con sello de aceptación profesional.</li><li>Limitar comidas que pueden pigmentar los dientes como té, café y vino tinto.</li><li>Evitar fumar.</li><li>Mantener visitas regulares al dentista.</li></ol><p>Aquí un link de la Asociación Dental Americana con más información: https://www.mouthhealthy.org/en/az-topics/w/natural-teeth-whitening. Y si todavía hay preguntas, estoy listo para responderlas. Un abrazo.</p>`
+        },
         url: null
       },
       {
         meta: {
-          es: "Archivo del blog",
-          en: "Blog archive"
+          es: "2 jun 2019 · 1 min de lectura",
+          en: "Jun 2, 2019 · 1 min read"
         },
         title: {
           es: "¡Mi primer post! ¿Cepillos dentales manuales o eléctricos?",
@@ -4306,6 +4538,13 @@
         excerpt: {
           es: "Una reflexión inicial sobre cepillos manuales y eléctricos, escrita con la intención de responder una duda frecuente de forma entretenida y útil.",
           en: "An early reflection on manual versus electric toothbrushes, written to answer a frequent question in a useful and engaging way."
+        },
+        author: {
+          es: "Francisco Buenaño Herrera",
+          en: "Francisco Buenaño Herrera"
+        },
+        bodyHtml: {
+          es: `<p>Por primera vez me pongo delante del teclado con la misión de escribir algo entretenido, conciso e interesante y debo confesar que me emociona e intimida; espero que con el pasar de los días esta misión se haga más sencilla.</p><p>Existe amplia bibliografía sobre el uso de cepillos dentales eléctricos, y la mayoría concuerda que son muy eficientes al limpiar la placa dental de nuestros dientes. Sin embargo, personalmente no me había decidido por adquirir uno de ellos hasta hace poco, y ahora después de llevar uno a mi cuarto de baño, puedo confirmar que la sensación que producen es similar a la que sentimos cuando recibimos una limpieza dental profesional.</p><p>La combinación adecuada de movimientos manuales y eléctricos, y la vibración especial que uno de ellos produce, Sonicare, hace que la tarea sea más sencilla y eficiente; existen otros, Oral B, que con su cabeza pequeña y movimientos giratorios facilitan alcanzar los lugares más complicados en nuestra boca y son mejores al momento de mantener adecuada higiene en aquellos pacientes que usan aparatos de ortodoncia.</p><p>Otras ventajas que podemos apuntar son su utilidad en caso de movilidad reducida de las manos, artritis o túnel carpiano.</p><p>¿Desventajas? Su costo puede ir desde 15 hasta 200 USD y eso puede alejarlos de una buena parte de la población. Las cabezas intercambiables también son costosas y pueden ser difíciles de encontrar de manera oportuna y finalmente la necesidad de conectarse a la red eléctrica puede hacerlos inútiles cuando estamos de viaje.</p><p>Si deseas más información, no dudes en contactarnos.</p>`
         },
         url: null
       }
@@ -4330,10 +4569,21 @@
     const blogPagerStatus = document.getElementById("blogPagerStatus");
     const blogPrev = document.getElementById("blogPrev");
     const blogNext = document.getElementById("blogNext");
+    const blogArchiveModal = document.getElementById("blogArchiveModal");
+    const blogArchiveList = document.getElementById("blogArchiveList");
+    const blogArchiveOpen = document.getElementById("blogArchiveOpen");
+    const blogArticleModal = document.getElementById("blogArticleModal");
+    const blogArticleTitle = document.getElementById("blogArticleTitle");
+    const blogArticleMeta = document.getElementById("blogArticleMeta");
+    const blogArticleAuthor = document.getElementById("blogArticleAuthor");
+    const blogArticleMedia = document.getElementById("blogArticleMedia");
+    const blogArticleBody = document.getElementById("blogArticleBody");
     const languageButtons = document.querySelectorAll("[data-lang]");
     const translatableNodes = document.querySelectorAll("[data-i18n]");
     const openWhatsAppButtons = document.querySelectorAll("[data-open-whatsapp]");
     const closeWhatsAppButtons = document.querySelectorAll("[data-close-whatsapp]");
+    const closeBlogArchiveButtons = document.querySelectorAll("[data-close-blog-archive]");
+    const closeBlogArticleButtons = document.querySelectorAll("[data-close-blog-article]");
     const openLightboxButtons = document.querySelectorAll("[data-open-lightbox]");
     const closeLightboxButtons = document.querySelectorAll("[data-close-lightbox]");
     const techCards = document.querySelectorAll("[data-tech-card]");
@@ -4410,6 +4660,17 @@
       });
 
       renderBlogPage(currentBlogPage);
+      renderBlogArchive();
+    }
+
+    function syncBodyScrollLock() {
+      const shouldLock = mobilePanel.classList.contains("open")
+        || modal.classList.contains("open")
+        || imageLightbox.classList.contains("open")
+        || blogArchiveModal.classList.contains("open")
+        || blogArticleModal.classList.contains("open");
+
+      document.body.style.overflow = shouldLock ? "hidden" : "";
     }
 
     function renderBlogPage(page, shouldScroll = false) {
@@ -4425,7 +4686,6 @@
 
       blogGrid.innerHTML = visibleArticles.map((article, index) => {
         const absoluteIndex = start + index + 1;
-        const articleUrl = article.url || BLOG_BASE_URL;
         const articleMeta = article.meta[language] || article.meta.es;
         const articleTitle = article.title[language] || article.title.es;
         const articleExcerpt = article.excerpt[language] || article.excerpt.es;
@@ -4452,7 +4712,7 @@
             <span class="article-meta">${articleMeta}</span>
             <h3>${articleTitle}</h3>
             <p>${articleExcerpt}</p>
-            <a class="card-link" href="${articleUrl}" target="_blank" rel="noreferrer noopener">${translations[language]["blog.read"]}</a>
+            <button class="card-link" type="button" data-open-article="${start + index}">${translations[language]["blog.read"]}</button>
           </article>
         `;
       }).join("");
@@ -4476,33 +4736,102 @@
       }
     }
 
+    function renderBlogArchive() {
+      if (!blogArchiveList) {
+        return;
+      }
+
+      const language = currentLanguage in translations ? currentLanguage : "es";
+      blogArchiveList.innerHTML = blogArticles.map((article, index) => {
+        const articleTitle = article.title[language] || article.title.es;
+        return `<button class="blog-archive-link" type="button" data-open-article="${index}">${articleTitle}</button>`;
+      }).join("");
+    }
+
+    function openBlogArticle(index) {
+      const article = blogArticles[index];
+      if (!article || !blogArticleTitle || !blogArticleBody || !blogArticleMeta || !blogArticleAuthor || !blogArticleMedia) {
+        return;
+      }
+
+      const language = currentLanguage in translations ? currentLanguage : "es";
+      const articleTitleText = article.title[language] || article.title.es;
+      const articleMetaText = article.meta[language] || article.meta.es;
+      const articleAuthorText = article.author?.[language] || article.author?.es || "Francisco Buenaño Herrera";
+      const articleBodyHtml = article.bodyHtml?.[language] || article.bodyHtml?.es;
+      const articleBodyContent = article.body?.[language] || article.body?.es || [article.excerpt[language] || article.excerpt.es];
+
+      blogArticleTitle.textContent = articleTitleText;
+      blogArticleMeta.textContent = articleMetaText;
+      blogArticleAuthor.textContent = articleAuthorText;
+      blogArticleBody.innerHTML = articleBodyHtml || articleBodyContent.map((paragraph) => `<p>${paragraph}</p>`).join("");
+
+      if (article.image) {
+        blogArticleMedia.innerHTML = `
+          <img
+            src="${article.image}"
+            alt="${articleTitleText.replace(/"/g, "&quot;")}"
+            loading="lazy"
+            decoding="async"
+            onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+          >
+        `;
+        blogArticleMedia.classList.remove("is-fallback");
+      } else {
+        blogArticleMedia.innerHTML = "";
+        blogArticleMedia.classList.add("is-fallback");
+      }
+
+      blogArticleMedia.dataset.fallback = articleTitleText;
+      blogArticleModal.classList.add("open");
+      blogArticleModal.setAttribute("aria-hidden", "false");
+      syncBodyScrollLock();
+    }
+
+    function closeBlogArticle() {
+      blogArticleModal.classList.remove("open");
+      blogArticleModal.setAttribute("aria-hidden", "true");
+      syncBodyScrollLock();
+    }
+
     function closeMobileMenu() {
       mobilePanel.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
+      syncBodyScrollLock();
     }
 
     function toggleMobileMenu() {
       const isOpen = mobilePanel.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));
-      document.body.style.overflow = isOpen ? "hidden" : "";
       if (isOpen) {
         navbar.classList.remove("navbar-hidden");
       }
+      syncBodyScrollLock();
     }
 
     function openModal() {
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+      syncBodyScrollLock();
     }
 
     function closeModal() {
       modal.classList.remove("open");
       modal.setAttribute("aria-hidden", "true");
-      if (!mobilePanel.classList.contains("open") && !imageLightbox.classList.contains("open")) {
-        document.body.style.overflow = "";
-      }
+      syncBodyScrollLock();
+    }
+
+    function openBlogArchive() {
+      renderBlogArchive();
+      blogArchiveModal.classList.add("open");
+      blogArchiveModal.setAttribute("aria-hidden", "false");
+      syncBodyScrollLock();
+    }
+
+    function closeBlogArchive() {
+      blogArchiveModal.classList.remove("open");
+      blogArchiveModal.setAttribute("aria-hidden", "true");
+      syncBodyScrollLock();
     }
 
     function showLightboxImage(index) {
@@ -4521,7 +4850,7 @@
       showLightboxImage(index === -1 ? 0 : index);
       imageLightbox.classList.add("open");
       imageLightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+      syncBodyScrollLock();
     }
 
     function navigateLightbox(step) {
@@ -4538,9 +4867,7 @@
       lightboxImage.src = "";
       lightboxImage.alt = "";
       currentLightboxIndex = -1;
-      if (!mobilePanel.classList.contains("open") && !modal.classList.contains("open")) {
-        document.body.style.overflow = "";
-      }
+      syncBodyScrollLock();
     }
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -4574,6 +4901,37 @@
 
     closeWhatsAppButtons.forEach((button) => {
       button.addEventListener("click", closeModal);
+    });
+
+    if (blogArchiveOpen) {
+      blogArchiveOpen.addEventListener("click", openBlogArchive);
+    }
+
+    closeBlogArchiveButtons.forEach((button) => {
+      button.addEventListener("click", closeBlogArchive);
+    });
+
+    closeBlogArticleButtons.forEach((button) => {
+      button.addEventListener("click", closeBlogArticle);
+    });
+
+    blogGrid?.addEventListener("click", (event) => {
+      const trigger = event.target.closest("[data-open-article]");
+      if (!trigger) {
+        return;
+      }
+
+      openBlogArticle(Number(trigger.dataset.openArticle));
+    });
+
+    blogArchiveList?.addEventListener("click", (event) => {
+      const trigger = event.target.closest("[data-open-article]");
+      if (!trigger) {
+        return;
+      }
+
+      closeBlogArchive();
+      openBlogArticle(Number(trigger.dataset.openArticle));
     });
 
     openLightboxButtons.forEach((figure) => {
@@ -4629,6 +4987,8 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         closeModal();
+        closeBlogArchive();
+        closeBlogArticle();
         closeLightbox();
         if (mobilePanel.classList.contains("open")) {
           closeMobileMenu();
