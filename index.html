@@ -130,6 +130,9 @@
       --radius-sm: 16px;
       --container: 1180px;
       --header-height: 88px;
+      --section-space: 96px;
+      --section-space-tight: 72px;
+      --card-space: 24px;
     }
 
     * {
@@ -230,7 +233,7 @@
 
     .section {
       position: relative;
-      padding: 88px 0;
+      padding: var(--section-space) 0;
     }
 
     .section::before {
@@ -515,13 +518,37 @@
       padding: 0 22px;
       border-radius: 999px;
       font-weight: 700;
+      position: relative;
+      overflow: hidden;
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .button::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.24);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      transition: width 0.28s var(--ease-smooth), height 0.28s var(--ease-smooth), opacity 0.28s var(--ease-smooth);
     }
 
     .button:hover,
     .button:focus-visible {
       transform: translateY(-2px);
       outline: none;
+    }
+
+    .button:active::after {
+      width: 170px;
+      height: 170px;
+      opacity: 0.28;
+      transition-duration: 0.12s;
     }
 
     .button-primary {
@@ -633,8 +660,14 @@
     .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      gap: 32px;
+      gap: 28px;
       align-items: start;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 18px;
+      align-content: start;
     }
 
     .hero-signature {
@@ -689,29 +722,41 @@
     }
 
     .hero-copy h1 {
-      font-size: clamp(44px, 7vw, 76px);
-      max-width: 12ch;
-      margin-bottom: 16px;
+      font-size: clamp(36px, 5.6vw, 60px);
+      max-width: 9.4ch;
+      margin-bottom: 0;
       color: #05070b;
     }
 
     .hero-copy p {
       max-width: 64ch;
       font-size: 18px;
-      margin-bottom: 20px;
+      margin-bottom: 0;
+    }
+
+    .hero-lead {
+      max-width: 56ch;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 22px;
+      margin-bottom: 0;
+    }
+
+    .hero-actions .button {
+      min-height: 58px;
+      padding-inline: 28px;
     }
 
     .hero-summary {
       display: grid;
-      gap: 16px;
-      margin-top: 4px;
+      gap: 12px;
+      margin: 2px 0 6px;
       align-content: start;
     }
 
@@ -736,11 +781,11 @@
     }
 
     .quote-card {
-      padding: 22px;
+      padding: 20px;
       background: var(--surface);
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
-      gap: 18px;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+      gap: 16px;
       align-items: center;
     }
 
@@ -761,7 +806,7 @@
 
     .quote-body {
       display: grid;
-      gap: 16px;
+      gap: 14px;
       min-width: 0;
     }
 
@@ -823,7 +868,7 @@
     }
 
     .quote-editorial {
-      height: 320px;
+      height: 344px;
       background:
         radial-gradient(circle at top left, rgba(124, 182, 255, 0.14), transparent 28%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(247, 249, 252, 0.98));
@@ -839,8 +884,8 @@
       position: relative;
       min-height: auto;
       align-self: start;
-      padding: 22px;
-      border-radius: 40px;
+      padding: 14px;
+      border-radius: 32px;
       background: var(--surface);
       border: 1px solid rgba(124, 182, 255, 0.16);
       box-shadow: var(--shadow-lg);
@@ -850,10 +895,9 @@
     .hero-frame {
       position: relative;
       display: grid;
-      gap: 18px;
-      height: 100%;
-      border-radius: 30px;
-      padding: 18px;
+      gap: 12px;
+      border-radius: 24px;
+      padding: 12px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(124, 182, 255, 0.12);
     }
@@ -2797,14 +2841,13 @@
       }
 
       .hero-shell {
-        height: 100%;
+        height: auto;
       }
 
       .hero-frame {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        height: auto;
+        display: grid;
+        justify-content: stretch;
       }
 
       .trust-grid {
@@ -2983,11 +3026,11 @@
       }
 
       .section {
-        padding: 88px 0;
+        padding: 76px 0;
       }
 
       .hero {
-        padding: 46px 0 88px;
+        padding: 40px 0 72px;
       }
 
       .navbar-shell {
@@ -3056,6 +3099,54 @@
 
       .hero-copy p {
         font-size: 16px;
+      }
+
+      .hero-lead {
+        font-size: 16px;
+        line-height: 1.72;
+      }
+
+      .hero-summary {
+        margin-bottom: 12px;
+      }
+
+      .quote-card {
+        padding: 18px;
+      }
+
+      .quote-editorial {
+        height: 260px;
+      }
+
+      .hero-shell {
+        padding: 12px;
+        border-radius: 28px;
+      }
+
+      .hero-frame {
+        padding: 14px;
+        border-radius: 22px;
+      }
+
+      .quick-contact-head-hero h2 {
+        font-size: clamp(26px, 7vw, 32px);
+      }
+
+      .quick-contact-head-hero p {
+        max-width: none;
+        font-size: 14px;
+      }
+
+      .hero-map-box {
+        border-radius: 22px;
+      }
+
+      .hero-map-box-link {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        padding: 11px 12px;
+        border-radius: 16px;
       }
 
       .hero-actions,
@@ -3533,6 +3624,8 @@
     }
 
     .hero-contact-frame {
+      gap: 10px;
+      height: auto;
       align-content: start;
     }
 
@@ -3543,11 +3636,17 @@
 
     .quick-contact-head-hero h2 {
       max-width: 12ch;
-      font-size: clamp(30px, 3.4vw, 40px);
+      font-size: clamp(28px, 3.1vw, 36px);
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(7, 16, 31, 0.18);
     }
 
     .quick-contact-head-hero p {
-      max-width: 38ch;
+      max-width: 34ch;
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.55;
     }
 
     .quick-contact-grid-hero {
@@ -3555,14 +3654,84 @@
       gap: 14px;
     }
 
+    .qc-card-email {
+      grid-column: 1 / -1;
+    }
+
+    .hero-map-box {
+      position: relative;
+      margin-top: 4px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(124, 182, 255, 0.16);
+      box-shadow: var(--shadow-md);
+      background: rgba(255, 255, 255, 0.1);
+      transition: transform 0.38s var(--ease-smooth), box-shadow 0.38s var(--ease-smooth), border-color 0.38s var(--ease-smooth);
+    }
+
+    .hero-map-box iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: saturate(0.92) contrast(1.02);
+    }
+
+    .hero-map-box-link {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(7, 20, 40, 0.28), rgba(7, 20, 40, 0.56));
+      color: #ffffff;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-map-box:hover,
+    .hero-map-box:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 56px rgba(16, 35, 63, 0.2);
+      border-color: rgba(124, 182, 255, 0.24);
+      outline: none;
+    }
+
+    .hero-map-box-link strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .hero-map-box-link span {
+      color: rgba(233, 242, 255, 0.84);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .hero-map-box-link em {
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
     .qc-card {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       text-align: left;
-      gap: 16px;
+      gap: 12px;
       min-height: 100%;
-      padding: 32px 22px 28px;
+      padding: 24px 18px 20px;
       border-radius: var(--radius-lg);
       border: 1px solid rgba(16, 35, 63, 0.1);
       background: #ffffff;
@@ -3570,13 +3739,30 @@
       text-decoration: none;
       color: inherit;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
       transition: transform 0.32s var(--ease-smooth), box-shadow 0.32s var(--ease-smooth), border-color 0.32s var(--ease-smooth);
+    }
+
+    .qc-card::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.26);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      transition: width 0.34s var(--ease-smooth), height 0.34s var(--ease-smooth), opacity 0.34s var(--ease-smooth);
     }
 
     .qc-card:hover,
     .qc-card:focus-visible {
       transform: translateY(-4px);
-      box-shadow: 0 24px 52px rgba(16, 35, 63, 0.14);
+      box-shadow: 0 24px 52px rgba(16, 35, 63, 0.16);
       border-color: rgba(31, 99, 255, 0.22);
       outline: none;
     }
@@ -3586,10 +3772,17 @@
       transition-duration: 0.1s;
     }
 
+    .qc-card:active::after {
+      width: 180px;
+      height: 180px;
+      opacity: 0.28;
+      transition-duration: 0.12s;
+    }
+
     .qc-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -3598,12 +3791,12 @@
     }
 
     .qc-icon svg {
-      width: 34px;
-      height: 34px;
+      width: 28px;
+      height: 28px;
     }
 
+    .qc-icon-phone { background: linear-gradient(135deg, #1f63ff, #164ccb); color: #fff; }
     .qc-icon-wa  { background: linear-gradient(135deg, #16ba72, #0da35e); color: #fff; }
-    .qc-icon-ig  { background: linear-gradient(135deg, #d62976, #fa7e1e); color: #fff; }
     .qc-icon-email { background: linear-gradient(135deg, #1f63ff, #164ccb); color: #fff; }
     .qc-icon-map { background: linear-gradient(135deg, #ff5a36, #e03e1a); color: #fff; }
 
@@ -3629,7 +3822,7 @@
       font-size: 15px;
       color: var(--muted);
       line-height: 1.6;
-      max-width: 22ch;
+      max-width: 24ch;
     }
 
     .qc-cta {
@@ -3652,12 +3845,12 @@
       border-color: rgba(31, 99, 255, 0.26);
     }
 
+    .qc-cta-phone { background: rgba(31, 99, 255, 0.1); color: #164ccb; border-color: rgba(31, 99, 255, 0.18); }
     .qc-cta-wa  { background: rgba(22, 186, 114, 0.1); color: #0a8a51; border-color: rgba(22, 186, 114, 0.2); }
-    .qc-cta-ig  { background: rgba(214, 41, 118, 0.08); color: #b01f60; border-color: rgba(214, 41, 118, 0.18); }
     .qc-cta-map { background: rgba(255, 90, 54, 0.08); color: #b83c20; border-color: rgba(255, 90, 54, 0.18); }
 
+    .qc-card:hover .qc-cta-phone { background: rgba(31, 99, 255, 0.18); }
     .qc-card:hover .qc-cta-wa  { background: rgba(22, 186, 114, 0.18); }
-    .qc-card:hover .qc-cta-ig  { background: rgba(214, 41, 118, 0.15); }
     .qc-card:hover .qc-cta-map { background: rgba(255, 90, 54, 0.15); }
 
     .hero-highlights-stack {
@@ -3760,54 +3953,6 @@
       object-fit: cover;
       object-position: center top;
       display: block;
-    }
-
-    .doctor-badge {
-      position: absolute;
-      bottom: 24px;
-      left: 24px;
-      right: 24px;
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: linear-gradient(145deg, rgba(8, 18, 42, 0.96), rgba(14, 36, 84, 0.94));
-      border: 1px solid rgba(124, 182, 255, 0.2);
-      backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .doctor-badge-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #fff;
-    }
-
-    .doctor-badge-icon svg {
-      width: 22px;
-      height: 22px;
-      stroke: currentColor;
-    }
-
-    .doctor-badge-copy strong {
-      display: block;
-      color: #fff;
-      font-size: 15px;
-      letter-spacing: -0.02em;
-      margin-bottom: 2px;
-    }
-
-    .doctor-badge-copy span {
-      color: rgba(200, 220, 255, 0.82);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
     }
 
     .doctor-copy {
@@ -3940,11 +4085,41 @@
       cursor: pointer;
       border: 0;
       text-decoration: none;
+      position: relative;
+      overflow: hidden;
       transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    .sticky-btn::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.22);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      transition: width 0.24s var(--ease-smooth), height 0.24s var(--ease-smooth), opacity 0.24s var(--ease-smooth);
+    }
+
+    .sticky-btn:hover,
+    .sticky-btn:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
     }
 
     .sticky-btn:active {
       transform: scale(0.95);
+    }
+
+    .sticky-btn:active::after {
+      width: 120px;
+      height: 120px;
+      opacity: 0.24;
+      transition-duration: 0.12s;
     }
 
     .sticky-btn svg {
@@ -3953,13 +4128,13 @@
       flex-shrink: 0;
     }
 
-    .sticky-btn-wa {
-      background: linear-gradient(135deg, #16ba72, #0da35e);
+    .sticky-btn-phone {
+      background: linear-gradient(135deg, #1f63ff, #164ccb);
       color: #ffffff;
     }
 
-    .sticky-btn-ig {
-      background: linear-gradient(135deg, #d62976, #fa7e1e);
+    .sticky-btn-wa {
+      background: linear-gradient(135deg, #16ba72, #0da35e);
       color: #ffffff;
     }
 
@@ -4129,15 +4304,8 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <span class="eyebrow" data-i18n="hero.eyebrow">Francisco Buenaño · Rehabilitación Bucal Estética</span>
-            <h1 data-i18n="hero.title">Hola como esstas!</h1>
-          <p style="font-size:18px; color:var(--muted); line-height:1.8; margin-bottom:20px; max-width:56ch;">Te acompañamos desde la primera valoración. Explicamos cada paso antes de iniciar tu tratamiento y garantizamos atención cercana, profesional y personalizada.</p>
-          <div class="hero-actions">
-            <button class="button button-primary" type="button" data-open-whatsapp style="font-size:17px; min-height:60px; padding: 0 30px;">
-              <span data-i18n="cta.whatsapp">Agendar cita por WhatsApp</span>
-            </button>
-            <a class="button button-secondary" href="#servicios" data-i18n="cta.services" style="min-height:60px;">Ver tratamientos</a>
-          </div>
-
+            <h1 data-i18n="hero.title">Odontología integral con precisión, estética y confianza</h1>
+          <p class="hero-lead">Te acompañamos desde la primera valoración. Explicamos cada paso antes de iniciar tu tratamiento y garantizamos atención cercana, profesional y personalizada.</p>
           <div class="hero-summary">
             <article class="quote-card reveal stagger-1">
               <div class="quote-body">
@@ -4166,6 +4334,13 @@
               </figure>
             </article>
           </div>
+
+          <div class="hero-actions">
+            <button class="button button-primary" type="button" data-open-whatsapp>
+              <span data-i18n="cta.whatsapp">Agendar cita por WhatsApp</span>
+            </button>
+            <a class="button button-secondary" href="#servicios" data-i18n="cta.services">Ver tratamientos</a>
+          </div>
         </div>
 
         <div class="hero-shell reveal stagger-2">
@@ -4175,46 +4350,114 @@
               <p>Elige el canal que prefieras y te ayudamos con tu valoración.</p>
             </div>
             <div class="quick-contact-grid quick-contact-grid-hero">
-              <button class="qc-card reveal stagger-1" type="button" data-open-whatsapp aria-label="Agendar cita por WhatsApp">
+              <a class="qc-card qc-card-phone reveal stagger-1" href="tel:+593984611461" aria-label="Llamar a la clínica">
+                <div class="qc-icon qc-icon-phone">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.62 4.93c.31-.31.75-.43 1.16-.33l2.25.56c.51.13.87.58.87 1.11v1.94c0 .42-.23.81-.59 1.01l-1.32.74a14.27 14.27 0 0 0 5.05 5.05l.74-1.32c.2-.36.59-.59 1.01-.59h1.94c.53 0 .98.36 1.11.87l.56 2.25c.1.41-.02.85-.33 1.16l-1.51 1.51c-.42.42-1.03.62-1.62.52-2.5-.42-4.93-1.66-7.03-3.76s-3.34-4.53-3.76-7.03c-.1-.59.1-1.2.52-1.62l1.51-1.51Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="qc-body">
+                  <span class="qc-label">Teléfono</span>
+                  <span class="qc-desc">Llama directo a la clínica para agendar</span>
+                  <span class="qc-cta qc-cta-phone">Llamar ahora →</span>
+                </div>
+              </a>
+              <button class="qc-card qc-card-whatsapp reveal stagger-2" type="button" data-open-whatsapp aria-label="Abrir WhatsApp para agendar cita">
                 <div class="qc-icon qc-icon-wa">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2c-4.86 0-8.8 3.78-8.8 8.45 0 1.62.48 3.2 1.39 4.57L3.4 20.8l4.86-1.27a9.02 9.02 0 0 0 3.74.8c4.86 0 8.8-3.78 8.8-8.48 0-4.67-3.94-8.45-8.8-8.45ZM9.14 8.86c.18-.41.37-.42.56-.43h.48c.14 0 .37.05.56.26.19.2.73.71.73 1.74s-.75 2.03-.85 2.17c-.1.14-.2.3-.05.56.16.26.68 1.1 1.46 1.77 1.01.87 1.86 1.14 2.13 1.27.27.13.42.11.58-.07.16-.18.68-.76.87-1.02.18-.26.37-.22.62-.13.26.09 1.62.74 1.9.87.28.13.46.2.53.31.07.11.07.66-.15 1.3-.22.64-1.28 1.23-1.78 1.31-.46.08-1.05.11-1.7-.1-.39-.13-.9-.3-1.55-.58-2.73-1.17-4.5-3.92-4.64-4.11-.14-.19-1.11-1.45-1.11-2.77 0-1.32.7-1.97.95-2.24Z"/></svg>
                 </div>
                 <div class="qc-body">
                   <span class="qc-label">WhatsApp</span>
-                  <span class="qc-desc">Habla directamente con la clínica</span>
-                  <span class="qc-cta qc-cta-wa">Agendar cita →</span>
+                  <span class="qc-desc">Escríbenos para coordinar tu cita rápido</span>
+                  <span class="qc-cta qc-cta-wa">Abrir WhatsApp →</span>
                 </div>
               </button>
-              <a class="qc-card reveal stagger-2" href="https://www.instagram.com/dr.franciscob/" target="_blank" rel="noreferrer noopener" aria-label="Ver Instagram del Dr. Francisco Buenaño">
-                <div class="qc-icon qc-icon-ig">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </div>
-                <div class="qc-body">
-                  <span class="qc-label">Instagram</span>
-                  <span class="qc-desc">Mira casos y novedades del Dr. Francisco</span>
-                  <span class="qc-cta qc-cta-ig">Ver perfil →</span>
-                </div>
-              </a>
-              <a class="qc-card reveal stagger-3" href="mailto:franciscob.ecu@gmail.com" aria-label="Enviar correo a la clínica">
+              <a class="qc-card qc-card-email reveal stagger-3" href="mailto:franciscob.ecu@gmail.com" aria-label="Enviar correo a la clínica">
                 <div class="qc-icon qc-icon-email">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.75 6.75v10.5A2.25 2.25 0 0119.5 19.5h-15a2.25 2.25 0 01-2.25-2.25V6.75"/><path d="M21.75 6.75A2.25 2.25 0 0019.5 4.5h-15A2.25 2.25 0 002.25 6.75"/><path d="m3 7.5 7.86 4.912a2.25 2.25 0 002.28 0L21 7.5"/></svg>
                 </div>
                 <div class="qc-body">
                   <span class="qc-label">Correo</span>
-                  <span class="qc-desc">Envíanos tus dudas por email</span>
-                  <span class="qc-cta">Enviar mensaje →</span>
+                  <span class="qc-desc">franciscob.ecu@gmail.com para escribirnos directo</span>
+                  <span class="qc-cta">Mandar un mensaje →</span>
                 </div>
               </a>
-              <a class="qc-card reveal stagger-4" href="https://maps.google.com/?q=Av.+Pampite+OE6-53+y+Valenzuela+Oficina+301+YOO+Cumbayá+Ecuador" target="_blank" rel="noreferrer noopener" aria-label="Ver ubicación en Google Maps">
-                <div class="qc-icon qc-icon-map">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+            </div>
+            <a class="hero-map-box reveal stagger-4" href="https://maps.google.com/?q=Av.+Pampite+OE6-53+y+Valenzuela+Oficina+301+YOO+Cumbayá+Ecuador" target="_blank" rel="noreferrer noopener" aria-label="Abrir mapa de la clínica">
+              <iframe
+                title="Mapa de Buenaño Dentistas en YOO Cumbayá"
+                src="https://www.google.com/maps?q=Av.%20Pampite%20OE6-53%20y%20Valenzuela%20Oficina%20301%20YOO%20Cumbay%C3%A1%20Ecuador&z=17&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <span class="hero-map-box-link">
+                <span>
+                  <strong>Mapa</strong>
+                  <span>Encuentra la clínica en YOO Cumbayá</span>
+                </span>
+                <em>Cómo llegar →</em>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         DOCTOR SPOTLIGHT
+         ========================================== -->
+    <section class="doctor-spotlight" id="doctor">
+      <div class="container">
+        <div class="doctor-layout">
+          <div class="doctor-media-wrap reveal">
+            <div class="doctor-photo-frame">
+              <img
+                src="https://static.wixstatic.com/media/f119f6_6e5ec694d7e34042ad4aaed47051af01~mv2.jpg/v1/fill/w_2002,h_1054,al_c,q_90,enc_avif,quality_auto/f119f6_6e5ec694d7e34042ad4aaed47051af01~mv2.jpg"
+                alt="Dr. Francisco Buenaño Herrera — Especialista en Rehabilitación Bucal Estética"
+                loading="lazy"
+                decoding="async"
+                onerror="this.src=''; this.alt='Dr. Francisco Buenaño'"
+              >
+            </div>
+          </div>
+          <div class="doctor-copy reveal stagger-1">
+            <span class="eyebrow">Tu doctor</span>
+            <h2 class="doctor-name">Dr. Francisco Buenaño Herrera</h2>
+            <p class="doctor-title">Especialista en Rehabilitación Bucal Estética e Implantes</p>
+            <blockquote class="doctor-quote">
+              "Me gustaría que, al terminar tu tratamiento, sintieras que viviste una gran experiencia y que encontraste el lugar preciso para cuidar tu salud dental."
+            </blockquote>
+            <div class="doctor-traits">
+              <div class="doctor-trait">
+                <span class="doctor-trait-dot" aria-hidden="true"></span>
+                <div class="doctor-trait-text">
+                  <strong>Te acompañamos desde el inicio</strong>
+                  <span>Explicamos cada paso antes de comenzar tu tratamiento.</span>
                 </div>
-                <div class="qc-body">
-                  <span class="qc-label">Ubicación</span>
-                  <span class="qc-desc">Encuentra nuestra dirección en Cumbayá</span>
-                  <span class="qc-cta qc-cta-map">Cómo llegar →</span>
+              </div>
+              <div class="doctor-trait">
+                <span class="doctor-trait-dot" aria-hidden="true"></span>
+                <div class="doctor-trait-text">
+                  <strong>Atención personalizada</strong>
+                  <span>Tu plan de tratamiento es único, diseñado para ti.</span>
                 </div>
-              </a>
+              </div>
+              <div class="doctor-trait">
+                <span class="doctor-trait-dot" aria-hidden="true"></span>
+                <div class="doctor-trait-text">
+                  <strong>Especialidad internacional</strong>
+                  <span>Universidad Nacional Autónoma de México · UNAM.</span>
+                </div>
+              </div>
+              <div class="doctor-trait">
+                <span class="doctor-trait-dot" aria-hidden="true"></span>
+                <div class="doctor-trait-text">
+                  <strong>Calma y confianza</strong>
+                  <span>Nuestros pacientes siempre saben qué esperar.</span>
+                </div>
+              </div>
+            </div>
+            <div class="doctor-actions">
+              <button class="button button-primary" type="button" data-open-whatsapp>Agendar con el Dr. Buenaño</button>
+              <a class="button button-secondary" href="https://www.instagram.com/dr.franciscob/" target="_blank" rel="noreferrer noopener">Ver casos reales</a>
             </div>
           </div>
         </div>
@@ -4273,78 +4516,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ==========================================
-         DOCTOR SPOTLIGHT
-         ========================================== -->
-    <section class="doctor-spotlight" id="doctor">
-      <div class="container">
-        <div class="doctor-layout">
-          <div class="doctor-media-wrap reveal">
-            <div class="doctor-photo-frame">
-              <img
-                src="https://static.wixstatic.com/media/f119f6_6e5ec694d7e34042ad4aaed47051af01~mv2.jpg/v1/fill/w_2002,h_1054,al_c,q_90,enc_avif,quality_auto/f119f6_6e5ec694d7e34042ad4aaed47051af01~mv2.jpg"
-                alt="Dr. Francisco Buenaño Herrera — Especialista en Rehabilitación Bucal Estética"
-                loading="lazy"
-                decoding="async"
-                onerror="this.src=''; this.alt='Dr. Francisco Buenaño'"
-              >
-              <div class="doctor-badge">
-                <div class="doctor-badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <div class="doctor-badge-copy">
-                  <strong>18 años de experiencia clínica</strong>
-                  <span>Rehabilitación · Estética · Implantes</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="doctor-copy reveal stagger-1">
-            <span class="eyebrow">Tu doctor</span>
-            <h2 class="doctor-name">Dr. Francisco Buenaño Herrera</h2>
-            <p class="doctor-title">Especialista en Rehabilitación Bucal Estética e Implantes</p>
-            <blockquote class="doctor-quote">
-              "Me gustaría que, al terminar tu tratamiento, sintieras que viviste una gran experiencia y que encontraste el lugar preciso para cuidar tu salud dental."
-            </blockquote>
-            <div class="doctor-traits">
-              <div class="doctor-trait">
-                <span class="doctor-trait-dot" aria-hidden="true"></span>
-                <div class="doctor-trait-text">
-                  <strong>Te acompañamos desde el inicio</strong>
-                  <span>Explicamos cada paso antes de comenzar tu tratamiento.</span>
-                </div>
-              </div>
-              <div class="doctor-trait">
-                <span class="doctor-trait-dot" aria-hidden="true"></span>
-                <div class="doctor-trait-text">
-                  <strong>Atención personalizada</strong>
-                  <span>Tu plan de tratamiento es único, diseñado para ti.</span>
-                </div>
-              </div>
-              <div class="doctor-trait">
-                <span class="doctor-trait-dot" aria-hidden="true"></span>
-                <div class="doctor-trait-text">
-                  <strong>Especialidad internacional</strong>
-                  <span>Universidad Nacional Autónoma de México · UNAM.</span>
-                </div>
-              </div>
-              <div class="doctor-trait">
-                <span class="doctor-trait-dot" aria-hidden="true"></span>
-                <div class="doctor-trait-text">
-                  <strong>Calma y confianza</strong>
-                  <span>Nuestros pacientes siempre saben qué esperar.</span>
-                </div>
-              </div>
-            </div>
-            <div class="doctor-actions">
-              <button class="button button-primary" type="button" data-open-whatsapp>Agendar con el Dr. Buenaño</button>
-              <a class="button button-secondary" href="https://www.instagram.com/dr.franciscob/" target="_blank" rel="noreferrer noopener">Ver casos reales</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="section" id="profesionales">
       <div class="container">
@@ -5145,17 +5316,17 @@
   <!-- STICKY MOBILE CONTACT BAR -->
   <div class="sticky-contact-bar" role="navigation" aria-label="Contacto rápido">
     <div class="sticky-contact-bar-inner">
+      <a class="sticky-btn sticky-btn-phone" href="tel:+593984611461" aria-label="Llamar a la clínica">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.62 4.93c.31-.31.75-.43 1.16-.33l2.25.56c.51.13.87.58.87 1.11v1.94c0 .42-.23.81-.59 1.01l-1.32.74a14.27 14.27 0 0 0 5.05 5.05l.74-1.32c.2-.36.59-.59 1.01-.59h1.94c.53 0 .98.36 1.11.87l.56 2.25c.1.41-.02.85-.33 1.16l-1.51 1.51c-.42.42-1.03.62-1.62.52-2.5-.42-4.93-1.66-7.03-3.76s-3.34-4.53-3.76-7.03c-.1-.59.1-1.2.52-1.62l1.51-1.51Z"/></svg>
+        Llamar
+      </a>
       <button class="sticky-btn sticky-btn-wa" type="button" data-open-whatsapp aria-label="Agendar por WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2c-4.86 0-8.8 3.78-8.8 8.45 0 1.62.48 3.2 1.39 4.57L3.4 20.8l4.86-1.27a9.02 9.02 0 0 0 3.74.8c4.86 0 8.8-3.78 8.8-8.48 0-4.67-3.94-8.45-8.8-8.45ZM9.14 8.86c.18-.41.37-.42.56-.43h.48c.14 0 .37.05.56.26.19.2.73.71.73 1.74s-.75 2.03-.85 2.17c-.1.14-.2.3-.05.56.16.26.68 1.1 1.46 1.77 1.01.87 1.86 1.14 2.13 1.27.27.13.42.11.58-.07.16-.18.68-.76.87-1.02.18-.26.37-.22.62-.13.26.09 1.62.74 1.9.87.28.13.46.2.53.31.07.11.07.66-.15 1.3-.22.64-1.28 1.23-1.78 1.31-.46.08-1.05.11-1.7-.1-.39-.13-.9-.3-1.55-.58-2.73-1.17-4.5-3.92-4.64-4.11-.14-.19-1.11-1.45-1.11-2.77 0-1.32.7-1.97.95-2.24Z"/></svg>
         WhatsApp
       </button>
-      <a class="sticky-btn sticky-btn-ig" href="https://www.instagram.com/dr.franciscob/" target="_blank" rel="noreferrer noopener" aria-label="Ver Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        Instagram
-      </a>
       <a class="sticky-btn sticky-btn-map" href="https://maps.google.com/?q=Av.+Pampite+OE6-53+y+Valenzuela+Oficina+301+YOO+Cumbayá+Ecuador" target="_blank" rel="noreferrer noopener" aria-label="Ver ubicación">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-        Ubicación
+        Mapa
       </a>
     </div>
   </div>
@@ -5268,7 +5439,7 @@
         "cta.whatsapp": "Agendar por WhatsApp",
         "cta.services": "Conocer servicios",
         "hero.eyebrow": "Francisco Buenaño · Rehabilitación Bucal Estética",
-          "hero.title": "Hola como esstas!",
+          "hero.title": "Odontología integral con precisión, estética y confianza",
         "hero.quote": "“En Buenaño Dentistas, el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.”",
         "hero.quoteAuthor": "Francisco Buenaño — Forbes Ecuador",
         "hero.panel.top.title": "Interfaz clínica clara",
