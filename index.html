@@ -106,8 +106,8 @@
   <style>
     :root {
       --bg: #ffffff;
-      --surface: linear-gradient(145deg, rgba(12, 31, 58, 0.96), rgba(24, 63, 122, 0.94));
-      --surface-soft: #153a73;
+      --surface: linear-gradient(145deg, rgba(16, 38, 68, 0.92), rgba(32, 78, 142, 0.9));
+      --surface-soft: #1c4b8f;
       --text: #05070b;
       --muted: #5f718d;
       --line: rgba(16, 35, 63, 0.12);
@@ -116,7 +116,10 @@
       --primary-dark: #164ccb;
       --accent: #7cb6ff;
       --success: #14b86f;
-      --shadow-sm: 0 10px 22px rgba(21, 49, 98, 0.08);
+      --shadow-sm: 0 10px 24px rgba(16, 35, 63, 0.07);
+      --shadow-md: 0 18px 42px rgba(16, 35, 63, 0.11);
+      --shadow-lg: 0 28px 64px rgba(16, 35, 63, 0.14);
+      --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
       --radius-xl: 36px;
       --radius-lg: 28px;
       --radius-md: 20px;
@@ -137,7 +140,7 @@
       margin: 0;
       font-family: "Inter", sans-serif;
       color: var(--text);
-      background: #ffffff;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 42%, #f7fbff 100%);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -230,7 +233,7 @@
       position: absolute;
       inset: 20px 0 auto;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(16, 35, 63, 0.14), transparent);
+      background: linear-gradient(90deg, transparent, rgba(16, 35, 63, 0.08), transparent);
       pointer-events: none;
     }
 
@@ -725,7 +728,7 @@
       border: 1px solid rgba(124, 182, 255, 0.16);
       background: var(--surface);
       border-radius: var(--radius-md);
-      box-shadow: 0 18px 40px rgba(12, 31, 58, 0.14);
+      box-shadow: var(--shadow-md);
     }
 
     .quote-card {
@@ -1132,7 +1135,7 @@
     }
 
     .tech-card::after {
-      content: "Ver mas";
+      content: "Ver más";
       margin-top: auto;
       padding-top: 16px;
       color: #dce9ff;
@@ -2401,8 +2404,8 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(16px);
+      transition: opacity 0.82s var(--ease-smooth), transform 0.82s var(--ease-smooth);
     }
 
     .reveal.visible {
@@ -2414,6 +2417,84 @@
     .stagger-2 { transition-delay: 0.12s; }
     .stagger-3 { transition-delay: 0.19s; }
     .stagger-4 { transition-delay: 0.26s; }
+
+    .navbar,
+    .brand,
+    .nav-links a,
+    .mobile-nav a,
+    .lang-toggle button,
+    .button,
+    .menu-toggle,
+    .tech-card,
+    .service-card .card-link,
+    .concern-card .card-link,
+    .blog-archive-link,
+    .wa-option {
+      transition-duration: 0.42s;
+      transition-timing-function: var(--ease-smooth);
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 24, 44, 0.92);
+      box-shadow: 0 12px 28px rgba(7, 20, 40, 0.18);
+    }
+
+    .brand {
+      box-shadow: 0 12px 26px rgba(7, 20, 40, 0.14);
+    }
+
+    .button:hover,
+    .button:focus-visible,
+    .service-card .card-link:hover,
+    .service-card .card-link:focus-visible,
+    .concern-card .card-link:hover,
+    .concern-card .card-link:focus-visible,
+    .tech-card:hover,
+    .tech-card:focus-visible,
+    .tech-card.expanded,
+    .blog-archive-link:hover,
+    .blog-archive-link:focus-visible,
+    .wa-option:hover,
+    .wa-option:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .service-card .card-link:hover,
+    .service-card .card-link:focus-visible,
+    .concern-card .card-link:hover,
+    .concern-card .card-link:focus-visible,
+    .tech-card:hover,
+    .tech-card:focus-visible,
+    .tech-card.expanded,
+    .blog-archive-link:hover,
+    .blog-archive-link:focus-visible,
+    .wa-option:hover,
+    .wa-option:focus-visible {
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal,
+      .navbar,
+      .brand,
+      .nav-links a,
+      .mobile-nav a,
+      .lang-toggle button,
+      .button,
+      .menu-toggle,
+      .tech-card,
+      .service-card .card-link,
+      .concern-card .card-link,
+      .blog-archive-link,
+      .wa-option {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
 
     @media (min-width: 1221px) {
       .section-head > :only-child,
@@ -3790,19 +3871,19 @@
 
         <div class="contact-grid">
           <div class="contact-info reveal stagger-1">
-            <h3>Informacion de contacto</h3>
+            <h3>Información de contacto</h3>
             <div class="contact-info-list">
               <div class="contact-info-item">
                 <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div>
                 <div>
-                  <div class="contact-info-label">Direccion</div>
-                  <div class="contact-info-val">YOO Cumbaya<br>Av. Pampite OE6-53 y Valenzuela<br>Oficina 301<br>Cumbaya, Ecuador</div>
+                  <div class="contact-info-label">Dirección</div>
+                  <div class="contact-info-val">YOO Cumbayá<br>Av. Pampite OE6-53 y Valenzuela<br>Oficina 301<br>Cumbayá, Ecuador</div>
                 </div>
               </div>
               <div class="contact-info-item">
                 <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div>
                 <div>
-                  <div class="contact-info-label">Telefonos</div>
+                  <div class="contact-info-label">Teléfonos</div>
                   <div class="contact-info-val"><a href="tel:+593984611461">0984611461</a><br><a href="tel:+59324772888">4772888</a></div>
                 </div>
               </div>
@@ -4136,7 +4217,7 @@
       },
       en: {
         seoTitle: "Francisco Buenaño | Oral Rehabilitation",
-        seoDescription: "Buenaño Dentists is a comprehensive dental clinic in Cumbaya with digital technology, personalized care and a team focused on transforming smiles with clinical judgment.",
+        seoDescription: "Buenaño Dentists is a comprehensive dental clinic in Cumbayá with digital technology, personalized care and a team focused on transforming smiles with clinical judgment.",
         seoOgLocale: "en_US",
         brandName: "Francisco Buenaño",
         brandTag: "Oral Rehabilitation",
@@ -4224,8 +4305,8 @@
         "facilities.card.four.desc": "A sober, comfortable environment that supports the patient experience.",
         "facilities.card.five.title": "Laboratory / technology",
         "facilities.card.five.desc": "An environment that integrates materials, technical precision and digital processes.",
-        "facilities.card.six.title": "YOO Cumbaya surroundings",
-        "facilities.card.six.desc": "The location reinforces accessibility, context and connection with Cumbaya.",
+        "facilities.card.six.title": "YOO Cumbayá surroundings",
+        "facilities.card.six.desc": "The location reinforces accessibility, context and connection with Cumbayá.",
         "international.eyebrow": "International Patients",
         "international.title": "Dental care for international patients planning treatment in Ecuador.",
         "international.text": "We help you coordinate your visit before arriving in Cumbayá, with clear guidance, timing and follow-up.",
@@ -4235,7 +4316,7 @@
         "international.point.two.title": "CUTTING-EDGE TECHNOLOGY AND MATERIALS",
         "international.point.two.desc": "Intraoral scanner, CBCT technology, Emax laboratory and laser dentistry, all under the same roof.",
         "international.point.three.title": "LOCATION",
-        "international.point.three.desc": "Located in Cumbaya, 25 minutes from the international airport, close to restaurants, shopping and a pleasant natural setting.",
+        "international.point.three.desc": "Located in Cumbayá, 25 minutes from the international airport, close to restaurants, shopping and a pleasant natural setting.",
         "blog.eyebrow": "Blog",
         "blog.title": "Articles for patients who want to make better-informed decisions.",
         "blog.intro": "A concise selection that informs without overloading the homepage and points the rest of the content to the full blog.",
@@ -4279,7 +4360,7 @@
         "contact.card.four.title": "Hours",
         "contact.card.five.title": "Email",
         "contact.card.six.title": "Social media",
-        "contact.location.name": "YOO Cumbaya",
+        "contact.location.name": "YOO Cumbayá",
         "contact.location.office": "Suite 301",
         "contact.hours.days": "Monday to Friday",
         "contact.social.facebook": "Facebook",
@@ -4371,7 +4452,7 @@
           en: "Francisco Buenaño Herrera"
         },
         bodyHtml: {
-          es: `<p>El carbón activado en las pastas dentales puede remover algunas manchas superficiales en tus dientes, pero no tiene efecto blanqueador superior a una pasta dental regular. Además que sus efectos a largo plazo todavía son desconocidos.</p><p>Hoy en día este tipo de pastas dentales es una de los mayores tendencias en el mundo de la cosmética, convirtiéndose en un ingrediente de moda en máscaras faciales y exfoliantes.</p><p>El carbón activado, es un polvo fino hecho de madera, corteza de coco y otras substancias naturales que se oxidan bajo calor extremo, y pesar de que tiene varias utilidades en la industria y en la vida diaria, en odontología necesitamos más investigación que avale su uso, en el 2017 una revisión científica advierte a los dentistas sobre la precaución que sus pacientes deben tomar en razón de los beneficios no probados y las preocupaciones de seguridad.</p><p>Aquí algunos puntos que debemos considerar:</p><ul><li>Es demasiado abrasiva para el uso diario, puede degradar el esmalte y los dientes se verían amarillos debido a la exposición de la dentina y también podría promover la aparición de sensibilidad dental.</li><li>Muchas pastas dentales de carbón no contienen flúor. El flúor ayuda a mantener la fuerza del esmalte, protegiéndolos de la caries.</li><li>Causaría manchas en algunos dientes luego de uso repetido, acumulándose en fisuras y espacios difíciles de acceder para la higiene.</li><li>El efecto del carbón sobre las restauraciones no es conocido. Carillas, puentes, coronas y restauraciones se podrían ver afectadas, perdiendo brillo, degradando su superficie, o acumulando manchas en sus interfases.</li></ul><p>Hay varias opciones seguras para blanquear tus dientes, desde productos de uso profesional, hasta soluciones de venta libre que son respaldadas por asociaciones profesionales de prestigio.</p><p>Recuerda que si las dudas permanecen, estamos siempre dispuestos a responderlas.</p>`
+          es: `<p>El carbón activado en las pastas dentales puede remover algunas manchas superficiales en tus dientes, pero no tiene un efecto blanqueador superior al de una pasta dental regular. Además, sus efectos a largo plazo todavía son desconocidos.</p><p>Hoy en día este tipo de pastas dentales es una de las mayores tendencias en el mundo de la cosmética, convirtiéndose en un ingrediente de moda en máscaras faciales y exfoliantes.</p><p>El carbón activado es un polvo fino hecho de madera, corteza de coco y otras sustancias naturales que se oxidan bajo calor extremo, y a pesar de que tiene varias utilidades en la industria y en la vida diaria, en odontología necesitamos más investigación que avale su uso. En 2017, una revisión científica advierte a los dentistas sobre la precaución que sus pacientes deben tomar en razón de los beneficios no probados y las preocupaciones de seguridad.</p><p>Aquí hay algunos puntos que debemos considerar:</p><ul><li>Es demasiado abrasivo para el uso diario; puede degradar el esmalte y los dientes se verían amarillos debido a la exposición de la dentina, y también podría promover la aparición de sensibilidad dental.</li><li>Muchas pastas dentales de carbón no contienen flúor. El flúor ayuda a mantener la fuerza del esmalte, protegiéndolo de la caries.</li><li>Podría causar manchas en algunos dientes luego de un uso repetido, acumulándose en fisuras y espacios difíciles de acceder para la higiene.</li><li>El efecto del carbón sobre las restauraciones no es conocido. Carillas, puentes, coronas y restauraciones se podrían ver afectadas, perdiendo brillo, degradando su superficie o acumulando manchas en sus interfases.</li></ul><p>Hay varias opciones seguras para blanquear tus dientes, desde productos de uso profesional hasta soluciones de venta libre respaldadas por asociaciones profesionales de prestigio.</p><p>Recuerda que, si las dudas permanecen, estamos siempre dispuestos a responderlas.</p>`
         },
         image: "https://static.wixstatic.com/media/f119f6_0e5c864ef0ea49eeb766f4cf0b0a264b~mv2.png/v1/fill/w_799,h_600,fp_0.50_0.50,q_95,enc_avif,quality_auto/f119f6_0e5c864ef0ea49eeb766f4cf0b0a264b~mv2.png",
         url: null
@@ -4394,7 +4475,7 @@
           en: "Francisco Buenaño Herrera"
         },
         bodyHtml: {
-          es: `<p>Un consultorio odontológico que nació en pandemia, donde el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.</p><p>26 Marzo de 2023 22.00</p><p>Al llegar a la clínica dental del Dr. Francisco Buenaño Herrera se puede percibir que es un lugar especial, con una atención personalizada, donde priman los cuidados por la salud del paciente. Excede todas las normas de bioseguridad implantadas desde el inicio de la pandemia y además cuida el medioambiente. La tecnología es su gran pilar y un personal gustoso con el trabajo que realiza, dan la confianza necesaria para poder saber que se llegó a un sitio profesional.</p><p>La cabeza de esta iniciativa, el Dr. Buenaño, relata la historia de su consultorio con gran orgullo, “somos una clínica 100% digital, lo que nos da varias ventajas como ofrecer los servicios odontológicos de forma inmediata. En un solo día se pueden elaborar restauraciones definitivas, porque contamos con laboratorio digital in house. Reducimos el número de citas para los pacientes, porque los procedimientos son más rápidos y eficientes”.</p><p>Su odontología digital le permite realizar impresiones 3D, para lo cual es indispensable utilizar materiales como resinas biocompatibles, por ejemplo. Gracias a ello, se elaboran desde férulas de relajación muscular hasta alineadores de ortodoncia. Los profesionales también pueden tener una guía quirúrgica, previo a ingresar a una cirugía programada. Con ello, se tiene mayor precisión en la colocación de los implantes dentales; y, lo más importante, la recuperación del paciente es más rápida.</p><p>El consultorio cuenta también con escáneres de alta definición. Uno específico para odontología restauradora como inlays, onlays, restauraciones fijas unitarias, prótesis fija, etc. Y otro, óptimo para realizar la ortodoncia invisible. “Escaneamos la boca del paciente, se suben los datos en la nube, y desde la matriz del fabricante se planifican los tratamientos; nosotros aceptamos o modificamos el plan de tratamiento y finalmente los alineadores nos envían acá. Trabajamos en equipo”, explica.</p><p>Otra novedad tecnológica es que cuentan con un software de diseño digital, para dibujar la sonrisa del paciente. En ella se pueden incorporar las fotos previas del paciente y tener una simulación virtual del trabajo estético terminado. Finalmente para la producción final de las restauraciones, dos fresadoras: la una para fresar en seco lo elaborado en zirconia; y la otra para materiales húmedos como el disilicato de litio. ¿Ventajas para los pacientes? Los materiales más avanzados al momento.</p><p>¿Cómo se tejieron los caminos de esta gran clínica? Es la primera construida pensando en la pospandemia. Este sueño se desarrolló durante los meses más álgidos del covid-19. “Luego de trabajar durante 20 años, con otro modelo; pensé en un emprendimiento propio, al cual ponerle mi nombre y nuestro sello personal; digo nuestro, pues la compañía de mi esposa Karla ha sido fundamental en este proceso. Todo empezó en octubre 2020”, sonríe el Dr. Buenaño.</p><p>Al abrir las puertas se centraron primero en cómo proteger a los especialistas, pacientes y demás personal para que ninguno enferme. Fue complicado, pues se desconocían los alcances del virus con precisión; es por ello que la ventilación y la iluminación de este consultorio fueron elementos clave para su apertura.</p><p>Con una estética y elegancia características, cada uno de los cubículos donde atienden los especialistas fueron edificados con paredes móviles. Son grandes ventanales del piso al techo, donde priman la iluminación y ventilación. En el diseño de la clínica, además, no se colocaron muebles excesivos; los pocos tienen ruedas y son fáciles de limpiar. Sus paredes son impecables, blancas, relucientes, sin cuadros o adornos que acumulen polvo. Si bien la sala de espera tiene menos circulación, hay un filtro de aire de nivel hospitalario, similar a los que se ubican en los quirófanos.</p><p>Para continuar con su exposición sobre sus servicios de excelencia detalla que 3 800 citas exitosas se agendaron en 2022 y Francisco Buenaño Rehabilitación Bucal Estética es una sólida estructura de un grupo de empresas. Es decir, el servicio de laboratorio es independiente; quienes tienen proveedores de materiales e insumos para contar con el material necesario. Una empresa de servicios odontológicos es la que factura a los pacientes y hay una estructura administrativa, que cubre las necesidades acordes con la demanda.</p><p>El Dr. Buenaño está rodeado de grandes especialistas y personal profesional, con un esquema de atención y administrativo que privilegia el talento humano y el servicio al paciente. Gracias a ello, no hay rotación de personal y, lo más importante, quienes colaboran están gustosos de trabajar en el lugar; su fidelidad se refleja en el buen servicio que entregan a quien los visita.</p><p>Son un equipo de 25 personas en total; entre ellas están los odontólogos que, destaca, tienen títulos académicos obtenidos en el exterior, son profesores universitarios y cuentan con la experiencia acorde para cada área. Hay una ortodoncista, dos odontopediatras, dos endodoncistas, un periodoncista, dos cirujanos máxilofaciales, y un rehabilitador bucal, el Dr. Buenaño.</p><p>Entre sus objetivos del 2023 no está expandirse, sino seguir con un servicio de calidad y con odontología personalizada. Para ello, el Dr. Buenaño y demás especialistas reciben constante capacitación, asisten a congresos, seminarios, cursos, aprenden sobre el manejo de equipos, etc. En este nuevo año se implementará nueva tecnología y se explotará al máximo todos los recursos.</p><p>Este especialista pertenece a varias sociedades profesionales del país y del exterior, donde él resalta que junto a 35 expertos del área del Ecuador, se ha creado la Asociación de Rehabilitación Oral del Ecuador, “es la primera asociación de alcance nacional, que junto con las principales universidades del país, agrupa la academia y la práctica privada en beneficio de los pacientes”.</p><p>Dentro del modelo sostenible que desarrolla, la responsabilidad social y el cuidado del medioambiente también juegan un papel importante en el plan de desarrollo de la clínica. Ejecutan un programa de aproximación a la comunidad con diferentes obras sociales locales, brindando atención gratuita a grupos vulnerables.</p><p>¿Y qué pasa con el mundo verde? En el consultorio los lavamanos tienen sensores para que las llaves se abran y cierren solas, con flujo reducido, promoviendo el ahorro de agua. De igual forma, se encienden y apagan las luces, privilegiando siempre la iluminación y ventilación natural y el ahorro de recursos. Tienen un cronograma de esterilización eficiente, la política de menos uso de papel y el manejo responsable de desechos hospitalarios.</p>`
+          es: `<p>Un consultorio odontológico que nació en pandemia, donde el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.</p><p>26 de marzo de 2023 22.00</p><p>Al llegar a la clínica dental del Dr. Francisco Buenaño Herrera se puede percibir que es un lugar especial, con una atención personalizada, donde priman los cuidados por la salud del paciente. Excede todas las normas de bioseguridad implantadas desde el inicio de la pandemia y además cuida el medioambiente. La tecnología es su gran pilar y un personal gustoso con el trabajo que realiza da la confianza necesaria para saber que se llegó a un sitio profesional.</p><p>La cabeza de esta iniciativa, el Dr. Buenaño, relata la historia de su consultorio con gran orgullo: “Somos una clínica 100% digital, lo que nos da varias ventajas, como ofrecer los servicios odontológicos de forma inmediata. En un solo día se pueden elaborar restauraciones definitivas, porque contamos con laboratorio digital in house. Reducimos el número de citas para los pacientes, porque los procedimientos son más rápidos y eficientes”.</p><p>Su odontología digital le permite realizar impresiones 3D, para lo cual es indispensable utilizar materiales como resinas biocompatibles, por ejemplo. Gracias a ello, se elaboran desde férulas de relajación muscular hasta alineadores de ortodoncia. Los profesionales también pueden tener una guía quirúrgica previo a ingresar a una cirugía programada. Con ello, se tiene mayor precisión en la colocación de los implantes dentales y, lo más importante, la recuperación del paciente es más rápida.</p><p>El consultorio cuenta también con escáneres de alta definición: uno específico para odontología restauradora, como inlays, onlays, restauraciones fijas unitarias y prótesis fija; y otro, óptimo para realizar ortodoncia invisible. “Escaneamos la boca del paciente, se suben los datos en la nube y, desde la matriz del fabricante, se planifican los tratamientos; nosotros aceptamos o modificamos el plan de tratamiento y finalmente los alineadores se envían acá. Trabajamos en equipo”, explica.</p><p>Otra novedad tecnológica es que cuentan con un software de diseño digital para dibujar la sonrisa del paciente. En ella se pueden incorporar las fotos previas del paciente y tener una simulación virtual del trabajo estético terminado. Finalmente, para la producción final de las restauraciones, cuentan con dos fresadoras: una para fresar en seco lo elaborado en zirconia y la otra para materiales húmedos como el disilicato de litio. ¿Ventajas para los pacientes? Los materiales más avanzados del momento.</p><p>¿Cómo se tejieron los caminos de esta gran clínica? Es la primera construida pensando en la pospandemia. Este sueño se desarrolló durante los meses más álgidos del COVID-19. “Luego de trabajar durante 20 años con otro modelo, pensé en un emprendimiento propio, al cual ponerle mi nombre y nuestro sello personal; digo nuestro, pues la compañía de mi esposa Karla ha sido fundamental en este proceso. Todo empezó en octubre de 2020”, sonríe el Dr. Buenaño.</p><p>Al abrir las puertas se centraron primero en cómo proteger a los especialistas, pacientes y demás personal para que nadie enfermara. Fue complicado, pues se desconocían los alcances del virus con precisión; es por ello que la ventilación y la iluminación de este consultorio fueron elementos clave para su apertura.</p><p>Con una estética y elegancia características, cada uno de los cubículos donde atienden los especialistas fue edificado con paredes móviles. Son grandes ventanales del piso al techo, donde priman la iluminación y la ventilación. En el diseño de la clínica, además, no se colocaron muebles excesivos; los pocos tienen ruedas y son fáciles de limpiar. Sus paredes son impecables, blancas, relucientes, sin cuadros o adornos que acumulen polvo. Si bien la sala de espera tiene menos circulación, hay un filtro de aire de nivel hospitalario, similar a los que se ubican en los quirófanos.</p><p>Para continuar con su exposición sobre sus servicios de excelencia, detalla que 3 800 citas exitosas se agendaron en 2022 y que Francisco Buenaño Rehabilitación Bucal Estética es una sólida estructura de un grupo de empresas. Es decir, el servicio de laboratorio es independiente; cuentan con proveedores de materiales e insumos para disponer del material necesario. Una empresa de servicios odontológicos es la que factura a los pacientes y hay una estructura administrativa que cubre las necesidades acordes con la demanda.</p><p>El Dr. Buenaño está rodeado de grandes especialistas y personal profesional, con un esquema de atención y administración que privilegia el talento humano y el servicio al paciente. Gracias a ello, no hay rotación de personal y, lo más importante, quienes colaboran están gustosos de trabajar en el lugar; su fidelidad se refleja en el buen servicio que entregan a quien los visita.</p><p>Son un equipo de 25 personas en total; entre ellas están los odontólogos que, destaca, tienen títulos académicos obtenidos en el exterior, son profesores universitarios y cuentan con la experiencia acorde para cada área. Hay una ortodoncista, dos odontopediatras, dos endodoncistas, un periodoncista, dos cirujanos máxilofaciales y un rehabilitador bucal, el Dr. Buenaño.</p><p>Entre sus objetivos de 2023 no está expandirse, sino seguir con un servicio de calidad y con odontología personalizada. Para ello, el Dr. Buenaño y demás especialistas reciben constante capacitación, asisten a congresos, seminarios y cursos, y aprenden sobre el manejo de equipos. En este nuevo año se implementará nueva tecnología y se explotarán al máximo todos los recursos.</p><p>Este especialista pertenece a varias sociedades profesionales del país y del exterior, donde él resalta que, junto a 35 expertos del área del Ecuador, se ha creado la Asociación de Rehabilitación Oral del Ecuador. “Es la primera asociación de alcance nacional que, junto con las principales universidades del país, agrupa la academia y la práctica privada en beneficio de los pacientes”.</p><p>Dentro del modelo sostenible que desarrolla, la responsabilidad social y el cuidado del medioambiente también juegan un papel importante en el plan de desarrollo de la clínica. Ejecutan un programa de aproximación a la comunidad con diferentes obras sociales locales, brindando atención gratuita a grupos vulnerables.</p><p>¿Y qué pasa con el mundo verde? En el consultorio, los lavamanos tienen sensores para que las llaves se abran y cierren solas, con flujo reducido, promoviendo el ahorro de agua. De igual forma, se encienden y apagan las luces, privilegiando siempre la iluminación y ventilación natural y el ahorro de recursos. Tienen un cronograma de esterilización eficiente, la política de menor uso de papel y el manejo responsable de desechos hospitalarios.</p>`
         },
         image: "https://static.wixstatic.com/media/f119f6_2905452fbbdd4a4bb9e2a1f45ad9ed9d~mv2.jpeg/v1/fill/w_1816,h_1364,fp_0.50_0.50,q_90,enc_avif,quality_auto/f119f6_2905452fbbdd4a4bb9e2a1f45ad9ed9d~mv2.jpeg",
         url: "https://www.forbes.com.ec/brandvoice/la-clinica-dental-clase-mundial-modelo-desarrollo-sostenible-quito-n31191"
@@ -4463,7 +4544,7 @@
           en: "Francisco Buenaño Herrera"
         },
         bodyHtml: {
-          es: `<p>Según el Center for Disease Control (CDC, Atlanta), en Estados Unidos se han reportado más de 800 casos de pacientes con daño pulmonar y 12 muertes atribuidas al uso de cigarrillos electrónicos.</p><p>¿Qué es un cigarrillo electrónico? Un dispositivo que, operado por una batería, produce un aerosol que contiene nicotina, saborizantes, solventes, metales pesados, partículas ultrafinas e incluso drogas que el individuo lleva a sus pulmones y que al expulsarlo también puede ser inhalado por las personas que lo rodean.</p><p>Inicialmente fueron creados como una alternativa “saludable” al cigarrillo, pero con el descenso de su consumo gracias a las duras leyes y políticas implementadas, el mercado para el vapeo se ha incrementado, incluyendo a aquellas personas que nunca han probado productos que contienen nicotina y que ahora se han vuelto más vulnerables a iniciar con productos derivados directamente del tabaco.</p><p>En la cavidad bucal, este aerosol puede ocasionar xerostomía, que es la disminución del flujo salival; en consecuencia aumenta el riesgo de caries, irritación en las encías y absorción de las substancias en los tejidos bucales y respiratorios. El British Dental Journal ha descrito este aerosol como cariogénico, pues el descenso de la humedad de la boca y la afinidad del vapor con el streptococcus mutans forman la combinación perfecta para el florecimiento de un biofilm peligroso.</p><p>Finalmente nuestras recomendaciones:</p><ol><li>Si ha consumido tabaco antes, el uso del cigarrillo electrónico puede ser una alternativa, pues el humo inhalado al fumar un cigarrillo convencional es potencialmente más destructivo que el aerosol del vapeo, a pesar de esto la FDA no lo ha recomendado como ayuda efectiva para dejar de fumar y tampoco podemos decir que es saludable.</li><li>Los cigarrillos electrónicos no son seguros para los jóvenes, los adultos jóvenes, las mujeres embarazadas o los adultos que no estén usando productos de tabaco en la actualidad.</li><li>Es indispensable conocer la fuente y los componentes de los productos para formar el aerosol y no adquirirlos de manera informal.</li><li>Conocer que a través del cigarrillo electrónico se puede vaporizar drogas.</li></ol><p>Nos gusta resolver las dudas que puedas tener. Más información aquí: https://www.cdc.gov/tobacco/basic_information/e-cigarettes/pdfs/electronic-cigarettes-infographic-spanish-508.pdf. Un abrazo.</p>`
+          es: `<p>Según los Centers for Disease Control and Prevention (CDC, Atlanta), en Estados Unidos se han reportado más de 800 casos de pacientes con daño pulmonar y 12 muertes atribuidas al uso de cigarrillos electrónicos.</p><p>¿Qué es un cigarrillo electrónico? Un dispositivo que, operado por una batería, produce un aerosol que contiene nicotina, saborizantes, solventes, metales pesados, partículas ultrafinas e incluso drogas que el individuo lleva a sus pulmones y que, al expulsarlo, también puede ser inhalado por las personas que lo rodean.</p><p>Inicialmente fueron creados como una alternativa “saludable” al cigarrillo, pero con el descenso de su consumo gracias a las duras leyes y políticas implementadas, el mercado del vapeo se ha incrementado, incluyendo a aquellas personas que nunca han probado productos que contienen nicotina y que ahora se han vuelto más vulnerables a iniciar con productos derivados directamente del tabaco.</p><p>En la cavidad bucal, este aerosol puede ocasionar xerostomía, que es la disminución del flujo salival; en consecuencia, aumenta el riesgo de caries, irritación en las encías y absorción de las sustancias en los tejidos bucales y respiratorios. El British Dental Journal ha descrito este aerosol como cariogénico, pues el descenso de la humedad de la boca y la afinidad del vapor con el Streptococcus mutans forman la combinación perfecta para el florecimiento de un biofilm peligroso.</p><p>Finalmente, nuestras recomendaciones:</p><ol><li>Si ha consumido tabaco antes, el uso del cigarrillo electrónico puede ser una alternativa, pues el humo inhalado al fumar un cigarrillo convencional es potencialmente más destructivo que el aerosol del vapeo; a pesar de esto, la FDA no lo ha recomendado como ayuda efectiva para dejar de fumar y tampoco podemos decir que sea saludable.</li><li>Los cigarrillos electrónicos no son seguros para los jóvenes, los adultos jóvenes, las mujeres embarazadas o los adultos que no estén usando productos de tabaco en la actualidad.</li><li>Es indispensable conocer la fuente y los componentes de los productos para formar el aerosol y no adquirirlos de manera informal.</li><li>Saber que, a través del cigarrillo electrónico, se pueden vaporizar drogas.</li></ol><p>Nos gusta resolver las dudas que puedas tener. Más información aquí: https://www.cdc.gov/tobacco/basic_information/e-cigarettes/pdfs/electronic-cigarettes-infographic-spanish-508.pdf. Un abrazo.</p>`
         },
         image: "https://static.wixstatic.com/media/f119f6_71e2abf02ef844a8b316c0db60fea3b9~mv2.jpg/v1/fill/w_1000,h_751,fp_0.50_0.50,q_90,enc_avif,quality_auto/f119f6_71e2abf02ef844a8b316c0db60fea3b9~mv2.jpg",
         url: null
@@ -4530,7 +4611,7 @@
           en: "Francisco Buenaño Herrera"
         },
         bodyHtml: {
-          es: `<p>Una sonrisa blanca no es necesariamente una sonrisa saludable. Una sonrisa blanca no es siempre una sonrisa natural.</p><p>La belleza de la sonrisa debería ser el reflejo de la salud en nuestra boca, por eso antes de usar cualquier producto blanqueador o someterse a un tratamiento dental estético, es indispensable que un dentista se cerciore que nos encontramos en buenas condiciones de salud.</p><p>Definitivamente, no a todos nos va bien una sonrisa “súper” blanca; el color de los dientes debe estar de acuerdo con varios factores como su tamaño, el color de nuestra piel, el color de nuestros ojos o cabello e incluso con nuestro ancestro étnico.</p><p>Al existir tanta demanda comercial por substancias blanqueadoras, nuestra recomendación es utilizar aquellas que están respaldadas por una marca importante o una asociación profesional que, para otorgar un sello de aceptación, haya probado de alguna manera el producto y haya concluido que es seguro para su consumo.</p><p>Muchas de estas substancias, carbón activado y bicarbonato por ejemplo, al ser abrasivos pueden limpiar las manchas superficiales, pero si su uso es prolongado podrían eliminar la capa de esmalte que protege nuestros dientes y volverlos sensibles y amarillos al exponer la siguiente capa que es conocida como dentina y que tiene un color amarillo natural.</p><p>En resumen:</p><ol><li>Cepilla tus dientes tres veces al día por dos minutos.</li><li>Hilo dental al menos una vez al día.</li><li>Productos con sello de aceptación profesional.</li><li>Limitar comidas que pueden pigmentar los dientes como té, café y vino tinto.</li><li>Evitar fumar.</li><li>Mantener visitas regulares al dentista.</li></ol><p>Aquí un link de la Asociación Dental Americana con más información: https://www.mouthhealthy.org/en/az-topics/w/natural-teeth-whitening. Y si todavía hay preguntas, estoy listo para responderlas. Un abrazo.</p>`
+          es: `<p>Una sonrisa blanca no es necesariamente una sonrisa saludable. Una sonrisa blanca no siempre es una sonrisa natural.</p><p>La belleza de la sonrisa debería ser el reflejo de la salud en nuestra boca, por eso, antes de usar cualquier producto blanqueador o someterse a un tratamiento dental estético, es indispensable que un dentista se cerciore de que nos encontramos en buenas condiciones de salud.</p><p>Definitivamente, no a todos nos va bien una sonrisa “súper” blanca; el color de los dientes debe estar de acuerdo con varios factores como su tamaño, el color de nuestra piel, el color de nuestros ojos o cabello e incluso con nuestro ancestro étnico.</p><p>Al existir tanta demanda comercial por sustancias blanqueadoras, nuestra recomendación es utilizar aquellas que están respaldadas por una marca importante o una asociación profesional que, para otorgar un sello de aceptación, haya probado de alguna manera el producto y haya concluido que es seguro para su consumo.</p><p>Muchas de estas sustancias, como el carbón activado y el bicarbonato, al ser abrasivas pueden limpiar las manchas superficiales, pero si su uso es prolongado podrían eliminar la capa de esmalte que protege nuestros dientes y volverlos sensibles y amarillos al exponer la siguiente capa, conocida como dentina, que tiene un color amarillo natural.</p><p>En resumen:</p><ol><li>Cepilla tus dientes tres veces al día por dos minutos.</li><li>Usa hilo dental al menos una vez al día.</li><li>Elige productos con sello de aceptación profesional.</li><li>Limita comidas que pueden pigmentar los dientes, como té, café y vino tinto.</li><li>Evita fumar.</li><li>Mantén visitas regulares al dentista.</li></ol><p>Aquí tienes un enlace de la Asociación Dental Americana con más información: https://www.mouthhealthy.org/en/az-topics/w/natural-teeth-whitening. Y, si todavía hay preguntas, estoy listo para responderlas. Un abrazo.</p>`
         },
         url: null
       },
