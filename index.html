@@ -5582,7 +5582,27 @@
       }
     });
 
+    function forceStartAtInicio() {
+      const inicioSection = document.getElementById("inicio");
+      if (!inicioSection) {
+        return;
+      }
+
+      const startHash = "#inicio";
+      if (window.location.hash !== startHash) {
+        const startUrl = window.location.pathname + window.location.search + startHash;
+        window.history.replaceState(null, "", startUrl);
+      }
+
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      });
+    }
+
     window.addEventListener("scroll", updateNavbarState, { passive: true });
+    window.addEventListener("load", forceStartAtInicio, { once: true });
+    forceStartAtInicio();
     updateNavbarState();
     setLanguage("es");
 
