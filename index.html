@@ -3532,12 +3532,36 @@
       gap: 18px;
     }
 
+    .hero-contact-frame {
+      align-content: start;
+    }
+
+    .quick-contact-head-hero {
+      margin-bottom: 2px;
+      text-align: left;
+    }
+
+    .quick-contact-head-hero h2 {
+      max-width: 12ch;
+      font-size: clamp(30px, 3.4vw, 40px);
+    }
+
+    .quick-contact-head-hero p {
+      max-width: 38ch;
+    }
+
+    .quick-contact-grid-hero {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
     .qc-card {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      align-items: flex-start;
+      text-align: left;
       gap: 16px;
+      min-height: 100%;
       padding: 32px 22px 28px;
       border-radius: var(--radius-lg);
       border: 1px solid rgba(16, 35, 63, 0.1);
@@ -3583,6 +3607,16 @@
     .qc-icon-email { background: linear-gradient(135deg, #1f63ff, #164ccb); color: #fff; }
     .qc-icon-map { background: linear-gradient(135deg, #ff5a36, #e03e1a); color: #fff; }
 
+    .qc-body {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      width: 100%;
+      min-width: 0;
+    }
+
     .qc-label {
       font-size: 20px;
       font-weight: 800;
@@ -3626,9 +3660,32 @@
     .qc-card:hover .qc-cta-ig  { background: rgba(214, 41, 118, 0.15); }
     .qc-card:hover .qc-cta-map { background: rgba(255, 90, 54, 0.15); }
 
+    .hero-highlights-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .quick-contact .hero-note {
+      background: #ffffff;
+      border: 1px solid rgba(16, 35, 63, 0.08);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-contact .hero-note strong {
+      color: #08111f;
+    }
+
+    .quick-contact .hero-note span {
+      color: var(--muted);
+    }
+
     @media (max-width: 900px) {
       .quick-contact-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .quick-contact-grid-hero {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -3638,10 +3695,11 @@
         gap: 14px;
       }
       .qc-card {
-        flex-direction: row;
+        flex-direction: column;
+        align-items: flex-start;
         text-align: left;
         padding: 20px 18px;
-        gap: 16px;
+        gap: 14px;
       }
       .qc-icon {
         width: 58px;
@@ -3650,7 +3708,7 @@
         flex-shrink: 0;
       }
       .qc-icon svg { width: 28px; height: 28px; }
-      .qc-body { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 0; }
+      .qc-body { gap: 6px; }
       .qc-desc { max-width: none; }
     }
 
@@ -4071,7 +4129,7 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <span class="eyebrow" data-i18n="hero.eyebrow">Francisco Buenaño · Rehabilitación Bucal Estética</span>
-          <h1 data-i18n="hero.title">Odontología integral con precisión, estética y confianza</h1>
+            <h1 data-i18n="hero.title">Hola como esstas!</h1>
           <p style="font-size:18px; color:var(--muted); line-height:1.8; margin-bottom:20px; max-width:56ch;">Te acompañamos desde la primera valoración. Explicamos cada paso antes de iniciar tu tratamiento y garantizamos atención cercana, profesional y personalizada.</p>
           <div class="hero-actions">
             <button class="button button-primary" type="button" data-open-whatsapp style="font-size:17px; min-height:60px; padding: 0 30px;">
@@ -4111,45 +4169,52 @@
         </div>
 
         <div class="hero-shell reveal stagger-2">
-          <div class="hero-frame">
-            <div class="hero-trust-stack">
-              <div class="trust-grid">
-                <article class="trust-card reveal stagger-1">
-                  <strong data-i18n="trust.one.title">18 años de experiencia</strong>
-                  <span data-i18n="trust.one.desc">Una trayectoria construida con cercanía, formación constante y criterio clínico.</span>
-                </article>
-                <article class="trust-card reveal stagger-2">
-                  <strong data-i18n="trust.two.title">Alta especialidad</strong>
-                  <span data-i18n="trust.two.desc">Un equipo preparado para abordar casos integrales con precisión y cuidado.</span>
-                </article>
-                <article class="trust-card reveal stagger-3">
-                  <strong data-i18n="trust.three.title">Tecnología digital</strong>
-                  <span data-i18n="trust.three.desc">Herramientas que mejoran el diagnóstico, la planificación y la comodidad del paciente.</span>
-                </article>
-                <article class="trust-card reveal stagger-4">
-                  <strong data-i18n="trust.four.title">Atención personalizada</strong>
-                  <span data-i18n="trust.four.desc">Cada tratamiento se adapta al paciente, no al revés.</span>
-                </article>
-              </div>
-
-              <article class="trust-bridge reveal stagger-4">
-                <span class="trust-bridge-mark">INT</span>
-                <div class="trust-bridge-copy">
-                  <strong data-i18n="trust.five.title">Pacientes locales e internacionales</strong>
-                  <span data-i18n="trust.five.desc">Coordinación clara antes, durante y después de cada tratamiento.</span>
-                </div>
-              </article>
+          <div class="hero-frame hero-contact-frame">
+            <div class="quick-contact-head quick-contact-head-hero">
+              <h2>Agenda tu cita fácilmente</h2>
+              <p>Elige el canal que prefieras y te ayudamos con tu valoración.</p>
             </div>
-
-            <div class="hero-note-row">
-              <article class="hero-note">
-                <strong data-i18n="hero.tag.one">Planificación digital</strong>
-                <span data-i18n="hero.note.one">Diagnóstico, planificación y ejecución con herramientas modernas y de última tecnología.</span>
-              </article>
-              <article class="hero-note">
-                <strong data-i18n="hero.tag.two">Atención personalizada</strong>
-                <span data-i18n="hero.note.two">Tratamientos construidos según la necesidad clínica y el contexto de cada paciente.</span>
-              </article>
+            <div class="quick-contact-grid quick-contact-grid-hero">
+              <button class="qc-card reveal stagger-1" type="button" data-open-whatsapp aria-label="Agendar cita por WhatsApp">
+                <div class="qc-icon qc-icon-wa">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2c-4.86 0-8.8 3.78-8.8 8.45 0 1.62.48 3.2 1.39 4.57L3.4 20.8l4.86-1.27a9.02 9.02 0 0 0 3.74.8c4.86 0 8.8-3.78 8.8-8.48 0-4.67-3.94-8.45-8.8-8.45ZM9.14 8.86c.18-.41.37-.42.56-.43h.48c.14 0 .37.05.56.26.19.2.73.71.73 1.74s-.75 2.03-.85 2.17c-.1.14-.2.3-.05.56.16.26.68 1.1 1.46 1.77 1.01.87 1.86 1.14 2.13 1.27.27.13.42.11.58-.07.16-.18.68-.76.87-1.02.18-.26.37-.22.62-.13.26.09 1.62.74 1.9.87.28.13.46.2.53.31.07.11.07.66-.15 1.3-.22.64-1.28 1.23-1.78 1.31-.46.08-1.05.11-1.7-.1-.39-.13-.9-.3-1.55-.58-2.73-1.17-4.5-3.92-4.64-4.11-.14-.19-1.11-1.45-1.11-2.77 0-1.32.7-1.97.95-2.24Z"/></svg>
+                </div>
+                <div class="qc-body">
+                  <span class="qc-label">WhatsApp</span>
+                  <span class="qc-desc">Habla directamente con la clínica</span>
+                  <span class="qc-cta qc-cta-wa">Agendar cita →</span>
+                </div>
+              </button>
+              <a class="qc-card reveal stagger-2" href="https://www.instagram.com/dr.franciscob/" target="_blank" rel="noreferrer noopener" aria-label="Ver Instagram del Dr. Francisco Buenaño">
+                <div class="qc-icon qc-icon-ig">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <div class="qc-body">
+                  <span class="qc-label">Instagram</span>
+                  <span class="qc-desc">Mira casos y novedades del Dr. Francisco</span>
+                  <span class="qc-cta qc-cta-ig">Ver perfil →</span>
+                </div>
+              </a>
+              <a class="qc-card reveal stagger-3" href="mailto:franciscob.ecu@gmail.com" aria-label="Enviar correo a la clínica">
+                <div class="qc-icon qc-icon-email">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.75 6.75v10.5A2.25 2.25 0 0119.5 19.5h-15a2.25 2.25 0 01-2.25-2.25V6.75"/><path d="M21.75 6.75A2.25 2.25 0 0019.5 4.5h-15A2.25 2.25 0 002.25 6.75"/><path d="m3 7.5 7.86 4.912a2.25 2.25 0 002.28 0L21 7.5"/></svg>
+                </div>
+                <div class="qc-body">
+                  <span class="qc-label">Correo</span>
+                  <span class="qc-desc">Envíanos tus dudas por email</span>
+                  <span class="qc-cta">Enviar mensaje →</span>
+                </div>
+              </a>
+              <a class="qc-card reveal stagger-4" href="https://maps.google.com/?q=Av.+Pampite+OE6-53+y+Valenzuela+Oficina+301+YOO+Cumbayá+Ecuador" target="_blank" rel="noreferrer noopener" aria-label="Ver ubicación en Google Maps">
+                <div class="qc-icon qc-icon-map">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                </div>
+                <div class="qc-body">
+                  <span class="qc-label">Ubicación</span>
+                  <span class="qc-desc">Encuentra nuestra dirección en Cumbayá</span>
+                  <span class="qc-cta qc-cta-map">Cómo llegar →</span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -4162,54 +4227,49 @@
     <div class="quick-contact">
       <div class="container">
         <div class="quick-contact-head reveal">
-          <h2>Agenda tu cita fácilmente</h2>
-          <p>Elige el canal que prefieras y te ayudamos con tu valoración.</p>
+          <h2>18 años de experiencia y una práctica de alta especialidad</h2>
+          <p>Una trayectoria construida con cercanía, criterio clínico, tecnología digital y atención personalizada.</p>
         </div>
-        <div class="quick-contact-grid">
-          <!-- WhatsApp -->
-          <button class="qc-card reveal stagger-1" type="button" data-open-whatsapp aria-label="Agendar cita por WhatsApp">
-            <div class="qc-icon qc-icon-wa">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2c-4.86 0-8.8 3.78-8.8 8.45 0 1.62.48 3.2 1.39 4.57L3.4 20.8l4.86-1.27a9.02 9.02 0 0 0 3.74.8c4.86 0 8.8-3.78 8.8-8.48 0-4.67-3.94-8.45-8.8-8.45ZM9.14 8.86c.18-.41.37-.42.56-.43h.48c.14 0 .37.05.56.26.19.2.73.71.73 1.74s-.75 2.03-.85 2.17c-.1.14-.2.3-.05.56.16.26.68 1.1 1.46 1.77 1.01.87 1.86 1.14 2.13 1.27.27.13.42.11.58-.07.16-.18.68-.76.87-1.02.18-.26.37-.22.62-.13.26.09 1.62.74 1.9.87.28.13.46.2.53.31.07.11.07.66-.15 1.3-.22.64-1.28 1.23-1.78 1.31-.46.08-1.05.11-1.7-.1-.39-.13-.9-.3-1.55-.58-2.73-1.17-4.5-3.92-4.64-4.11-.14-.19-1.11-1.45-1.11-2.77 0-1.32.7-1.97.95-2.24Z"/></svg>
+        <div class="hero-highlights-stack">
+          <div class="hero-trust-stack">
+            <div class="trust-grid">
+              <article class="trust-card reveal stagger-1">
+                <strong data-i18n="trust.one.title">18 años de experiencia</strong>
+                <span data-i18n="trust.one.desc">Una trayectoria construida con cercanía, formación constante y criterio clínico.</span>
+              </article>
+              <article class="trust-card reveal stagger-2">
+                <strong data-i18n="trust.two.title">Alta especialidad</strong>
+                <span data-i18n="trust.two.desc">Un equipo preparado para abordar casos integrales con precisión y cuidado.</span>
+              </article>
+              <article class="trust-card reveal stagger-3">
+                <strong data-i18n="trust.three.title">Tecnología digital</strong>
+                <span data-i18n="trust.three.desc">Herramientas que mejoran el diagnóstico, la planificación y la comodidad del paciente.</span>
+              </article>
+              <article class="trust-card reveal stagger-4">
+                <strong data-i18n="trust.four.title">Atención personalizada</strong>
+                <span data-i18n="trust.four.desc">Cada tratamiento se adapta al paciente, no al revés.</span>
+              </article>
             </div>
-            <div class="qc-body">
-              <span class="qc-label">WhatsApp</span>
-              <span class="qc-desc">Habla directamente con la clínica</span>
-              <span class="qc-cta qc-cta-wa">Agendar cita →</span>
-            </div>
-          </button>
-          <!-- Instagram -->
-          <a class="qc-card reveal stagger-2" href="https://www.instagram.com/dr.franciscob/" target="_blank" rel="noreferrer noopener" aria-label="Ver Instagram del Dr. Francisco Buenaño">
-            <div class="qc-icon qc-icon-ig">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </div>
-            <div class="qc-body">
-              <span class="qc-label">Instagram</span>
-              <span class="qc-desc">Mira casos y novedades del Dr. Francisco</span>
-              <span class="qc-cta qc-cta-ig">Ver perfil →</span>
-            </div>
-          </a>
-          <!-- Correo -->
-          <a class="qc-card reveal stagger-3" href="mailto:franciscob.ecu@gmail.com" aria-label="Enviar correo a la clínica">
-            <div class="qc-icon qc-icon-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.75 6.75v10.5A2.25 2.25 0 0119.5 19.5h-15a2.25 2.25 0 01-2.25-2.25V6.75"/><path d="M21.75 6.75A2.25 2.25 0 0019.5 4.5h-15A2.25 2.25 0 002.25 6.75"/><path d="m3 7.5 7.86 4.912a2.25 2.25 0 002.28 0L21 7.5"/></svg>
-            </div>
-            <div class="qc-body">
-              <span class="qc-label">Correo</span>
-              <span class="qc-desc">Envíanos tus dudas por email</span>
-              <span class="qc-cta">Enviar mensaje →</span>
-            </div>
-          </a>
-          <!-- Mapa -->
-          <a class="qc-card reveal stagger-4" href="https://maps.google.com/?q=Av.+Pampite+OE6-53+y+Valenzuela+Oficina+301+YOO+Cumbayá+Ecuador" target="_blank" rel="noreferrer noopener" aria-label="Ver ubicación en Google Maps">
-            <div class="qc-icon qc-icon-map">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-            </div>
-            <div class="qc-body">
-              <span class="qc-label">Ubicación</span>
-              <span class="qc-desc">Encuentra nuestra dirección en Cumbayá</span>
-              <span class="qc-cta qc-cta-map">Cómo llegar →</span>
-            </div>
-          </a>
+
+            <article class="trust-bridge reveal stagger-4">
+              <span class="trust-bridge-mark">INT</span>
+              <div class="trust-bridge-copy">
+                <strong data-i18n="trust.five.title">Pacientes locales e internacionales</strong>
+                <span data-i18n="trust.five.desc">Coordinación clara antes, durante y después de cada tratamiento.</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="hero-note-row">
+            <article class="hero-note reveal stagger-1">
+              <strong data-i18n="hero.tag.one">Planificación digital</strong>
+              <span data-i18n="hero.note.one">Diagnóstico, planificación y ejecución con herramientas modernas y de última tecnología.</span>
+            </article>
+            <article class="hero-note reveal stagger-2">
+              <strong data-i18n="hero.tag.two">Atención personalizada</strong>
+              <span data-i18n="hero.note.two">Tratamientos construidos según la necesidad clínica y el contexto de cada paciente.</span>
+            </article>
+          </div>
         </div>
       </div>
     </div>
@@ -5208,7 +5268,7 @@
         "cta.whatsapp": "Agendar por WhatsApp",
         "cta.services": "Conocer servicios",
         "hero.eyebrow": "Francisco Buenaño · Rehabilitación Bucal Estética",
-        "hero.title": "Odontología integral con precisión, estética y confianza",
+          "hero.title": "Hola como esstas!",
         "hero.quote": "“En Buenaño Dentistas, el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.”",
         "hero.quoteAuthor": "Francisco Buenaño — Forbes Ecuador",
         "hero.panel.top.title": "Interfaz clínica clara",
