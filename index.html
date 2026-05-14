@@ -1100,7 +1100,18 @@
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(227, 238, 255, 0.92));
     }
 
+    .social-icon {
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(227, 238, 255, 0.92));
+    }
+
     .service-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .social-icon img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -1141,6 +1152,46 @@
       height: 8px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--primary));
+    }
+
+    .team-duo {
+      display: grid;
+      gap: 20px;
+      margin-top: 4px;
+    }
+
+    .team-profile {
+      display: grid;
+      align-content: start;
+    }
+
+    .team-profile + .team-profile {
+      padding-top: 20px;
+      border-top: 1px solid rgba(16, 35, 63, 0.08);
+    }
+
+    .team-profile-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .team-profile-head .team-avatar {
+      margin-bottom: 0;
+      flex: 0 0 56px;
+    }
+
+    .team-profile-copy {
+      min-width: 0;
+    }
+
+    .team-profile-copy .team-role {
+      margin-bottom: 6px;
+    }
+
+    .team-profile .team-area {
+      width: fit-content;
     }
 
     .team-area {
@@ -1539,6 +1590,11 @@
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.82));
     }
 
+    .blog-card-media {
+      height: 210px;
+      margin-bottom: 18px;
+    }
+
     .blog-card .article-author {
       margin-bottom: 6px;
     }
@@ -1560,6 +1616,42 @@
       gap: 18px;
       align-items: center;
       margin-top: 28px;
+    }
+
+    .blog-summary {
+      max-width: 68ch;
+      color: var(--muted);
+      line-height: 1.72;
+      margin-bottom: 22px;
+    }
+
+    .blog-pager {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .blog-pager-status {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .blog-pager-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .blog-pager-controls .button[disabled] {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
 
     .social-card {
@@ -2751,38 +2843,41 @@
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
             </div>
-            <div class="team-avatar">AP</div>
-            <span class="team-role">Endodoncia</span>
-            <h3>Dra. Andrea Ponce</h3>
-            <ul class="team-list">
-              <li>Doctora en Odontología — USFQ</li>
-              <li>Especialista en Endodoncia</li>
-              <li>Universidad Javeriana de Colombia</li>
-            </ul>
-            <span class="team-area">Área: Endodoncia</span>
-            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
-          </article>
+            <div class="team-duo">
+              <div class="team-profile">
+                <div class="team-profile-head">
+                  <div class="team-avatar">AP</div>
+                  <div class="team-profile-copy">
+                    <span class="team-role">Endodoncia</span>
+                    <h3>Dra. Andrea Ponce</h3>
+                  </div>
+                </div>
+                <ul class="team-list">
+                  <li>Doctora en Odontología — USFQ</li>
+                  <li>Especialista en Endodoncia</li>
+                  <li>Universidad Javeriana de Colombia</li>
+                </ul>
+                <span class="team-area">Área: Endodoncia</span>
+                <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
+              </div>
 
-          <article class="team-card reveal stagger-3">
-            <div class="image-shell team-card-media" data-fallback="Especialistas en endodoncia">
-              <img
-                src="https://static.wixstatic.com/media/f119f6_3bd80d9e6de540ccaf1be9980250d23e~mv2.jpeg/v1/fill/w_2880,h_1516,al_t,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/f119f6_3bd80d9e6de540ccaf1be9980250d23e~mv2.jpeg"
-                alt="Especialistas en Endodoncia Buenaño Dentistas"
-                loading="lazy"
-                decoding="async"
-                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
-              >
+              <div class="team-profile">
+                <div class="team-profile-head">
+                  <div class="team-avatar">NC</div>
+                  <div class="team-profile-copy">
+                    <span class="team-role">Endodoncia</span>
+                    <h3>Dr. Nicolás Castrillón</h3>
+                  </div>
+                </div>
+                <ul class="team-list">
+                  <li>Doctor en Odontología</li>
+                  <li>Especialista en Endodoncia</li>
+                  <li>Universidad Javeriana de Colombia</li>
+                </ul>
+                <span class="team-area">Área: Endodoncia</span>
+                <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
+              </div>
             </div>
-            <div class="team-avatar">NC</div>
-            <span class="team-role">Endodoncia</span>
-            <h3>Dr. Nicolás Castrillón</h3>
-            <ul class="team-list">
-              <li>Doctor en Odontología</li>
-              <li>Especialista en Endodoncia</li>
-              <li>Universidad Javeriana de Colombia</li>
-            </ul>
-            <span class="team-area">Área: Endodoncia</span>
-            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
           </article>
 
           <article class="team-card reveal stagger-4">
@@ -2861,36 +2956,39 @@
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
             </div>
-            <div class="team-avatar">IS</div>
-            <span class="team-role">Odontopediatría</span>
-            <h3>Isabel Salazar</h3>
-            <ul class="team-list">
-              <li>Especialista en Odontopediatría</li>
-              <li>Universidad San Francisco de Quito</li>
-            </ul>
-            <span class="team-area">Área: Odontopediatría</span>
-            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
-          </article>
+            <div class="team-duo">
+              <div class="team-profile">
+                <div class="team-profile-head">
+                  <div class="team-avatar">IS</div>
+                  <div class="team-profile-copy">
+                    <span class="team-role">Odontopediatría</span>
+                    <h3>Isabel Salazar</h3>
+                  </div>
+                </div>
+                <ul class="team-list">
+                  <li>Especialista en Odontopediatría</li>
+                  <li>Universidad San Francisco de Quito</li>
+                </ul>
+                <span class="team-area">Área: Odontopediatría</span>
+                <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
+              </div>
 
-          <article class="team-card reveal stagger-4">
-            <div class="image-shell team-card-media" data-fallback="Odontopediatría">
-              <img
-                src="https://static.wixstatic.com/media/f119f6_18c850963038429aa4eee23b599bde2d~mv2.jpg/v1/fill/w_2000,h_1053,al_c,q_90,enc_avif,quality_auto/f119f6_18c850963038429aa4eee23b599bde2d~mv2.jpg"
-                alt="Especialistas en odontopediatría Buenaño Dentistas"
-                loading="lazy"
-                decoding="async"
-                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
-              >
+              <div class="team-profile">
+                <div class="team-profile-head">
+                  <div class="team-avatar">AP</div>
+                  <div class="team-profile-copy">
+                    <span class="team-role">Odontopediatría</span>
+                    <h3>Alejandro Palafox</h3>
+                  </div>
+                </div>
+                <ul class="team-list">
+                  <li>Especialista en Odontopediatría</li>
+                  <li>Universidad Autónoma de Nuevo León</li>
+                </ul>
+                <span class="team-area">Área: Odontopediatría</span>
+                <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
+              </div>
             </div>
-            <div class="team-avatar">AP</div>
-            <span class="team-role">Odontopediatría</span>
-            <h3>Alejandro Palafox</h3>
-            <ul class="team-list">
-              <li>Especialista en Odontopediatría</li>
-              <li>Universidad Autónoma de Nuevo León</li>
-            </ul>
-            <span class="team-area">Área: Odontopediatría</span>
-            <a class="card-link" href="#contacto" data-i18n="team.cta">Conocer especialista</a>
           </article>
 
         </div>
@@ -3342,44 +3440,15 @@
           </div>
         </div>
 
-        <div class="blog-grid">
-          <article class="blog-card reveal stagger-1">
-            <div class="blog-icon">01</div>
-            <span class="article-author">Francisco Buenaño Herrera</span>
-            <span class="article-meta" data-i18n="blog.card.one.meta">19 mar · 3 min de lectura</span>
-            <h3 data-i18n="blog.card.one.title">Oil pulling con aceite de coco: entre la tendencia viral y la evidencia científica</h3>
-            <p data-i18n="blog.card.one.desc">Un análisis claro sobre una práctica difundida en redes y lo que realmente dice la evidencia disponible.</p>
-            <a class="card-link" href="https://www.odontologiaestetica.com.ec/post/oil-pulling-con-aceite-de-coco-entre-la-tendencia-viral-y-la-evidencia-cient%C3%ADfica" target="_blank" rel="noreferrer noopener" data-i18n="blog.read">Leer artículo</a>
-          </article>
-          <article class="blog-card reveal stagger-2">
-            <div class="blog-icon">02</div>
-            <span class="article-author">Francisco Buenaño Herrera</span>
-            <span class="article-meta" data-i18n="blog.card.two.meta">8 feb · 2 min de lectura</span>
-            <h3 data-i18n="blog.card.two.title">Más mitos que verdades sobre el mouth taping</h3>
-            <p data-i18n="blog.card.two.desc">Una lectura breve sobre riesgos, promesas exageradas y contexto clínico detrás de esta tendencia.</p>
-            <a class="card-link" href="https://www.odontologiaestetica.com.ec/post/mouth-taping-riesgos-evidencia-cientifica" target="_blank" rel="noreferrer noopener" data-i18n="blog.read">Leer artículo</a>
-          </article>
-          <article class="blog-card reveal stagger-3">
-            <div class="blog-icon">03</div>
-            <span class="article-author">Francisco Buenaño Herrera</span>
-            <span class="article-meta" data-i18n="blog.card.three.meta">Artículo destacado</span>
-            <h3 data-i18n="blog.card.three.title">Carbón activado para el blanqueamiento dental, pros y contras</h3>
-            <p data-i18n="blog.card.three.desc">Contenido orientado a desmontar promesas fáciles y ayudar al paciente a decidir con información útil.</p>
-            <a class="card-link" href="https://www.odontologiaestetica.com.ec/blog" target="_blank" rel="noreferrer noopener" data-i18n="blog.read">Leer artículo</a>
-          </article>
-          <article class="blog-card reveal stagger-4">
-            <div class="blog-icon">04</div>
-            <span class="article-author">Francisco Buenaño Herrera</span>
-            <span class="article-meta" data-i18n="blog.card.four.meta">Artículo destacado</span>
-            <h3 data-i18n="blog.card.four.title">FORBES: La clínica de clase mundial con un modelo de desarrollo sostenible</h3>
-            <p data-i18n="blog.card.four.desc">Una pieza editorial que conecta visión clínica, experiencia del paciente y compromiso institucional.</p>
-            <a class="card-link" href="https://www.forbes.com.ec/brandvoice/la-clinica-dental-clase-mundial-modelo-desarrollo-sostenible-quito-n31191" target="_blank" rel="noreferrer noopener" data-i18n="blog.read">Leer artículo</a>
-          </article>
-        </div>
+        <div class="blog-grid" id="blogGrid"></div>
 
-        <div class="blog-actions reveal">
-          <p data-i18n="blog.actions.text">Otros temas del blog incluyen el cuidado dental y el vino, las diferencias entre un puente dental y un implante, y la decisión entre carillas u ortodoncia.</p>
-          <a class="button button-secondary" href="https://www.odontologiaestetica.com.ec/blog" target="_blank" rel="noreferrer noopener" data-i18n="blog.more">Ver todos los artículos</a>
+        <div class="blog-pager reveal">
+          <div class="blog-pager-status" id="blogPagerStatus"></div>
+          <div class="blog-pager-controls">
+            <button class="button button-secondary" id="blogPrev" type="button">Anterior</button>
+            <button class="button button-secondary" id="blogNext" type="button">Siguiente</button>
+            <a class="button button-secondary" href="https://www.odontologiaestetica.com.ec/blog" target="_blank" rel="noreferrer noopener" data-i18n="blog.more">Ver todos los artículos</a>
+          </div>
         </div>
       </div>
     </section>
@@ -3397,17 +3466,23 @@
 
         <div class="info-grid">
           <article class="social-card reveal stagger-1">
-            <div class="social-icon">01</div>
+            <div class="social-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2019.01.05.png" alt="Icono de atención integral gratuita" loading="lazy" decoding="async">
+            </div>
             <h3 data-i18n="social.card.one.title">Atención integral gratuita</h3>
             <p data-i18n="social.card.one.desc">Un programa pensado para responder con cuidado real a necesidades concretas de salud oral.</p>
           </article>
           <article class="social-card reveal stagger-2">
-            <div class="social-icon">02</div>
+            <div class="social-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2019.01.27.png" alt="Icono de acompañamiento con dignidad" loading="lazy" decoding="async">
+            </div>
             <h3 data-i18n="social.card.two.title">Acompañamiento con dignidad</h3>
             <p data-i18n="social.card.two.desc">La propuesta se presenta con sobriedad, sin exageraciones, y con foco en el valor humano del proyecto.</p>
           </article>
           <article class="social-card reveal stagger-3">
-            <div class="social-icon">03</div>
+            <div class="social-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/Screenshot%202026-05-13%20at%2019.01.47.png" alt="Icono de compromiso sostenido" loading="lazy" decoding="async">
+            </div>
             <h3 data-i18n="social.card.three.title">Compromiso sostenido</h3>
             <p data-i18n="social.card.three.desc">Una forma de devolver salud, bienestar y sonrisas desde una práctica profesional responsable.</p>
           </article>
@@ -3694,6 +3769,10 @@
         "blog.actions.text": "Otros temas del blog incluyen el cuidado dental y el vino, las diferencias entre un puente dental y un implante, y la decisión entre carillas u ortodoncia.",
         "blog.read": "Leer artículo",
         "blog.more": "Ver todos los artículos",
+        "blog.prev": "Anterior",
+        "blog.next": "Siguiente",
+        "blog.page": "Página",
+        "blog.of": "de",
         "social.eyebrow": "Responsabilidad Social",
         "social.title": "Compromiso social que también forma parte de nuestra práctica clínica.",
         "social.text.one": "Mujeres de Frente es una comunidad de cooperación y cuidado entre comerciantes autónomas de las calles, recicladoras, trabajadoras del hogar, estudiantes universitarias, profesoras, mujeres excarceladas, familiares de personas en prisión, niños, niñas y adolescentes.",
@@ -3855,6 +3934,10 @@
         "blog.actions.text": "Other blog topics include dental care and wine, the difference between a bridge and an implant, and deciding between veneers or orthodontics.",
         "blog.read": "Read article",
         "blog.more": "View all articles",
+        "blog.prev": "Previous",
+        "blog.next": "Next",
+        "blog.page": "Page",
+        "blog.of": "of",
         "social.eyebrow": "Social Impact",
         "social.title": "Social commitment is also part of our clinical practice.",
         "social.text.one": "Mujeres de Frente is a community of cooperation and care among street vendors, recyclers, domestic workers, university students, teachers, formerly incarcerated women, relatives of imprisoned people, children and adolescents.",
@@ -3899,6 +3982,199 @@
       }
     };
 
+    const BLOG_BASE_URL = "https://www.odontologiaestetica.com.ec/blog";
+    const BLOG_PAGE_SIZE = 4;
+    const blogArticles = [
+      {
+        meta: {
+          es: "19 mar · 3 min de lectura · 2 visualizaciones",
+          en: "Mar 19 · 3 min read · 2 views"
+        },
+        title: {
+          es: "Oil pulling con aceite de coco: entre la tendencia viral y la evidencia científica",
+          en: "Coconut oil pulling: between viral trends and scientific evidence"
+        },
+        excerpt: {
+          es: "Cada cierto tiempo aparece una práctica natural que promete transformar la salud oral sin esfuerzo. Este artículo revisa qué es el oil pulling y qué dice realmente la evidencia científica.",
+          en: "Natural practices regularly go viral as effortless oral-health solutions. This article reviews what oil pulling is and what scientific evidence actually supports."
+        },
+        image: "https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2006_55_52%20PM.png",
+        url: "https://www.odontologiaestetica.com.ec/post/oil-pulling-con-aceite-de-coco-entre-la-tendencia-viral-y-la-evidencia-cient%C3%ADfica"
+      },
+      {
+        meta: {
+          es: "8 feb · 2 min de lectura · 17 visualizaciones",
+          en: "Feb 8 · 2 min read · 17 views"
+        },
+        title: {
+          es: "Más mitos que verdades sobre el mouth taping",
+          en: "More myths than truths about mouth taping"
+        },
+        excerpt: {
+          es: "En redes sociales se ha popularizado sellar los labios con cinta adhesiva durante el sueño. Aquí se explican sus riesgos, limitaciones y por qué no debe verse como solución clínica universal.",
+          en: "Social media has popularized sealing the lips with adhesive tape during sleep. Here we explain its risks, limits and why it should not be treated as a universal clinical solution."
+        },
+        image: "https://static.wixstatic.com/media/f119f6_8527e41152214e19a56f6dabfe31fae5~mv2.png/v1/fill/w_800,h_601,fp_0.50_0.50,q_95,enc_avif,quality_auto/f119f6_8527e41152214e19a56f6dabfe31fae5~mv2.png",
+        url: "https://www.odontologiaestetica.com.ec/post/mouth-taping-riesgos-evidencia-cientifica"
+      },
+      {
+        meta: {
+          es: "22 oct 2023 · 2 min de lectura · 11 visualizaciones",
+          en: "Oct 22, 2023 · 2 min read · 11 views"
+        },
+        title: {
+          es: "Carbón activado para el blanqueamiento dental, pros y contras",
+          en: "Activated charcoal for dental whitening: pros and cons"
+        },
+        excerpt: {
+          es: "El carbón activado puede remover algunas manchas superficiales, pero no produce un verdadero efecto blanqueador. Un repaso claro sobre beneficios limitados y posibles riesgos.",
+          en: "Activated charcoal may remove some superficial stains, but it does not create true whitening. A concise review of its limited benefits and possible risks."
+        },
+        image: "https://static.wixstatic.com/media/f119f6_0e5c864ef0ea49eeb766f4cf0b0a264b~mv2.png/v1/fill/w_799,h_600,fp_0.50_0.50,q_95,enc_avif,quality_auto/f119f6_0e5c864ef0ea49eeb766f4cf0b0a264b~mv2.png",
+        url: null
+      },
+      {
+        meta: {
+          es: "29 mar 2023 · 4 min de lectura · 19 visualizaciones",
+          en: "Mar 29, 2023 · 4 min read · 19 views"
+        },
+        title: {
+          es: "FORBES: La clínica de clase mundial con un modelo de desarrollo sostenible",
+          en: "FORBES: A world-class clinic with a sustainable development model"
+        },
+        excerpt: {
+          es: "Una pieza editorial sobre la visión clínica, la experiencia del paciente y el modelo de crecimiento sostenible detrás de la clínica.",
+          en: "An editorial piece about the clinic's vision, patient experience and sustainable growth model."
+        },
+        image: "https://static.wixstatic.com/media/f119f6_2905452fbbdd4a4bb9e2a1f45ad9ed9d~mv2.jpeg/v1/fill/w_1816,h_1364,fp_0.50_0.50,q_90,enc_avif,quality_auto/f119f6_2905452fbbdd4a4bb9e2a1f45ad9ed9d~mv2.jpeg",
+        url: "https://www.forbes.com.ec/brandvoice/la-clinica-dental-clase-mundial-modelo-desarrollo-sostenible-quito-n31191"
+      },
+      {
+        meta: {
+          es: "12 nov 2022 · 1 min de lectura · 5 visualizaciones",
+          en: "Nov 12, 2022 · 1 min read · 5 views"
+        },
+        title: {
+          es: "La dieta mediterránea es nuestra favorita",
+          en: "The Mediterranean diet is our favorite"
+        },
+        excerpt: {
+          es: "Desde el 2010 la dieta mediterránea es Patrimonio Cultural Inmaterial de la Humanidad. Una nota breve sobre hábitos saludables que también benefician la salud oral.",
+          en: "Since 2010, the Mediterranean diet has been recognized as Intangible Cultural Heritage. A short note on healthy habits that also benefit oral health."
+        },
+        image: "https://static.wixstatic.com/media/8ea70678ba8d4725b3ae79d832a5e7cd.jpg/v1/fill/w_1816,h_1364,fp_0.50_0.50,q_90,enc_avif,quality_auto/8ea70678ba8d4725b3ae79d832a5e7cd.jpg",
+        url: null
+      },
+      {
+        meta: {
+          es: "7 sept 2022 · 3 min de lectura · 67 visualizaciones",
+          en: "Sep 7, 2022 · 3 min read · 67 views"
+        },
+        title: {
+          es: "El vino y el cuidado de los dientes",
+          en: "Wine and dental care"
+        },
+        excerpt: {
+          es: "Las manchas no son la única preocupación cuando se habla de vino y dientes. El artículo repasa coloración, erosión y hábitos para reducir el impacto.",
+          en: "Staining is not the only concern when talking about wine and teeth. This article reviews discoloration, erosion and habits that reduce its impact."
+        },
+        image: "https://static.wixstatic.com/media/799dfeebbb2d4f87ad31e6c6ac03b9ca.jpg/v1/fill/w_1816,h_1364,fp_0.50_0.50,q_90,enc_avif,quality_auto/799dfeebbb2d4f87ad31e6c6ac03b9ca.jpg",
+        url: null
+      },
+      {
+        meta: {
+          es: "16 ago 2020 · 0 min de lectura · 17 visualizaciones",
+          en: "Aug 16, 2020 · 0 min read · 17 views"
+        },
+        title: {
+          es: "NEWSLETTER 4. VIAJANDO EN TIEMPO DE PANDEMIA.",
+          en: "NEWSLETTER 4. TRAVELING DURING THE PANDEMIC."
+        },
+        excerpt: {
+          es: "Una entrega breve del periodo de pandemia con recomendaciones y contexto para pacientes que necesitaban desplazarse y mantener sus cuidados.",
+          en: "A brief pandemic-era newsletter with recommendations and context for patients who needed to travel and continue their care."
+        },
+        image: "https://static.wixstatic.com/media/f119f6_71e2abf02ef844a8b316c0db60fea3b9~mv2.jpg/v1/fill/w_1000,h_751,fp_0.50_0.50,q_90,enc_avif,quality_auto/f119f6_71e2abf02ef844a8b316c0db60fea3b9~mv2.jpg",
+        url: null
+      },
+      {
+        meta: {
+          es: "29 sept 2019 · 2 min de lectura · 467 visualizaciones",
+          en: "Sep 29, 2019 · 2 min read · 467 views"
+        },
+        title: {
+          es: "Las consecuencias del vapeo o vaping en la salud bucal",
+          en: "The effects of vaping on oral health"
+        },
+        excerpt: {
+          es: "A partir de reportes del CDC, este texto resume riesgos del vapeo que también pueden afectar encías, mucosas y equilibrio oral.",
+          en: "Drawing from CDC reports, this piece summarizes vaping risks that can also affect gums, oral tissues and overall oral balance."
+        },
+        image: "https://static.wixstatic.com/media/f119f6_b185238689e545a68367c100586baa60~mv2.png/v1/fill/w_548,h_412,fp_0.50_0.50,lg_1,q_95,enc_avif,quality_auto/f119f6_b185238689e545a68367c100586baa60~mv2.png",
+        url: null
+      },
+      {
+        meta: {
+          es: "23 sept 2019 · 2 min de lectura · 19 visualizaciones",
+          en: "Sep 23, 2019 · 2 min read · 19 views"
+        },
+        title: {
+          es: "Las diferencias entre un puente dental y un implante, en pocas palabras",
+          en: "The difference between a dental bridge and an implant, in simple terms"
+        },
+        excerpt: {
+          es: "Un texto claro sobre dos de los tratamientos más consultados cuando se pierde un diente y cómo se decide entre uno y otro.",
+          en: "A clear explanation of two of the most requested treatments after tooth loss and how to choose between them."
+        },
+        url: null
+      },
+      {
+        meta: {
+          es: "4 sept 2019 · 1 min de lectura · 23 visualizaciones",
+          en: "Sep 4, 2019 · 1 min read · 23 views"
+        },
+        title: {
+          es: "¿Carillas u ortodoncia? ¿Cuál es adecuado para mí?",
+          en: "Veneers or orthodontics? Which one is right for me?"
+        },
+        excerpt: {
+          es: "Dos tratamientos distintos, para diagnósticos distintos. Una guía breve para entender cuándo uno puede ser más adecuado que el otro.",
+          en: "Two different treatments for different diagnoses. A brief guide to understanding when one may be more suitable than the other."
+        },
+        url: null
+      },
+      {
+        meta: {
+          es: "13 jun 2019 · 2 min de lectura · 27 visualizaciones",
+          en: "Jun 13, 2019 · 2 min read · 27 views"
+        },
+        title: {
+          es: "¿Carbón para blanquear mis dientes? Mitos y verdades sobre el blanqueamiento dental",
+          en: "Charcoal to whiten my teeth? Myths and truths about dental whitening"
+        },
+        excerpt: {
+          es: "Una sonrisa blanca no siempre es una sonrisa sana. Este artículo cuestiona ideas comunes sobre blanqueamiento y apariencia dental.",
+          en: "A white smile is not always a healthy smile. This article questions common assumptions about whitening and dental appearance."
+        },
+        url: null
+      },
+      {
+        meta: {
+          es: "Archivo del blog",
+          en: "Blog archive"
+        },
+        title: {
+          es: "¡Mi primer post! ¿Cepillos dentales manuales o eléctricos?",
+          en: "My first post! Manual or electric toothbrushes?"
+        },
+        excerpt: {
+          es: "Una reflexión inicial sobre cepillos manuales y eléctricos, escrita con la intención de responder una duda frecuente de forma entretenida y útil.",
+          en: "An early reflection on manual versus electric toothbrushes, written to answer a frequent question in a useful and engaging way."
+        },
+        url: null
+      }
+    ];
+
     const navbar = document.getElementById("navbar");
     const menuToggle = document.getElementById("menuToggle");
     const mobilePanel = document.getElementById("mobilePanel");
@@ -3914,6 +4190,10 @@
     const ogLocale = document.querySelector('meta[property="og:locale"]');
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    const blogGrid = document.getElementById("blogGrid");
+    const blogPagerStatus = document.getElementById("blogPagerStatus");
+    const blogPrev = document.getElementById("blogPrev");
+    const blogNext = document.getElementById("blogNext");
     const languageButtons = document.querySelectorAll("[data-lang]");
     const translatableNodes = document.querySelectorAll("[data-i18n]");
     const openWhatsAppButtons = document.querySelectorAll("[data-open-whatsapp]");
@@ -3925,6 +4205,8 @@
     const facilityImages = Array.from(openLightboxButtons)
       .map((figure) => figure.querySelector("img"))
       .filter(Boolean);
+    let currentLanguage = "es";
+    let currentBlogPage = 0;
     let currentLightboxIndex = -1;
     let lastScrollY = window.scrollY;
 
@@ -3949,6 +4231,7 @@
     }
 
     function setLanguage(language) {
+      currentLanguage = language;
       html.lang = language;
       document.title = translations[language].seoTitle;
 
@@ -3989,6 +4272,72 @@
         button.classList.toggle("active", isActive);
         button.setAttribute("aria-pressed", String(isActive));
       });
+
+      renderBlogPage(currentBlogPage);
+    }
+
+    function renderBlogPage(page, shouldScroll = false) {
+      if (!blogGrid) {
+        return;
+      }
+
+      const totalPages = Math.ceil(blogArticles.length / BLOG_PAGE_SIZE);
+      currentBlogPage = Math.min(Math.max(page, 0), totalPages - 1);
+      const start = currentBlogPage * BLOG_PAGE_SIZE;
+      const visibleArticles = blogArticles.slice(start, start + BLOG_PAGE_SIZE);
+      const language = currentLanguage in translations ? currentLanguage : "es";
+
+      blogGrid.innerHTML = visibleArticles.map((article, index) => {
+        const absoluteIndex = start + index + 1;
+        const articleUrl = article.url || BLOG_BASE_URL;
+        const articleMeta = article.meta[language] || article.meta.es;
+        const articleTitle = article.title[language] || article.title.es;
+        const articleExcerpt = article.excerpt[language] || article.excerpt.es;
+        const cardNumber = String(absoluteIndex).padStart(2, "0");
+        const articleImage = article.image
+          ? `
+            <div class="image-shell blog-card-media" data-fallback="${articleTitle.replace(/"/g, "&quot;")}">
+              <img
+                src="${article.image}"
+                alt="${articleTitle.replace(/"/g, "&quot;")}"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+          `
+          : "";
+
+        return `
+          <article class="blog-card">
+            ${articleImage}
+            <div class="blog-icon">${cardNumber}</div>
+            <span class="article-author">Francisco Buenaño Herrera</span>
+            <span class="article-meta">${articleMeta}</span>
+            <h3>${articleTitle}</h3>
+            <p>${articleExcerpt}</p>
+            <a class="card-link" href="${articleUrl}" target="_blank" rel="noreferrer noopener">${translations[language]["blog.read"]}</a>
+          </article>
+        `;
+      }).join("");
+
+      if (blogPagerStatus) {
+        blogPagerStatus.textContent = `${translations[language]["blog.page"]} ${currentBlogPage + 1} ${translations[language]["blog.of"]} ${totalPages}`;
+      }
+
+      if (blogPrev) {
+        blogPrev.textContent = translations[language]["blog.prev"];
+        blogPrev.disabled = currentBlogPage === 0;
+      }
+
+      if (blogNext) {
+        blogNext.textContent = translations[language]["blog.next"];
+        blogNext.disabled = currentBlogPage >= totalPages - 1;
+      }
+
+      if (shouldScroll) {
+        document.getElementById("blog")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
 
     function closeMobileMenu() {
@@ -4124,6 +4473,14 @@
         }
       });
     });
+
+    if (blogPrev) {
+      blogPrev.addEventListener("click", () => renderBlogPage(currentBlogPage - 1, true));
+    }
+
+    if (blogNext) {
+      blogNext.addEventListener("click", () => renderBlogPage(currentBlogPage + 1, true));
+    }
 
     if (lightboxPrev) {
       lightboxPrev.addEventListener("click", () => navigateLightbox(-1));
