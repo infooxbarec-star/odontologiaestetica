@@ -762,9 +762,9 @@
 
     .hero-doctor-card {
       display: grid;
-      grid-template-columns: 148px minmax(0, 1fr);
-      gap: 18px;
-      align-items: center;
+      grid-template-columns: minmax(0, 188px) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
       padding: 18px;
       border-radius: 28px;
       border: 1px solid rgba(16, 35, 63, 0.08);
@@ -775,7 +775,12 @@
 
     .hero-doctor-photo {
       position: relative;
-      min-height: 190px;
+      width: 100%;
+      max-width: 188px;
+      min-height: 0;
+      height: auto;
+      aspect-ratio: 1 / 1.08;
+      align-self: stretch;
       border-radius: 22px;
       overflow: hidden;
       background: linear-gradient(135deg, #e8f0ff, #f4f8ff);
@@ -784,17 +789,20 @@
     }
 
     .hero-doctor-photo img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 12%;
       display: block;
     }
 
     .hero-doctor-copy {
       display: grid;
-      gap: 8px;
+      gap: 6px;
       min-width: 0;
+      overflow: hidden;
       align-content: start;
     }
 
@@ -822,24 +830,24 @@
     }
 
     .hero-doctor-name {
-      font-size: clamp(26px, 3.2vw, 34px);
-      line-height: 1.06;
+      font-size: clamp(22px, 2.6vw, 30px);
+      line-height: 1.08;
       letter-spacing: -0.04em;
       color: #05070b;
     }
 
     .hero-doctor-title {
       color: var(--primary-dark);
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      line-height: 1.5;
+      line-height: 1.42;
     }
 
     .hero-doctor-note {
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.7;
-      max-width: 44ch;
+      font-size: 14px;
+      line-height: 1.58;
+      max-width: 34ch;
     }
 
     .hero-doctor-actions {
@@ -850,9 +858,9 @@
     }
 
     .hero-doctor-actions .button {
-      min-height: 48px;
-      padding-inline: 20px;
-      font-size: 15px;
+      min-height: 44px;
+      padding-inline: 18px;
+      font-size: 14px;
     }
 
     .quote-card,
@@ -4486,6 +4494,7 @@
       }
 
       .hero-doctor-photo {
+        max-width: none;
         min-height: 260px;
       }
 
@@ -4773,7 +4782,7 @@
               <span class="hero-doctor-kicker">Tu doctor</span>
               <h2 class="hero-doctor-name">Dr. Francisco Buenaño Herrera</h2>
               <p class="hero-doctor-title">Especialista en Rehabilitación Bucal Estética e Implantes</p>
-              <p class="hero-doctor-note">Atención cercana, criterio clínico y una experiencia personalizada desde la primera valoración.</p>
+              <p class="hero-doctor-note">Atención cercana y criterio clínico desde la primera valoración.</p>
               <div class="hero-doctor-actions">
                 <button class="button button-primary" type="button" data-open-whatsapp>Agendar con el Dr. Buenaño</button>
               </div>
