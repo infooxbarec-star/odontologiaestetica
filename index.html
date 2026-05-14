@@ -666,7 +666,7 @@
 
     .hero-copy {
       display: grid;
-      gap: 18px;
+      gap: 10px;
       align-content: start;
     }
 
@@ -756,7 +756,7 @@
     .hero-summary {
       display: grid;
       gap: 12px;
-      margin: 2px 0 6px;
+      margin: 0;
       align-content: start;
     }
 
@@ -2523,6 +2523,57 @@
       transform: translateY(0);
     }
 
+    @media (min-width: 901px) {
+      .reveal {
+        transform: translate3d(0, calc(24px + var(--reveal-shift, 0px)), 0) scale(0.985);
+        filter: blur(8px);
+        transition: opacity 0.72s var(--ease-smooth), transform 0.72s var(--ease-smooth), filter 0.72s var(--ease-smooth);
+      }
+
+      .reveal.visible {
+        transform: translate3d(0, var(--reveal-shift, 0px), 0) scale(1);
+        filter: blur(0);
+      }
+
+      .hero-copy {
+        --reveal-shift: var(--hero-copy-shift, 0px);
+      }
+
+      .hero-shell {
+        --reveal-shift: calc(22px + var(--hero-shell-shift, 0px));
+      }
+
+      .team-showcase {
+        --reveal-shift: var(--team-showcase-shift, 0px);
+      }
+
+      .about-copy {
+        --reveal-shift: var(--about-copy-shift, 0px);
+      }
+
+      .international-shell {
+        --reveal-shift: var(--international-shell-shift, 0px);
+      }
+
+      .contact-info {
+        --reveal-shift: var(--contact-info-shift, 0px);
+      }
+
+      .contact-map {
+        --reveal-shift: var(--contact-map-shift, 0px);
+      }
+
+      .hero-copy,
+      .hero-shell,
+      .team-showcase,
+      .about-copy,
+      .international-shell,
+      .contact-info,
+      .contact-map {
+        will-change: transform, filter;
+      }
+    }
+
     .stagger-1 { transition-delay: 0.04s; }
     .stagger-2 { transition-delay: 0.08s; }
     .stagger-3 { transition-delay: 0.12s; }
@@ -3013,6 +3064,341 @@
         top: auto;
         bottom: 14px;
         transform: none;
+      }
+    }
+
+    @media (min-width: 901px) {
+      body {
+        background:
+          radial-gradient(circle at 100% 0%, rgba(31, 99, 255, 0.1), transparent 18%),
+          radial-gradient(circle at 0% 34%, rgba(124, 182, 255, 0.14), transparent 24%),
+          linear-gradient(180deg, #fbfdff 0%, #f4f8ff 46%, #f9fbff 100%);
+        background-attachment: fixed;
+      }
+
+      main {
+        position: relative;
+      }
+
+      main::before,
+      main::after {
+        content: "";
+        position: fixed;
+        border-radius: 999px;
+        pointer-events: none;
+        filter: blur(18px);
+        z-index: 0;
+        opacity: 0.65;
+      }
+
+      main::before {
+        top: 18%;
+        right: -120px;
+        width: 280px;
+        height: 280px;
+        background: rgba(31, 99, 255, 0.08);
+      }
+
+      main::after {
+        left: -90px;
+        bottom: 16%;
+        width: 220px;
+        height: 220px;
+        background: rgba(124, 182, 255, 0.14);
+      }
+
+      .hero,
+      .doctor-spotlight,
+      .quick-contact,
+      .section {
+        position: relative;
+        z-index: 1;
+      }
+
+      .section {
+        padding: clamp(108px, 10vw, 148px) 0;
+      }
+
+      .section::before {
+        inset: 0 0 auto;
+        opacity: 0.5;
+      }
+
+      .section::after {
+        content: "";
+        position: absolute;
+        inset: 24px clamp(20px, 4vw, 44px) 22px;
+        border-radius: 42px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(243, 248, 255, 0.26));
+        border: 1px solid rgba(124, 182, 255, 0.1);
+        box-shadow: 0 36px 90px rgba(16, 35, 63, 0.06);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .section:nth-of-type(odd)::after {
+        inset-inline: clamp(28px, 5vw, 78px) clamp(18px, 3vw, 34px);
+      }
+
+      .section:nth-of-type(even)::after {
+        inset-inline: clamp(18px, 3vw, 34px) clamp(28px, 5vw, 78px);
+      }
+
+      .hero > .container,
+      .doctor-spotlight > .container,
+      .quick-contact > .container,
+      .section > .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero {
+        padding: 74px 0 104px;
+      }
+
+      .hero-grid {
+        gap: clamp(32px, 4vw, 54px);
+      }
+
+      .hero-copy {
+        padding-top: 28px;
+      }
+
+      .section-head,
+      .cluster-head {
+        gap: 20px clamp(24px, 4vw, 52px);
+      }
+
+      .section-head {
+        margin-bottom: 48px;
+      }
+
+      .cluster-head {
+        margin: 52px 0 28px;
+      }
+
+      .quote-card,
+      .trust-card,
+      .trust-bridge,
+      .team-card,
+      .service-card,
+      .concern-card,
+      .value-card,
+      .tech-card,
+      .install-card,
+      .blog-card,
+      .social-card,
+      .contact-card,
+      .metric-card,
+      .international-point,
+      .international-highlight,
+      .doctor-trait,
+      .contact-info,
+      .contact-map,
+      .cta-panel,
+      .about-copy,
+      .international-shell {
+        box-shadow: 0 24px 64px rgba(16, 35, 63, 0.1);
+      }
+
+      .team-showcase {
+        margin: 10px 0 52px;
+      }
+
+      .team-showcase .image-shell,
+      .contact-map,
+      .about-copy,
+      .international-shell,
+      .cta-panel {
+        backdrop-filter: blur(12px);
+      }
+
+      .team-grid > article:nth-child(2),
+      .team-grid > article:nth-child(5) {
+        margin-top: 34px;
+      }
+
+      .team-grid > article:nth-child(3),
+      .team-grid > article:nth-child(6) {
+        margin-top: 12px;
+      }
+
+      .services-grid > article:nth-child(2),
+      .services-grid > article:nth-child(5),
+      .concern-grid > article:nth-child(2),
+      .concern-grid > article:nth-child(4) {
+        margin-top: 28px;
+      }
+
+      .tech-grid > article:nth-child(2),
+      .tech-grid > article:nth-child(4),
+      .tech-grid > article:nth-child(6),
+      .tech-grid > article:nth-child(8),
+      .blog-grid > article:nth-child(2),
+      .blog-grid > article:nth-child(4),
+      .info-grid > article:nth-child(2) {
+        margin-top: 24px;
+      }
+
+      .values-grid,
+      .international-points,
+      .contact-grid {
+        position: relative;
+      }
+
+      .values-grid {
+        margin-top: 38px;
+      }
+
+      .international-points {
+        margin-top: 54px;
+      }
+
+      .contact-grid {
+        margin-top: 18px;
+      }
+
+      .facility-collage {
+        grid-auto-rows: 164px;
+        gap: 18px;
+      }
+
+      .facility-photo:nth-child(2),
+      .facility-photo:nth-child(5) {
+        margin-top: 24px;
+      }
+
+      .facility-photo:nth-child(3) {
+        margin-top: -18px;
+      }
+
+      .quick-contact {
+        padding: 12px 0 84px;
+      }
+    }
+
+    @media (min-width: 1061px) {
+      .tech-grid,
+      .blog-grid {
+        grid-auto-flow: dense;
+        align-items: start;
+        gap: 20px;
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .blog-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .tech-grid > article,
+      .blog-grid > article {
+        margin-top: 0 !important;
+      }
+
+      .tech-grid > article:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+        padding: 30px;
+        border-radius: 32px;
+        background:
+          radial-gradient(circle at top right, rgba(124, 182, 255, 0.18), transparent 32%),
+          linear-gradient(145deg, rgba(10, 28, 54, 0.98), rgba(23, 62, 121, 0.96));
+        box-shadow: 0 34px 76px rgba(16, 35, 63, 0.18);
+      }
+
+      .tech-grid > article:nth-child(1) .tech-card-media {
+        height: 300px;
+        margin-bottom: 22px;
+      }
+
+      .tech-grid > article:nth-child(1) .tech-tag {
+        margin-bottom: 14px;
+      }
+
+      .tech-grid > article:nth-child(1) h3 {
+        font-size: clamp(28px, 2.5vw, 36px);
+        margin-bottom: 14px;
+      }
+
+      .tech-grid > article:nth-child(1) p {
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      .tech-grid > article:nth-child(4) {
+        grid-column: span 2;
+      }
+
+      .tech-grid > article:nth-child(7),
+      .tech-grid > article:nth-child(8) {
+        grid-column: span 2;
+      }
+
+      .tech-grid > article:nth-child(2),
+      .tech-grid > article:nth-child(6) {
+        transform: translateY(24px);
+      }
+
+      .tech-grid > article:nth-child(3),
+      .tech-grid > article:nth-child(5) {
+        transform: translateY(8px);
+      }
+
+      .tech-grid > article:nth-child(7),
+      .tech-grid > article:nth-child(8) {
+        min-height: 320px;
+      }
+
+      .blog-grid > article:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+        padding: 28px;
+        border-radius: 32px;
+        background:
+          radial-gradient(circle at top right, rgba(124, 182, 255, 0.14), transparent 30%),
+          linear-gradient(145deg, rgba(9, 24, 48, 0.98), rgba(20, 56, 110, 0.96));
+        box-shadow: 0 34px 76px rgba(16, 35, 63, 0.18);
+      }
+
+      .blog-grid > article:nth-child(1) .blog-card-media {
+        height: 290px;
+        margin-bottom: 22px;
+      }
+
+      .blog-grid > article:nth-child(1) h3 {
+        font-size: clamp(26px, 2.25vw, 34px);
+        line-height: 1.08;
+        margin-bottom: 14px;
+      }
+
+      .blog-grid > article:nth-child(1) p {
+        font-size: 16px;
+        line-height: 1.74;
+      }
+
+      .blog-grid > article:nth-child(1) .card-link {
+        min-height: 44px;
+        padding: 0 18px;
+      }
+
+      .blog-grid > article:nth-child(4) {
+        grid-column: span 2;
+        padding: 26px;
+      }
+
+      .blog-grid > article:nth-child(2) {
+        transform: translateY(26px);
+      }
+
+      .blog-grid > article:nth-child(3) {
+        transform: translateY(8px);
+      }
+
+      .blog-grid > article:nth-child(4) {
+        transform: translateY(-6px);
       }
     }
 
@@ -4305,7 +4691,6 @@
         <div class="hero-copy reveal">
           <span class="eyebrow" data-i18n="hero.eyebrow">Francisco Buenaño · Rehabilitación Bucal Estética</span>
             <h1 data-i18n="hero.title">Odontología integral con precisión, estética y confianza</h1>
-          <p class="hero-lead">Te acompañamos desde la primera valoración. Explicamos cada paso antes de iniciar tu tratamiento y garantizamos atención cercana, profesional y personalizada.</p>
           <div class="hero-summary">
             <article class="quote-card reveal stagger-1">
               <div class="quote-body">
@@ -6526,7 +6911,72 @@
 
       /* 3-4 ── Native smooth scrolling and CSS-driven WhatsApp interactions */
 
-      /* 5-6 ── Scroll parallax removed to keep long-page scrolling responsive */
+      /* 5-6 ── Lightweight desktop scroll dynamics */
+      var desktopMotionQuery = window.matchMedia("(min-width: 901px) and (prefers-reduced-motion: no-preference)");
+      var desktopMotionTargets = [
+        [document.querySelector(".hero-copy"), "--hero-copy-shift", 18],
+        [document.querySelector(".hero-shell"), "--hero-shell-shift", -16],
+        [document.querySelector(".team-showcase"), "--team-showcase-shift", 16],
+        [document.querySelector("#nosotros .about-copy"), "--about-copy-shift", -14],
+        [document.querySelector("#internacional .international-shell"), "--international-shell-shift", 16],
+        [document.querySelector("#contacto .contact-info"), "--contact-info-shift", -12],
+        [document.querySelector("#contacto .contact-map"), "--contact-map-shift", 12]
+      ];
+      var desktopMotionTicking = false;
+
+      function clearDesktopMotion() {
+        desktopMotionTargets.forEach(function (entry) {
+          if (!entry[0]) { return; }
+          entry[0].style.removeProperty(entry[1]);
+        });
+      }
+
+      function updateDesktopMotion() {
+        desktopMotionTicking = false;
+
+        if (reduced || !desktopMotionQuery.matches) {
+          clearDesktopMotion();
+          return;
+        }
+
+        var viewportHeight = window.innerHeight || 1;
+
+        desktopMotionTargets.forEach(function (entry) {
+          var element = entry[0];
+          var cssVar = entry[1];
+          var range = entry[2];
+
+          if (!element) {
+            return;
+          }
+
+          var rect = element.getBoundingClientRect();
+          var center = rect.top + (rect.height / 2);
+          var delta = (center - (viewportHeight / 2)) / viewportHeight;
+          var clamped = Math.max(-1, Math.min(1, delta));
+          var shift = clamped * range * -1;
+
+          element.style.setProperty(cssVar, shift.toFixed(2) + "px");
+        });
+      }
+
+      function requestDesktopMotion() {
+        if (desktopMotionTicking) {
+          return;
+        }
+
+        desktopMotionTicking = true;
+        window.requestAnimationFrame(updateDesktopMotion);
+      }
+
+      window.addEventListener("scroll", requestDesktopMotion, { passive: true });
+      window.addEventListener("resize", requestDesktopMotion, { passive: true });
+
+      if (typeof desktopMotionQuery.addEventListener === "function") {
+        desktopMotionQuery.addEventListener("change", requestDesktopMotion);
+      }
+
+      requestDesktopMotion();
 
       /* 7 ── Stagger children of newly revealed grid containers */
       var staggerGrids = document.querySelectorAll(
