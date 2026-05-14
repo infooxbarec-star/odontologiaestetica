@@ -1074,7 +1074,6 @@
       margin-bottom: 6px;
     }
 
-    .team-avatar,
     .service-icon,
     .concern-icon,
     .tech-icon,
@@ -1171,15 +1170,9 @@
     }
 
     .team-profile-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      display: grid;
+      gap: 4px;
       margin-bottom: 8px;
-    }
-
-    .team-profile-head .team-avatar {
-      margin-bottom: 0;
-      flex: 0 0 56px;
     }
 
     .team-profile-copy {
@@ -1321,9 +1314,25 @@
       padding-top: 8px;
       padding: 30px;
       border-radius: var(--radius-lg);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.84));
-      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(124, 182, 255, 0.18);
+      background:
+        linear-gradient(145deg, rgba(12, 29, 56, 0.98), rgba(23, 59, 112, 0.96)),
+        linear-gradient(180deg, rgba(124, 182, 255, 0.12), transparent 72%);
+      box-shadow: 0 24px 58px rgba(12, 31, 56, 0.22);
+      color: #ffffff;
+    }
+
+    .about-copy .eyebrow {
+      background: rgba(255, 255, 255, 0.08);
+      color: #dce9ff;
+    }
+
+    .about-copy .eyebrow::before {
+      box-shadow: 0 0 0 6px rgba(124, 182, 255, 0.12);
+    }
+
+    .about-copy p {
+      color: rgba(236, 243, 255, 0.88);
     }
 
     .value-card {
@@ -2821,7 +2830,6 @@
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
             </div>
-            <div class="team-avatar">GC</div>
             <span class="team-role">Ortodoncia / Invisalign</span>
             <h3>Dra. Gabriela Calderón Montalvo</h3>
             <ul class="team-list">
@@ -2846,7 +2854,6 @@
             <div class="team-duo">
               <div class="team-profile">
                 <div class="team-profile-head">
-                  <div class="team-avatar">AP</div>
                   <div class="team-profile-copy">
                     <span class="team-role">Endodoncia</span>
                     <h3>Dra. Andrea Ponce</h3>
@@ -2863,7 +2870,6 @@
 
               <div class="team-profile">
                 <div class="team-profile-head">
-                  <div class="team-avatar">NC</div>
                   <div class="team-profile-copy">
                     <span class="team-role">Endodoncia</span>
                     <h3>Dr. Nicolás Castrillón</h3>
@@ -2890,7 +2896,6 @@
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
             </div>
-            <div class="team-avatar">MG</div>
             <span class="team-role">Implantes dentales</span>
             <h3>Dra. María Elisa Galárraga</h3>
             <ul class="team-list">
@@ -2912,7 +2917,6 @@
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
             </div>
-            <div class="team-avatar">GG</div>
             <span class="team-role">Periodoncia</span>
             <h3>Dra. Gabriela Guerra</h3>
             <ul class="team-list">
@@ -2934,7 +2938,6 @@
                 onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
               >
             </div>
-            <div class="team-avatar">FB</div>
             <span class="team-role">Rehabilitación Bucal Estética e Implantes</span>
             <h3>Dr. Francisco Buenaño Herrera</h3>
             <ul class="team-list">
@@ -2959,7 +2962,6 @@
             <div class="team-duo">
               <div class="team-profile">
                 <div class="team-profile-head">
-                  <div class="team-avatar">IS</div>
                   <div class="team-profile-copy">
                     <span class="team-role">Odontopediatría</span>
                     <h3>Isabel Salazar</h3>
@@ -2975,7 +2977,6 @@
 
               <div class="team-profile">
                 <div class="team-profile-head">
-                  <div class="team-avatar">AP</div>
                   <div class="team-profile-copy">
                     <span class="team-role">Odontopediatría</span>
                     <h3>Alejandro Palafox</h3>
