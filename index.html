@@ -2409,12 +2409,14 @@
     .reveal {
       opacity: 0;
       transform: translateY(16px);
-      transition: opacity 0.82s var(--ease-smooth), transform 0.82s var(--ease-smooth);
+      filter: blur(2px);
+      transition: opacity 0.82s var(--ease-smooth), transform 0.82s var(--ease-smooth), filter 0.88s var(--ease-smooth);
     }
 
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
     }
 
     .stagger-1 { transition-delay: 0.05s; }
@@ -2497,6 +2499,8 @@
       .wa-option {
         transition: none !important;
         transform: none !important;
+        filter: none !important;
+        opacity: 1 !important;
       }
     }
 
@@ -3025,6 +3029,375 @@
         bottom: 14px;
         width: 58px;
         height: 58px;
+      }
+    }
+
+    /* =====================================================
+       PREMIUM ANIMATIONS & MICROINTERACTIONS
+       ===================================================== */
+
+    /* Extended stagger delays */
+    .stagger-5 { transition-delay: 0.33s; }
+    .stagger-6 { transition-delay: 0.40s; }
+    .stagger-7 { transition-delay: 0.47s; }
+    .stagger-8 { transition-delay: 0.54s; }
+
+    /* ── Card hover lifts ── */
+    .blog-card,
+    .trust-card,
+    .value-card,
+    .team-card,
+    .install-card,
+    .social-card,
+    .contact-card,
+    .metric-card,
+    .international-point,
+    .international-highlight,
+    .hero-note {
+      transition: transform 0.44s var(--ease-smooth), box-shadow 0.44s var(--ease-smooth), border-color 0.44s var(--ease-smooth);
+    }
+
+    .blog-card:hover,
+    .trust-card:hover,
+    .value-card:hover,
+    .team-card:hover,
+    .install-card:hover,
+    .social-card:hover,
+    .contact-card:hover,
+    .metric-card:hover,
+    .international-point:hover,
+    .international-highlight:hover,
+    .hero-note:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 64px rgba(16, 35, 63, 0.18);
+      border-color: rgba(124, 182, 255, 0.3);
+    }
+
+    /* ── Card press effect ── */
+    .blog-card:active,
+    .trust-card:active,
+    .value-card:active,
+    .team-card:active,
+    .install-card:active,
+    .social-card:active,
+    .contact-card:active,
+    .metric-card:active,
+    .international-point:active,
+    .hero-note:active {
+      transform: translateY(-1px) scale(0.982) !important;
+      transition-duration: 0.1s !important;
+    }
+
+    /* ── Button press effect ── */
+    .button:active {
+      transform: translateY(0) scale(0.96) !important;
+      transition-duration: 0.1s !important;
+      box-shadow: none !important;
+    }
+
+    .card-link:active,
+    .blog-archive-link:active,
+    .wa-option:active {
+      transform: translateY(0) scale(0.96) !important;
+      transition-duration: 0.1s !important;
+    }
+
+    /* ── Image zoom on card hover ── */
+    .blog-card-media,
+    .team-card-media,
+    .install-card-media {
+      overflow: hidden;
+    }
+
+    .blog-card-media img,
+    .team-card-media img,
+    .install-card-media img {
+      transition: transform 0.68s var(--ease-smooth);
+      will-change: transform;
+    }
+
+    .blog-card:hover .blog-card-media img,
+    .team-card:hover .team-card-media img,
+    .install-card:hover .install-card-media img {
+      transform: scale(1.06);
+    }
+
+    .quote-editorial {
+      overflow: hidden;
+    }
+
+    .quote-editorial img {
+      transition: transform 0.68s var(--ease-smooth);
+    }
+
+    .quote-card:hover .quote-editorial img {
+      transform: scale(1.04);
+    }
+
+    /* ── Blog card animated "leer más" arrow ── */
+    .blog-card .card-link {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-card .card-link::after {
+      content: " →";
+      display: inline-block;
+      transition: transform 0.32s var(--ease-smooth);
+    }
+
+    .blog-card .card-link:hover::after,
+    .blog-card .card-link:focus-visible::after {
+      transform: translateX(5px);
+    }
+
+    /* ── Nav link underline animation ── */
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 5px;
+      height: 1.5px;
+      border-radius: 999px;
+      background: rgba(124, 182, 255, 0.72);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s var(--ease-smooth);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    /* ── Blog article body link underlines ── */
+    .blog-reader-body a {
+      position: relative;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .blog-reader-body a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.32s var(--ease-smooth);
+    }
+
+    .blog-reader-body a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* ── Reading progress bar ── */
+    .reading-progress-bar {
+      flex-shrink: 0;
+      height: 3px;
+      background: rgba(16, 35, 63, 0.07);
+      margin: -34px -34px 24px;
+      overflow: hidden;
+      border-radius: 0 0 3px 3px;
+    }
+
+    .reading-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: inherit;
+      transition: width 0.1s linear;
+      will-change: width;
+    }
+
+    /* ── Floating WhatsApp pulse ── */
+    .floating-whatsapp::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #16ba72, #10a861);
+      opacity: 0;
+      z-index: -1;
+      animation: wa-pulse 2.8s ease-out infinite 2s;
+    }
+
+    @keyframes wa-pulse {
+      0%   { transform: scale(1);    opacity: 0.48; }
+      75%  { transform: scale(1.6);  opacity: 0; }
+      100% { transform: scale(1.6);  opacity: 0; }
+    }
+
+    /* ── Modal entrance animations ── */
+    .modal.open .modal-card {
+      animation: modal-enter 0.44s var(--ease-smooth) both;
+    }
+
+    .modal.open .article-modal-card {
+      animation: modal-enter 0.48s var(--ease-smooth) both;
+    }
+
+    .modal.open .lightbox-card {
+      animation: modal-enter 0.38s var(--ease-smooth) both;
+    }
+
+    @keyframes modal-enter {
+      from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.978);
+        filter: blur(3px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    /* ── Blog card grid entrance animation ── */
+    .blog-card.card-enter {
+      animation: card-enter 0.6s var(--ease-smooth) both;
+    }
+
+    @keyframes card-enter {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.968);
+        filter: blur(2px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    /* ── Facility photo hover ── */
+    .facility-photo {
+      transition: transform 0.46s var(--ease-smooth), box-shadow 0.46s var(--ease-smooth);
+    }
+
+    .facility-photo:hover {
+      transform: scale(1.018);
+      box-shadow: 0 32px 64px rgba(16, 35, 63, 0.2);
+    }
+
+    .facility-photo .image-shell img {
+      transition: transform 0.68s var(--ease-smooth);
+      will-change: transform;
+    }
+
+    .facility-photo:hover .image-shell img {
+      transform: scale(1.06);
+    }
+
+    /* ── Blog archive links hover arrow ── */
+    .blog-archive-link {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-archive-link::after {
+      content: " →";
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.28s var(--ease-smooth), transform 0.28s var(--ease-smooth);
+    }
+
+    .blog-archive-link:hover::after,
+    .blog-archive-link:focus-visible::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ── CTA panel hover ── */
+    .cta-panel {
+      transition: transform 0.46s var(--ease-smooth), box-shadow 0.46s var(--ease-smooth);
+    }
+
+    .cta-panel:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 40px 80px rgba(16, 35, 63, 0.11);
+    }
+
+    /* ── Hero signature hover ── */
+    .hero-signature {
+      transition: transform 0.36s var(--ease-smooth), box-shadow 0.36s var(--ease-smooth);
+    }
+
+    .hero-signature:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(12, 31, 58, 0.22);
+    }
+
+    /* ── Eyebrow subtle hover ── */
+    .eyebrow {
+      transition: transform 0.34s var(--ease-smooth), box-shadow 0.34s var(--ease-smooth);
+    }
+
+    .eyebrow:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(31, 99, 255, 0.2);
+    }
+
+    /* ── prefers-reduced-motion: all new elements ── */
+    @media (prefers-reduced-motion: reduce) {
+      .blog-card,
+      .trust-card,
+      .value-card,
+      .team-card,
+      .install-card,
+      .social-card,
+      .contact-card,
+      .metric-card,
+      .international-point,
+      .international-highlight,
+      .hero-note,
+      .facility-photo,
+      .cta-panel,
+      .hero-signature,
+      .eyebrow,
+      .quote-editorial img,
+      .blog-card-media img,
+      .team-card-media img,
+      .install-card-media img,
+      .facility-photo .image-shell img {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        filter: none !important;
+      }
+
+      .floating-whatsapp::before {
+        display: none !important;
+      }
+
+      .modal.open .modal-card,
+      .modal.open .article-modal-card,
+      .modal.open .lightbox-card {
+        animation: none !important;
+        filter: none !important;
+      }
+
+      .blog-card.card-enter {
+        animation: none !important;
+        filter: none !important;
+      }
+
+      .nav-links a::after,
+      .blog-reader-body a::after,
+      .blog-card .card-link::after,
+      .blog-archive-link::after {
+        display: none !important;
       }
     }
   </style>
@@ -4031,6 +4404,7 @@
   <div class="modal" id="blogArticleModal" aria-hidden="true">
     <div class="modal-backdrop" data-close-blog-article></div>
     <div class="modal-card article-modal-card" role="dialog" aria-modal="true" aria-labelledby="blogArticleTitle">
+      <div class="reading-progress-bar" aria-hidden="true"><div class="reading-progress-fill" id="readingProgressFill"></div></div>
       <div class="modal-head">
         <div>
           <div class="blog-reader-meta">
@@ -5108,6 +5482,219 @@
     window.addEventListener("scroll", updateNavbarState, { passive: true });
     updateNavbarState();
     setLanguage("es");
+
+    /* =====================================================
+       PREMIUM INTERACTIONS
+       ===================================================== */
+    ;(function () {
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* 1 ── Blog grid card stagger entrance on page change */
+      if (blogGrid) {
+        new MutationObserver(function () {
+          blogGrid.querySelectorAll(".blog-card").forEach(function (card, i) {
+            card.classList.remove("card-enter");
+            void card.offsetWidth;
+            card.style.animationDelay = (i * 0.09) + "s";
+            card.classList.add("card-enter");
+          });
+        }).observe(blogGrid, { childList: true });
+      }
+
+      /* 2 ── Reading progress bar */
+      var progressFill = document.getElementById("readingProgressFill");
+      var articleBodyEl = document.getElementById("blogArticleBody");
+      var articleModalEl = document.getElementById("blogArticleModal");
+
+      if (progressFill && articleBodyEl) {
+        articleBodyEl.addEventListener("scroll", function () {
+          var st = articleBodyEl.scrollTop;
+          var sh = articleBodyEl.scrollHeight;
+          var ch = articleBodyEl.clientHeight;
+          var pct = sh <= ch ? 100 : (st / (sh - ch)) * 100;
+          progressFill.style.width = Math.min(100, pct) + "%";
+        }, { passive: true });
+      }
+
+      if (articleModalEl) {
+        new MutationObserver(function () {
+          if (!articleModalEl.classList.contains("open")) {
+            if (progressFill) { progressFill.style.width = "0%"; }
+            if (articleBodyEl) { articleBodyEl.scrollTop = 0; }
+          }
+        }).observe(articleModalEl, { attributes: true, attributeFilter: ["class"] });
+      }
+
+      /* 3 ── Floating WhatsApp button hover / press */
+      var floatingWa = document.querySelector(".floating-whatsapp");
+      if (floatingWa && !reduced) {
+        floatingWa.addEventListener("mouseenter", function () {
+          floatingWa.style.transform = "scale(1.1) translateY(-3px)";
+          floatingWa.style.transition = "transform 0.32s cubic-bezier(0.22,1,0.36,1), box-shadow 0.32s cubic-bezier(0.22,1,0.36,1)";
+          floatingWa.style.boxShadow = "0 22px 44px rgba(20,184,111,0.36)";
+        });
+        floatingWa.addEventListener("mouseleave", function () {
+          floatingWa.style.transform = "";
+          floatingWa.style.boxShadow = "";
+        });
+        floatingWa.addEventListener("mousedown", function () {
+          floatingWa.style.transform = "scale(0.94)";
+          floatingWa.style.transition = "transform 0.1s ease";
+        });
+        floatingWa.addEventListener("mouseup", function () {
+          floatingWa.style.transform = "";
+        });
+      }
+
+      /* 4 ── Smooth scroll for anchor links */
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          var id = link.getAttribute("href").slice(1);
+          if (!id) { return; }
+          var target = document.getElementById(id);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      /* 5 ── Hero section subtle parallax depth */
+      if (!reduced && window.innerWidth > 900) {
+        var heroSection = document.getElementById("inicio");
+        var heroShellEl = document.querySelector(".hero-shell");
+        var heroCopyEl  = document.querySelector(".hero-copy");
+
+        if (heroSection && heroShellEl && heroCopyEl) {
+          var parallaxReady = false;
+          setTimeout(function () { parallaxReady = true; }, 1300);
+
+          var pxTick = false;
+          window.addEventListener("scroll", function () {
+            if (!parallaxReady || pxTick) { return; }
+            pxTick = true;
+            requestAnimationFrame(function () {
+              var sy = window.scrollY;
+              var heroH = heroSection.offsetHeight;
+              if (sy < heroH * 1.1) {
+                var f = sy / heroH;
+                heroShellEl.style.transform = "translateY(" + (f * 22) + "px)";
+                heroCopyEl.style.transform  = "translateY(" + (f * -14) + "px)";
+              } else if (sy >= heroH * 1.1) {
+                heroShellEl.style.transform = "";
+                heroCopyEl.style.transform  = "";
+              }
+              pxTick = false;
+            });
+          }, { passive: true });
+        }
+      }
+
+      /* 6 ── Section images subtle scroll depth (facility photos) */
+      if (!reduced) {
+        var facilityImgs = Array.from(document.querySelectorAll(".facility-photo .image-shell img"));
+        var imgTick = false;
+        if (facilityImgs.length) {
+          window.addEventListener("scroll", function () {
+            if (imgTick) { return; }
+            imgTick = true;
+            requestAnimationFrame(function () {
+              facilityImgs.forEach(function (img) {
+                var wrapper = img.closest(".facility-photo");
+                if (!wrapper) { return; }
+                var r = wrapper.getBoundingClientRect();
+                if (r.bottom > 0 && r.top < window.innerHeight) {
+                  var center = ((r.top + r.height / 2) / window.innerHeight) - 0.5;
+                  img.style.transform = "translateY(" + (center * 14) + "px) scale(1.07)";
+                }
+              });
+              imgTick = false;
+            });
+          }, { passive: true });
+        }
+      }
+
+      /* 7 ── Stagger children of newly revealed grid containers */
+      var staggerGrids = document.querySelectorAll(
+        ".services-grid, .concern-grid, .values-grid, .blog-grid, .team-grid, .tech-grid, .install-grid, .trust-grid, .info-grid, .hero-metrics, .international-highlights, .contact-grid"
+      );
+
+      var childRevealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) { return; }
+          var children = Array.from(entry.target.querySelectorAll(
+            ":scope > .reveal, :scope > article.reveal, :scope > figure.reveal, :scope > div.reveal"
+          ));
+          children.forEach(function (child, i) {
+            if (!child.classList.contains("visible")) {
+              setTimeout(function () {
+                child.classList.add("visible");
+              }, i * 72);
+            }
+          });
+          childRevealObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.06, rootMargin: "0px 0px -20px 0px" });
+
+      staggerGrids.forEach(function (grid) {
+        childRevealObserver.observe(grid);
+      });
+
+      /* 8 ── Counter animation for metric numbers */
+      var metricCards = document.querySelectorAll(".metric-card strong");
+      if (metricCards.length) {
+        var counterObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) { return; }
+            var el = entry.target;
+            var rawText = el.textContent.trim();
+            var match = rawText.match(/^(\d+)(\D*)$/);
+            if (!match) { counterObserver.unobserve(el); return; }
+            var target = parseInt(match[1], 10);
+            var suffix = match[2] || "";
+            var duration = 900;
+            var start = performance.now();
+            function step(now) {
+              var elapsed = now - start;
+              var progress = Math.min(elapsed / duration, 1);
+              var ease = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.round(ease * target) + suffix;
+              if (progress < 1) { requestAnimationFrame(step); }
+            }
+            requestAnimationFrame(step);
+            counterObserver.unobserve(el);
+          });
+        }, { threshold: 0.5 });
+        metricCards.forEach(function (el) { counterObserver.observe(el); });
+      }
+
+      /* 9 ── Blog article open with staggered content */
+      var origOpenBlogArticle = window._openBlogArticle;
+
+      if (articleModalEl && articleBodyEl) {
+        new MutationObserver(function () {
+          if (articleModalEl.classList.contains("open")) {
+            if (reduced) { return; }
+            /* Stagger paragraphs in article body */
+            setTimeout(function () {
+              var paras = articleBodyEl.querySelectorAll("p, ul, ol, blockquote, h3, h4");
+              paras.forEach(function (p, i) {
+                p.style.opacity = "0";
+                p.style.transform = "translateY(12px)";
+                p.style.filter = "blur(1.5px)";
+                p.style.transition = "opacity 0.52s cubic-bezier(0.22,1,0.36,1), transform 0.52s cubic-bezier(0.22,1,0.36,1), filter 0.56s cubic-bezier(0.22,1,0.36,1)";
+                setTimeout(function () {
+                  p.style.opacity = "1";
+                  p.style.transform = "translateY(0)";
+                  p.style.filter = "blur(0)";
+                }, 80 + i * 44);
+              });
+            }, 120);
+          }
+        }).observe(articleModalEl, { attributes: true, attributeFilter: ["class"] });
+      }
+
+    })();
   </script>
 </body>
 </html>
