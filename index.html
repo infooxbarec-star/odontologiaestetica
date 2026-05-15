@@ -2443,6 +2443,13 @@
       margin-bottom: 22px;
     }
 
+    .modal-head-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
     .modal-head h3 {
       margin-bottom: 8px;
       font-size: clamp(26px, 4vw, 34px);
@@ -2460,6 +2467,33 @@
       background: rgba(31, 99, 255, 0.08);
       color: var(--primary-dark);
       font-size: 24px;
+      line-height: 1;
+    }
+
+    .modal-back-button {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 16px;
+      background: rgba(31, 99, 255, 0.08);
+      border: 1px solid rgba(31, 99, 255, 0.12);
+      color: var(--primary-dark);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .modal-back-button:hover,
+    .modal-back-button:focus-visible {
+      background: rgba(31, 99, 255, 0.14);
+      border-color: rgba(31, 99, 255, 0.2);
+      outline: none;
+    }
+
+    .modal-back-icon {
+      font-size: 18px;
       line-height: 1;
     }
 
@@ -3617,6 +3651,19 @@
 
       .modal-card {
         padding: 22px;
+      }
+
+      .modal-head {
+        gap: 14px;
+      }
+
+      .modal-head-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .modal-back-button {
+        display: inline-flex;
       }
 
       .archive-modal-card {
@@ -5751,7 +5798,13 @@
           <h3 id="whatsAppTitle" data-i18n="modal.title">Selecciona una línea de WhatsApp</h3>
           <p data-i18n="modal.text">Todas las opciones abren el mismo mensaje predeterminado para agendar una cita odontológica.</p>
         </div>
-        <button class="modal-close" type="button" aria-label="Cerrar selector" data-close-whatsapp>&times;</button>
+        <div class="modal-head-actions">
+          <button class="modal-back-button" type="button" data-close-whatsapp>
+            <span class="modal-back-icon" aria-hidden="true">&larr;</span>
+            <span data-i18n="modal.back">Regresar</span>
+          </button>
+          <button class="modal-close" type="button" aria-label="Cerrar selector" data-close-whatsapp>&times;</button>
+        </div>
       </div>
       <div class="whatsapp-grid">
         <a class="wa-option" href="https://wa.me/593998684757?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20odontol%C3%B3gica." target="_blank" rel="noreferrer noopener">
@@ -5991,6 +6044,7 @@
         "floating.whatsapp": "WhatsApp",
         "modal.title": "Selecciona una línea de WhatsApp",
         "modal.text": "Todas las opciones abren el mismo mensaje predeterminado para agendar una cita odontológica.",
+        "modal.back": "Regresar",
         "modal.open": "Abrir",
         "modal.option.one.title": "Línea WhatsApp 1",
         "modal.option.one.desc": "Canal directo para coordinación y agenda.",
@@ -6159,6 +6213,7 @@
         "floating.whatsapp": "WhatsApp",
         "modal.title": "Choose a WhatsApp line",
         "modal.text": "Every option opens the same default message to schedule a dental appointment.",
+        "modal.back": "Go back",
         "modal.open": "Open",
         "modal.option.one.title": "WhatsApp line 1",
         "modal.option.one.desc": "Direct channel for coordination and booking.",
