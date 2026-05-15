@@ -3662,8 +3662,18 @@
         justify-content: space-between;
       }
 
-      .modal-back-button {
+      #whatsAppModal .modal-head-actions {
+        justify-content: stretch;
+      }
+
+      #whatsAppModal .modal-back-button {
         display: inline-flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      #whatsAppModal .modal-close {
+        display: none;
       }
 
       .archive-modal-card {
@@ -5180,142 +5190,6 @@
       </div>
     </section>
 
-    <section class="section" id="servicios">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="eyebrow" data-i18n="services.eyebrow">Tratamientos</span>
-            <h2 data-i18n="services.title">Tratamientos principales</h2>
-            <p class="section-subtitle" data-i18n="services.subtitle">Tratamientos integrales para cuidar, restaurar y transformar tu sonrisa — guiados personalmente por el Dr. Buenaño y su equipo.</p>
-          </div>
-        </div>
-
-        <div class="services-grid">
-          <article class="service-card reveal stagger-1">
-            <div class="service-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_43%20PM%20(1).png" alt="Icono de rehabilitación bucal e implantes" loading="lazy" decoding="async">
-            </div>
-            <h3>Rehabilitación Bucal e Implantes</h3>
-            <p>Recuperamos la función, estética y equilibrio de tu sonrisa mediante tratamientos personalizados de rehabilitación oral e implantes dentales.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="service-card reveal stagger-2">
-            <div class="service-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_43%20PM%20(2).png" alt="Icono de implantes dentales" loading="lazy" decoding="async">
-            </div>
-            <h3>Implantes Dentales</h3>
-            <p>Una solución eficaz para reemplazar uno o varios dientes perdidos, evitando prótesis removibles o el desgaste de piezas vecinas.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="service-card reveal stagger-3">
-            <div class="service-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_44%20PM%20(3).png" alt="Icono de odontología estética" loading="lazy" decoding="async">
-            </div>
-            <h3>Odontología Estética</h3>
-            <p>Podemos hacer realidad la sonrisa que siempre has deseado. Forma, color y alineación pueden transformarse usando materiales de alta calidad.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="service-card reveal stagger-4">
-            <div class="service-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_45%20PM%20(4).png" alt="Icono de endodoncia" loading="lazy" decoding="async">
-            </div>
-            <h3>Endodoncia</h3>
-            <p>Tratamientos especializados para conservar piezas dentales afectadas y aliviar molestias de origen dental.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="service-card reveal stagger-1">
-            <div class="service-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_45%20PM%20(5).png" alt="Icono de periodoncia" loading="lazy" decoding="async">
-            </div>
-            <h3>Periodoncia</h3>
-            <p>Cuidado de las encías y tejidos de soporte para mantener una sonrisa saludable y estable a largo plazo.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="service-card reveal stagger-2">
-            <div class="service-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_45%20PM%20(6).png" alt="Icono de ortodoncia" loading="lazy" decoding="async">
-            </div>
-            <h3>Ortodoncia</h3>
-            <p>Corrección de la posición dental y mordida mediante tratamientos modernos, incluyendo Invisalign.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="service-card reveal stagger-3">
-            <div class="service-icon">
-              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_38_25%20PM.png" alt="Icono de odontopediatría" loading="lazy" decoding="async">
-            </div>
-            <h3>Odontopediatría</h3>
-            <p>Atención odontológica especializada para niños, con un enfoque cercano, preventivo y cuidadoso.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-        </div>
-
-        <div class="cluster-head reveal">
-          <div>
-            <span class="eyebrow" data-i18n="services.support.eyebrow">Problemas frecuentes</span>
-            <h3 data-i18n="services.support.title">¿Qué podemos ayudarte a resolver?</h3>
-            <p class="section-subtitle" data-i18n="services.support.subtitle">Problemas frecuentes explicados con claridad y sin sobrecargar la lectura.</p>
-          </div>
-        </div>
-
-        <div class="concern-grid">
-          <article class="concern-card reveal stagger-1">
-            <h3>Dientes blancos y bellos</h3>
-            <p>Podemos hacer realidad la sonrisa que siempre has deseado. Forma, color y alineación pueden cambiar usando los mejores materiales disponibles.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="concern-card reveal stagger-2">
-            <h3>Reemplazar dientes perdidos</h3>
-            <p>La pérdida de un órgano dental puede ser el inicio de la pérdida del equilibrio en la boca. Por medio de coronas y puentes de apariencia natural, podemos recuperar tu salud y tu sonrisa.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="concern-card reveal stagger-3">
-            <h3>Uno o todos tus dientes nuevos</h3>
-            <p>Los implantes dentales son una solución eficaz ante la ausencia de uno o varios dientes. Permiten evitar prótesis removibles o el desgaste de piezas vecinas para colocar un puente.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="concern-card reveal stagger-4">
-            <h3>¿Dolor al abrir o cerrar la boca?</h3>
-            <p>Dolor cerca del oído, dificultad al abrir o cerrar la boca y ruidos al masticar pueden ser síntomas de trastornos de la articulación temporomandibular. Estamos preparados para ayudarte a restablecer tu salud.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-          <article class="concern-card reveal stagger-1">
-            <h3>Comodidad y seguridad</h3>
-            <p>Cuando todos los dientes se han perdido, las prótesis dentales pueden ser una solución. Cuando el soporte no es suficiente, los implantes dentales pueden brindar mayor fijación, función y seguridad.</p>
-            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="nosotros">
-      <div class="container about-layout">
-        <div class="about-copy reveal">
-          <span class="eyebrow" data-i18n="about.eyebrow">Nosotros</span>
-          <p data-i18n="about.text.one">Hoy, después de 18 años, lo que inició como un sueño se ha convertido en una práctica profesional de alta especialidad que brinda atención integral, se mantiene en constante preparación y cuenta con los elementos tecnológicos que una clínica moderna de nivel mundial debe tener.</p>
-          <p data-i18n="about.text.two">Hemos tenido muchos cambios, pero en esencia seguimos siendo los mismos. Aunque hemos incorporado la tecnología paso a paso, mantenemos una práctica basada en servicio personalizado, cercanía y confianza. Nuestros pacientes se han convertido en amigos; han visto nuestro crecimiento y han compartido con nosotros hitos importantes de sus vidas.</p>
-          <p style="color:rgba(200,220,255,0.9); font-size:17px; line-height:1.8; margin:0;">Atención cercana, profesional y personalizada — así como tú la mereces.</p>
-        </div>
-        <div class="values-grid">
-          <article class="value-card reveal stagger-1">
-            <h3 data-i18n="about.card.one.title">Atención personalizada</h3>
-            <p data-i18n="about.card.one.desc">Escuchar, acompañar y explicar cada tratamiento forma parte de la experiencia clínica.</p>
-          </article>
-          <article class="value-card reveal stagger-2">
-            <h3 data-i18n="about.card.two.title">Alta especialidad</h3>
-            <p data-i18n="about.card.two.desc">Casos complejos atendidos por especialistas con enfoque coordinado e integral.</p>
-          </article>
-          <article class="value-card reveal stagger-3">
-            <h3 data-i18n="about.card.three.title">Tecnología moderna</h3>
-            <p data-i18n="about.card.three.desc">Recursos digitales y materiales actuales al servicio de decisiones más precisas.</p>
-          </article>
-          <article class="value-card reveal stagger-4">
-            <h3 data-i18n="about.card.four.title">Confianza a largo plazo</h3>
-            <p data-i18n="about.card.four.desc">Una relación sostenida en el tiempo, basada en claridad, ética profesional y seguimiento.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="tecnologia">
       <div class="container">
         <div class="section-head reveal">
@@ -5461,6 +5335,142 @@
               <p>Dispositivos en resinas biocompatibles específicas para uso dental, aprobadas por la FDA.</p>
               <p class="tech-card-detail">Acelera la fabricación de guías, modelos y recursos auxiliares con precisión y consistencia clínica.</p>
             </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="services.eyebrow">Tratamientos</span>
+            <h2 data-i18n="services.title">Tratamientos principales</h2>
+            <p class="section-subtitle" data-i18n="services.subtitle">Tratamientos integrales para cuidar, restaurar y transformar tu sonrisa — guiados personalmente por el Dr. Buenaño y su equipo.</p>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal stagger-1">
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_43%20PM%20(1).png" alt="Icono de rehabilitación bucal e implantes" loading="lazy" decoding="async">
+            </div>
+            <h3>Rehabilitación Bucal e Implantes</h3>
+            <p>Recuperamos la función, estética y equilibrio de tu sonrisa mediante tratamientos personalizados de rehabilitación oral e implantes dentales.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="service-card reveal stagger-2">
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_43%20PM%20(2).png" alt="Icono de implantes dentales" loading="lazy" decoding="async">
+            </div>
+            <h3>Implantes Dentales</h3>
+            <p>Una solución eficaz para reemplazar uno o varios dientes perdidos, evitando prótesis removibles o el desgaste de piezas vecinas.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="service-card reveal stagger-3">
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_44%20PM%20(3).png" alt="Icono de odontología estética" loading="lazy" decoding="async">
+            </div>
+            <h3>Odontología Estética</h3>
+            <p>Podemos hacer realidad la sonrisa que siempre has deseado. Forma, color y alineación pueden transformarse usando materiales de alta calidad.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="service-card reveal stagger-4">
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_45%20PM%20(4).png" alt="Icono de endodoncia" loading="lazy" decoding="async">
+            </div>
+            <h3>Endodoncia</h3>
+            <p>Tratamientos especializados para conservar piezas dentales afectadas y aliviar molestias de origen dental.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="service-card reveal stagger-1">
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_45%20PM%20(5).png" alt="Icono de periodoncia" loading="lazy" decoding="async">
+            </div>
+            <h3>Periodoncia</h3>
+            <p>Cuidado de las encías y tejidos de soporte para mantener una sonrisa saludable y estable a largo plazo.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="service-card reveal stagger-2">
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_31_45%20PM%20(6).png" alt="Icono de ortodoncia" loading="lazy" decoding="async">
+            </div>
+            <h3>Ortodoncia</h3>
+            <p>Corrección de la posición dental y mordida mediante tratamientos modernos, incluyendo Invisalign.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="service-card reveal stagger-3">
+            <div class="service-icon">
+              <img src="https://raw.githubusercontent.com/infooxbarec-star/odontologiaestetica/refs/heads/main/ChatGPT%20Image%20May%2013%2C%202026%20at%2005_38_25%20PM.png" alt="Icono de odontopediatría" loading="lazy" decoding="async">
+            </div>
+            <h3>Odontopediatría</h3>
+            <p>Atención odontológica especializada para niños, con un enfoque cercano, preventivo y cuidadoso.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+        </div>
+
+        <div class="cluster-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="services.support.eyebrow">Problemas frecuentes</span>
+            <h3 data-i18n="services.support.title">¿Qué podemos ayudarte a resolver?</h3>
+            <p class="section-subtitle" data-i18n="services.support.subtitle">Problemas frecuentes explicados con claridad y sin sobrecargar la lectura.</p>
+          </div>
+        </div>
+
+        <div class="concern-grid">
+          <article class="concern-card reveal stagger-1">
+            <h3>Dientes blancos y bellos</h3>
+            <p>Podemos hacer realidad la sonrisa que siempre has deseado. Forma, color y alineación pueden cambiar usando los mejores materiales disponibles.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="concern-card reveal stagger-2">
+            <h3>Reemplazar dientes perdidos</h3>
+            <p>La pérdida de un órgano dental puede ser el inicio de la pérdida del equilibrio en la boca. Por medio de coronas y puentes de apariencia natural, podemos recuperar tu salud y tu sonrisa.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="concern-card reveal stagger-3">
+            <h3>Uno o todos tus dientes nuevos</h3>
+            <p>Los implantes dentales son una solución eficaz ante la ausencia de uno o varios dientes. Permiten evitar prótesis removibles o el desgaste de piezas vecinas para colocar un puente.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="concern-card reveal stagger-4">
+            <h3>¿Dolor al abrir o cerrar la boca?</h3>
+            <p>Dolor cerca del oído, dificultad al abrir o cerrar la boca y ruidos al masticar pueden ser síntomas de trastornos de la articulación temporomandibular. Estamos preparados para ayudarte a restablecer tu salud.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+          <article class="concern-card reveal stagger-1">
+            <h3>Comodidad y seguridad</h3>
+            <p>Cuando todos los dientes se han perdido, las prótesis dentales pueden ser una solución. Cuando el soporte no es suficiente, los implantes dentales pueden brindar mayor fijación, función y seguridad.</p>
+            <button class="card-link" type="button" data-open-whatsapp data-i18n="services.cta">Consultar tratamiento</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="nosotros">
+      <div class="container about-layout">
+        <div class="about-copy reveal">
+          <span class="eyebrow" data-i18n="about.eyebrow">Nosotros</span>
+          <p data-i18n="about.text.one">Hoy, después de 18 años, lo que inició como un sueño se ha convertido en una práctica profesional de alta especialidad que brinda atención integral, se mantiene en constante preparación y cuenta con los elementos tecnológicos que una clínica moderna de nivel mundial debe tener.</p>
+          <p data-i18n="about.text.two">Hemos tenido muchos cambios, pero en esencia seguimos siendo los mismos. Aunque hemos incorporado la tecnología paso a paso, mantenemos una práctica basada en servicio personalizado, cercanía y confianza. Nuestros pacientes se han convertido en amigos; han visto nuestro crecimiento y han compartido con nosotros hitos importantes de sus vidas.</p>
+          <p style="color:rgba(200,220,255,0.9); font-size:17px; line-height:1.8; margin:0;">Atención cercana, profesional y personalizada — así como tú la mereces.</p>
+        </div>
+        <div class="values-grid">
+          <article class="value-card reveal stagger-1">
+            <h3 data-i18n="about.card.one.title">Atención personalizada</h3>
+            <p data-i18n="about.card.one.desc">Escuchar, acompañar y explicar cada tratamiento forma parte de la experiencia clínica.</p>
+          </article>
+          <article class="value-card reveal stagger-2">
+            <h3 data-i18n="about.card.two.title">Alta especialidad</h3>
+            <p data-i18n="about.card.two.desc">Casos complejos atendidos por especialistas con enfoque coordinado e integral.</p>
+          </article>
+          <article class="value-card reveal stagger-3">
+            <h3 data-i18n="about.card.three.title">Tecnología moderna</h3>
+            <p data-i18n="about.card.three.desc">Recursos digitales y materiales actuales al servicio de decisiones más precisas.</p>
+          </article>
+          <article class="value-card reveal stagger-4">
+            <h3 data-i18n="about.card.four.title">Confianza a largo plazo</h3>
+            <p data-i18n="about.card.four.desc">Una relación sostenida en el tiempo, basada en claridad, ética profesional y seguimiento.</p>
           </article>
         </div>
       </div>
@@ -5801,7 +5811,7 @@
         <div class="modal-head-actions">
           <button class="modal-back-button" type="button" data-close-whatsapp>
             <span class="modal-back-icon" aria-hidden="true">&larr;</span>
-            <span data-i18n="modal.back">Regresar</span>
+            <span data-i18n="modal.back">Cerrar y volver</span>
           </button>
           <button class="modal-close" type="button" aria-label="Cerrar selector" data-close-whatsapp>&times;</button>
         </div>
@@ -6044,7 +6054,7 @@
         "floating.whatsapp": "WhatsApp",
         "modal.title": "Selecciona una línea de WhatsApp",
         "modal.text": "Todas las opciones abren el mismo mensaje predeterminado para agendar una cita odontológica.",
-        "modal.back": "Regresar",
+        "modal.back": "Cerrar y volver",
         "modal.open": "Abrir",
         "modal.option.one.title": "Línea WhatsApp 1",
         "modal.option.one.desc": "Canal directo para coordinación y agenda.",
@@ -6213,7 +6223,7 @@
         "floating.whatsapp": "WhatsApp",
         "modal.title": "Choose a WhatsApp line",
         "modal.text": "Every option opens the same default message to schedule a dental appointment.",
-        "modal.back": "Go back",
+        "modal.back": "Close and return",
         "modal.open": "Open",
         "modal.option.one.title": "WhatsApp line 1",
         "modal.option.one.desc": "Direct channel for coordination and booking.",
