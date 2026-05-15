@@ -2497,6 +2497,10 @@
       line-height: 1;
     }
 
+    .wa-cta-mobile {
+      display: none;
+    }
+
     .blog-archive-list {
       display: grid;
       gap: 12px;
@@ -3680,6 +3684,38 @@
         border: 1.5px solid rgba(31, 99, 255, 0.22);
         color: var(--primary-dark);
         box-shadow: 0 4px 14px rgba(31, 99, 255, 0.14);
+      }
+
+      /* Mobile: single WhatsApp contact (0984611461 only) */
+      #whatsAppModal .whatsapp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #whatsAppModal .wa-option:nth-child(1),
+      #whatsAppModal .wa-option:nth-child(3) {
+        display: none;
+      }
+
+      #whatsAppModal .wa-option {
+        padding: 28px 22px;
+        border-radius: 24px;
+      }
+
+      .wa-cta-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 16px 22px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #16ba72, #10a861);
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 16px;
+        box-shadow: 0 12px 24px rgba(20, 184, 111, 0.28);
+        width: 100%;
+        box-sizing: border-box;
       }
 
       .archive-modal-card {
@@ -5839,7 +5875,11 @@
           </div>
           <strong data-i18n="modal.option.two.title">Línea WhatsApp 2</strong>
           <span>0984611461</span>
-          <small data-i18n="modal.option.two.desc">Ideal para consultas generales y seguimiento.</small>
+          <small data-i18n="modal.option.two.desc">Canal directo para agendar una cita odontológica.</small>
+          <span class="wa-cta-mobile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2c-4.86 0-8.8 3.78-8.8 8.45 0 1.62.48 3.2 1.39 4.57L3.4 20.8l4.86-1.27a9.02 9.02 0 0 0 3.74.8c4.86 0 8.8-3.78 8.8-8.48 0-4.67-3.94-8.45-8.8-8.45ZM9.14 8.86c.18-.41.37-.42.56-.43h.48c.14 0 .37.05.56.26.19.2.73.71.73 1.74s-.75 2.03-.85 2.17c-.1.14-.2.3-.05.56.16.26.68 1.1 1.46 1.77 1.01.87 1.86 1.14 2.13 1.27.27.13.42.11.58-.07.16-.18.68-.76.87-1.02.18-.26.37-.22.62-.13.26.09 1.62.74 1.9.87.28.13.46.2.53.31.07.11.07.66-.15 1.3-.22.64-1.28 1.23-1.78 1.31-.46.08-1.05.11-1.7-.1-.39-.13-.9-.3-1.55-.58-2.73-1.17-4.5-3.92-4.64-4.11-.14-.19-1.11-1.45-1.11-2.77 0-1.32.7-1.97.95-2.24Z"/></svg>
+            Agendar por WhatsApp
+          </span>
         </a>
         <a class="wa-option" href="https://wa.me/593995018098?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20odontol%C3%B3gica." target="_blank" rel="noreferrer noopener">
           <div class="wa-top">
@@ -6065,7 +6105,7 @@
         "modal.option.one.title": "Línea WhatsApp 1",
         "modal.option.one.desc": "Canal directo para coordinación y agenda.",
         "modal.option.two.title": "Línea WhatsApp 2",
-        "modal.option.two.desc": "Ideal para consultas generales y seguimiento.",
+        "modal.option.two.desc": "Canal directo para agendar una cita odontológica.",
         "modal.option.three.title": "Línea WhatsApp 3",
         "modal.option.three.desc": "Soporte adicional para agendar y coordinar."
       },
@@ -6234,7 +6274,7 @@
         "modal.option.one.title": "WhatsApp line 1",
         "modal.option.one.desc": "Direct channel for coordination and booking.",
         "modal.option.two.title": "WhatsApp line 2",
-        "modal.option.two.desc": "Ideal for general inquiries and follow-up.",
+        "modal.option.two.desc": "Direct channel to schedule a dental appointment.",
         "modal.option.three.title": "WhatsApp line 3",
         "modal.option.three.desc": "Additional support for scheduling and coordination."
       }
@@ -6715,7 +6755,7 @@
           <img
             src="${article.image}"
             alt="${articleTitleText.replace(/"/g, "&quot;")}"
-            loading="lazy"
+            loading="lazy"     
             decoding="async"
             onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
           >
