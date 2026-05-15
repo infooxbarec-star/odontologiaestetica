@@ -3663,17 +3663,23 @@
       }
 
       #whatsAppModal .modal-head-actions {
-        justify-content: stretch;
+        justify-content: flex-end;
       }
 
       #whatsAppModal .modal-back-button {
-        display: inline-flex;
-        justify-content: center;
-        width: 100%;
+        display: none;
       }
 
       #whatsAppModal .modal-close {
         display: inline-flex;
+        width: 56px;
+        height: 56px;
+        border-radius: 18px;
+        font-size: 30px;
+        background: rgba(31, 99, 255, 0.1);
+        border: 1.5px solid rgba(31, 99, 255, 0.22);
+        color: var(--primary-dark);
+        box-shadow: 0 4px 14px rgba(31, 99, 255, 0.14);
       }
 
       .archive-modal-card {
@@ -6757,11 +6763,10 @@
       modal.classList.remove("open");
       modal.setAttribute("aria-hidden", "true");
       syncBodyScrollLock();
-      // On mobile, scroll to hero section after closing WhatsApp modal
-      if (window.innerWidth <= 768 && modal.id === "whatsAppModal") {
-        const hero = document.getElementById("hero");
-        if (hero) {
-          hero.scrollIntoView({ behavior: "smooth" });
+      if (window.innerWidth <= 900) {
+        const inicio = document.getElementById("inicio");
+        if (inicio) {
+          setTimeout(() => inicio.scrollIntoView({ behavior: "smooth", block: "start" }), 120);
         }
       }
     }
