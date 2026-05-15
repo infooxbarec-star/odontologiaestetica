@@ -234,6 +234,7 @@
     .section {
       position: relative;
       padding: var(--section-space) 0;
+      scroll-margin-top: var(--header-height);
     }
 
     .section::before {
@@ -629,6 +630,7 @@
       position: relative;
       overflow: clip;
       padding: 56px 0 88px;
+      scroll-margin-top: var(--header-height);
     }
 
     .hero::before,
@@ -1095,6 +1097,35 @@
       font-weight: 600;
       line-height: 1.55;
       backdrop-filter: blur(6px);
+    }
+
+    .team-image-showcase {
+      margin: 0;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 50px rgba(16, 35, 63, 0.12);
+      transition: transform 0.46s var(--ease-smooth), box-shadow 0.46s var(--ease-smooth), border-color 0.46s var(--ease-smooth);
+    }
+
+    .team-image-showcase:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 28px 60px rgba(16, 35, 63, 0.16);
+    }
+
+    .team-showcase-image {
+      height: 360px;
+      margin-bottom: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(16, 35, 63, 0.08);
+    }
+
+    .team-showcase-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
     .team-card-media {
@@ -2953,6 +2984,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .team-showcase-image {
+        height: 300px;
+      }
+
       .trust-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -3131,6 +3166,10 @@
       .concern-grid,
       .trust-grid {
         grid-template-columns: 1fr;
+      }
+
+      .team-showcase-image {
+        height: 280px;
       }
 
       .hero-shell {
@@ -4324,6 +4363,7 @@
     .quick-contact {
       padding: 0 0 56px;
       position: relative;
+      scroll-margin-top: var(--header-height);
     }
 
     .quick-contact-head {
@@ -4995,15 +5035,12 @@
 
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="#inicio" data-i18n="nav.home">INICIO</a>
-        <a href="#doctor">EL DOCTOR</a>
+        <a href="#servicios" data-i18n="nav.services">SERVICIOS</a>
         <a href="#profesionales" data-i18n="nav.team">PROFESIONALES</a>
-        <a href="#servicios" data-i18n="nav.services">TRATAMIENTOS</a>
-        <a href="#nosotros" data-i18n="nav.about">NOSOTROS</a>
         <a href="#tecnologia" data-i18n="nav.technology">TECNOLOGÍA</a>
         <a href="#instalaciones" data-i18n="nav.facilities">INSTALACIONES</a>
-        <a href="#internacional" data-i18n="nav.international">PACIENTES INTERNACIONALES</a>
+        <a href="#internacional" data-i18n="nav.international">INTERNACIONAL</a>
         <a href="#blog" data-i18n="nav.blog">BLOG</a>
-        <a href="#responsabilidad" data-i18n="nav.social">RESPONSABILIDAD SOCIAL</a>
         <a href="#contacto" data-i18n="nav.contact">CONTACTO</a>
       </nav>
 
@@ -5026,15 +5063,12 @@
       <div class="mobile-shell">
         <nav class="mobile-nav" aria-label="Navegación móvil">
           <a href="#inicio" data-i18n="nav.home">INICIO</a>
-          <a href="#doctor">EL DOCTOR</a>
+          <a href="#servicios" data-i18n="nav.services">SERVICIOS</a>
           <a href="#profesionales" data-i18n="nav.team">PROFESIONALES</a>
-          <a href="#servicios" data-i18n="nav.services">TRATAMIENTOS</a>
-          <a href="#nosotros" data-i18n="nav.about">NOSOTROS</a>
           <a href="#tecnologia" data-i18n="nav.technology">TECNOLOGÍA</a>
           <a href="#instalaciones" data-i18n="nav.facilities">INSTALACIONES</a>
-          <a href="#internacional" data-i18n="nav.international">PACIENTES INTERNACIONALES</a>
+          <a href="#internacional" data-i18n="nav.international">INTERNACIONAL</a>
           <a href="#blog" data-i18n="nav.blog">BLOG</a>
-          <a href="#responsabilidad" data-i18n="nav.social">RESPONSABILIDAD SOCIAL</a>
           <a href="#contacto" data-i18n="nav.contact">CONTACTO</a>
         </nav>
         <div class="mobile-actions">
@@ -5416,6 +5450,18 @@
             </div>
             <a class="card-link" href="#contacto" data-i18n="team.ctaPlural">Conocer especialistas</a>
           </article>
+
+          <figure class="team-image-showcase reveal stagger-1">
+            <div class="image-shell team-showcase-image" data-fallback="Equipo en acción">
+              <img
+                src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHo3S2ivCJJ2lPLQ8EgDXZq3I65HkxSk-r7RKVM86XShRB64VQZLjCoHbvKztogGnwpFebpyJytEPwxNByN0TCWBf13nhiZIpmk2mRznOoWgvvIqK_xJYPltmeyqOJHGG3Fsy-w=s1360-w1360-h1020-rw"
+                alt="Especialistas de Buenaño Dentistas en consulta"
+                loading="lazy"
+                decoding="async"
+                onerror="this.closest('.image-shell').classList.add('is-fallback'); this.remove();"
+              >
+            </div>
+          </figure>
 
         </div>
       </div>
@@ -6138,18 +6184,18 @@
         brandTag: "Rehabilitación Bucal Estética",
         "nav.home": "INICIO",
         "nav.team": "PROFESIONALES",
-        "nav.services": "TRATAMIENTOS",
+        "nav.services": "SERVICIOS",
         "nav.about": "NOSOTROS",
         "nav.technology": "TECNOLOGÍA",
         "nav.facilities": "INSTALACIONES",
-        "nav.international": "PACIENTES INTERNACIONALES",
+        "nav.international": "INTERNACIONAL",
         "nav.blog": "BLOG",
         "nav.social": "RESPONSABILIDAD SOCIAL",
         "nav.contact": "CONTACTO",
         "cta.whatsapp": "Agendar por WhatsApp",
         "cta.services": "Conocer servicios",
         "hero.eyebrow": "Francisco Buenaño · Rehabilitación Bucal Estética",
-          "hero.title": "Odontología integral con precisión, estética y confianza",
+        "hero.title": "Odontología integral con precisión, estética y confianza",
         "hero.quote": "“En Buenaño Dentistas, el paciente percibe que está en el lugar preciso y será atendido de manera personalizada y profesional. Además, vivirá una gran experiencia, sintiendo una genuina preocupación por su salud.”",
         "hero.quoteAuthor": "Francisco Buenaño — Forbes Ecuador",
         "hero.panel.top.title": "Interfaz clínica clara",
@@ -6306,11 +6352,11 @@
         brandTag: "Aesthetic Oral Rehabilitation",
         "nav.home": "HOME",
         "nav.team": "PROFESSIONALS",
-        "nav.services": "TREATMENTS",
+        "nav.services": "SERVICES",
         "nav.about": "ABOUT",
         "nav.technology": "TECHNOLOGY",
         "nav.facilities": "FACILITIES",
-        "nav.international": "INTERNATIONAL PATIENTS",
+        "nav.international": "INTERNATIONAL",
         "nav.blog": "BLOG",
         "nav.social": "SOCIAL IMPACT",
         "nav.contact": "CONTACT",
