@@ -4804,7 +4804,7 @@
       box-shadow: 0 -12px 32px rgba(6, 15, 30, 0.28);
       transform: translateY(0);
       opacity: 1;
-      transition: transform 0.38s var(--ease-smooth), opacity 0.32s var(--ease-smooth);
+      transition: transform 0.65s var(--ease-smooth), opacity 0.60s var(--ease-smooth);
       pointer-events: auto;
     }
 
@@ -4812,6 +4812,7 @@
       transform: translateY(120px);
       opacity: 0;
       pointer-events: none;
+      transition: transform 0.65s var(--ease-smooth), opacity 0.60s var(--ease-smooth);
     }
 
     .sticky-contact-bar-inner {
@@ -7374,46 +7375,56 @@
       /* 9 ── Mobile sticky contact bar scroll hide/show */
       var contactBar = document.querySelector(".sticky-contact-bar");
       var mobileMediaQuery = window.matchMedia("(max-width: 760px)");
-      var lastScrollY = 0;
-      var ticking = false;
+      var lastContactBarScrollY = 0;
+      var contactBarTicking = false;
 
-      function updateContactBarVisiblity() {
-        ticking = false;
+      function updateContactBarVisibility() {
+        contactBarTicking = false;
 
         if (!contactBar || !mobileMediaQuery.matches) {
           return;
         }
 
         var scrollY = window.scrollY || window.pageYOffset;
-        var shouldHide = scrollY > 80;
+        var scrollDelta = scrollY - lastContactBarScrollY;
+        var isScrollingDown = scrollDelta > 2;
+        var isScrollingUp = scrollDelta < -2;
+        var isNearTop = scrollY < 80;
+
         var isHidden = contactBar.classList.contains("sticky-contact-bar--hidden");
 
-        if (shouldHide && !isHidden) {
-          contactBar.classList.add("sticky-contact-bar--hidden");
-        } else if (!shouldHide && isHidden) {
+        /* Show if: near top OR scrolling up
+           Hide if: scrolling down and not near top */
+        var shouldBeVisible = isNearTop || isScrollingUp;
+
+        if (shouldBeVisible && isHidden) {
           contactBar.classList.remove("sticky-contact-bar--hidden");
+        } else if (!shouldBeVisible && !isHidden) {
+          contactBar.classList.add("sticky-contact-bar--hidden");
         }
+
+        lastContactBarScrollY = scrollY;
       }
 
       function requestContactBarUpdate() {
-        if (ticking) {
+        if (contactBarTicking) {
           return;
         }
 
-        ticking = true;
-        window.requestAnimationFrame(updateContactBarVisiblity);
+        contactBarTicking = true;
+        window.requestAnimationFrame(updateContactBarVisibility);
       }
 
       if (contactBar && mobileMediaQuery.matches) {
         window.addEventListener("scroll", requestContactBarUpdate, { passive: true });
         window.addEventListener("resize", requestContactBarUpdate, { passive: true });
-        updateContactBarVisiblity();
+        updateContactBarVisibility();
       }
 
       if (typeof mobileMediaQuery.addEventListener === "function") {
         mobileMediaQuery.addEventListener("change", function () {
           if (mobileMediaQuery.matches && contactBar) {
-            updateContactBarVisiblity();
+            updateContactBarVisibility();
           }
         });
       }
