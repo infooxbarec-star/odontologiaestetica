@@ -4802,6 +4802,16 @@
       border-top: 1px solid rgba(124, 182, 255, 0.18);
       backdrop-filter: blur(14px);
       box-shadow: 0 -12px 32px rgba(6, 15, 30, 0.28);
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 0.38s var(--ease-smooth), opacity 0.32s var(--ease-smooth);
+      pointer-events: auto;
+    }
+
+    .sticky-contact-bar--hidden {
+      transform: translateY(120px);
+      opacity: 0;
+      pointer-events: none;
     }
 
     .sticky-contact-bar-inner {
@@ -7359,6 +7369,53 @@
           });
         }, { threshold: 0.5 });
         metricCards.forEach(function (el) { counterObserver.observe(el); });
+      }
+
+      /* 9 ── Mobile sticky contact bar scroll hide/show */
+      var contactBar = document.querySelector(".sticky-contact-bar");
+      var mobileMediaQuery = window.matchMedia("(max-width: 760px)");
+      var lastScrollY = 0;
+      var ticking = false;
+
+      function updateContactBarVisiblity() {
+        ticking = false;
+
+        if (!contactBar || !mobileMediaQuery.matches) {
+          return;
+        }
+
+        var scrollY = window.scrollY || window.pageYOffset;
+        var shouldHide = scrollY > 80;
+        var isHidden = contactBar.classList.contains("sticky-contact-bar--hidden");
+
+        if (shouldHide && !isHidden) {
+          contactBar.classList.add("sticky-contact-bar--hidden");
+        } else if (!shouldHide && isHidden) {
+          contactBar.classList.remove("sticky-contact-bar--hidden");
+        }
+      }
+
+      function requestContactBarUpdate() {
+        if (ticking) {
+          return;
+        }
+
+        ticking = true;
+        window.requestAnimationFrame(updateContactBarVisiblity);
+      }
+
+      if (contactBar && mobileMediaQuery.matches) {
+        window.addEventListener("scroll", requestContactBarUpdate, { passive: true });
+        window.addEventListener("resize", requestContactBarUpdate, { passive: true });
+        updateContactBarVisiblity();
+      }
+
+      if (typeof mobileMediaQuery.addEventListener === "function") {
+        mobileMediaQuery.addEventListener("change", function () {
+          if (mobileMediaQuery.matches && contactBar) {
+            updateContactBarVisiblity();
+          }
+        });
       }
 
     })();
