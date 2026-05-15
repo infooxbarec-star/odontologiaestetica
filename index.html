@@ -3162,7 +3162,52 @@
       }
 
       .contact-wa-hero {
-        padding: 28px 20px;
+        padding: 24px 20px;
+        border-radius: 24px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+
+      .contact-wa-hero h2 {
+        font-size: clamp(24px, 6vw, 30px);
+        line-height: 1.15;
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+      }
+
+      .contact-wa-hero p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 8px 0 16px;
+        max-width: 100%;
+      }
+
+      .contact-wa-btns {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .contact-wa-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #16ba72, #10a861);
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 15px;
+        box-shadow: 0 12px 24px rgba(20, 184, 111, 0.28);
+        white-space: nowrap;
+        flex: 0 1 auto;
       }
 
       .trust-grid {
@@ -3513,12 +3558,21 @@
         --header-height: 80px;
       }
 
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
       .container {
         width: min(calc(100% - 24px), var(--container));
       }
 
       .section {
         padding: 76px 0;
+      }
+
+      #contacto {
+        padding: 76px 0 120px;
       }
 
       .hero {
@@ -3658,12 +3712,16 @@
       }
 
       .modal-head {
-        gap: 14px;
+        gap: 12px;
+        flex-direction: column;
       }
 
       .modal-head-actions {
         width: 100%;
         justify-content: space-between;
+        display: flex;
+        gap: 8px;
+        align-items: center;
       }
 
       #whatsAppModal .modal-head-actions {
@@ -3671,19 +3729,34 @@
       }
 
       #whatsAppModal .modal-back-button {
-        display: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 44px;
+        padding: 0 14px;
+        border-radius: 14px;
+        background: rgba(31, 99, 255, 0.08);
+        border: 1px solid rgba(31, 99, 255, 0.16);
+        color: var(--primary-dark);
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+        flex: 1 1 auto;
+        max-width: calc(100% - 50px);
       }
 
       #whatsAppModal .modal-close {
         display: inline-flex;
-        width: 56px;
-        height: 56px;
-        border-radius: 18px;
-        font-size: 30px;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        flex-shrink: 0;
+        border-radius: 14px;
+        font-size: 26px;
         background: rgba(31, 99, 255, 0.1);
-        border: 1.5px solid rgba(31, 99, 255, 0.22);
+        border: 1px solid rgba(31, 99, 255, 0.16);
         color: var(--primary-dark);
-        box-shadow: 0 4px 14px rgba(31, 99, 255, 0.14);
+        box-shadow: none;
       }
 
       /* Mobile: single WhatsApp contact (0984611461 only) */
@@ -3733,6 +3806,111 @@
         bottom: 14px;
         width: 58px;
         height: 58px;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+      }
+
+      .contact-info {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .contact-info h3 {
+        font-size: 20px;
+        margin-bottom: 18px;
+        letter-spacing: -0.02em;
+      }
+
+      .contact-info-item {
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .contact-info-icon {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+      }
+
+      .contact-info-label {
+        font-size: 10px;
+        margin-bottom: 2px;
+      }
+
+      .contact-info-val {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .contact-map {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        border-radius: 20px;
+        min-height: 280px;
+        overflow: hidden;
+      }
+
+      .contact-map iframe {
+        width: 100%;
+        min-height: 280px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      /* Mobile footer spacing for sticky bar */
+      .footer {
+        padding-bottom: 100px;
+      }
+
+      /* Ensure final CTA section has proper spacing */
+      .cta-panel {
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px 20px;
+      }
+
+      .cta-panel h2 {
+        font-size: clamp(22px, 5vw, 28px);
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+
+      .cta-panel p {
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* Ensure modals have proper mobile sizing */
+      .modal-card {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        border-radius: 20px;
+      }
+
+      .modal-head h3 {
+        font-size: clamp(22px, 5vw, 26px);
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+
+      .modal-head p {
+        font-size: 14px;
+        line-height: 1.5;
       }
     }
 
