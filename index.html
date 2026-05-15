@@ -3673,7 +3673,7 @@
       }
 
       #whatsAppModal .modal-close {
-        display: none;
+        display: inline-flex;
       }
 
       .archive-modal-card {
@@ -6757,6 +6757,13 @@
       modal.classList.remove("open");
       modal.setAttribute("aria-hidden", "true");
       syncBodyScrollLock();
+      // On mobile, scroll to hero section after closing WhatsApp modal
+      if (window.innerWidth <= 768 && modal.id === "whatsAppModal") {
+        const hero = document.getElementById("hero");
+        if (hero) {
+          hero.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
 
     function openBlogArchive() {
